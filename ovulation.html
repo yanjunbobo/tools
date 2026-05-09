@@ -27,7 +27,7 @@
 </style>
     <script src="ads.js"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-50 min-h-screen" onload="initLang()">
     <header class="bg-white shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" class="text-2xl font-bold text-blue-600">🧮 Jdu AI Tools</a>
@@ -35,6 +35,7 @@
                 <a href="/" class="hover:text-blue-600">Home</a>
                 <a href="/#tools" class="hover:text-blue-600">Tools</a>
             </div>
+            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
         </nav>
             
     </header>
@@ -393,13 +394,16 @@ function toggleLang() {
         var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
         if (txt) el.content = txt;
     });
+    setLang(isEN ? 'zh' : 'en');
 }
 function initLang() {
     if (document.cookie.indexOf('lang=en') !== -1) {
         document.documentElement.lang = 'en';
+        currentLang = 'en';
         var btn = document.getElementById('langToggle');
         if (btn) btn.textContent = '中文';
     }
+    calculate();
 }
 </script>
 

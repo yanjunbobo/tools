@@ -33,7 +33,7 @@
 </style>
     <script src="ads.js"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-50 min-h-screen" onload="initLang()">
     <header class="bg-white shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" class="text-2xl font-bold text-blue-600">🧮 计算器之家</a>
@@ -389,6 +389,7 @@
 function toggleLang() {
     var isEN = document.documentElement.lang === 'en';
     document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    currentLang = isEN ? 'zh' : 'en';
     var btn = document.getElementById('langToggle');
     if (btn) btn.textContent = isEN ? 'EN' : '中文';
     document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
