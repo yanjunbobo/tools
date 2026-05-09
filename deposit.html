@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>存款利息计算器 - 2026年定期活期大额存单利息计算</title>
+    <meta name="description" content="2026年最新存款利息计算器，支持活期、定期、大额存单利息计算，对比各大银行利率，精准计算存款收益。">
+    <meta name="keywords" content="存款利息计算器,定期存款利率,活期存款,大额存单,银行存款利息,2026年存款利率">
+    <meta name="author" content="计度AI工具箱">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.xxym8.com/deposit.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="存款利息计算器 - 2026年定期活期大额存单利息计算">
+    <meta property="og:description" content="支持活期、定期、大额存单利息计算">
+    <meta property="og:url" content="https://tools.xxym8.com/deposit.html">
+    <meta property="og:site_name" content="计度AI工具箱">
+    <meta name="twitter:card" content="summary">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计度AI工具箱</a>
+            <div class="hidden md:flex gap-6 text-gray-600">
+                <a href="/" class="hover:text-blue-600">首页</a>
+                <a href="/#tools" class="hover:text-blue-600">工具</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
+        <nav aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span class="text-gray-700" itemprop="name">存款利息计算器</span>
+                    <meta itemprop="position" content="2">
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">💳 存款利息计算器</h1>
+        <p class="text-gray-500 mb-6">计算活期、定期、大额存单利息收入</p>
+
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">存款类型</label>
+                        <div class="flex flex-wrap gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="depositType" value="demand" checked class="w-4 h-4 text-blue-600" onchange="toggleType()">
+                                <span>活期存款</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="depositType" value="term" class="w-4 h-4 text-blue-600" onchange="toggleType()">
+                                <span>定期存款</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="depositType" value="cd" class="w-4 h-4 text-blue-600" onchange="toggleType()">
+                                <span>大额存单</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">存款本金（元）</label>
+                        <input type="number" id="principal" value="100000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                    </div>
+                    <div id="rateSection">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">年利率（%）</label>
+                        <input type="number" id="rate" value="1.5" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                    </div>
+                    <div id="termSection" class="hidden">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">存期</label>
+                        <select id="term" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
+                            <option value="3">3个月</option>
+                            <option value="6">6个月</option>
+                            <option value="12" selected>1年</option>
+                            <option value="24">2年</option>
+                            <option value="36">3年</option>
+                            <option value="60">5年</option>
+                        </select>
+                    </div>
+                    <div id="demandDaysSection" class="hidden">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">存款天数</label>
+                        <input type="number" id="days" value="365" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                    </div>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 计算结果</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">存款本金</span>
+                            <span id="principalDisplay" class="text-xl font-semibold text-gray-800">100,000元</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">年利率</span>
+                            <span id="rateDisplay" class="text-xl font-semibold text-blue-600">1.50%</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">存期</span>
+                            <span id="termDisplay" class="text-xl font-semibold text-gray-800">1年</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">利息收入</span>
+                            <span id="interest" class="text-2xl font-bold text-green-600">1,500元</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">本息合计</span>
+                            <span id="total" class="text-2xl font-bold text-orange-500">101,500元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 2026年银行存款利率参考</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-2 text-left text-gray-600">存款类型</th>
+                            <th class="px-4 py-2 text-right text-gray-600">基准利率</th>
+                            <th class="px-4 py-2 text-right text-gray-600">常见上浮利率</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr><td class="px-4 py-2">活期存款</td><td class="px-4 py-2 text-right">0.35%</td><td class="px-4 py-2 text-right">0.3%-0.35%</td></tr>
+                        <tr><td class="px-4 py-2">3个月定期</td><td class="px-4 py-2 text-right">1.10%</td><td class="px-4 py-2 text-right">1.5%-1.8%</td></tr>
+                        <tr><td class="px-4 py-2">6个月定期</td><td class="px-4 py-2 text-right">1.30%</td><td class="px-4 py-2 text-right">1.7%-2.0%</td></tr>
+                        <tr><td class="px-4 py-2">1年定期</td><td class="px-4 py-2 text-right">1.50%</td><td class="px-4 py-2 text-right">1.8%-2.3%</td></tr>
+                        <tr><td class="px-4 py-2">2年定期</td><td class="px-4 py-2 text-right">1.70%</td><td class="px-4 py-2 text-right">2.1%-2.9%</td></tr>
+                        <tr><td class="px-4 py-2">3年定期</td><td class="px-4 py-2 text-right">2.10%</td><td class="px-4 py-2 text-right">2.6%-3.5%</td></tr>
+                        <tr><td class="px-4 py-2">5年定期</td><td class="px-4 py-2 text-right">2.55%</td><td class="px-4 py-2 text-right">2.9%-4.0%</td></tr>
+                        <tr><td class="px-4 py-2">大额存单(1年)</td><td class="px-4 py-2 text-right">-</td><td class="px-4 py-2 text-right">2.0%-2.5%</td></tr>
+                        <tr><td class="px-4 py-2">大额存单(3年)</td><td class="px-4 py-2 text-right">-</td><td class="px-4 py-2 text-right">3.0%-4.0%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-gray-400 mt-3">注：实际利率因银行和地区而异，仅供参考</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具</h3>
+            <div class="flex flex-wrap gap-3">
+                <a href="compound.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">📈 复利计算器</a>
+                <a href="gjj.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏦 公积金计算器</a>
+            </div>
+        </div>
+
+        <article class="bg-white rounded-xl shadow-sm p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">关于存款利息计算器</h2>
+            <div class="prose text-gray-600 space-y-4">
+                <p>银行存款是最安全的理财方式之一。虽然收益率不如股票、基金，但胜在稳定、流动性好，几乎零风险。2026年，各银行利率有所差异，本计算器帮助您准确计算存款利息收入。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">活期存款</h3>
+                <p>活期存款随时可取，流动性最好，但利率最低。目前国有大行活期利率约0.3%，中小银行略高。建议保留3-6个月生活费作为应急资金，其余可存定期。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">定期存款</h3>
+                <p>定期存款利率高于活期，存期越长利率越高。常见期限有3个月、6个月、1年、2年、3年、5年。定期存款若提前支取，将按活期利率计算利息。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">大额存单</h3>
+                <p>大额存单是银行向个人发行的大额存款凭证，起购金额20万，利率比普通定期更高。支持转让，流动性较好。适合有较大闲置资金、追求稳定收益的人群。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">存款利息计算公式</h3>
+                <p><strong>利息 = 本金 × 年利率 × 存期（年）</strong></p>
+                <p>例如：存10万、1年、年利率2%，利息 = 100000 × 2% × 1 = 2000元</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题</h3>
+                <p><strong>Q: 10万存银行一年利息多少？</strong></p>
+                <p>A: 按年利率2%计算，10万存1年利息约2000元。</p>
+                <p><strong>Q: 定期存款提前取会怎样？</strong></p>
+                <p>A: 定期存款提前支取将按活期利率计算，会损失大部分利息。建议合理规划存期。</p>
+                <p><strong>Q: 存款保险是什么意思？</strong></p>
+                <p>A: 银行存款受存款保险保障，同一银行50万以内的存款受到保护，即使银行破产也能全额赔付。</p>
+                <p><strong>Q: 怎样存款利息最高？</strong></p>
+                <p>A: 1) 选择中小银行利率更高；2) 存大额存单；3) 分散存不同期限；4) 阶梯存款法</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
+        <p>© 2026 计度AI工具箱</p>
+    </footer>
+
+    <script>
+        const TERM_LABELS = { 3: '3个月', 6: '6个月', 12: '1年', 24: '2年', 36: '3年', 60: '5年' };
+        const TERM_RATES = { 3: 1.5, 6: 1.7, 12: 2.0, 24: 2.3, 36: 2.9, 60: 3.0 };
+
+        function toggleType() {
+            const type = document.querySelector('input[name="depositType"]:checked').value;
+            const rateSection = document.getElementById('rateSection');
+            const termSection = document.getElementById('termSection');
+            const demandDaysSection = document.getElementById('demandDaysSection');
+
+            if (type === 'demand') {
+                rateSection.classList.remove('hidden');
+                termSection.classList.add('hidden');
+                demandDaysSection.classList.remove('hidden');
+                document.getElementById('rate').value = 0.35;
+            } else if (type === 'term') {
+                rateSection.classList.add('hidden');
+                termSection.classList.remove('hidden');
+                demandDaysSection.classList.add('hidden');
+                document.getElementById('rate').value = TERM_RATES[12];
+            } else {
+                rateSection.classList.add('hidden');
+                termSection.classList.remove('hidden');
+                demandDaysSection.classList.add('hidden');
+                document.getElementById('rate').value = 2.3;
+            }
+            calculate();
+        }
+
+        function calculate() {
+            const principal = parseFloat(document.getElementById('principal').value) || 0;
+            const rate = parseFloat(document.getElementById('rate').value) / 100 || 0;
+            const type = document.querySelector('input[name="depositType"]:checked').value;
+
+            let interest = 0, termLabel = '';
+
+            if (type === 'demand') {
+                const days = parseInt(document.getElementById('days').value) || 365;
+                interest = principal * rate * days / 365;
+                termLabel = days + '天';
+            } else {
+                const term = parseInt(document.getElementById('term').value) || 12;
+                const years = term / 12;
+                interest = principal * rate * years;
+                termLabel = TERM_LABELS[term];
+            }
+
+            const total = principal + interest;
+
+            document.getElementById('principalDisplay').textContent = principal.toLocaleString('zh-CN') + '元';
+            document.getElementById('rateDisplay').textContent = (rate * 100).toFixed(2) + '%';
+            document.getElementById('termDisplay').textContent = termLabel;
+            document.getElementById('interest').textContent = interest.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+            document.getElementById('total').textContent = total.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+        }
+
+        toggleType();
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "存款利息计算器",
+        "description": "计算活期、定期、大额存单存款利息",
+        "url": "https://tools.xxym8.com/deposit.html",
+        "applicationCategory": "FinanceApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
+            { "@type": "ListItem", "position": 2, "name": "存款利息计算器", "item": "https://tools.xxym8.com/deposit.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            { "@type": "Question", "name": "10万存银行一年利息多少？", "acceptedAnswer": { "@type": "Answer", "text": "按年利率2%计算，10万存1年利息约2000元。不同银行利率不同，建议比较后选择。" } },
+            { "@type": "Question", "name": "定期存款提前取会怎样？", "acceptedAnswer": { "@type": "Answer", "text": "定期存款提前支取将按活期利率计算，会损失大部分利息。建议合理规划存期，或采用阶梯存款法。" } },
+            { "@type": "Question", "name": "大额存单和定期存款有什么区别？", "acceptedAnswer": { "@type": "Answer", "text": "大额存单起购金额20万，利率比定期更高，支持转让。定期存款无起购门槛，但利率较低。" } },
+            { "@type": "Question", "name": "存款保险是什么？", "acceptedAnswer": { "@type": "Answer", "text": "存款保险保障同一银行50万以内的存款，即使银行破产也能全额赔付。50万以上的部分按比例赔付。" } }
+        ]
+    }
+    </script>
+</body>
+</html>
