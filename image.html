@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片工具箱</title>
+  <meta name="description" content="">
+  <link rel="canonical" href="https://tools.xxym8.com/image.html">
+  <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/image.html?lang=en">
+  <script src="ads.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#333}
+    .navbar{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .nav-container{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
+    #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+    .container{max-width:900px;margin:24px auto;padding:0 16px}
+.breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb a{color:#666;text-decoration:none}
+    h1{font-size:26px;margin-bottom:20px;color:#111}
+    .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .card h2{font-size:18px;margin-bottom:12px}
+    input,select,textarea{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;margin-bottom:10px}
+    button{background:#222;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px}
+    button:hover{background:#444}
+    .result{background:#f9f9f9;padding:12px;border-radius:8px;margin-top:12px;word-break:break-all;font-size:14px}
+    footer{text-align:center;padding:24px;color:#888;font-size:13px}
+    a{color:#222}
+    [data-en]{display:none}
+    html[lang=en] [data-zh]{display:none}
+    html[lang=en] [data-en]{display:block}
+    html[lang=en]{font-family:'Segoe UI',sans-serif}
+
+    .upload-area{border:2px dashed #ddd;border-radius:12px;padding:40px;text-align:center;cursor:pointer;transition:border-color .3s}
+    .upload-area:hover{border-color:#222}
+    .upload-area.dragover{border-color:#222;background:#f9f9f9}
+    .preview-container{position:relative;display:none;margin-top:16px}
+    .preview-wrapper{position:relative;overflow:hidden;display:inline-block}
+    #previewImg{max-width:100%;display:block}
+    #cropCanvas{position:absolute;top:0;left:0;cursor:crosshair}
+    .crop-info{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.7);color:#fff;padding:4px 8px;border-radius:4px;font-size:12px}
+    .controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .control-group{margin-bottom:12px}
+    .control-group label{display:block;font-size:14px;margin-bottom:6px;font-weight:500}
+    .control-group input[type="range"]{margin-bottom:0}
+    .control-group select{width:100%}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-row button{flex:1;min-width:120px}
+    .btn-secondary{background:#f5f5f5;color:#333;border:1px solid #ddd}
+    .btn-secondary:hover{background:#e8e8e8}
+    .file-info{margin-top:12px;padding:12px;background:#f9f9f9;border-radius:8px;font-size:13px;color:#666}
+    .file-info div{margin:4px 0}
+    .hidden{display:none}
+    .slider-row{display:flex;align-items:center;gap:12px}
+    .slider-row input[type="range"]{flex:1;margin:0}
+    .slider-row span{min-width:40px;text-align:right}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <button id="langToggle" onclick="toggleLang()">EN</button>
+    </div>
+  </nav>
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>图片工具箱</span><span data-en>Image Tools</span></p>
+    <h1><span data-zh>图片工具箱</span><span data-en>Image Tools</span></h1>
+    
+    <div class="card">
+      <h2><span data-zh>上传图片</span><span data-en>Upload Image</span></h2>
+      <div class="upload-area" id="uploadArea">
+        <p><span data-zh>点击或拖拽图片到此处</span><span data-en>Click or drag image here</span></p>
+        <p style="font-size:13px;color:#888;margin-top:8px">JPG / PNG / WebP</p>
+        <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+      </div>
+      <div id="originalInfo" class="file-info hidden"></div>
+    </div>
+
+    <div class="card" id="editCard" style="display:none">
+      <h2><span data-zh>图片编辑</span><span data-en>Image Edit</span></h2>
+      
+      <div class="preview-container" id="previewContainer">
+        <div class="preview-wrapper">
+          <img id="previewImg" crossorigin="anonymous">
+          <canvas id="cropCanvas"></canvas>
+        </div>
+        <div class="crop-info" id="cropInfo"></div>
+      </div>
+
+      <div class="controls" style="margin-top:16px">
+        <div class="control-group">
+          <label><span data-zh>输出格式</span><span data-en>Output Format</span></label>
+          <select id="outputFormat">
+            <option value="image/jpeg">JPG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp">WebP</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label><span data-zh>质量</span><span data-en>Quality</span></label>
+          <div class="sliderrow">
+            <input type="range" id="qualitySlider" min="1" max="100" value="85">
+            <span id="qualityValue">85%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group" style="margin-top:16px">
+        <label><span data-zh>裁剪区域</span><span data-en>Crop Area</span></label>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px">
+          <div>
+            <input type="number" id="cropX" placeholder="X" value="0" min="0">
+          </div>
+          <div>
+            <input type="number" id="cropY" placeholder="Y" value="0" min="0">
+          </div>
+          <div>
+            <input type="number" id="cropW" placeholder="W" value="0" min="0">
+          </div>
+          <div>
+            <input type="number" id="cropH" placeholder="H" value="0" min="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top:16px">
+        <button onclick="applyCrop()"><span data-zh>应用裁剪</span><span data-en>Apply Crop</span></button>
+        <button class="btn-secondary" onclick="resetCrop()"><span data-zh>重置裁剪</span><span data-en>Reset Crop</span></button>
+        <button class="btn-secondary" onclick="restoreOriginal()"><span data-zh>恢复原图</span><span data-en>Restore Original</span></button>
+      </div>
+    </div>
+
+    <div class="card" id="outputCard" style="display:none">
+      <h2><span data-zh>输出预览</span><span data-en>Output Preview</span></h2>
+      <div id="outputPreview" style="text-align:center;margin:16px 0"></div>
+      <div id="outputInfo" class="file-info"></div>
+      <div class="btn-row" style="margin-top:16px">
+        <button onclick="downloadImage()"><span data-zh>下载图片</span><span data-en>Download Image</span></button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+    </div>
+  </footer>
+<script>
+(function(){
+  var lang=document.cookie.match(/lang=(en|zh)/);
+  if(lang&&lang[1]==='en'){toggleLang();}
+  function toggleLang(){
+    var isEn=document.documentElement.lang==='zh-CN';
+    document.documentElement.lang=isEn?'en':'zh-CN';
+    document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+  }
+  window.toggleLang=toggleLang;
+})();
+
+(function(){
+  var originalImage=null;
+  var currentImage=null;
+  var imgWidth=0,imgHeight=0;
+  var isDrawing=false;
+  var startX=0,startY=0;
+  var cropX=0,cropY=0,cropW=0,cropH=0;
+  var hasCrop=false;
+
+  var uploadArea=document.getElementById('uploadArea');
+  var fileInput=document.getElementById('fileInput');
+  var previewImg=document.getElementById('previewImg');
+  var cropCanvas=document.getElementById('cropCanvas');
+  var ctx=cropCanvas.getContext('2d');
+  var previewContainer=document.getElementById('previewContainer');
+  var editCard=document.getElementById('editCard');
+  var outputCard=document.getElementById('outputCard');
+
+  uploadArea.addEventListener('click',function(){fileInput.click();});
+  uploadArea.addEventListener('dragover',function(e){
+    e.preventDefault();
+    this.classList.add('dragover');
+  });
+  uploadArea.addEventListener('dragleave',function(){this.classList.remove('dragover');});
+  uploadArea.addEventListener('drop',function(e){
+    e.preventDefault();
+    this.classList.remove('dragover');
+    var f=e.dataTransfer.files[0];
+    if(f&&f.type.startsWith('image/')) loadImage(f);
+  });
+  fileInput.addEventListener('change',function(){
+    if(this.files[0]) loadImage(this.files[0]);
+  });
+
+  document.getElementById('qualitySlider').addEventListener('input',function(){
+    document.getElementById('qualityValue').textContent=this.value+'%';
+    processImage();
+  });
+  document.getElementById('outputFormat').addEventListener('change',function(){
+    var isJpg=this.value==='image/jpeg';
+    document.getElementById('qualitySlider').parentElement.style.display=isJpg?'flex':'none';
+    processImage();
+  });
+
+  cropCanvas.addEventListener('mousedown',function(e){
+    var rect=cropCanvas.getBoundingClientRect();
+    var scaleX=imgWidth/rect.width;
+    var scaleY=imgHeight/rect.height;
+    startX=(e.clientX-rect.left)*scaleX;
+    startY=(e.clientY-rect.top)*scaleY;
+    cropX=startX;cropY=startY;
+    cropW=0;cropH=0;
+    isDrawing=true;
+    hasCrop=false;
+  });
+  cropCanvas.addEventListener('mousemove',function(e){
+    if(!isDrawing) return;
+    var rect=cropCanvas.getBoundingClientRect();
+    var scaleX=imgWidth/rect.width;
+    var scaleY=imgHeight/rect.height;
+    var curX=(e.clientX-rect.left)*scaleX;
+    var curY=(e.clientY-rect.top)*scaleY;
+    cropW=curX-startX;
+    cropH=curY-startY;
+    if(cropW<0){cropX=cropX+cropW;cropW=-cropW;}
+    if(cropH<0){cropY=cropY+cropH;cropH=-cropH;}
+    cropX=Math.max(0,Math.min(cropX,imgWidth-cropW));
+    cropY=Math.max(0,Math.min(cropY,imgHeight-cropH));
+    cropW=Math.min(cropW,imgWidth-cropX);
+    cropH=Math.min(cropH,imgHeight-cropY);
+    updateCropInfo();
+    drawCropOverlay();
+  });
+  cropCanvas.addEventListener('mouseup',function(){
+    isDrawing=false;
+    if(cropW>5&&cropH>5){
+      hasCrop=true;
+      document.getElementById('cropX').value=Math.round(cropX);
+      document.getElementById('cropY').value=Math.round(cropY);
+      document.getElementById('cropW').value=Math.round(cropW);
+      document.getElementById('cropH').value=Math.round(cropH);
+    }
+  });
+  cropCanvas.addEventListener('mouseleave',function(){if(isDrawing){isDrawing=false;if(cropW>5&&cropH>5){hasCrop=true;}}});
+
+  window.loadImage=function(file){
+    var reader=new FileReader();
+    reader.onload=function(e){
+      var img=new Image();
+      img.onload=function(){
+        originalImage=img;
+        currentImage=img;
+        imgWidth=img.width;
+        imgHeight=img.height;
+        previewImg.src=e.target.result;
+        previewImg.style.maxWidth='100%';
+        previewImg.style.maxHeight='500px';
+        previewImg.onload=function(){
+          resizeCropCanvas();
+          editCard.style.display='block';
+          outputCard.style.display='none';
+          document.getElementById('originalInfo').classList.remove('hidden');
+          document.getElementById('originalInfo').innerHTML='<div><span data-zh>原始尺寸：</span><span data-en>Original Size: </span>'+imgWidth+' x '+imgHeight+'</div><div><span data-zh>文件大小：</span><span data-en>File Size: </span>'+formatSize(file.size)+'</div><div><span data-zh>格式：</span><span data-en>Format: </span>'+file.type+'</div>';
+          resetCropValues();
+          processImage();
+        };
+      };
+      img.src=e.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
+
+  window.resizeCropCanvas=function(){
+    var rect=previewImg.getBoundingClientRect();
+    cropCanvas.width=rect.width;
+    cropCanvas.height=rect.height;
+    cropCanvas.style.width=rect.width+'px';
+    cropCanvas.style.height=rect.height+'px';
+  };
+
+  window.drawCropOverlay=function(){
+    ctx.clearRect(0,0,cropCanvas.width,cropCanvas.height);
+    ctx.strokeStyle='#222';
+    ctx.lineWidth=2;
+    ctx.setLineDash([5,5]);
+    ctx.strokeRect(cropX,cropY,cropW,cropH);
+    ctx.setLineDash([]);
+    if(cropW>20&&cropH>20){
+      ctx.fillStyle='rgba(0,0,0,.5)';
+      ctx.fillRect(0,0,cropCanvas.width,cropY);
+      ctx.fillRect(0,cropY,cropX,cropH);
+      ctx.fillRect(cropX+cropW,cropY,cropCanvas.width-cropX-cropW,cropH);
+      ctx.fillRect(0,cropY+cropH,cropCanvas.width,cropCanvas.height-cropY-cropH);
+    }
+  };
+
+  window.updateCropInfo=function(){
+    document.getElementById('cropInfo').textContent=Math.round(cropX)+','+Math.round(cropY)+' '+Math.round(cropW)+'x'+Math.round(cropH);
+  };
+
+  window.resetCropValues=function(){
+    cropX=0;cropY=0;cropW=0;cropH=0;
+    hasCrop=false;
+    document.getElementById('cropX').value=0;
+    document.getElementById('cropY').value=0;
+    document.getElementById('cropW').value=0;
+    document.getElementById('cropH').value=0;
+    document.getElementById('cropInfo').textContent='';
+    ctx.clearRect(0,0,cropCanvas.width,cropCanvas.height);
+  };
+
+  window.applyCrop=function(){
+    var x=parseInt(document.getElementById('cropX').value)||0;
+    var y=parseInt(document.getElementById('cropY').value)||0;
+    var w=parseInt(document.getElementById('cropW').value)||imgWidth;
+    var h=parseInt(document.getElementById('cropH').value)||imgHeight;
+    x=Math.max(0,Math.min(x,imgWidth-1));
+    y=Math.max(0,Math.min(y,imgHeight-1));
+    w=Math.max(1,Math.min(w,imgWidth-x));
+    h=Math.max(1,Math.min(h,imgHeight-y));
+    cropX=x;cropY=y;cropW=w;cropH=h;
+    hasCrop=true;
+    drawCropOverlay();
+    updateCropInfo();
+    processImage();
+  };
+
+  window.resetCrop=function(){
+    resetCropValues();
+    processImage();
+  };
+
+  window.restoreOriginal=function(){
+    if(!originalImage) return;
+    currentImage=originalImage;
+    imgWidth=originalImage.width;
+    imgHeight=originalImage.height;
+    resetCropValues();
+    processImage();
+  };
+
+  window.processImage=function(){
+    if(!originalImage) return;
+    var format=document.getElementById('outputFormat').value;
+    var quality=parseInt(document.getElementById('qualitySlider').value)/100;
+    var canvas=document.createElement('canvas');
+    var ctx=canvas.getContext('2d');
+    var sx=0,sy=0,sw=imgWidth,sh=imgHeight;
+    if(hasCrop&&cropW>0&&cropH>0){
+      sx=cropX;sy=cropY;sw=cropW;sh=cropH;
+    }
+    canvas.width=sw;
+    canvas.height=sh;
+    ctx.drawImage(currentImage,sx,sy,sw,sh,0,0,sw,sh);
+    var dataUrl=canvas.toDataURL(format,quality);
+    document.getElementById('outputPreview').innerHTML='<img src="'+dataUrl+'" style="max-width:100%;max-height:400px;border-radius:8px">';
+    var size=Math.round((dataUrl.length-('data:'+format+';base64,').length)*0.75);
+    var fmtName=format.split('/')[1].toUpperCase();
+    document.getElementById('outputInfo').innerHTML='<div><span data-zh>输出尺寸：</span><span data-en>Output Size: </span>'+sw+' x '+sh+'</div><div><span data-zh>文件大小：</span><span data-en>File Size: </span>'+formatSize(size)+'</div><div><span data-zh>格式：</span><span data-en>Format: </span>'+fmtName+'</div><div><span data-zh>质量：</span><span data-en>Quality: </span>'+Math.round(quality*100)+'%</div>';
+    outputCard.style.display='block';
+    window._outputDataUrl=dataUrl;
+    window._outputFormat=format;
+  };
+
+  window.downloadImage=function(){
+    if(!window._outputDataUrl) return;
+    var fmt=window._outputFormat.split('/')[1];
+    var a=document.createElement('a');
+    a.href=window._outputDataUrl;
+    a.download='image_converted.'+fmt;
+    a.click();
+  };
+
+  function formatSize(bytes){
+    if(bytes<1024) return bytes+' B';
+    if(bytes<1024*1024) return (bytes/1024).toFixed(1)+' KB';
+    return (bytes/(1024*1024)).toFixed(2)+' MB';
+  }
+
+  window.addEventListener('resize',function(){
+    if(originalImage){
+      resizeCropCanvas();
+      if(hasCrop) drawCropOverlay();
+    }
+  });
+})();
+</script>
+</body>
+</html>

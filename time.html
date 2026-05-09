@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><span data-zh>时间时区工具</span><span data-en>Time Tools</span></title>
+  <meta name="description" content="">
+  <link rel="canonical" href="https://tools.xxym8.com/time.html">
+  <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/time.html?lang=en">
+  <script src="ads.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#333}
+    .navbar{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .nav-container{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
+    .breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb a{color:#666;text-decoration:none}
+    #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+    .container{max-width:900px;margin:24px auto;padding:0 16px}
+    h1{font-size:26px;margin-bottom:20px;color:#111}
+    .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .card h2{font-size:18px;margin-bottom:12px;color:#333}
+    .tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .tab-btn{padding:8px 16px;background:#f0f0f0;border:none;border-radius:8px;cursor:pointer;font-size:14px}
+    .tab-btn.active{background:#222;color:#fff}
+    .tab-content{display:none}
+    .tab-content.active{display:block}
+    .form-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .form-row select,.form-row input{padding:8px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;flex:1;min-width:140px}
+    .result{background:#f9f9f9;padding:12px;border-radius:8px;margin-top:12px;word-break:break-all;font-size:14px;line-height:1.6}
+    .world-clock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:12px}
+    .clock-card{background:#f9f9f9;padding:12px;border-radius:8px;text-align:center}
+    .clock-card .city{font-size:13px;color:#666}
+    .clock-card .time{font-size:22px;font-weight:700;color:#222;margin:4px 0}
+    .clock-card .date{font-size:12px;color:#888}
+    button{background:#222;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px}
+    button:hover{background:#444}
+    .work-calc table{width:100%;border-collapse:collapse;margin-top:12px}
+    .work-calc th,.work-calc td{padding:8px 12px;text-align:left;border-bottom:1px solid #eee;font-size:14px}
+    .work-calc th{background:#f5f5f5;font-weight:600}
+    footer{text-align:center;padding:24px;color:#888;font-size:13px}
+    a{color:#222}
+    [data-en]{display:none}
+    html[lang=en] [data-zh]{display:none}
+    html[lang=en] [data-en]{display:block}
+    html[lang=en]{font-family:'Segoe UI',sans-serif}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <button id="langToggle" onclick="toggleLang()">EN</button>
+    </div>
+  </nav>
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>时间时区工具</span><span data-en>Time Tools</span></p>
+    <h1><span data-zh>时间时区工具</span><span data-en>Time Tools</span></h1>
+
+    <div class="card">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('tz')"><span data-zh>时区转换</span><span data-en>Timezone</span></button>
+        <button class="tab-btn" onclick="switchTab('world')"><span data-zh>世界时钟</span><span data-en>World Clock</span></button>
+        <button class="tab-btn" onclick="switchTab('work')"><span data-zh>工作时间计算</span><span data-en>Work Hours</span></button>
+      </div>
+
+      <div id="tab-tz" class="tab-content active">
+        <div class="form-row">
+          <select id="tzFrom"></select>
+          <input type="time" id="timeInput" value="12:00">
+          <button onclick="convertTz()"><span data-zh>转换</span><span data-en>Convert</span></button>
+        </div>
+        <div id="tzResult" class="result"></div>
+      </div>
+
+      <div id="tab-world" class="tab-content">
+        <div class="world-clock-grid" id="worldClocks"></div>
+      </div>
+
+      <div id="tab-work" class="tab-content">
+        <div class="form-row">
+          <input type="date" id="workStart">
+          <input type="date" id="workEnd">
+          <button onclick="calcWork()"><span data-zh>计算</span><span data-en>Calculate</span></button>
+        </div>
+        <div id="workResult" class="result"></div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+  </footer>
+<script>
+(function(){
+  var lang=document.cookie.match(/lang=(en|zh)/);
+  if(lang&&lang[1]==='en'){toggleLang();}
+  function toggleLang(){
+    var isEn=document.documentElement.lang==='zh-CN';
+    document.documentElement.lang=isEn?'en':'zh-CN';
+    document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+  }
+  window.toggleLang=toggleLang;
+
+  function switchTab(id){
+    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('tab-'+id).classList.add('active');
+    event.target.closest('.tab-btn').classList.add('active');
+  }
+
+  var zones=['Asia/Shanghai','Asia/Tokyo','Asia/Seoul','Asia/Singapore','Asia/Dubai','Europe/London','Europe/Paris','Europe/Berlin','America/New_York','America/Los_Angeles','America/Chicago','Australia/Sydney','Pacific/Auckland'];
+  var zoneNames={'Asia/Shanghai':'上海 Beijing','Asia/Tokyo':'东京 Tokyo','Asia/Seoul':'首尔 Seoul','Asia/Singapore':'新加坡 Singapore','Asia/Dubai':'迪拜 Dubai','Europe/London':'伦敦 London','Europe/Paris':'巴黎 Paris','Europe/Berlin':'柏林 Berlin','America/New_York':'纽约 New York','America/Los_Angeles':'洛杉矶 LA','America/Chicago':'芝加哥 Chicago','Australia/Sydney':'悉尼 Sydney','Pacific/Auckland':'奥克兰 Auckland'};
+  var sel=document.getElementById('tzFrom');
+  zones.forEach(z=>{var o=document.createElement('option');o.value=z;o.text=zoneNames[z];sel.add(o);});
+  sel.value='Asia/Shanghai';
+
+  function convertTz(){
+    var val=document.getElementById('timeInput').value;
+    if(!val){return;}
+    var[h,m]=val.split(':').map(Number);
+    var fromTz=document.getElementById('tzFrom').value;
+    var fromDate=new Date();
+    fromDate.setHours(h,m,0,0);
+    var formatter=new Intl.DateTimeFormat('en-US',{timeZone:fromTz,hour:'2-digit',minute:'2-digit',hour12:false});
+    var baseStr=formatter.format(fromDate);
+    var[baseH,baseM]=baseStr.split(':').map(Number);
+    var diff=(h*60+m)-(baseH*60+baseM);
+    var results=[];
+    zones.forEach(z=>{
+      if(z===fromTz)return;
+      var d=new Date(fromDate.getTime()+diff*60000);
+      var tf=new Intl.DateTimeFormat('en-US',{timeZone:z,hour:'2-digit',minute:'2-digit',hour12:false});
+      var tfmt=new Intl.DateTimeFormat('en-US',{timeZone:z,month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false});
+      results.push({zone:z,name:zoneNames[z],time:tf.format(d),full:tfmt.format(d)});
+    });
+    var html='<table class="work-calc"><tr><th><span data-zh>城市</span><span data-en>City</span></th><th><span data-zh>时间</span><span data-en>Time</span></th></tr>';
+    results.forEach(r=>{html+='<tr><td>'+r.name+'</td><td>'+r.full+'</td></tr>';});
+    html+='</table>';
+    document.getElementById('tzResult').innerHTML=html;
+  }
+
+  var grid=document.getElementById('worldClocks');
+  function updateClocks(){
+    var now=new Date();
+    zones.forEach(z=>{
+      var el=document.getElementById('clock-'+z.replace(/[/.]/g,'_'));
+      if(!el)return;
+      var tf=new Intl.DateTimeFormat('en-US',{timeZone:z,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+      var df=new Intl.DateTimeFormat('en-US',{timeZone:z,month:'short',day:'numeric'});
+      el.querySelector('.time').textContent=tf.format(now);
+      el.querySelector('.date').textContent=df.format(now);
+    });
+  }
+  zones.forEach(z=>{
+    var div=document.createElement('div');
+    div.className='clock-card';
+    div.id='clock-'+z.replace(/[/.]/g,'_');
+    div.innerHTML='<div class="city">'+zoneNames[z]+'</div><div class="time">--:--:--</div><div class="date">--</div>';
+    grid.appendChild(div);
+  });
+  updateClocks();
+  setInterval(updateClocks,1000);
+
+  function calcWork(){
+    var s=document.getElementById('workStart').value;
+    var e=document.getElementById('workEnd').value;
+    if(!s||!e){document.getElementById('workResult').innerHTML='<span data-zh>请选择日期</span><span data-en>Please select dates</span>';return;}
+    var start=new Date(s),end=new Date(e);
+    if(end<start){document.getElementById('workResult').innerHTML='<span data-zh>结束日期需大于开始日期</span><span data-en>End date must be after start date</span>';return;}
+    var days=0,businessDays=0;
+    for(var d=new Date(start);d<=end;d.setDate(d.getDate()+1)){
+      days++;
+      if(d.getDay()!==0&&d.getDay()!==6)businessDays++;
+    }
+    var hours=businessDays*8;
+    document.getElementById('workResult').innerHTML='<span data-zh>总天数：'+days+'天，工作日：'+businessDays+'天，总工时：'+hours+'小时</span><span data-en>Total days: '+days+', Business days: '+businessDays+', Total hours: '+hours+'h</span>';
+  }
+})();
+</script>
+</body>
+</html>

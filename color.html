@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>颜色工具箱</title>
+  <meta name="description" content="HEX/RGB/HSL颜色代码互转、调色板、渐变色生成工具">
+  <link rel="canonical" href="https://tools.xxym8.com/color.html">
+  <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/color.html?lang=en">
+  <script src="ads.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#333}
+    .navbar{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .nav-container{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
+    #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+    .container{max-width:900px;margin:24px auto;padding:0 16px}
+.breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb a{color:#666;text-decoration:none}
+    h1{font-size:26px;margin-bottom:20px;color:#111}
+    .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .card h2{font-size:18px;margin-bottom:16px;color:#222}
+    .converter{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:600px){.converter{grid-template-columns:1fr}}
+    .input-group{margin-bottom:12px}
+    .input-group label{display:block;font-size:13px;color:#666;margin-bottom:6px}
+    .input-group input{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;margin-bottom:0}
+    .input-group input:focus{border-color:#222;outline:none}
+    .input-row{display:flex;gap:8px;align-items:center}
+    .input-row .input-group{flex:1}
+    .color-preview{width:100%;height:60px;border-radius:8px;margin-bottom:12px;border:1px solid #eee}
+    .result{background:#f9f9f9;padding:12px;border-radius:8px;margin-top:12px;word-break:break-all;font-size:14px;cursor:pointer;transition:background .2s}
+    .result:hover{background:#eee}
+    .result-label{font-size:12px;color:#888;margin-bottom:4px}
+    .palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:8px}
+    .palette-color{width:48px;height:48px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s}
+    .palette-color:hover{transform:scale(1.1);border-color:#222}
+    .gradient-preview{width:100%;height:80px;border-radius:8px;margin-bottom:12px;border:1px solid #eee}
+    .gradient-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+    .angle-control{display:flex;align-items:center;gap:8px}
+    .angle-control input{width:80px;margin-bottom:0}
+    .angle-control span{font-size:14px}
+    button.btn{background:#222;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px}
+    button.btn:hover{background:#444}
+    button.btn:active{transform:scale(.98)}
+    button.btn-secondary{background:#fff;color:#222;border:1px solid #ddd}
+    button.btn-secondary:hover{background:#f5f5f5}
+    .copy-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 20px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none}
+    .copy-toast.show{opacity:1}
+    footer{text-align:center;padding:24px;color:#888;font-size:13px}
+    a{color:#222}
+    [data-en]{display:none}
+    html[lang=en] [data-zh]{display:none}
+    html[lang=en] [data-en]{display:block}
+    html[lang=en]{font-family:'Segoe UI',sans-serif}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <button id="langToggle" onclick="toggleLang()">EN</button>
+    </div>
+  </nav>
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>颜色工具箱</span><span data-en>Color Tools</span></p>
+    <h1><span data-zh>颜色工具箱</span><span data-en>Color Tools</span></h1>
+
+    <!-- 颜色转换 -->
+    <div class="card">
+      <h2><span data-zh>颜色代码转换</span><span data-en>Color Converter</span></h2>
+      <div class="color-preview" id="colorPreview" style="background:#3b82f6"></div>
+      <div class="converter">
+        <div class="input-group">
+          <label>HEX</label>
+          <input type="text" id="hexInput" value="#3b82f6" placeholder="#FFFFFF" maxlength="7">
+        </div>
+        <div class="input-group">
+          <label>RGB</label>
+          <div class="input-row">
+            <div class="input-group"><input type="number" id="rInput" value="59" min="0" max="255"><span style="font-size:12px;color:#888">R</span></div>
+            <div class="input-group"><input type="number" id="gInput" value="130" min="0" max="255"><span style="font-size:12px;color:#888">G</span></div>
+            <div class="input-group"><input type="number" id="bInput" value="246" min="0" max="255"><span style="font-size:12px;color:#888">B</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="input-group" style="margin-top:12px">
+        <label>HSL</label>
+        <div class="input-row">
+          <div class="input-group"><input type="number" id="hInput" value="217" min="0" max="360"><span style="font-size:12px;color:#888">H°</span></div>
+          <div class="input-group"><input type="number" id="sInput" value="91" min="0" max="100"><span style="font-size:12px;color:#888">S%</span></div>
+          <div class="input-group"><input type="number" id="lInput" value="60" min="0" max="100"><span style="font-size:12px;color:#888">L%</span></div>
+        </div>
+      </div>
+      <div class="result" id="copyResult" onclick="copyValue(this)">
+        <div class="result-label"><span data-zh>点击复制</span><span data-en>Click to copy</span></div>
+        <div id="resultText">#3b82f6</div>
+      </div>
+    </div>
+
+    <!-- 调色板 -->
+    <div class="card">
+      <h2><span data-zh>调色板</span><span data-en>Color Palette</span></h2>
+      <div class="palette" id="palette"></div>
+    </div>
+
+    <!-- 渐变色生成 -->
+    <div class="card">
+      <h2><span data-zh>渐变色生成</span><span data-en>Gradient Generator</span></h2>
+      <div class="gradient-preview" id="gradientPreview"></div>
+      <div class="gradient-controls">
+        <div class="input-group">
+          <label><span data-zh>起始颜色</span><span data-en>Start Color</span></label>
+          <input type="text" id="gradStart" value="#3b82f6" placeholder="#3b82f6">
+        </div>
+        <div class="input-group">
+          <label><span data-zh>结束颜色</span><span data-en>End Color</span></label>
+          <input type="text" id="gradEnd" value="#8b5cf6" placeholder="#8b5cf6">
+        </div>
+      </div>
+      <div class="angle-control" style="margin-bottom:12px">
+        <label><span data-zh>角度</span><span data-en>Angle</span>:</label>
+        <input type="number" id="gradAngle" value="135" min="0" max="360">
+        <span>°</span>
+      </div>
+      <button class="btn" onclick="generateGradient()"><span data-zh>生成渐变</span><span data-en>Generate</span></button>
+      <button class="btn btn-secondary" style="margin-left:8px" onclick="copyGradient()"><span data-zh>复制代码</span><span data-en>Copy Code</span></button>
+      <div class="result" id="gradientResult" onclick="copyGradient()">
+        <div class="result-label"><span data-zh>点击复制CSS代码</span><span data-en>Click to copy CSS</span></div>
+        <div id="gradientText">linear-gradient(135deg, #3b82f6, #8b5cf6)</div>
+      </div>
+    </div>
+  </div>
+  <div class="copy-toast" id="copyToast"><span data-zh>已复制！</span><span data-en>Copied!</span></div>
+  <footer>
+    <div class="footer-content">
+      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+    </div>
+  </footer>
+<script>
+(function(){
+  var lang=document.cookie.match(/lang=(en|zh)/);
+  if(lang&&lang[1]==='en')toggleLang();
+  function toggleLang(){
+    var isEn=document.documentElement.lang==='zh-CN';
+    document.documentElement.lang=isEn?'en':'zh-CN';
+    document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+  }
+  window.toggleLang=toggleLang;
+
+  // 预设颜色
+  var presetColors=[
+    '#ef4444','#f97316','#f59e0b','#eab308','#84cc16','#22c55e','#10b981','#14b8a6','#06b6d4','#0ea5e9','#3b82f6','#6366f1','#8b5cf6','#a855f7','#d946ef','#ec4899','#f43f5e',
+    '#ffffff','#f5f5f5','#e5e5e5','#d4d4d4','#a3a3a3','#737373','#525252','#404040','#262626','#171717','#000000',
+    '#fee2e2','#ffedd5','#fef9c3','#fef08a','#ecfccb','#dcfce7','#d1fae5','#ccfbf1','#cffafe','#e0f2fe','#dbeafe','#e0e7ff','#ede9fe','#f3e8ff','#fae8ff','#fce7f3',
+  ];
+
+  var palette=document.getElementById('palette');
+  presetColors.forEach(function(color){
+    var btn=document.createElement('div');
+    btn.className='palette-color';
+    btn.style.background=color;
+    btn.title=color;
+    btn.onclick=function(){
+      setColor(color);
+      copyValue({textContent:color});
+    };
+    palette.appendChild(btn);
+  });
+
+  // 颜色转换
+  var hexInput=document.getElementById('hexInput');
+  var rInput=document.getElementById('rInput');
+  var gInput=document.getElementById('gInput');
+  var bInput=document.getElementById('bInput');
+  var hInput=document.getElementById('hInput');
+  var sInput=document.getElementById('sInput');
+  var lInput=document.getElementById('lInput');
+  var colorPreview=document.getElementById('colorPreview');
+  var resultText=document.getElementById('resultText');
+
+  var updating=false;
+
+  function hexToRgb(hex){
+    var r=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return r?{r:parseInt(r[1],16),g:parseInt(r[2],16),b:parseInt(r[3],16)}:null;
+  }
+  function rgbToHex(r,g,b){
+    return'#'+[r,g,b].map(function(x){
+      return Math.max(0,Math.min(255,Math.round(x))).toString(16).padStart(2,'0');
+    }).join('');
+  }
+  function rgbToHsl(r,g,b){
+    r/=255;g/=255;b/=255;
+    var max=Math.max(r,g,b),min=Math.min(r,g,b);
+    var h=0,s=0,l=(max+min)/2;
+    if(max!==min){
+      var d=max-min;
+      s=l>.5?d/(2-max-min):d/(max+min);
+      switch(max){
+        case r:h=((g-b)/d+(g<b?6:0))/6;break;
+        case g:h=((b-r)/d+2)/6;break;
+        case b:h=((r-g)/d+4)/6;break;
+      }
+    }
+    return{h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};
+  }
+  function hslToRgb(h,s,l){
+    h/=360;s/=100;l/=100;
+    var r,g,b;
+    if(s===0){r=g=b=l;}
+    else{
+      var q=l<.5?l*(1+s):l+s-l*s;
+      var p=2*l-q;
+      r=hue2rgb(p,q,h+1/3);
+      g=hue2rgb(p,q,h);
+      b=hue2rgb(p,q,h-1/3);
+    }
+    return{r:Math.round(r*255),g:Math.round(g*255),b:Math.round(b*255)};
+  }
+  function hue2rgb(p,q,t){
+    if(t<0)t+=1;if(t>1)t-=1;
+    if(t<1/6)return p+(q-p)*6*t;
+    if(t<1/2)return q;
+    if(t<2/3)return p+(q-p)*(2/3-t)*6;
+    return p;
+  }
+
+  function updateFromHex(){
+    if(updating)return;
+    var hex=hexInput.value.trim();
+    if(!/^#?[a-f\d]{6}$/i.test(hex)&&!/^#?[a-f\d]{3}$/i.test(hex))return;
+    if(hex.length===4&&hex.charAt(0)==='#'){
+      hex='#'+hex.charAt(1)+hex.charAt(1)+hex.charAt(2)+hex.charAt(2)+hex.charAt(3)+hex.charAt(3);
+    }
+    if(hex.charAt(0)!='#')hex='#'+hex;
+    var rgb=hexToRgb(hex);
+    if(!rgb)return;
+    updating=true;
+    rInput.value=rgb.r;gInput.value=rgb.g;bInput.value=rgb.b;
+    var hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);
+    hInput.value=hsl.h;sInput.value=hsl.s;lInput.value=hsl.l;
+    colorPreview.style.background=hex;
+    resultText.textContent=hex.toUpperCase();
+    updating=false;
+  }
+
+  function updateFromRgb(){
+    if(updating)return;
+    var r=parseInt(rInput.value)||0,g=parseInt(gInput.value)||0,b=parseInt(bInput.value)||0;
+    r=Math.max(0,Math.min(255,r));g=Math.max(0,Math.min(255,g));b=Math.max(0,Math.min(255,b));
+    updating=true;
+    var hex=rgbToHex(r,g,b).toUpperCase();
+    hexInput.value=hex;
+    var hsl=rgbToHsl(r,g,b);
+    hInput.value=hsl.h;sInput.value=hsl.s;lInput.value=hsl.l;
+    colorPreview.style.background=hex;
+    resultText.textContent=hex;
+    updating=false;
+  }
+
+  function updateFromHsl(){
+    if(updating)return;
+    var h=parseInt(hInput.value)||0,s=parseInt(sInput.value)||0,l=parseInt(lInput.value)||0;
+    h=Math.max(0,Math.min(360,h));s=Math.max(0,Math.min(100,s));l=Math.max(0,Math.min(100,l));
+    updating=true;
+    var rgb=hslToRgb(h,s,l);
+    rInput.value=rgb.r;gInput.value=rgb.g;bInput.value=rgb.b;
+    var hex=rgbToHex(rgb.r,rgb.g,rgb.b).toUpperCase();
+    hexInput.value=hex;
+    colorPreview.style.background=hex;
+    resultText.textContent=hex;
+    updating=false;
+  }
+
+  hexInput.addEventListener('input',updateFromHex);
+  hexInput.addEventListener('propertychange',updateFromHex);
+  rInput.addEventListener('input',updateFromRgb);
+  gInput.addEventListener('input',updateFromRgb);
+  bInput.addEventListener('input',updateFromRgb);
+  hInput.addEventListener('input',updateFromHsl);
+  sInput.addEventListener('input',updateFromHsl);
+  lInput.addEventListener('input',updateFromHsl);
+
+  window.setColor=function(color){
+    hexInput.value=color.toUpperCase();
+    updateFromHex();
+  };
+
+  // 复制功能
+  window.copyValue=function(el){
+    var text=typeof el==='string'?el:el.textContent||el.innerText;
+    text=text.trim();
+    var last=document.execCommand('copy',false,text);
+    var toast=document.getElementById('copyToast');
+    toast.classList.add('show');
+    setTimeout(function(){toast.classList.remove('show');},1500);
+  };
+
+  // 渐变生成
+  var gradStart=document.getElementById('gradStart');
+  var gradEnd=document.getElementById('gradEnd');
+  var gradAngle=document.getElementById('gradAngle');
+  var gradientPreview=document.getElementById('gradientPreview');
+  var gradientText=document.getElementById('gradientText');
+
+  function generateGradient(){
+    var start=gradStart.value.trim()||'#3b82f6';
+    var end=gradEnd.value.trim()||'#8b5cf6';
+    var angle=parseInt(gradAngle.value)||135;
+    var css='linear-gradient('+angle+'deg, '+start+', '+end+')';
+    gradientPreview.style.background=css;
+    gradientText.textContent=css;
+  }
+
+  window.copyGradient=function(){
+    var css=gradientText.textContent;
+    document.execCommand('copy',false,css);
+    var toast=document.getElementById('copyToast');
+    toast.classList.add('show');
+    setTimeout(function(){toast.classList.remove('show');},1500);
+  };
+
+  generateGradient();
+})();
+</script>
+</body>
+</html>

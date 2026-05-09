@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>编码转换工具</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; font-size: 1.8rem; }
+.panel { background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; overflow: hidden; }
+.panel-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 12px 20px; font-weight: 600; font-size: 1rem; }
+.panel-header.url { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.panel-header.base64 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.panel-header.unicode { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.panel-body { padding: 20px; }
+.row { display: flex; gap: 15px; margin-bottom: 15px; }
+.row:last-child { margin-bottom: 0; }
+.col { flex: 1; }
+label { display: block; font-size: 0.85rem; color: #666; margin-bottom: 6px; font-weight: 500; }
+textarea, input[type="text"] { width: 100%; border: 1px solid #ddd; border-radius: 6px; padding: 10px 12px; font-size: 14px; resize: none; transition: border-color 0.2s; }
+textarea { height: 100px; font-family: 'Monaco', 'Menlo', monospace; }
+textarea:focus, input:focus { outline: none; border-color: #667eea; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { padding: 8px 18px; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
+.btn-encode { background: #667eea; color: #fff; }
+.btn-encode:hover { background: #5a6fd6; }
+.btn-decode { background: #764ba2; color: #fff; }
+.btn-decode:hover { background: #6a4190; }
+.btn-copy { background: #ddd; color: #333; }
+.btn-copy:hover { background: #ccc; }
+.btn-clear { background: #ff6b6b; color: #fff; }
+.btn-clear:hover { background: #ee5a5a; }
+.info { font-size: 0.8rem; color: #999; margin-top: 8px; }
+.success { color: #43a047; }
+.error { color: #e53935; }
+@media (max-width: 600px) {
+  .row { flex-direction: column; }
+  .container { padding: 12px; }
+  h1 { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🔐 编码转换工具</h1>
+
+  <!-- URL 编码/解码 -->
+  <div class="panel">
+    <div class="panel-header url">🌐 URL 编码 / 解码</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col">
+          <label>原文</label>
+          <textarea id="url-input" placeholder="输入需要URL编码/解码的文本..."></textarea>
+        </div>
+        <div class="col">
+          <label>转换结果</label>
+          <textarea id="url-output" readonly placeholder="转换结果将显示在此处..."></textarea>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-encode" onclick="urlEncode()">URL 编码</button>
+        <button class="btn btn-decode" onclick="urlDecode()">URL 解码</button>
+        <button class="btn btn-copy" onclick="copyText('url-output')">📋 复制结果</button>
+        <button class="btn btn-clear" onclick="clearText('url-input','url-output')">🗑️ 清空</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Base64 编码/解码 -->
+  <div class="panel">
+    <div class="panel-header base64">📦 Base64 编码 / 解码</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col">
+          <label>原文</label>
+          <textarea id="base64-input" placeholder="输入需要Base64编码/解码的文本..."></textarea>
+        </div>
+        <div class="col">
+          <label>转换结果</label>
+          <textarea id="base64-output" readonly placeholder="转换结果将显示在此处..."></textarea>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-encode" onclick="base64Encode()">Base64 编码</button>
+        <button class="btn btn-decode" onclick="base64Decode()">Base64 解码</button>
+        <button class="btn btn-copy" onclick="copyText('base64-output')">📋 复制结果</button>
+        <button class="btn btn-clear" onclick="clearText('base64-input','base64-output')">🗑️ 清空</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unicode 中文转换 -->
+  <div class="panel">
+    <div class="panel-header unicode">🇨🇳 Unicode / 中文 转换</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col">
+          <label>原文</label>
+          <textarea id="unicode-input" placeholder="输入中文字符或Unicode编码（如 \u4e2d\u6587）..."></textarea>
+        </div>
+        <div class="col">
+          <label>转换结果</label>
+          <textarea id="unicode-output" readonly placeholder="转换结果将显示在此处..."></textarea>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-encode" onclick="unicodeEncode()">Unicode 编码</button>
+        <button class="btn btn-decode" onclick="unicodeDecode()">Unicode 解码</button>
+        <button class="btn btn-copy" onclick="copyText('unicode-output')">📋 复制结果</button>
+        <button class="btn btn-clear" onclick="clearText('unicode-input','unicode-output')">🗑️ 清空</button>
+      </div>
+      <p class="info">Unicode编码格式：\u4e2d\u6587 或 4e2d6587（支持两种格式自动识别）</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== URL 编码/解码 =====
+function urlEncode() {
+  try {
+    const input = document.getElementById('url-input').value;
+    document.getElementById('url-output').value = encodeURIComponent(input);
+  } catch (e) {
+    document.getElementById('url-output').value = '错误: ' + e.message;
+  }
+}
+
+function urlDecode() {
+  try {
+    const input = document.getElementById('url-input').value;
+    document.getElementById('url-output').value = decodeURIComponent(input);
+  } catch (e) {
+    document.getElementById('url-output').value = '错误: 无效的URL编码字符串';
+  }
+}
+
+// ===== Base64 编码/解码 =====
+function base64Encode() {
+  try {
+    const input = document.getElementById('base64-input').value;
+    // 处理中文
+    const utf8Bytes = new TextEncoder().encode(input);
+    const binary = String.fromCharCode(...utf8Bytes);
+    document.getElementById('base64-output').value = btoa(binary);
+  } catch (e) {
+    document.getElementById('base64-output').value = '错误: ' + e.message;
+  }
+}
+
+function base64Decode() {
+  try {
+    const input = document.getElementById('base64-input').value;
+    const binary = atob(input);
+    const bytes = new Uint8Array([...binary].map(c => c.charCodeAt(0)));
+    document.getElementById('base64-output').value = new TextDecoder().decode(bytes);
+  } catch (e) {
+    document.getElementById('base64-output').value = '错误: 无效的Base64字符串';
+  }
+}
+
+// ===== Unicode 编码/解码 =====
+function unicodeEncode() {
+  try {
+    const input = document.getElementById('unicode-input').value;
+    let result = '';
+    for (let i = 0; i < input.length; i++) {
+      result += '\\u' + input.charCodeAt(i).toString(16).padStart(4, '0');
+    }
+    document.getElementById('unicode-output').value = result;
+  } catch (e) {
+    document.getElementById('unicode-output').value = '错误: ' + e.message;
+  }
+}
+
+function unicodeDecode() {
+  try {
+    const input = document.getElementById('unicode-input').value;
+    // 支持 \u4e2d\u6587 和 4e2d6587 两种格式
+    let result;
+    if (input.includes('\\u')) {
+      result = input.replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) =>
+        String.fromCharCode(parseInt(hex, 16))
+      );
+    } else {
+      result = input.replace(/([0-9a-fA-F]{4})/g, (_, hex) =>
+        String.fromCharCode(parseInt(hex, 16))
+      );
+    }
+    document.getElementById('unicode-output').value = result;
+  } catch (e) {
+    document.getElementById('unicode-output').value = '错误: 无效的Unicode编码';
+  }
+}
+
+// ===== 辅助函数 =====
+function copyText(id) {
+  const el = document.getElementById(id);
+  if (!el.value) {
+    el.value = '（无内容可复制）';
+    setTimeout(() => { if (el.value === '（无内容可复制）') el.value = ''; }, 800);
+    return;
+  }
+  el.select();
+  document.execCommand('copy');
+  el.selectionStart = el.selectionEnd;
+  // 显示提示
+  const original = el.value;
+  el.value = '✅ 已复制到剪贴板';
+  setTimeout(() => { el.value = original; }, 1000);
+}
+
+function clearText(inputId, outputId) {
+  document.getElementById(inputId).value = '';
+  document.getElementById(outputId).value = '';
+}
+</script>
+</body>
+</html>

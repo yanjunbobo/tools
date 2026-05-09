@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单位换算器</title>
+  <meta name="description" content="长度、重量、温度、货币单位换算工具">
+  <link rel="canonical" href="https://tools.xxym8.com/unit.html">
+  <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/unit.html?lang=en">
+  <script src="ads.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#333}
+    .navbar{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .nav-container{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
+    #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+    .container{max-width:900px;margin:24px auto;padding:0 16px}
+.breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb a{color:#666;text-decoration:none}
+    h1{font-size:26px;margin-bottom:20px;color:#111}
+    .tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .tab-btn{padding:10px 18px;background:#e5e5e5;border:none;border-radius:8px;cursor:pointer;font-size:14px;transition:all .2s}
+    .tab-btn.active{background:#222;color:#fff}
+    .tab-btn:hover:not(.active){background:#d5d5d5}
+    .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:none}
+    .card.active{display:block}
+    .card h2{font-size:18px;margin-bottom:16px}
+    .input-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .input-row input{flex:1;min-width:120px}
+    .input-row select{flex:1;min-width:120px}
+    .input-row button{flex-shrink:0}
+    input,select,textarea{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px}
+    button{background:#222;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px;transition:background .2s}
+    button:hover{background:#444}
+    .result{background:#f9f9f9;padding:16px;border-radius:8px;margin-top:16px;word-break:break-all;font-size:15px;line-height:1.6}
+    .result-item{padding:8px 0;border-bottom:1px solid #eee}
+    .result-item:last-child{border-bottom:none}
+    .result-label{color:#666;font-size:13px;margin-bottom:4px}
+    .result-value{font-weight:600;color:#222;font-size:16px}
+    .swap-btn{background:#f5f5f5;color:#333;border:1px solid #ddd;padding:8px 12px;font-size:12px}
+    .swap-btn:hover{background:#e5e5e5}
+    .loading{color:#888;font-size:14px}
+    .error{color:#e53935;font-size:14px;margin-top:8px}
+    .info{background:#fffbeb;border:1px solid #fcd34d;padding:12px;border-radius:8px;font-size:13px;color:#92400e;margin-top:12px}
+    footer{text-align:center;padding:24px;color:#888;font-size:13px}
+    a{color:#222}
+    [data-en]{display:none}
+    html[lang=en] [data-zh]{display:none}
+    html[lang=en] [data-en]{display:block}
+    html[lang=en]{font-family:'Segoe UI',sans-serif}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <button id="langToggle" onclick="toggleLang()">EN</button>
+    </div>
+  </nav>
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>单位换算器</span><span data-en>Unit Converter</span></p>
+    <h1><span data-zh>单位换算器</span><span data-en>Unit Converter</span></h1>
+    
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('length')"><span data-zh>长度</span><span data-en>Length</span></button>
+      <button class="tab-btn" onclick="switchTab('weight')"><span data-zh>重量</span><span data-en>Weight</span></button>
+      <button class="tab-btn" onclick="switchTab('temp')"><span data-zh>温度</span><span data-en>Temperature</span></button>
+      <button class="tab-btn" onclick="switchTab('currency')"><span data-zh>货币</span><span data-en>Currency</span></button>
+    </div>
+
+    <!-- Length -->
+    <div class="card active" id="length">
+      <h2><span data-zh>长度换算</span><span data-en>Length Conversion</span></h2>
+      <div class="input-row">
+        <input type="number" id="lengthValue" placeholder="输入数值 / Enter value" value="1">
+        <select id="lengthFrom">
+          <option value="m">米 (m)</option>
+          <option value="km">千米 (km)</option>
+          <option value="cm">厘米 (cm)</option>
+          <option value="mm">毫米 (mm)</option>
+          <option value="mile">英里 (mile)</option>
+          <option value="yd">码 (yd)</option>
+          <option value="ft">英尺 (ft)</option>
+          <option value="in">英寸 (in)</option>
+          <option value="nm">海里 (nm)</option>
+        </select>
+      </div>
+      <div class="input-row" style="margin-top:12px">
+        <input type="number" id="lengthResult" placeholder="结果 / Result" readonly>
+        <select id="lengthTo">
+          <option value="m">米 (m)</option>
+          <option value="km" selected>千米 (km)</option>
+          <option value="cm">厘米 (cm)</option>
+          <option value="mm">毫米 (mm)</option>
+          <option value="mile">英里 (mile)</option>
+          <option value="yd">码 (yd)</option>
+          <option value="ft">英尺 (ft)</option>
+          <option value="in">英寸 (in)</option>
+          <option value="nm">海里 (nm)</option>
+        </select>
+      </div>
+      <button onclick="convertLength()" style="margin-top:12px"><span data-zh>换算</span><span data-en>Convert</span></button>
+      <div class="result" id="lengthResultDiv" style="display:none"></div>
+    </div>
+
+    <!-- Weight -->
+    <div class="card" id="weight">
+      <h2><span data-zh>重量换算</span><span data-en>Weight Conversion</span></h2>
+      <div class="input-row">
+        <input type="number" id="weightValue" placeholder="输入数值 / Enter value" value="1">
+        <select id="weightFrom">
+          <option value="kg">千克 (kg)</option>
+          <option value="g">克 (g)</option>
+          <option value="mg">毫克 (mg)</option>
+          <option value="lb">磅 (lb)</option>
+          <option value="oz">盎司 (oz)</option>
+          <option value="t">吨 (t)</option>
+          <option value="st">英石 (st)</option>
+        </select>
+      </div>
+      <div class="input-row" style="margin-top:12px">
+        <input type="number" id="weightResult" placeholder="结果 / Result" readonly>
+        <select id="weightTo">
+          <option value="kg">千克 (kg)</option>
+          <option value="g">克 (g)</option>
+          <option value="mg">毫克 (mg)</option>
+          <option value="lb" selected>磅 (lb)</option>
+          <option value="oz">盎司 (oz)</option>
+          <option value="t">吨 (t)</option>
+          <option value="st">英石 (st)</option>
+        </select>
+      </div>
+      <button onclick="convertWeight()" style="margin-top:12px"><span data-zh>换算</span><span data-en>Convert</span></button>
+      <div class="result" id="weightResultDiv" style="display:none"></div>
+    </div>
+
+    <!-- Temperature -->
+    <div class="card" id="temp">
+      <h2><span data-zh>温度换算</span><span data-en>Temperature Conversion</span></h2>
+      <div class="input-row">
+        <input type="number" id="tempValue" placeholder="输入数值 / Enter value" value="0">
+        <select id="tempFrom">
+          <option value="C">摄氏度 (°C)</option>
+          <option value="F">华氏度 (°F)</option>
+          <option value="K">开尔文 (K)</option>
+        </select>
+      </div>
+      <div class="input-row" style="margin-top:12px">
+        <input type="number" id="tempResult" placeholder="结果 / Result" readonly>
+        <select id="tempTo">
+          <option value="C">摄氏度 (°C)</option>
+          <option value="F" selected>华氏度 (°F)</option>
+          <option value="K">开尔文 (K)</option>
+        </select>
+      </div>
+      <button onclick="convertTemp()" style="margin-top:12px"><span data-zh>换算</span><span data-en>Convert</span></button>
+      <div class="result" id="tempResultDiv" style="display:none"></div>
+    </div>
+
+    <!-- Currency -->
+    <div class="card" id="currency">
+      <h2><span data-zh>货币换算</span><span data-en>Currency Conversion</span></h2>
+      <div id="currencyLoading" class="loading"><span data-zh>正在加载汇率...</span><span data-en>Loading exchange rates...</span></div>
+      <div id="currencyContent" style="display:none">
+        <div class="input-row">
+          <input type="number" id="currencyValue" placeholder="输入数值 / Enter value" value="100">
+          <select id="currencyFrom">
+            <option value="USD">美元 (USD)</option>
+          </select>
+        </div>
+        <div class="input-row" style="margin-top:12px">
+          <input type="number" id="currencyResult" placeholder="结果 / Result" readonly>
+          <select id="currencyTo">
+            <option value="CNY" selected>人民币 (CNY)</option>
+          </select>
+        </div>
+        <button onclick="convertCurrency()" style="margin-top:12px"><span data-zh>换算</span><span data-en>Convert</span></button>
+        <div id="currencyInfo" class="info" style="display:none"></div>
+        <div class="result" id="currencyResultDiv" style="display:none"></div>
+      </div>
+      <div id="currencyError" class="error" style="display:none"></div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+    </div>
+  </footer>
+<script>
+(function(){
+  var lang=document.cookie.match(/lang=(en|zh)/);
+  if(lang&&lang[1]==='en'){toggleLang();}
+  function toggleLang(){
+    var isEn=document.documentElement.lang==='zh-CN';
+    document.documentElement.lang=isEn?'en':'zh-CN';
+    document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+  }
+  window.toggleLang=toggleLang;
+
+  function switchTab(tab){
+    document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Length conversion (base: meter)
+  var lengthFactors={
+    m:1, km:1000, cm:0.01, mm:0.001, 
+    mile:1609.344, yd:0.9144, ft:0.3048, in:0.0254, nm:1852
+  };
+  function convertLength(){
+    var val=parseFloat(document.getElementById('lengthValue').value);
+    if(isNaN(val)){alert('请输入有效数值 / Please enter a valid number');return;}
+    var from=document.getElementById('lengthFrom').value;
+    var to=document.getElementById('lengthTo').value;
+    var meters=val*lengthFactors[from];
+    var result=meters/lengthFactors[to];
+    document.getElementById('lengthResult').value=result.toFixed(6).replace(/\.?0+$/,'');
+    showAllLength(val,from,result,to);
+  }
+  function showAllLength(val,from,result,to){
+    var div=document.getElementById('lengthResultDiv');
+    var html='';
+    for(var u in lengthFactors){
+      if(u!==from){
+        var r=meters/lengthFactors[u];
+        html+='<div class="result-item"><div class="result-label">'+u+'</div><div class="result-value">'+r.toFixed(6).replace(/\.?0+$/,'')+'</div></div>';
+      }
+    }
+    div.innerHTML=html;
+    div.style.display='block';
+  }
+
+  // Weight conversion (base: kg)
+  var weightFactors={
+    kg:1, g:0.001, mg:0.000001, lb:0.453592, oz:0.0283495, t:1000, st:6.35029
+  };
+  function convertWeight(){
+    var val=parseFloat(document.getElementById('weightValue').value);
+    if(isNaN(val)){alert('请输入有效数值 / Please enter a valid number');return;}
+    var from=document.getElementById('weightFrom').value;
+    var to=document.getElementById('weightTo').value;
+    var kgs=val*weightFactors[from];
+    var result=kgs/weightFactors[to];
+    document.getElementById('weightResult').value=result.toFixed(6).replace(/\.?0+$/,'');
+    showAllWeight(val,from,result,to);
+  }
+  function showAllWeight(val,from,result,to){
+    var div=document.getElementById('weightResultDiv');
+    var html='';
+    for(var u in weightFactors){
+      if(u!==from){
+        var r=(val*weightFactors[from])/weightFactors[u];
+        html+='<div class="result-item"><div class="result-label">'+u+'</div><div class="result-value">'+r.toFixed(6).replace(/\.?0+$/,'')+'</div></div>';
+      }
+    }
+    div.innerHTML=html;
+    div.style.display='block';
+  }
+
+  // Temperature conversion
+  function convertTemp(){
+    var val=parseFloat(document.getElementById('tempValue').value);
+    if(isNaN(val)){alert('请输入有效数值 / Please enter a valid number');return;}
+    var from=document.getElementById('tempFrom').value;
+    var to=document.getElementById('tempTo').value;
+    var result=0;
+    if(from==='C'){
+      result=to==='F'?val*9/5+32:to==='K'?val+273.15:val;
+    }else if(from==='F'){
+      result=to==='C'?(val-32)*5/9:to==='K'?(val-32)*5/9+273.15:val;
+    }else{
+      result=to==='C'?val-273.15:to==='F'?(val-273.15)*9/5+32:val;
+    }
+    document.getElementById('tempResult').value=result.toFixed(2).replace(/\.?0+$/,'');
+    showAllTemp(val,from,result,to);
+  }
+  function showAllTemp(val,from,result,to){
+    var div=document.getElementById('tempResultDiv');
+    var html='';
+    var temps={C:val,F:(val-32)*5/9+273.15,K:val};
+    if(from==='F')temps={C:(val-32)*5/9,F:val,K:(val-32)*5/9+273.15};
+    if(from==='K')temps={C:val-273.15,F:(val-273.15)*9/5+32,K:val};
+    var labels={C:'°C',F:'°F',K:'K'};
+    for(var u in temps){
+      if(u!==from){
+        html+='<div class="result-item"><div class="result-label">'+labels[u]+'</div><div class="result-value">'+temps[u].toFixed(2).replace(/\.?0+$/,'')+'</div></div>';
+      }
+    }
+    div.innerHTML=html;
+    div.style.display='block';
+  }
+
+  // Currency conversion
+  var exchangeRates={};
+  function loadExchangeRates(){
+    fetch('https://api.exchangerate-api.com/v4/latest/USD')
+      .then(r=>r.json())
+      .then(data=>{
+        exchangeRates=data.rates;
+        var html='';
+        var currencies=['USD','CNY','EUR','GBP','JPY','HKD','KRW','AUD','CAD','SGD','THB','MYR','INR','RUB','BRL','MXN'];
+        currencies.forEach(function(c){
+          if(exchangeRates[c]){
+            html+='<option value="'+c+'">'+c+'</option>';
+          }
+        });
+        document.getElementById('currencyFrom').innerHTML=html;
+        document.getElementById('currencyTo').innerHTML=html;
+        document.getElementById('currencyFrom').value='USD';
+        document.getElementById('currencyTo').value='CNY';
+        document.getElementById('currencyLoading').style.display='none';
+        document.getElementById('currencyContent').style.display='block';
+        var info=document.getElementById('currencyInfo');
+        info.innerHTML='<span data-zh>汇率更新时间：</span><span data-en>Exchange rate update time: </span>'+data.time_last_updated;
+        if(document.documentElement.lang==='en')info.querySelector('[data-en]')||(info.innerHTML=data.time_last_updated);
+        info.style.display='block';
+      })
+      .catch(function(e){
+        document.getElementById('currencyLoading').style.display='none';
+        document.getElementById('currencyError').style.display='block';
+        document.getElementById('currencyError').innerHTML='<span data-zh>加载汇率失败，请稍后重试</span><span data-en>Failed to load rates, please retry later</span>';
+      });
+  }
+  window.loadExchangeRates=loadExchangeRates;
+
+  function convertCurrency(){
+    if(Object.keys(exchangeRates).length===0){
+      alert('汇率加载中，请稍候 / Loading rates, please wait');
+      return;
+    }
+    var val=parseFloat(document.getElementById('currencyValue').value);
+    if(isNaN(val)){alert('请输入有效数值 / Please enter a valid number');return;}
+    var from=document.getElementById('currencyFrom').value;
+    var to=document.getElementById('currencyTo').value;
+    var usd=from==='USD'?val:val/exchangeRates[from];
+    var result=to==='USD'?usd:usd*exchangeRates[to];
+    document.getElementById('currencyResult').value=result.toFixed(2);
+    var div=document.getElementById('currencyResultDiv');
+    var rate=to==='USD'?1/exchangeRates[to]:exchangeRates[to]/exchangeRates[from];
+    div.innerHTML='<div class="result-item"><div class="result-label">1 '+from+' = '+rate.toFixed(4)+' '+to+'</div></div>';
+    div.style.display='block';
+  }
+
+  loadExchangeRates();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO工具箱 - 关键词密度与友链检测</title>
+  <meta name="description" content="在线SEO工具，检测关键词密度和分析友链状态">
+  <link rel="canonical" href="https://tools.xxym8.com/seo.html">
+  <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/seo.html?lang=en">
+  <script src="ads.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#333}
+    .navbar{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .nav-container{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
+    #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+    .container{max-width:900px;margin:24px auto;padding:0 16px}
+.breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb a{color:#666;text-decoration:none}
+    h1{font-size:26px;margin-bottom:20px;color:#111}
+    .tabs{display:flex;gap:8px;margin-bottom:16px}
+    .tab-btn{padding:10px 20px;background:#e5e5e5;border:none;border-radius:8px 8px 0 0;cursor:pointer;font-size:14px}
+    .tab-btn.active{background:#fff;color:#222;font-weight:600}
+    .card{background:#fff;border-radius:0 12px 12px 12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}}
+    .card h2{font-size:18px;margin-bottom:12px;color:#111}
+    .input-group{display:flex;gap:8px;margin-bottom:12px}
+    input,select,textarea{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    button{background:#222;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px}
+    button:hover{background:#444}
+    button:disabled{background:#999;cursor:not-allowed}
+    .result{background:#f9f9f9;padding:16px;border-radius:8px;margin-top:12px;font-size:14px}
+    .result h3{font-size:15px;margin-bottom:10px;color:#333}
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:12px 0}
+    .stat-item{background:#fff;border:1px solid #eee;padding:12px;border-radius:8px;text-align:center}
+    .stat-item .label{font-size:12px;color:#888}
+    .stat-item .value{font-size:22px;font-weight:600;color:#222;margin-top:4px}
+    .keyword-list{margin-top:12px}
+    .keyword-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0}
+    .keyword-item:last-child{border-bottom:none}
+    .keyword-name{font-weight:500}
+    .keyword-count{color:#888;font-size:13px}
+    .keyword-bar{width:60%;height:6px;background:#eee;border-radius:3px;overflow:hidden}
+    .keyword-bar-fill{height:100%;background:#222;transition:width .3s}
+    .density-badge{padding:2px 8px;border-radius:4px;font-size:12px;font-weight:500}
+    .density-low{background:#e8f5e9;color:#2e7d32}
+    .density-good{background:#e3f2fd;color:#1565c0}
+    .density-high{background:#fff3e0;color:#e65100}
+    .link-list{margin-top:12px}
+    .link-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f0}
+    .link-item:last-child{border-bottom:none}
+    .link-url{color:#1565c0;text-decoration:none;word-break:break-all;font-size:13px}
+    .link-url:hover{text-decoration:underline}
+    .link-status{padding:3px 10px;border-radius:4px;font-size:12px}
+    .status-ok{background:#e8f5e9;color:#2e7d32}
+    .status-warning{background:#fff3e0;color:#e65100}
+    .status-error{background:#ffebee;color:#c62828}
+    .status-info{background:#e3f2fd;color:#1565c0}
+    .summary-box{background:#f5f5f5;padding:12px;border-radius:8px;margin-top:16px}
+    .summary-box h4{font-size:14px;margin-bottom:8px}
+    .summary-box ul{margin-left:20px;font-size:13px;line-height:1.8}
+    footer{text-align:center;padding:24px;color:#888;font-size:13px}
+    a{color:#222}
+    [data-en]{display:none}
+    html[lang=en] [data-zh]{display:none}
+    html[lang=en] [data-en]{display:block}
+    html[lang=en]{font-family:'Segoe UI',sans-serif}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <button id="langToggle" onclick="toggleLang()">EN</button>
+    </div>
+  </nav>
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>SEO工具箱</span><span data-en>SEO Tools</span></p>
+    <h1><span data-zh>SEO工具箱</span><span data-en>SEO Tools</span></h1>
+    
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('density')" id="tab-density">
+        <span data-zh>关键词密度</span><span data-en>Keyword Density</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('links')" id="tab-links">
+        <span data-zh>友链检测</span><span data-en>Link Analysis</span>
+      </button>
+    </div>
+    
+    <div class="card" id="density-card">
+      <h2><span data-zh>关键词密度分析</span><span data-en>Keyword Density Analysis</span></h2>
+      <textarea id="inputText" placeholder="在此输入文章内容或粘贴网页HTML源码..." oninput="analyzeDensity()"></textarea>
+      <div class="input-group">
+        <select id="minWordLen">
+          <option value="2">最小词长: 2</option>
+          <option value="3">最小词长: 3</option>
+          <option value="4" selected>最小词长: 4</option>
+        </select>
+        <select id="topN">
+          <option value="10">显示前10个词</option>
+          <option value="20" selected>显示前20个词</option>
+          <option value="30">显示前30个词</option>
+          <option value="50">显示前50个词</option>
+        </select>
+      </div>
+      <button onclick="analyzeDensity()" id="densityBtn">
+        <span data-zh>开始分析</span><span data-en>Analyze</span>
+      </button>
+      <div id="densityResult"></div>
+    </div>
+    
+    <div class="card" id="links-card" style="display:none">
+      <h2><span data-zh>友链检测</span><span data-en>Link Analysis</span></h2>
+      <textarea id="inputHtml" placeholder="在此粘贴网页HTML源码，检测所有外链..."></textarea>
+      <button onclick="analyzeLinks()" id="linksBtn">
+        <span data-zh>检测链接</span><span data-en>Analyze Links</span>
+      </button>
+      <div id="linksResult"></div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var lang=document.cookie.match(/lang=(en|zh)/);
+  if(lang&&lang[1]==='en'){toggleLang();}
+  function toggleLang(){
+    var isEn=document.documentElement.lang==='zh-CN';
+    document.documentElement.lang=isEn?'en':'zh-CN';
+    document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+  }
+  window.toggleLang=toggleLang;
+})();
+
+function switchTab(tab){
+  document.getElementById('tab-density').classList.toggle('active', tab==='density');
+  document.getElementById('tab-links').classList.toggle('active', tab==='links');
+  document.getElementById('density-card').style.display = tab==='density'?'block':'none';
+  document.getElementById('links-card').style.display = tab==='links'?'block':'none';
+}
+
+function getTextFromHtml(html){
+  var div=document.createElement('div');
+  div.innerHTML=html;
+  var scripts=div.getElementsByTagName('script');
+  while(scripts.length){scripts[0].parentNode.removeChild(scripts[0]);}
+  var styles=div.getElementsByTagName('style');
+  while(styles.length){styles[0].parentNode.removeChild(styles[0]);}
+  var navs=div.getElementsByTagName('nav');
+  while(navs.length){navs[0].parentNode.removeChild(navs[0]);}
+  var footers=div.getElementsByTagName('footer');
+  while(footers.length){footers[0].parentNode.removeChild(footers[0]);}
+  var comments=div.childNodes;
+  for(var i=comments.length-1;i>=0;i--){
+    if(comments[i].nodeType===8){comments[i].parentNode.removeChild(comments[i]);}
+  }
+  return div.textContent||div.innerText||'';
+}
+
+function countWords(text){
+  var chinese=text.match(/[\u4e00-\u9fa5]/g)||[];
+  var english=text.toLowerCase().match(/[a-z]+/g)||[];
+  return {chinese:chinese.length,english:english.length,total:text.length};
+}
+
+function getNgrams(text,n){
+  var result=[];
+  var chinese=text.match(/[\u4e00-\u9fa5]+/g)||[];
+  for(var i=0;i<chinese.length;i++){
+    var word=chinese[i];
+    for(var j=0;j<=word.length-n;j++){
+      result.push(word.substring(j,j+n));
+    }
+  }
+  var english=text.toLowerCase().match(/[a-z]+/g)||[];
+  for(var i=0;i<english.length;i++){
+    var word=english[i];
+    if(word.length>=n){
+      for(var j=0;j<=word.length-n;j++){
+        result.push(word.substring(j,j+n));
+      }
+    }
+  }
+  return result;
+}
+
+function analyzeDensity(){
+  var input=document.getElementById('inputText').value.trim();
+  if(!input){document.getElementById('densityResult').innerHTML='';return;}
+  
+  var btn=document.getElementById('densityBtn');
+  btn.disabled=true;
+  btn.innerHTML='<span data-zh>分析中...</span><span data-en>Analyzing...</span>';
+  
+  setTimeout(function(){
+    var htmlMode=/<[^>]+>/.test(input);
+    var text=htmlMode?getTextFromHtml(input):input;
+    var minLen=parseInt(document.getElementById('minWordLen').value);
+    var topN=parseInt(document.getElementById('topN').value);
+    
+    var words=countWords(text);
+    var totalWords=words.chinese+words.english;
+    
+    var ngrams={};
+    for(var n=minLen;n<=Math.max(minLen+2,6);n++){
+      var grams=getNgrams(text,n);
+      for(var i=0;i<grams.length;i++){
+        var w=grams[i];
+        ngrams[w]=(ngrams[w]||0)+1;
+      }
+    }
+    
+    var stopwords={};
+    var cnStop='的一是不了在人有我他这个那个和被让给从到有也之与及等或但并及其于以而';
+    for(var i=0;i<cnStop.length;i++)stopwords[cnStop[i]]=true;
+    var enStop='the,a,an,and,or,but,in,on,at,to,for,of,is,are,was,were,be,been,being,have,has,had,do,does,did,will,would,could,should,may,might,must,shall,can,this,that,these,those,i,you,he,she,it,we,they,me,him,her,us,them,my,your,his,its,our,their';
+    var enArr=enStop.split(',');
+    for(var i=0;i<enArr.length;i++)stopwords[enArr[i]]=true;
+    
+    var filtered={};
+    for(var w in ngrams){
+      if(ngrams[w]>=2&&!stopwords[w]&&w.length>=minLen){
+        filtered[w]=ngrams[w];
+      }
+    }
+    
+    var sorted=[];
+    for(var w in filtered)sorted.push({word:w,count:filtered[w]});
+    sorted.sort(function(a,b){return b.count-a.count});
+    
+    var top=sorted.slice(0,topN);
+    var maxCount=top.length?top[0].count:1;
+    
+    var html='<div class="result">';
+    html+='<div class="stat-grid">';
+    html+='<div class="stat-item"><div class="label">'+(htmlMode?'<span data-zh>文本字数</span><span data-en>Char Count</span>':'<span data-zh>总字符</span><span data-en>Total Chars</span>')+'</div><div class="value">'+words.total+'</div></div>';
+    html+='<div class="stat-item"><div class="label"><span data-zh>中文字数</span><span data-en>Chinese</span></div><div class="value">'+words.chinese+'</div></div>';
+    html+='<div class="stat-item"><div class="label"><span data-zh>英文字数</span><span data-en>English</span></div><div class="value">'+words.english+'</div></div>';
+    html+='<div class="stat-item"><div class="label"><span data-zh>关键词数</span><span data-en>Keywords</span></div><div class="value">'+sorted.length+'</div></div>';
+    html+='</div>';
+    
+    if(top.length){
+      html+='<h3 style="margin-top:16px"><span data-zh>关键词TOP '+top.length+'</span><span data-en>Top Keywords</span></h3>';
+      html+='<div class="keyword-list">';
+      for(var i=0;i<top.length;i++){
+        var item=top[i];
+        var density=(item.count/words.total*100).toFixed(2);
+        var badge='<span class="density-badge ';
+        if(density<1)badge+='density-low">'+density+'%';
+        else if(density<=5)badge+='density-good">'+density+'%';
+        else badge+='density-high">'+density+'%';
+        badge+='</span>';
+        html+='<div class="keyword-item">';
+        html+='<span class="keyword-name">'+item.word+'</span>';
+        html+='<div style="display:flex;align-items:center;gap:12px">';
+        html+=badge;
+        html+='<span class="keyword-count">'+item.count+' <span data-zh>次</span><span data-en>times</span></span>';
+        html+='</div></div>';
+        html+='<div class="keyword-bar"><div class="keyword-bar-fill" style="width:'+(item.count/maxCount*100)+'%"></div></div>';
+      }
+      html+='</div>';
+    }
+    
+    html+='<div class="summary-box">';
+    html+='<h4><span data-zh>SEO建议</span><span data-en>SEO Tips</span></h4>';
+    html+='<ul>';
+    if(words.total<100){
+      html+='<li><span data-zh>内容过短，建议至少200字以获得准确的密度分析</span><span data-en>Content too short, 200+ chars recommended for accurate analysis</span></li>';
+    }
+    var hasDensity=false;
+    for(var i=0;i<top.length;i++){
+      if(top[i].count/words.total*100>=5){hasDensity=true;break;}
+    }
+    if(hasDensity){
+      html+='<li><span data-zh>检测到关键词密度过高(>5%)，可能被搜索引擎认为是关键词堆砌</span><span data-en>High keyword density (>5%) detected, may be seen as keyword stuffing</span></li>';
+    }
+    if(!hasDensity&&words.total>=100){
+      html+='<li><span data-zh>关键词密度分布正常</span><span data-en>Keyword density looks healthy</span></li>';
+    }
+    if(words.chinese>0&&words.english>0){
+      html+='<li><span data-zh>中英文混合内容有助于SEO国际化</span><span data-en>Mixed Chinese/English content aids international SEO</span></li>';
+    }
+    html+='</ul></div></div>';
+    
+    document.getElementById('densityResult').innerHTML=html;
+    btn.disabled=false;
+    btn.innerHTML='<span data-zh>开始分析</span><span data-en>Analyze</span>';
+  },50);
+}
+
+function analyzeLinks(){
+  var input=document.getElementById('inputHtml').value.trim();
+  if(!input){document.getElementById('linksResult').innerHTML='';return;}
+  
+  var btn=document.getElementById('linksBtn');
+  btn.disabled=true;
+  btn.innerHTML='<span data-zh>检测中...</span><span data-en>Analyzing...</span>';
+  
+  setTimeout(function(){
+    var div=document.createElement('div');
+    div.innerHTML=input;
+    var links=div.getElementsByTagName('a');
+    
+    var linkList=[];
+    var seen={};
+    for(var i=0;i<links.length;i++){
+      var a=links[i];
+      var href=a.href.trim();
+      if(!href||href=='#'||href=='javascript:void(0)'||href=='javascript:;'||href.indexOf('mailto:')===0)continue;
+      if(href.indexOf('http')!==0)continue;
+      if(seen[href])continue;
+      seen[href]=true;
+      
+      var text=(a.textContent||'').trim().substring(0,50);
+      var nofollow=a.getAttribute('rel');
+      var isNofollow=nofollow&&nofollow.toLowerCase().indexOf('nofollow')>-1;
+      var isExternal=true;
+      try{var domain=location.hostname;if(href.indexOf(domain)>-1)isExternal=false;}catch(e){}
+      linkList.push({href:href,text:text,nofollow:isNofollow,external:isExternal});
+    }
+    
+    var html='<div class="result">';
+    html+='<div class="stat-grid">';
+    html+='<div class="stat-item"><div class="label"><span data-zh>总链接数</span><span data-en>Total Links</span></div><div class="value">'+linkList.length+'</div></div>';
+    var extCount=0,nofollowCount=0;
+    for(var i=0;i<linkList.length;i++){if(linkList[i].external)extCount++;if(linkList[i].nofollow)nofollowCount++;}
+    html+='<div class="stat-item"><div class="label"><span data-zh>外链数</span><span data-en>External</span></div><div class="value">'+extCount+'</div></div>';
+    html+='<div class="stat-item"><div class="label"><span data-zh>Nofollow</span><span data-en>Nofollow</span></div><div class="value">'+nofollowCount+'</div></div>';
+    html+='<div class="stat-item"><div class="label"><span data-zh>友链数</span><span data-en>Friendly Links</span></div><div class="value">'+(extCount-nofollowCount)+'</div></div>';
+    html+='</div>';
+    
+    if(linkList.length){
+      html+='<h3 style="margin-top:16px"><span data-zh>链接详情</span><span data-en>Link Details</span></h3>';
+      html+='<div class="link-list">';
+      for(var i=0;i<linkList.length;i++){
+        var link=linkList[i];
+        var statusClass,statusText;
+        if(link.nofollow){
+          statusClass='status-warning';
+          statusText='Nofollow';
+        }else if(link.external){
+          statusClass='status-ok';
+          statusText='<span data-zh>外链</span><span data-en>External</span>';
+        }else{
+          statusClass='status-info';
+          statusText='<span data-zh>内链</span><span data-en>Internal</span>';
+        }
+        html+='<div class="link-item">';
+        html+='<a class="link-url" href="'+link.href+'" target="_blank" rel="noopener">'+link.text+'</a>';
+        html+='<span class="link-status '+statusClass+'">'+statusText+'</span>';
+        html+='</div>';
+      }
+      html+='</div>';
+    }
+    
+    html+='<div class="summary-box">';
+    html+='<h4><span data-zh>SEO建议</span><span data-en>SEO Tips</span></h4>';
+    html+='<ul>';
+    if(extCount>50){
+      html+='<li><span data-zh>外链数量较多('+extCount+'个)，建议审查导出链接的质量和相关性</span><span data-en>Many external links ('+extCount+'), review quality and relevance</span></li>';
+    }
+    if(nofollowCount===0&&extCount>0){
+      html+='<li><span data-zh>建议对不重要的外链添加Nofollow属性，防止权重流失</span><span data-en>Consider adding Nofollow to unimportant external links to preserve PageRank</span></li>';
+    }
+    if(nofollowCount>0&&extCount>nofollowCount){
+      html+='<li><span data-zh>合理的Nofollow使用有助于集中权重</span><span data-en>Proper Nofollow usage helps concentrate PageRank</span></li>';
+    }
+    if(extCount===0){
+      html+='<li><span data-zh>暂无外链，可考虑与相关网站交换友链提升权重</span><span data-en>No external links found, consider exchanging friendly links with related sites</span></li>';
+    }
+    html+='</ul></div></div>';
+    
+    document.getElementById('linksResult').innerHTML=html;
+    btn.disabled=false;
+    btn.innerHTML='<span data-zh>检测链接</span><span data-en>Analyze Links</span>';
+  },50);
+}
+</script>
+</body>
+</html>
