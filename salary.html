@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工资计算器 / Salary Calculator - 2026年五险一金税后工资</title>
-    <meta name="description" content="2026年最新工资计算器，支持中英双语 / Bilingual salary calculator with Five Insurance & Housing Fund deductions, after-tax calculation.">
-    <meta name="keywords" content="工资计算器,税后工资,五险一金,社保计算器,Salary Calculator,China Social Insurance">
+    <title data-zh="工资计算器 - 2026年五险一金税后工资" data-en="Salary Calculator - 2026 After-Tax Salary with Five Insurance & Housing Fund">工资计算器 - 2026年五险一金税后工资</title>
+    <meta name="description" data-zh="2026年最新工资计算器，支持中英双语，精准计算五险一金及个人所得税扣除后的税后工资" data-en="2026 latest bilingual salary calculator. Calculate take-home pay after Five Insurance, Housing Fund and income tax deductions">
+    <meta name="keywords" data-zh="工资计算器,税后工资,五险一金,社保计算器,个人所得税" data-en="Salary Calculator,After-Tax Salary,China Social Insurance,Housing Fund,Income Tax">
     <meta name="author" content="计度AI工具箱">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://tools.xxym8.com/salary.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="工资计算器 / Salary Calculator - 五险一金税后工资">
-    <meta property="og:description" content="中英双语工资计算器 / Bilingual salary calculator">
+    <meta property="og:title" data-zh="工资计算器 - 2026年五险一金税后工资" data-en="Salary Calculator - 2026 After-Tax Salary">
+    <meta property="og:description" data-zh="2026年最新工资计算器，精准计算五险一金及个人所得税" data-en="2026 bilingual salary calculator with Five Insurance & Housing Fund">
     <meta property="og:url" content="https://tools.xxym8.com/salary.html">
-    <meta property="og:site_name" content="计度AI工具箱">
+    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
     <meta name="twitter:card" content="summary">
     <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/salary.html">
     <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/salary.html">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }
+    <style>
+        body { font-family: 'Inter', 'PingFang SC', sans-serif; }
         [data-en] { display: none; }
         html[lang=en] [data-zh] { display: none; }
         html[lang=en] [data-en] { display: inline; }
         html[lang=en] [data-en-block] { display: block; }
-</style>
+    </style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
     <header class="bg-white shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计度AI工具箱</a>
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh="计度AI工具箱" data-en="JIDU AI Tools">计度AI工具箱</span></a>
             <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600">首页 Home</a>
-                <a href="/#tools" class="hover:text-blue-600">工具 Tools</a>
+                <a href="/" class="hover:text-blue-600"><span data-zh="首页" data-en="Home">首页</span></a>
+                <a href="/#tools" class="hover:text-blue-600"><span data-zh="工具" data-en="Tools">工具</span></a>
             </div>
             <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
         </nav>
-            
     </header>
 
     <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
         <nav aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页 Home</span></a>
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页" data-en="Home">首页</span></a>
                     <meta itemprop="position" content="1">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name">工资计算器 Salary</span>
+                    <span class="text-gray-700" itemprop="name" data-zh="工资计算器" data-en="Salary Calculator">工资计算器</span>
                     <meta itemprop="position" content="2">
                 </li>
             </ol>
@@ -56,55 +56,80 @@
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">💵 工资计算器 / Salary Calculator</h1>
-        <p class="text-gray-500 mb-6">算算到手多少钱 | Calculate your take-home pay after deductions</p>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">💵 <span data-zh="工资计算器" data-en="Salary Calculator">工资计算器</span></h1>
+        <p class="text-gray-500 mb-6"><span data-zh="计算税后到手工资，支持五险一金及个税扣除" data-en="Calculate take-home pay with Five Insurance, Housing Fund and tax deductions">计算税后到手工资，支持五险一金及个税扣除</span></p>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">税前工资 Gross Salary（元）</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="税前工资" data-en="Gross Salary">税前工资</span>（<span data-zh="元" data-en="CNY">元</span>）</label>
                         <input type="number" id="grossSalary" value="20000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">公积金缴存比例 Housing Fund Rate（%）</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="公积金缴存比例" data-en="Housing Fund Rate">公积金缴存比例</span>（%）</label>
                         <input type="number" id="fundRatio" value="12" min="5" max="12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">公积金缴存基数 Housing Fund Base（元）</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="公积金缴存基数" data-en="Housing Fund Base">公积金缴存基数</span>（<span data-zh="元" data-en="CNY">元</span>）</label>
                         <input type="number" id="fundBase" value="20000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                        <p class="text-xs text-gray-400 mt-1">通常等于税前工资或当地平均工资的3倍上限 | Usually equals gross salary or 3x local average</p>
+                        <p class="text-xs text-gray-400 mt-1"><span data-zh="通常等于税前工资或当地平均工资的3倍上限" data-en="Usually equals gross salary or 3x local average">通常等于税前工资或当地平均工资的3倍上限</span></p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="专项附加扣除" data-en="Special Additional Deductions">专项附加扣除</span>（<span data-zh="元" data-en="CNY">元</span>）</label>
+                        <input type="number" id="specialDeduction" value="0" min="0" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                        <p class="text-xs text-gray-400 mt-1"><span data-zh="如子女教育、继续教育、大病医疗、住房贷款利息、住房租金、赡养老人等（2026年标准）" data-en="Education, medical, housing loan interest, rent, elderly care, etc. (2026 rates)">如子女教育、继续教育、大病医疗、住房贷款利息、住房租金、赡养老人等（2026年标准）</span></p>
                     </div>
                     <div class="p-3 bg-gray-50 rounded-lg text-sm text-gray-600">
-                        <p class="font-semibold mb-2">2026年北京社保缴费基数上下限（示例）/ Beijing 2026 Social Security Base Limits</p>
-                        <p>养老保险上限：32305元，下限：6326元 | Pension: 32305 max, 6326 min</p>
-                        <p>医疗保险上限：32305元，下限：6326元 | Medical: 32305 max, 6326 min</p>
-                        <p>公积金上限：36000元，下限：2500元 | Housing Fund: 36000 max, 2500 min</p>
+                        <p class="font-semibold mb-2"><span data-zh="2026年北京社保缴费基数上下限" data-en="Beijing 2026 Social Security Base Limits">2026年北京社保缴费基数上下限</span></p>
+                        <p><span data-zh="养老保险上限：" data-en="Pension max: ">养老保险上限：</span>32305<span data-zh="元，下限：" data-en=" CNY, min: ">元，下限：</span>6326<span data-zh="元" data-en=" CNY">元</span></p>
+                        <p><span data-zh="医疗保险上限：" data-en="Medical max: ">医疗保险上限：</span>32305<span data-zh="元，下限：" data-en=" CNY, min: ">元，下限：</span>6326<span data-zh="元" data-en=" CNY">元</span></p>
+                        <p><span data-zh="公积金上限：" data-en="Housing Fund max: ">公积金上限：</span>36000<span data-zh="元，下限：" data-en=" CNY, min: ">元，下限：</span>2500<span data-zh="元" data-en=" CNY">元</span></p>
                     </div>
                 </div>
                 <div class="bg-blue-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 工资明细 / Salary Breakdown</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 <span data-zh="工资明细" data-en="Salary Breakdown">工资明细</span></h3>
                     <div class="space-y-2 text-sm">
                         <div class="flex justify-between py-2 border-b border-blue-100">
-                            <span class="text-gray-600">税前工资 Gross</span>
-                            <span id="grossDisplay" class="font-medium">20,000元</span>
+                            <span class="text-gray-600"><span data-zh="税前工资" data-en="Gross Salary">税前工资</span></span>
+                            <span id="grossDisplay" class="font-medium">20,000<span data-zh="元" data-en=" CNY">元</span></span>
                         </div>
                         <div class="pl-4 space-y-1 text-xs text-gray-500">
-                            <div class="flex justify-between"><span>养老保险 Pension（8%）</span><span id="yanglao">-1,600元</span></div>
-                            <div class="flex justify-between"><span>医疗保险 Medical（2%）</span><span id="yiliao">-400元</span></div>
-                            <div class="flex justify-between"><span>失业保险 Unemployment（0.5%）</span><span id="shiye">-100元</span></div>
-                            <div class="flex justify-between"><span>公积金 Housing Fund（12%）</span><span id="gongjijin">-2,400元</span></div>
+                            <div class="flex justify-between">
+                                <span><span data-zh="养老保险" data-en="Pension">养老保险</span>（8%）</span>
+                                <span id="yanglao">-1,600<span data-zh="元" data-en=" CNY">元</span></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span><span data-zh="医疗保险" data-en="Medical">医疗保险</span>（2%）</span>
+                                <span id="yiliao">-400<span data-zh="元" data-en=" CNY">元</span></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span><span data-zh="失业保险" data-en="Unemployment">失业保险</span>（0.5%）</span>
+                                <span id="shiye">-100<span data-zh="元" data-en=" CNY">元</span></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span><span data-zh="公积金" data-en="Housing Fund">公积金</span>（<span id="fundRatioDisplay">12</span>%）</span>
+                                <span id="gongjijin">-2,400<span data-zh="元" data-en=" CNY">元</span></span>
+                            </div>
                         </div>
                         <div class="flex justify-between py-2 border-b border-blue-100">
-                            <span class="text-gray-600">五险一金合计 Total Deductions</span>
-                            <span id="totalDeduction" class="font-semibold text-orange-500">-4,500元</span>
+                            <span class="text-gray-600"><span data-zh="五险一金合计" data-en="Total Deductions">五险一金合计</span></span>
+                            <span id="totalDeduction" class="font-semibold text-orange-500">-4,500<span data-zh="元" data-en=" CNY">元</span></span>
                         </div>
                         <div class="flex justify-between py-2 border-b border-blue-100">
-                            <span class="text-gray-600">个税 Income Tax</span>
+                            <span class="text-gray-600"><span data-zh="专项附加扣除" data-en="Special Deductions">专项附加扣除</span></span>
+                            <span id="specialDisplay" class="font-medium text-blue-500">0<span data-zh="元" data-en=" CNY">元</span></span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-blue-100">
+                            <span class="text-gray-600"><span data-zh="应纳税所得额" data-en="Taxable Income">应纳税所得额</span></span>
+                            <span id="taxableDisplay" class="font-medium">10,000<span data-zh="元" data-en=" CNY">元</span></span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-blue-100">
+                            <span class="text-gray-600"><span data-zh="个人所得税" data-en="Income Tax">个人所得税</span></span>
                             <span id="tax" class="font-semibold text-red-500">-</span>
                         </div>
                         <div class="flex justify-between py-2 border-b border-blue-100 bg-blue-100 -mx-4 px-4">
-                            <span class="text-gray-800 font-semibold">税后到手 Take-Home</span>
+                            <span class="text-gray-800 font-semibold"><span data-zh="税后到手" data-en="Take-Home Pay">税后到手</span></span>
                             <span id="netSalary" class="text-2xl font-bold text-green-600">-</span>
                         </div>
                     </div>
@@ -113,90 +138,88 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 五险一金缴纳比例（2026年）/ Social Insurance Rates (2026)</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 <span data-zh="五险一金缴纳比例（2026年）" data-en="Social Insurance Rates (2026)">五险一金缴纳比例（2026年）</span></h3>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">养老保险 Pension</p>
-                    <p class="text-gray-500">个人 Employee: 8% | 单位 Employer: 16%</p>
+                    <p class="font-medium text-gray-700"><span data-zh="养老保险" data-en="Pension">养老保险</span></p>
+                    <p class="text-gray-500"><span data-zh="个人：" data-en="Employee: ">个人：</span>8% | <span data-zh="单位：" data-en="Employer: ">单位：</span>16%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">医疗保险 Medical</p>
-                    <p class="text-gray-500">个人 Employee: 2% | 单位 Employer: 8%</p>
+                    <p class="font-medium text-gray-700"><span data-zh="医疗保险" data-en="Medical">医疗保险</span></p>
+                    <p class="text-gray-500"><span data-zh="个人：" data-en="Employee: ">个人：</span>2% | <span data-zh="单位：" data-en="Employer: ">单位：</span>8%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">失业保险 Unemployment</p>
-                    <p class="text-gray-500">个人 Employee: 0.5% | 单位 Employer: 0.5%</p>
+                    <p class="font-medium text-gray-700"><span data-zh="失业保险" data-en="Unemployment">失业保险</span></p>
+                    <p class="text-gray-500"><span data-zh="个人：" data-en="Employee: ">个人：</span>0.5% | <span data-zh="单位：" data-en="Employer: ">单位：</span>0.5%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">工伤保险 Work Injury</p>
-                    <p class="text-gray-500">个人 Employee: 0 | 单位 Employer: 0.2-1.4%</p>
+                    <p class="font-medium text-gray-700"><span data-zh="工伤保险" data-en="Work Injury">工伤保险</span></p>
+                    <p class="text-gray-500"><span data-zh="个人：" data-en="Employee: ">个人：</span>0 | <span data-zh="单位：" data-en="Employer: ">单位：</span>0.2-1.4%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">生育保险 Maternity</p>
-                    <p class="text-gray-500">个人 Employee: 0 | 单位 Employer: 0.8%</p>
+                    <p class="font-medium text-gray-700"><span data-zh="生育保险" data-en="Maternity">生育保险</span></p>
+                    <p class="text-gray-500"><span data-zh="个人：" data-en="Employee: ">个人：</span>0 | <span data-zh="单位：" data-en="Employer: ">单位：</span>0.8%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">住房公积金 Housing Fund</p>
-                    <p class="text-gray-500">个人 Employee: 5%-12% | 单位 Employer: 5%-12%</p>
+                    <p class="font-medium text-gray-700"><span data-zh="住房公积金" data-en="Housing Fund">住房公积金</span></p>
+                    <p class="text-gray-500"><span data-zh="个人：" data-en="Employee: ">个人：</span>5%-12% | <span data-zh="单位：" data-en="Employer: ">单位：</span>5%-12%</p>
                 </div>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具 / Related Tools</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span data-zh="相关工具" data-en="Related Tools">相关工具</span></h3>
             <div class="flex flex-wrap gap-3">
-                <a href="tax.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💰 个人所得税计算器 Income Tax Calculator</a>
-                <a href="gjj.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏦 公积金计算器 Housing Fund Calculator</a>
-                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 房贷计算器 Mortgage Calculator</a>
+                <a href="tax.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💰 <span data-zh="个人所得税计算器" data-en="Income Tax Calculator">个人所得税计算器</span></a>
+                <a href="gjj.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏦 <span data-zh="公积金计算器" data-en="Housing Fund Calculator">公积金计算器</span></a>
+                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 <span data-zh="房贷计算器" data-en="Mortgage Calculator">房贷计算器</span></a>
             </div>
         </div>
 
         <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关于工资计算器 / About Salary Calculator</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="关于工资计算器" data-en="About Salary Calculator">关于工资计算器</span></h2>
             <div class="prose text-gray-600 space-y-4">
-                <p>作为一个打工人，每次看工资条都有点懵——扣掉的那些钱到底是什么？ 这个工资计算器帮你把账算清楚，知道每一分钱去哪儿了。 Based on 2026 latest policies.</p>
-                
-                <p>作为一个打工人，每次看工资条都有点懵——扣掉的那些钱到底是什么？这个工资计算器帮你把账算清楚，知道每一分钱去哪儿了。As a salaried worker, it's confusing to see all those deductions. This calculator helps you understand where every yuan goes.</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">五险一金是什么？/ What are "Five Insurance & One Fund"?</h3>
-                <p><strong>五险（Five Insurance）：</strong></p>
+                <p><span data-zh="作为一个打工人，每次看工资条都有点懵——扣掉的那些钱到底是什么？这个工资计算器帮你把账算清楚，知道每一分钱去哪儿了。" data-en="As a salaried worker, it's confusing to see all those deductions on your pay slip. This salary calculator helps you understand where every yuan goes.">作为一个打工人，每次看工资条都有点懵——扣掉的那些钱到底是什么？这个工资计算器帮你把账算清楚，知道每一分钱去哪儿了。</span></p>
+
+                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="五险一金是什么？" data-en="What are \"Five Insurance & One Fund\"?">五险一金是什么？</span></h3>
+                <p><strong><span data-zh="五险（Five Insurance）：" data-en="Five Insurance:">五险（Five Insurance）：</span></strong></p>
                 <ul class="list-disc list-inside space-y-1 ml-4">
-                    <li>养老保险 Pension — 老了退休了有钱领</li>
-                    <li>医疗保险 Medical — 看病能报销</li>
-                    <li>失业保险 Unemployment — 失业了能领补贴</li>
-                    <li>工伤保险 Work Injury — 工作受伤有保障</li>
-                    <li>生育保险 Maternity — 生孩子能报销</li>
+                    <li><span data-zh="养老保险" data-en="Pension">养老保险</span> — <span data-zh="老了退休了有钱领" data-en="Retirement pension when you retire">老了退休了有钱领</span></li>
+                    <li><span data-zh="医疗保险" data-en="Medical">医疗保险</span> — <span data-zh="看病能报销" data-en="Medical expense reimbursement">看病能报销</span></li>
+                    <li><span data-zh="失业保险" data-en="Unemployment">失业保险</span> — <span data-zh="失业了能领补贴" data-en="Unemployment benefits">失业了能领补贴</span></li>
+                    <li><span data-zh="工伤保险" data-en="Work Injury">工伤保险</span> — <span data-zh="工作受伤有保障" data-en="Work injury protection">工作受伤有保障</span></li>
+                    <li><span data-zh="生育保险" data-en="Maternity">生育保险</span> — <span data-zh="生孩子能报销" data-en="Maternity expense reimbursement">生孩子能报销</span></li>
                 </ul>
-                <p class="mt-2"><strong>一金（One Fund）：</strong>住房公积金 Housing Fund — 买房贷款利率低，租房也可以提取</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">为什么工资要扣这些？/ Why are these deducted?</h3>
+                <p class="mt-2"><strong><span data-zh="一金（One Fund）：" data-en="One Fund:">一金（One Fund）：</span></strong><span data-zh="住房公积金" data-en="Housing Fund">住房公积金</span> — <span data-zh="买房贷款利率低，租房也可以提取" data-en="Lower housing loan interest rates, can also withdraw for rent">买房贷款利率低，租房也可以提取</span></p>
+
+                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="为什么工资要扣这些？" data-en="Why are these deducted?">为什么工资要扣这些？</span></h3>
                 <ul class="list-disc list-inside space-y-1">
-                    <li><strong>养老钱存着</strong> — 现在交钱，老了领养老金，不能白交</li>
-                    <li><strong>看病不慌</strong> — 医保报销比例不低，大病有依靠</li>
-                    <li><strong>买房省钱</strong> — 公积金贷款利率比商业贷款低不少，能省一大笔利息</li>
+                    <li><strong><span data-zh="养老钱存着" data-en="Saving for retirement">养老钱存着</span></strong> — <span data-zh="现在交钱，老了领养老金，不能白交" data-en="Pay now, receive pension when old">现在交钱，老了领养老金，不能白交</span></li>
+                    <li><strong><span data-zh="看病不慌" data-en="Healthcare security">看病不慌</span></strong> — <span data-zh="医保报销比例不低，大病有依靠" data-en="Health insurance covers a good portion, major illness is covered">医保报销比例不低，大病有依靠</span></li>
+                    <li><strong><span data-zh="买房省钱" data-en="Save money on housing">买房省钱</span></strong> — <span data-zh="公积金贷款利率比商业贷款低不少，能省一大笔利息" data-en="Housing fund loan rate is much lower than commercial loans, saving lots of interest">公积金贷款利率比商业贷款低不少，能省一大笔利息</span></li>
                 </ul>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">到手工资怎么算？/ How to calculate take-home pay?</h3>
-                <p class="bg-gray-50 p-3 rounded-lg"><strong>税后工资 = 税前工资 - 五险一金 - 个人所得税</strong></p>
-                <p class="mt-2">简单说：税前工资减去个人承担的社保公积金，再减去个税，就是到手的钱。Gross minus personal social insurance, minus housing fund, minus income tax.</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题 FAQ</h3>
+
+                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="到手工资怎么算？" data-en="How to calculate take-home pay?">到手工资怎么算？</span></h3>
+                <p class="bg-gray-50 p-3 rounded-lg"><strong><span data-zh="税后工资 = 税前工资 - 五险一金 - 个税" data-en="After-Tax = Gross - Five Insurance - Income Tax">税后工资 = 税前工资 - 五险一金 - 个税</span></strong></p>
+                <p class="mt-2"><span data-zh="简单说：税前工资减去个人承担的社保公积金，再减去个税，就是到手的钱。" data-en="Simply: Gross salary minus personal social insurance and housing fund, minus income tax, equals take-home pay.">简单说：税前工资减去个人承担的社保公积金，再减去个税，就是到手的钱。</span></p>
+
+                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="常见问题" data-en="FAQ">常见问题</span></h3>
                 <div class="space-y-3">
                     <div class="p-3 bg-gray-50 rounded-lg">
-                        <p class="font-medium">Q: 为什么实际到手比计算少？/ Why is actual net pay less than calculated?</p>
-                        <p class="text-gray-600 mt-1">A: 可能是社保基数有上限（高工资只能按最高基数交），或者有其他扣款如党费、商业保险等。May be due to social security caps or other deductions like party fees.</p>
+                        <p class="font-medium">Q: <span data-zh="为什么实际到手比计算少？" data-en="Why is actual net pay less than calculated?">为什么实际到手比计算少？</span></p>
+                        <p class="text-gray-600 mt-1">A: <span data-zh="可能是社保基数有上限（高工资只能按最高基数交），或者有其他扣款如党费、商业保险等。" data-en="May be due to social security caps (high salary capped at maximum base) or other deductions like party fees, commercial insurance.">可能是社保基数有上限（高工资只能按最高基数交），或者有其他扣款如党费、商业保险等。</span></p>
                     </div>
                     <div class="p-3 bg-gray-50 rounded-lg">
-                        <p class="font-medium">Q: 公积金有什么用？/ What's Housing Fund for?</p>
-                        <p class="text-gray-600 mt-1">A: 买房用公积金贷款（利率比商贷低2-3个百分点）、租房提取、装修提取都可以。Used for housing loans (lower interest rate), rent withdrawal, home renovation.</p>
+                        <p class="font-medium">Q: <span data-zh="公积金有什么用？" data-en="What's Housing Fund for?">公积金有什么用？</span></p>
+                        <p class="text-gray-600 mt-1">A: <span data-zh="买房用公积金贷款（利率比商贷低2-3个百分点）、租房提取、装修提取都可以。" data-en="Used for housing loans (2-3% lower interest rate than commercial), rent withdrawal, home renovation.">买房用公积金贷款（利率比商贷低2-3个百分点）、租房提取、装修提取都可以。</span></p>
                     </div>
                     <div class="p-3 bg-gray-50 rounded-lg">
-                        <p class="font-medium">Q: 辞职了五险一金怎么办？/ What happens to insurance when I quit?</p>
-                        <p class="text-gray-600 mt-1">A: 可以转到新单位继续交，也可以自己以灵活就业人员身份交（但要自己掏全部）。Transfer to new employer, or pay as self-employed (but you cover both portions).</p>
+                        <p class="font-medium">Q: <span data-zh="辞职了五险一金怎么办？" data-en="What happens to insurance when I quit?">辞职了五险一金怎么办？</span></p>
+                        <p class="text-gray-600 mt-1">A: <span data-zh="可以转到新单位继续交，也可以自己以灵活就业人员身份交（但要自己掏全部）。" data-en="Transfer to new employer, or pay as self-employed (but you cover both portions).">可以转到新单位继续交，也可以自己以灵活就业人员身份交（但要自己掏全部）。</span></p>
                     </div>
                     <div class="p-3 bg-gray-50 rounded-lg">
-                        <p class="font-medium">Q: 社保交多久能领养老金？/ How long to contribute for pension?</p>
-                        <p class="text-gray-600 mt-1">A: 目前需要累计缴满15年才能领养老金。Currently need 15+ years of contributions to receive pension.</p>
+                        <p class="font-medium">Q: <span data-zh="社保交多久能领养老金？" data-en="How long to contribute for pension?">社保交多久能领养老金？</span></p>
+                        <p class="text-gray-600 mt-1">A: <span data-zh="目前需要累计缴满15年才能领养老金。" data-en="Currently need 15+ years of contributions to receive pension.">目前需要累计缴满15年才能领养老金。</span></p>
                     </div>
                 </div>
             </div>
@@ -204,63 +227,190 @@
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2026 计度AI工具箱 | Jdu Tools</p>
+        <p>© 2026 <span data-zh="计度AI工具箱" data-en="JIDU AI Tools">计度AI工具箱</span></p>
     </footer>
 
     <script>
+        // 2026年税率表 (2026 Tax Brackets)
+        const TAX_RATES = [
+            { max: 36000, rate: 0.03, deduction: 0 },
+            { max: 144000, rate: 0.10, deduction: 2520 },
+            { max: 300000, rate: 0.20, deduction: 16920 },
+            { max: 420000, rate: 0.25, deduction: 31920 },
+            { max: 660000, rate: 0.30, deduction: 52920 },
+            { max: 960000, rate: 0.35, deduction: 85920 },
+            { max: Infinity, rate: 0.45, deduction: 181920 }
+        ];
+
+        // 社保缴费基数上下限 (2026年北京标准)
+        const SOCIAL_LIMITS = {
+            yanglao: { min: 6326, max: 32305 },
+            yiliao: { min: 6326, max: 32305 },
+            shiye: { min: 6326, max: 32305 },
+            gongjijin: { min: 2500, max: 36000 }
+        };
+
+        // 社保缴费比例 (个人部分)
         const SOCIAL_RATES = {
             yanglao: 0.08,
             yiliao: 0.02,
-            shiye: 0.005,
-            gongjijin: 0.12
+            shiye: 0.005
         };
 
         function calculate() {
             const gross = parseFloat(document.getElementById('grossSalary').value) || 0;
             const fundRatio = parseFloat(document.getElementById('fundRatio').value) / 100 || 0;
             const fundBase = parseFloat(document.getElementById('fundBase').value) || 0;
+            const specialDeduction = parseFloat(document.getElementById('specialDeduction').value) || 0;
 
-            document.getElementById('grossDisplay').textContent = gross.toLocaleString('zh-CN') + '元';
+            // 更新公积金比例显示
+            document.getElementById('fundRatioDisplay').textContent = (fundRatio * 100).toFixed(0);
 
-            const yanglao = gross * SOCIAL_RATES.yanglao;
-            const yiliao = gross * SOCIAL_RATES.yiliao;
-            const shiye = gross * SOCIAL_RATES.shiye;
-            const gongjijin = fundBase * fundRatio;
+            // 显示税前工资
+            document.getElementById('grossDisplay').textContent = gross.toLocaleString('zh-CN');
 
-            document.getElementById('yanglao').textContent = '-' + yanglao.toLocaleString('zh-CN') + '元';
-            document.getElementById('yiliao').textContent = '-' + yiliao.toLocaleString('zh-CN') + '元';
-            document.getElementById('shiye').textContent = '-' + shiye.toLocaleString('zh-CN') + '元';
-            document.getElementById('gongjijin').textContent = '-' + gongjijin.toLocaleString('zh-CN') + '元';
+            // 计算养老保险 (有上下限)
+            const yanglaoBase = Math.min(Math.max(gross, SOCIAL_LIMITS.yanglao.min), SOCIAL_LIMITS.yanglao.max);
+            const yanglao = yanglaoBase * SOCIAL_RATES.yanglao;
 
+            // 计算医疗保险 (有上下限)
+            const yiliaoBase = Math.min(Math.max(gross, SOCIAL_LIMITS.yiliao.min), SOCIAL_LIMITS.yiliao.max);
+            const yiliao = yiliaoBase * SOCIAL_RATES.yiliao;
+
+            // 计算失业保险 (有上下限)
+            const shiyeBase = Math.min(Math.max(gross, SOCIAL_LIMITS.shiye.min), SOCIAL_LIMITS.shiye.max);
+            const shiye = shiyeBase * SOCIAL_RATES.shiye;
+
+            // 计算公积金 (有上下限)
+            const actualFundBase = Math.min(Math.max(fundBase, SOCIAL_LIMITS.gongjijin.min), SOCIAL_LIMITS.gongjijin.max);
+            const gongjijin = actualFundBase * fundRatio;
+
+            // 更新各项目显示
+            document.getElementById('yanglao').textContent = '-' + yanglao.toLocaleString('zh-CN', {minimumFractionDigits: 2});
+            document.getElementById('yiliao').textContent = '-' + yiliao.toLocaleString('zh-CN', {minimumFractionDigits: 2});
+            document.getElementById('shiye').textContent = '-' + shiye.toLocaleString('zh-CN', {minimumFractionDigits: 2});
+            document.getElementById('gongjijin').textContent = '-' + gongjijin.toLocaleString('zh-CN', {minimumFractionDigits: 2});
+
+            // 五险一金合计
             const totalDeduction = yanglao + yiliao + shiye + gongjijin;
-            document.getElementById('totalDeduction').textContent = '-' + totalDeduction.toLocaleString('zh-CN') + '元';
+            document.getElementById('totalDeduction').textContent = '-' + totalDeduction.toLocaleString('zh-CN', {minimumFractionDigits: 2});
 
-            // 计算个税 Calculate income tax
-            const taxable = gross - totalDeduction - 5000;
+            // 专项附加扣除
+            document.getElementById('specialDisplay').textContent = '-' + specialDeduction.toLocaleString('zh-CN');
+
+            // 应纳税所得额 = 税前工资 - 五险一金 - 5000(起征点) - 专项附加扣除
+            const taxableIncome = gross - totalDeduction - 5000 - specialDeduction;
+            document.getElementById('taxableDisplay').textContent = Math.max(0, taxableIncome).toLocaleString('zh-CN', {minimumFractionDigits: 2});
+
+            // 计算个税 (使用2026年税率表)
             let tax = 0;
-            if (taxable > 0) {
-                if (taxable <= 36000) tax = taxable * 0.03;
-                else if (taxable <= 144000) tax = taxable * 0.10 - 2520;
-                else if (taxable <= 300000) tax = taxable * 0.20 - 16920;
-                else if (taxable <= 420000) tax = taxable * 0.25 - 31920;
-                else if (taxable <= 660000) tax = taxable * 0.30 - 52920;
-                else if (taxable <= 960000) tax = taxable * 0.35 - 85920;
-                else tax = taxable * 0.45 - 181920;
+            if (taxableIncome > 0) {
+                for (const bracket of TAX_RATES) {
+                    if (taxableIncome <= bracket.max) {
+                        tax = taxableIncome * bracket.rate - bracket.deduction;
+                        break;
+                    }
+                }
             }
-            document.getElementById('tax').textContent = tax > 0 ? '-' + tax.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元' : '0元';
+            document.getElementById('tax').textContent = tax > 0 ? '-' + tax.toLocaleString('zh-CN', {minimumFractionDigits: 2}) : '0';
 
-            const net = gross - totalDeduction - tax;
-            document.getElementById('netSalary').textContent = net.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+            // 税后工资
+            const netSalary = gross - totalDeduction - tax;
+            document.getElementById('netSalary').textContent = netSalary.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
         }
 
+        // 初始化计算
         calculate();
+
+        // 语言切换功能
+        function toggleLang() {
+            const html = document.documentElement;
+            const isEN = html.lang === 'en';
+            html.lang = isEN ? 'zh-CN' : 'en';
+
+            // 更新切换按钮文字
+            const btn = document.getElementById('langToggle');
+            if (btn) btn.textContent = isEN ? 'EN' : '中文';
+
+            // 保存语言偏好到Cookie
+            document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+
+            // 同步所有meta标签的data-zh/data-en内容
+            document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                const txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+                if (txt) el.content = txt;
+            });
+
+            // 同步og:title和og:description
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) {
+                const txt = isEN ? ogTitle.getAttribute('data-zh') : ogTitle.getAttribute('data-en');
+                if (txt) ogTitle.content = txt;
+            }
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) {
+                const txt = isEN ? ogDesc.getAttribute('data-zh') : ogDesc.getAttribute('data-en');
+                if (txt) ogDesc.content = txt;
+            }
+            const ogSiteName = document.querySelector('meta[property="og:site_name"]');
+            if (ogSiteName) {
+                const txt = isEN ? ogSiteName.getAttribute('data-zh') : ogSiteName.getAttribute('data-en');
+                if (txt) ogSiteName.content = txt;
+            }
+
+            // 同步页面标题
+            const titleEl = document.querySelector('title');
+            if (titleEl) {
+                const txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+                if (txt) document.title = txt;
+            }
+        }
+
+        // 初始化语言设置
+        function initLang() {
+            if (document.cookie.indexOf('lang=en') !== -1) {
+                document.documentElement.lang = 'en';
+                const btn = document.getElementById('langToggle');
+                if (btn) btn.textContent = '中文';
+
+                // 同步所有meta标签
+                document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                    const txt = el.getAttribute('data-en');
+                    if (txt) el.content = txt;
+                });
+
+                const ogTitle = document.querySelector('meta[property="og:title"]');
+                if (ogTitle) {
+                    const txt = ogTitle.getAttribute('data-en');
+                    if (txt) ogTitle.content = txt;
+                }
+                const ogDesc = document.querySelector('meta[property="og:description"]');
+                if (ogDesc) {
+                    const txt = ogDesc.getAttribute('data-en');
+                    if (txt) ogDesc.content = txt;
+                }
+                const ogSiteName = document.querySelector('meta[property="og:site_name"]');
+                if (ogSiteName) {
+                    const txt = ogSiteName.getAttribute('data-en');
+                    if (txt) ogSiteName.content = txt;
+                }
+                const titleEl = document.querySelector('title');
+                if (titleEl) {
+                    const txt = titleEl.getAttribute('data-en');
+                    if (txt) document.title = txt;
+                }
+            }
+        }
+
+        initLang();
     </script>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "工资计算器 Salary Calculator",
-        "description": "计算五险一金扣除后的税后工资 / Calculate after-tax salary with Five Insurance & Housing Fund",
+        "name": "工资计算器",
+        "description": "计算五险一金扣除后的税后工资",
         "url": "https://tools.xxym8.com/salary.html",
         "applicationCategory": "FinanceApplication",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
@@ -271,8 +421,8 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "首页 Home", "item": "https://tools.xxym8.com/" },
-            { "@type": "ListItem", "position": 2, "name": "工资计算器 Salary", "item": "https://tools.xxym8.com/salary.html" }
+            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
+            { "@type": "ListItem", "position": 2, "name": "工资计算器", "item": "https://tools.xxym8.com/salary.html" }
         ]
     }
     </script>
@@ -281,39 +431,12 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            { "@type": "Question", "name": "五险一金包括哪些？What does Five Insurance include?", "acceptedAnswer": { "@type": "Answer", "text": "五险：养老保险、医疗保险、失业保险、工伤保险、生育保险；一金：住房公积金。Five insurance: Pension, Medical, Unemployment, Work Injury, Maternity. One fund: Housing Fund." } },
-            { "@type": "Question", "name": "到手工资怎么计算？How to calculate take-home pay?", "acceptedAnswer": { "@type": "Answer", "text": "税后工资 = 税前工资 - 五险一金 - 个人所得税。个人缴纳部分约为税前工资的10.5%。After-tax = Gross - Five Insurance - Income Tax. Personal contribution ~10.5% of gross." } },
-            { "@type": "Question", "name": "公积金缴存比例多少合适？What housing fund rate to choose?", "acceptedAnswer": { "@type": "Answer", "text": "公积金缴存比例在5%-12%之间，比例越高账户积累越快，但到手工资会减少。建议根据收入情况选择。Rate between 5-12%, higher rate = faster savings but less take-home. Choose based on your income." } },
-            { "@type": "Question", "name": "辞职后五险一金怎么处理？What to do with insurance after quitting?", "acceptedAnswer": { "@type": "Answer", "text": "可以转移合并到新单位，或以自由职业者身份继续缴纳（需自付全部费用）。Transfer to new employer, or pay as freelancer (you cover all portions)." } }
+            { "@type": "Question", "name": "五险一金包括哪些？", "acceptedAnswer": { "@type": "Answer", "text": "五险：养老保险、医疗保险、失业保险、工伤保险、生育保险；一金：住房公积金。" } },
+            { "@type": "Question", "name": "到手工资怎么计算？", "acceptedAnswer": { "@type": "Answer", "text": "税后工资 = 税前工资 - 五险一金 - 个人所得税。" } },
+            { "@type": "Question", "name": "公积金缴存比例多少合适？", "acceptedAnswer": { "@type": "Answer", "text": "公积金缴存比例在5%-12%之间，比例越高账户积累越快，但到手工资会减少。" } },
+            { "@type": "Question", "name": "辞职后五险一金怎么处理？", "acceptedAnswer": { "@type": "Answer", "text": "可以转移合并到新单位，或以自由职业者身份继续缴纳（需自付全部费用）。" } }
         ]
     }
     </script>
-
-<script>
-function toggleLang() {
-    var isEN = document.documentElement.lang === 'en';
-    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
-    var btn = document.getElementById('langToggle');
-    if (btn) btn.textContent = isEN ? 'EN' : '中文';
-    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
-    var titleEl = document.querySelector('title');
-    if (titleEl) {
-        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
-        if (txt) document.title = txt;
-    }
-    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-        if (txt) el.content = txt;
-    });
-}
-function initLang() {
-    if (document.cookie.indexOf('lang=en') !== -1) {
-        document.documentElement.lang = 'en';
-        var btn = document.getElementById('langToggle');
-        if (btn) btn.textContent = '中文';
-    }
-}
-</script>
-
 </body>
 </html>

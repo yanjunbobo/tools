@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>复利计算器 | Compound Interest Calculator</title>
-    <meta name="description" content="在线复利计算器，支持一次性本金复利和每月定投计算，可视化增长曲线图，精准计算年化收益率、收益总额，助您规划理财目标。">
-    <meta name="keywords" content="复利计算器,定投计算器,年化收益率计算器,基金收益计算器,复利公式,投资收益计算器,储蓄计算器,compound interest calculator,investment calculator">
-    <meta name="author" content="计算器之家">
+    <title data-zh="复利计算器 | 计度AI工具箱" data-en="Compound Interest Calculator | JIDU AI Tools">复利计算器 | 计度AI工具箱</title>
+    <meta name="description" data-zh="在线复利计算器，支持一次性本金复利和每月定投计算，可视化增长曲线图，精准计算年化收益率、收益总额，助您规划理财目标。" data-en="Free online compound interest calculator with DCA support. Visualize growth charts, calculate annual returns and total earnings. Plan your investments with precision.">
+    <meta name="keywords" data-zh="复利计算器,定投计算器,年化收益率计算器,基金收益计算器,复利公式,投资收益计算器,储蓄计算器" data-en="compound interest calculator,investment calculator,dollar cost averaging calculator,annual return calculator,finance tool">
+    <meta name="author" content="计度AI工具箱">
     <meta name="robots" content="index, follow">
     
     <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/compound.html">
@@ -14,63 +14,52 @@
     <link rel="canonical" href="https://tools.xxym8.com/compound.html">
     
     <meta property="og:type" content="article">
-    <meta property="og:title" content="复利计算器 | Compound Interest Calculator">
-    <meta property="og:description" content="支持一次性复利和每月定投，可视化增长曲线 | Supports lump-sum & monthly DCA calculation">
+    <meta property="og:title" data-zh="复利计算器 | 计度AI工具箱" data-en="Compound Interest Calculator | JIDU AI Tools">
+    <meta property="og:description" data-zh="支持一次性复利和每月定投，可视化增长曲线" data-en="Supports lump-sum compound interest and monthly DCA calculation">
     <meta property="og:url" content="https://tools.xxym8.com/compound.html">
-    <meta property="og:site_name" content="计算器之家">
+    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
     <meta property="og:locale" content="zh_CN">
     
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="复利计算器 | Compound Interest Calculator">
+    <meta name="twitter:title" data-zh="复利计算器 | 计度AI工具箱" data-en="Compound Interest Calculator | JIDU AI Tools">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif; }
-        .lang-toggle { display: none; }
         
-        
-        body .zh-content { display: none; }
-        body .en-content { display: block; }
-        body .lang-toggle { display: inline-flex; }
-        body:not(.english) .lang-toggle { display: inline-flex; }
-    
         [data-en] { display: none; }
         html[lang=en] [data-zh] { display: none; }
         html[lang=en] [data-en] { display: inline; }
         html[lang=en] [data-en-block] { display: block; }
-</style>
+        html[lang=en] [data-en-table] { display: table; }
+    </style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
     <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">🧮 Calculator Hub</a>
+            <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent" data-en-block>🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
             <div class="flex items-center gap-4">
-                <button onclick="toggleLang()" class="lang-toggle px-3 py-1.5 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-full text-sm font-medium transition-colors">
-                    <span data-zh>🌐 English</span>
-                    <span data-en>🌐 中文</span>
-                </button>
                 <div class="hidden md:flex gap-6 text-gray-600">
-                    <a href="/" class="hover:text-blue-600 transition-colors"><span class="zh-content">首页</span><span class="en-content">Home</span></a>
-                    <a href="/#tools" class="hover:text-blue-600 transition-colors"><span class="zh-content">工具</span><span class="en-content">Tools</span></a>
+                    <a href="/" class="hover:text-blue-600 transition-colors" data-en-block><span data-zh>首页</span><span data-en>Home</span></a>
+                    <a href="/#tools" class="hover:text-blue-600 transition-colors" data-en-block><span data-zh>工具</span><span data-en>Tools</span></a>
                 </div>
+                <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 transition-colors">EN</button>
             </div>
-            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
         </nav>
-        
     </header>
 
-    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
+    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500" data-en-block>
         <nav aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span class="zh-content">首页</span><span class="en-content">Home</span></a>
+                    <a href="/" class="hover:text-blue-600" itemprop="item" data-en-block><span data-zh>首页</span><span data-en>Home</span></a>
                     <meta itemprop="position" content="1">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name"><span class="zh-content">复利计算器</span><span class="en-content">Compound Calculator</span></span>
+                    <span class="text-gray-700" itemprop="name" data-en-block><span data-zh>复利计算器</span><span data-en>Compound Calculator</span></span>
                     <meta itemprop="position" content="2">
                 </li>
             </ol>
@@ -78,73 +67,84 @@
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
-        <div class="text-center mb-6">
-            <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">📈 <span class="zh-content">复利/定投计算器</span><span class="en-content">Compound & DCA Calculator</span></h1>
-            <p class="text-gray-500 text-lg"><span class="zh-content">计算复利收益和定投收益，可视化增长曲线</span><span class="en-content">Calculate compound returns & Dollar-Cost Averaging growth</span></p>
+        <div class="text-center mb-6" data-en-block>
+            <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">📈 <span data-zh>复利/定投计算器</span><span data-en>Compound & DCA Calculator</span></h1>
+            <p class="text-gray-500 text-lg"><span data-zh>计算复利收益和定投收益，可视化增长曲线</span><span data-en>Calculate compound returns & Dollar-Cost Averaging growth</span></p>
         </div>
 
         <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 border border-blue-100">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
-                    <div>
+                    <div data-en-block>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">计算模式</span><span class="en-content">Calculation Mode</span>
+                            <span data-zh>计算模式</span><span data-en>Calculation Mode</span>
                         </label>
                         <div class="flex gap-4">
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="radio" name="mode" value="lump" checked class="w-4 h-4 text-blue-600" onchange="calculate()">
-                                <span><span class="zh-content">一次性复利</span><span class="en-content">Lump Sum</span></span>
+                                <span data-en-block><span data-zh>一次性复利</span><span data-en>Lump Sum</span></span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="radio" name="mode" value="dca" class="w-4 h-4 text-blue-600" onchange="calculate()">
-                                <span><span class="zh-content">每月定投</span><span class="en-content">Monthly DCA</span></span>
+                                <span data-en-block><span data-zh>每月定投</span><span data-en>Monthly DCA</span></span>
                             </label>
                         </div>
                     </div>
                     <div id="principalDiv">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">初始本金（元）</span><span class="en-content">Initial Principal (CNY)</span>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-en-block>
+                            <span data-zh>初始本金（元）</span><span data-en>Initial Principal (CNY)</span>
                         </label>
                         <input type="number" id="principal" value="100000" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" oninput="calculate()">
                     </div>
                     <div id="monthlyDiv" class="hidden">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">每月定投金额（元）</span><span class="en-content">Monthly Investment (CNY)</span>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-en-block>
+                            <span data-zh>每月定投金额（元）</span><span data-en>Monthly Investment (CNY)</span>
                         </label>
                         <input type="number" id="monthly" value="1000" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" oninput="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">年化收益率（%）</span><span class="en-content">Annual Return (%)</span>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-en-block>
+                            <span data-zh>年化收益率（%）</span><span data-en>Annual Return (%)</span>
                         </label>
                         <input type="number" id="rate" value="8" step="0.1" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" oninput="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">投资期限（年）</span><span class="en-content">Investment Period (Years)</span>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-en-block>
+                            <span data-zh>投资期限（年）</span><span data-en>Investment Period (Years)</span>
                         </label>
                         <input type="number" id="years" value="20" min="1" max="50" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" oninput="calculate()">
                     </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-en-block>
+                            <span data-zh>复利频率</span><span data-en>Compounding Frequency</span>
+                        </label>
+                        <select id="frequency" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" onchange="calculate()">
+                            <option value="12" data-zh="每月" data-en="Monthly">每月</option>
+                            <option value="4" data-zh="每季度" data-en="Quarterly">每季度</option>
+                            <option value="2" data-zh="每半年" data-en="Semi-annually">每半年</option>
+                            <option value="1" data-zh="每年" data-en="Annually">每年</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                        📊 <span class="zh-content">计算结果</span><span class="en-content">Results</span>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2" data-en-block>
+                        📊 <span data-zh>计算结果</span><span data-en>Results</span>
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span class="zh-content">到期总资产</span><span class="en-content">Total Value</span></span>
+                            <span class="text-gray-600" data-en-block><span data-zh>到期总资产</span><span data-en>Total Value</span></span>
                             <span id="finalValue" class="text-2xl font-bold text-blue-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span class="zh-content">收益总额</span><span class="en-content">Total Returns</span></span>
+                            <span class="text-gray-600" data-en-block><span data-zh>收益总额</span><span data-en>Total Interest Earned</span></span>
                             <span id="totalReturn" class="text-xl font-semibold text-green-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span class="zh-content">本金总额</span><span class="en-content">Principal Invested</span></span>
+                            <span class="text-gray-600" data-en-block><span data-zh>本金总额</span><span data-en>Principal Invested</span></span>
                             <span id="totalPrincipal" class="text-xl font-semibold text-gray-800">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-600"><span class="zh-content">收益率</span><span class="en-content">Return Rate</span></span>
+                            <span class="text-gray-600" data-en-block><span data-zh>收益率</span><span data-en>Return Rate</span></span>
                             <span id="returnRate" class="text-xl font-semibold text-orange-500">-</span>
                         </div>
                     </div>
@@ -153,139 +153,94 @@
         </div>
 
         <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 border border-purple-100">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                📈 <span class="zh-content">收益增长曲线</span><span class="en-content">Growth Chart</span>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2" data-en-block>
+                📈 <span data-zh>收益增长曲线</span><span data-en>Growth Chart</span>
             </h3>
             <canvas id="chart" height="200"></canvas>
         </div>
 
         <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 border border-gray-100">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                🔗 <span class="zh-content">相关工具</span><span class="en-content">Related Tools</span>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2" data-en-block>
+                🔗 <span data-zh>相关工具</span><span data-en>Related Tools</span>
             </h3>
             <div class="flex flex-wrap gap-3">
-                <a href="tax.html" class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 hover:from-gray-200 hover:to-gray-100 rounded-xl text-sm text-gray-700 transition-all border border-gray-200">
-                    💰 <span class="zh-content">个人所得税计算器</span><span class="en-content">Tax Calculator</span>
+                <a href="tax.html" class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 hover:from-gray-200 hover:to-gray-100 rounded-xl text-sm text-gray-700 transition-all border border-gray-200" data-en-block>
+                    💰 <span data-zh>个人所得税计算器</span><span data-en>Tax Calculator</span>
                 </a>
-                <a href="bmi.html" class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 hover:from-gray-200 hover:to-gray-100 rounded-xl text-sm text-gray-700 transition-all border border-gray-200">
-                    ⚖️ <span class="zh-content">BMI计算器</span><span class="en-content">BMI Calculator</span>
+                <a href="bmi.html" class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 hover:from-gray-200 hover:to-gray-100 rounded-xl text-sm text-gray-700 transition-all border border-gray-200" data-en-block>
+                    ⚖️ <span data-zh>BMI计算器</span><span data-en>BMI Calculator</span>
                 </a>
             </div>
         </div>
 
         <article class="bg-white rounded-2xl shadow-lg p-6 border border-blue-100">
-            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                📖 <span class="zh-content">关于复利计算器</span><span class="en-content">About This Calculator</span>
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2" data-en-block>
+                📖 <span data-zh>关于复利计算器</span><span data-en>About This Calculator</span>
             </h2>
             <div class="prose text-gray-600 space-y-4">
-                <div class="zh-content">
-                    <p><strong>复利（Compound Interest）</strong>，也就是咱们常说的"利滚利"——本金产生的利息会加到本金里，下一个周期利息是在更大的本金上算的。爱因斯坦老爷子据说都夸过复利是"世界第八大奇迹"，足见它的威力有多夸张 😄</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">📐 复利公式</h3>
-                    <p><strong>一次性复利终值：</strong></p>
-                    <p class="font-mono bg-gray-100 px-3 py-2 rounded">F = P × (1 + r)<sup>n</sup></p>
-                    <p>F = 到期总资产，P = 本金，r = 月利率，n = 月数</p>
-                    
-                    <p class="mt-4"><strong>每月定投终值：</strong></p>
-                    <p class="font-mono bg-gray-100 px-3 py-2 rounded">F = PMT × [(1 + r)<sup>n</sup> - 1] / r</p>
-                    <p>PMT = 每月定投金额</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">🤔 复利 vs 单利</h3>
-                    <p><strong>单利（Simple Interest）：</strong>只有本金生利息，利息花掉就不再增值了。举个例子👇</p>
-                    <p>10万本金、年利率8%、放20年：收益 = 10万 × 8% × 20 = <strong>16万</strong>。</p>
-                    <p>Total: 10万 + 16万 = 26万。</p>
-                    
-                    <p class="mt-3"><strong>复利（Compound Interest）：</strong>本金和利息一起滚雪球！同样是10万、年8%、20年：</p>
-                    <p>终值 ≈ <strong>46.6万</strong>，收益 ≈ 36.6万。比单利多出<strong>20万+</strong>！</p>
-                    <p>——就因为利息也生了利息，这差距也太大了吧 😱</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">📊 常见投资渠道年化收益率参考</h3>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>🏦 银行存款：1.5%-3%</li>
-                        <li>📄 国债：3%-4%</li>
-                        <li>🏦 银行理财产品：3%-5%</li>
-                        <li>📈 债券基金：4%-6%</li>
-                        <li>📈 指数基金（长期）：7%-10%</li>
-                        <li>📈 股票基金：10%-15%（波动大）</li>
-                    </ul>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">💡 计算示例</h3>
-                    <p><strong>示例1：</strong>一次性投入10万，年化8%，20年后是多少？</p>
-                    <p>👉 答案：10万 × (1 + 8%)<sup>20</sup> ≈ <strong>46.6万</strong>，收益约 36.6万！</p>
-                    
-                    <p class="mt-3"><strong>示例2：</strong>每月定投1000元，年化8%，20年后是多少？</p>
-                    <p>👉 答案：约 <strong>494万</strong>！其中本金 = 24万，收益 ≈ <strong>470万</strong>！</p>
-                    <p>这就是定投+复利的威力——Time is your best friend ⏰</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">🎯 定投为什么有效？</h3>
-                    <p>定投（Dollar-Cost Averaging）是一种"傻傻买"的策略——<strong>定期定额</strong>，不管市场涨跌。</p>
-                    <p>市场跌了：同样1000块能买到更多份额，摊低成本 📉</p>
-                    <p>市场涨了：账面盈利，心情好 😊</p>
-                    <p>长期坚持下来，成本会被<strong>自动摊平</strong>，再加上复利效应，收益相当可观。基金定投被认为是<strong>最适合普通人的投资方式之一</strong>，不需要择时，不用盯盘，省心！</p>
-                </div>
-
-                <div class="en-content">
-                    <p><strong>Compound Interest</strong>, or "interest on interest" — the interest you earn gets added back to your principal, so you earn interest on a growing base. Einstein allegedly called it the "eighth wonder of the world"!</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">📐 The Formulas</h3>
-                    <p><strong>Lump Sum Future Value：</strong></p>
-                    <p class="font-mono bg-gray-100 px-3 py-2 rounded">F = P × (1 + r)<sup>n</sup></p>
-                    <p>F = Final Value, P = Principal, r = Monthly Rate, n = Months</p>
-                    
-                    <p class="mt-4"><strong>DCA Future Value：</strong></p>
-                    <p class="font-mono bg-gray-100 px-3 py-2 rounded">F = PMT × [(1 + r)<sup>n</sup> - 1] / r</p>
-                    <p>PMT = Monthly Investment Amount</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">🤔 Compound vs Simple Interest</h3>
-                    <p><strong>Simple Interest</strong> only applies to the principal — you earn interest on your initial deposit, but not on the interest itself.</p>
-                    <p>Example: 100,000 CNY at 8% for 20 years → Returns = 100,000 × 8% × 20 = <strong>160,000 CNY</strong>. Total: 260,000 CNY.</p>
-                    
-                    <p class="mt-3"><strong>Compound Interest</strong> applies to both principal AND accumulated interest — that's the magic!</p>
-                    <p>Same example with compound: Final Value ≈ <strong>466,000 CNY</strong>, returns ≈ 366,000 CNY. That's <strong>200K+ more</strong> than simple interest! 😱</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">📊 Historical Returns Reference</h3>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>🏦 Bank Savings：1.5%-3%</li>
-                        <li>📄 Government Bonds：3%-4%</li>
-                        <li>🏦 Bank Financial Products：3%-5%</li>
-                        <li>📈 Bond Funds：4%-6%</li>
-                        <li>📈 Index Funds (long-term)：7%-10%</li>
-                        <li>📈 Stock Funds：10%-15%（High volatility）</li>
-                    </ul>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">💡 Worked Examples</h3>
-                    <p><strong>Example 1：</strong>Invest 100K lump sum, 8% annual return, 20 years — what's the result?</p>
-                    <p>👉 Answer：100K × (1 + 8%)<sup>20</sup> ≈ <strong>466K CNY</strong>, returns ≈ 366K!</p>
-                    
-                    <p class="mt-3"><strong>Example 2：</strong>DCA 1,000 CNY/month, 8% annual return, 20 years?</p>
-                    <p>👉 Answer：≈ <strong>4.94 million CNY</strong>! Principal = 240K, returns ≈ <strong>4.7 million CNY</strong>!</p>
-                    <p>That's the power of DCA + compound interest — Time is your best friend ⏰</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">🎯 Why Does DCA Work?</h3>
-                    <p>DCA (Dollar-Cost Averaging) means investing a fixed amount regularly, regardless of market conditions — a "set and forget" strategy.</p>
-                    <p>Market dips: same money buys more shares, lowering your average cost 📉</p>
-                    <p>Market rises: unrealized gains feel great 😊</p>
-                    <p>Over time, DCA smooths out your cost basis. Add compound interest on top, and the results speak for themselves. It's why many consider DCA one of the best strategies for everyday investors!</p>
-                </div>
+                <p data-en-block><strong data-zh>复利（Compound Interest）</strong><strong data-en>Compound Interest</strong><span data-zh>，也就是咱们常说的"利滚利"——本金产生的利息会加到本金里，下一个周期利息是在更大的本金上算的。爱因斯坦老爷子据说都夸过复利是"世界第八大奇迹"，足见它的威力有多夸张 😄</span><span data-en>, or "interest on interest" — the interest you earn gets added back to your principal, so you earn interest on a growing base. Einstein allegedly called it the "eighth wonder of the world"!</span></p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-en-block>📐 <span data-zh>复利公式</span><span data-en>The Formulas</span></h3>
+                <p data-en-block><strong data-zh>一次性复利终值：</strong><strong data-en>Lump Sum Future Value:</strong></p>
+                <p class="font-mono bg-gray-100 px-3 py-2 rounded" data-en-block>F = P × (1 + r)<sup>n</sup></p>
+                <p data-en-block><span data-zh>F = 到期总资产，P = 本金，r = 期利率，n = 期数</span><span data-en>F = Final Value, P = Principal, r = Periodic Rate, n = Number of Periods</span></p>
+                
+                <p class="mt-4" data-en-block><strong data-zh>每月定投终值：</strong><strong data-en>DCA Future Value:</strong></p>
+                <p class="font-mono bg-gray-100 px-3 py-2 rounded" data-en-block>F = PMT × [(1 + r)<sup>n</sup> - 1] / r</p>
+                <p data-en-block><span data-zh>PMT = 每月定投金额</span><span data-en>PMT = Monthly Investment Amount</span></p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-en-block>🤔 <span data-zh>复利 vs 单利</span><span data-en>Compound vs Simple Interest</span></h3>
+                <p data-en-block><strong data-zh>单利（Simple Interest）：</strong><strong data-en>Simple Interest:</strong><span data-zh>只有本金生利息，利息花掉就不再增值了。举个例子👇</span><span data-en> only applies to the principal — you earn interest on your initial deposit, but not on the interest itself.</span></p>
+                <p data-en-block><span data-zh>10万本金、年利率8%、放20年：收益 = 10万 × 8% × 20 = </span><span data-en>100,000 CNY at 8% for 20 years → Returns = 100,000 × 8% × 20 = </span><strong>160,000 CNY</strong>.</p>
+                <p data-en-block><span data-zh>Total: 10万 + 16万 = 26万。</span><span data-en>Total: 260,000 CNY.</span></p>
+                
+                <p class="mt-3" data-en-block><strong data-zh>复利（Compound Interest）：</strong><strong data-en>Compound Interest:</strong><span data-zh>本金和利息一起滚雪球！同样是10万、年8%、20年：</span><span data-en> applies to both principal AND accumulated interest — that's the magic!</span></p>
+                <p data-en-block><span data-zh>终值 ≈ </span><span data-en>Same example with compound: Final Value ≈ </span><strong>466,000 CNY</strong><span data-zh>，收益 ≈ 36.6万。比单利多出</span><span data-en>, returns ≈ 366,000 CNY. That's </span><strong>200K+ more</strong><span data-zh>！</span><span data-en> than simple interest! 😱</span></p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-en-block>📊 <span data-zh>常见投资渠道年化收益率参考</span><span data-en>Historical Returns Reference</span></h3>
+                <ul class="list-disc list-inside space-y-1" data-en-block>
+                    <li>🏦 <span data-zh>银行存款：1.5%-3%</span><span data-en>Bank Savings: 1.5%-3%</span></li>
+                    <li>📄 <span data-zh>国债：3%-4%</span><span data-en>Government Bonds: 3%-4%</span></li>
+                    <li>🏦 <span data-zh>银行理财产品：3%-5%</span><span data-en>Bank Financial Products: 3%-5%</span></li>
+                    <li>📈 <span data-zh>债券基金：4%-6%</span><span data-en>Bond Funds: 4%-6%</span></li>
+                    <li>📈 <span data-zh>指数基金（长期）：7%-10%</span><span data-en>Index Funds (long-term): 7%-10%</span></li>
+                    <li>📈 <span data-zh>股票基金：10%-15%（波动大）</span><span data-en>Stock Funds: 10%-15% (High volatility)</span></li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-en-block>💡 <span data-zh>计算示例</span><span data-en>Worked Examples</span></h3>
+                <p data-en-block><strong data-zh>示例1：</strong><strong data-en>Example 1:</strong><span data-zh>一次性投入10万，年化8%，20年后是多少？</span><span data-en>Invest 100K lump sum, 8% annual return, 20 years — what's the result?</span></p>
+                <p data-en-block><span data-zh>👉 答案：10万 × (1 + 8%)</span><span data-en>👉 Answer: 100K × (1 + 8%)</span><sup>20</sup> ≈ <strong>466K CNY</strong><span data-zh>，收益约 36.6万！</span><span data-en>, returns ≈ 366K!</span></p>
+                
+                <p class="mt-3" data-en-block><strong data-zh>示例2：</strong><strong data-en>Example 2:</strong><span data-zh>每月定投1000元，年化8%，20年后是多少？</span><span data-en>DCA 1,000 CNY/month, 8% annual return, 20 years?</span></p>
+                <p data-en-block><span data-zh>👉 答案：约 </span><span data-en>👉 Answer: ≈ </span><strong>4.94 million CNY</strong><span data-zh>！其中本金 = 24万，收益 ≈ </span><span data-en>! Principal = 240K, returns ≈ </span><strong>4.7 million CNY</strong><span data-zh>！</span><span data-en>!</span></p>
+                <p data-en-block><span data-zh>这就是定投+复利的威力——Time is your best friend ⏰</span><span data-en>That's the power of DCA + compound interest — Time is your best friend ⏰</span></p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-en-block>🎯 <span data-zh>定投为什么有效？</span><span data-en>Why Does DCA Work?</span></h3>
+                <p data-en-block><span data-zh>定投（Dollar-Cost Averaging）是一种"傻傻买"的策略——</span><span data-en>DCA (Dollar-Cost Averaging) means investing a fixed amount regularly, regardless of market conditions — a "set and forget" strategy.</span></p>
+                <p data-en-block><span data-zh>市场跌了：同样1000块能买到更多份额，摊低成本 📉</span><span data-en>Market dips: same money buys more shares, lowering your average cost 📉</span></p>
+                <p data-en-block><span data-zh>市场涨了：账面盈利，心情好 😊</span><span data-en>Market rises: unrealized gains feel great 😊</span></p>
+                <p data-en-block><span data-zh>长期坚持下来，成本会被</span><span data-en>Over time, DCA smooths out your cost basis. Add compound interest on top, and the results speak for themselves.</span></p>
             </div>
         </article>
     </main>
 
-    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-400 py-6 mt-8 text-center">
-        <p class="zh-content">© 2024 Calculator Hub | 计算器之家</p>
-        <p class="en-content">© 2024 Calculator Hub | Compound Interest Calculator</p>
+    <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-400 py-6 mt-8 text-center" data-en-block>
+        <p>© 2026 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span> | <span data-zh>复利计算器</span><span data-en>Compound Interest Calculator</span></p>
     </footer>
 
     <script>
         let chart = null;
+        let currentLang = 'zh';
 
         function calculate() {
             const mode = document.querySelector('input[name="mode"]:checked').value;
             const principal = parseFloat(document.getElementById('principal').value) || 0;
             const monthly = parseFloat(document.getElementById('monthly').value) || 0;
-            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
+            const annualRate = parseFloat(document.getElementById('rate').value) / 100;
             const years = parseInt(document.getElementById('years').value) || 1;
-            const months = years * 12;
+            const freq = parseInt(document.getElementById('frequency').value);
+            const periods = years * freq;
+            const periodicRate = annualRate / freq;
 
             document.getElementById('principalDiv').classList.toggle('hidden', mode === 'dca');
             document.getElementById('monthlyDiv').classList.toggle('hidden', mode === 'lump');
@@ -294,46 +249,62 @@
 
             if (mode === 'lump') {
                 totalPrincipal = principal;
-                finalValue = principal * Math.pow(1 + rate, months);
+                finalValue = principal * Math.pow(1 + periodicRate, periods);
                 data = [principal];
-                for (let m = 1; m <= months; m++) {
-                    data.push(principal * Math.pow(1 + rate, m));
+                for (let i = 1; i <= periods; i++) {
+                    data.push(principal * Math.pow(1 + periodicRate, i));
                 }
             } else {
-                totalPrincipal = monthly * months;
+                // DCA: Future Value of annuity formula
+                // F = PMT × [(1 + r)^n - 1] / r
+                // But we need to compound each payment separately for chart
+                totalPrincipal = monthly * years * 12;
                 finalValue = 0;
-                for (let m = 1; m <= months; m++) {
-                    finalValue += monthly * Math.pow(1 + rate, m);
-                }
                 data = [monthly];
                 let running = monthly;
-                for (let m = 1; m <= months; m++) {
-                    running = running * (1 + rate) + monthly;
-                    data.push(running);
+                for (let m = 1; m <= years * 12; m++) {
+                    running = running * (1 + annualRate / 12) + monthly;
+                    if (m % (12 / freq) === 0) {
+                        data.push(running);
+                    }
                 }
             }
 
             const totalReturn = finalValue - totalPrincipal;
             const returnRate = (totalReturn / totalPrincipal * 100).toFixed(1);
 
-            document.getElementById('finalValue').textContent = format(finalValue);
-            document.getElementById('totalReturn').textContent = format(totalReturn);
-            document.getElementById('totalPrincipal').textContent = format(totalPrincipal);
+            document.getElementById('finalValue').textContent = formatCurrency(finalValue);
+            document.getElementById('totalReturn').textContent = formatCurrency(totalReturn);
+            document.getElementById('totalPrincipal').textContent = formatCurrency(totalPrincipal);
             document.getElementById('returnRate').textContent = returnRate + '%';
 
             updateChart(data, mode);
         }
 
-        function format(num) {
-            if (num >= 100000000) return (num / 100000000).toFixed(2) + '亿';
-            if (num >= 10000) return (num / 10000).toFixed(2) + '万';
-            return num.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+        function formatCurrency(num) {
+            if (currentLang === 'en') {
+                if (num >= 1000000000) return (num / 1000000000).toFixed(2) + 'B';
+                if (num >= 1000000) return (num / 1000000).toFixed(2) + 'M';
+                if (num >= 1000) return (num / 1000).toFixed(2) + 'K';
+                return num.toLocaleString('en-US', {minimumFractionDigits: 2});
+            } else {
+                if (num >= 100000000) return (num / 100000000).toFixed(2) + '亿';
+                if (num >= 10000) return (num / 10000).toFixed(2) + '万';
+                return num.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+            }
         }
 
         function updateChart(data, mode) {
-            const isEnglish = document.body.contains('english');
             const ctx = document.getElementById('chart').getContext('2d');
-            const labels = data.map((_, i) => i === 0 ? (isEnglish ? 'Start' : '初始') : (isEnglish ? `Month ${i}` : `第${i}月`));
+            const labels = data.map((_, i) => {
+                if (i === 0) return currentLang === 'en' ? 'Start' : '初始';
+                if (mode === 'lump') {
+                    return currentLang === 'en' ? `P${i}` : `第${i}期`;
+                } else {
+                    return currentLang === 'en' ? `Month ${i}` : `第${i}月`;
+                }
+            });
+            
             const step = Math.ceil(data.length / 24);
             const sampledLabels = labels.filter((_, i) => i % step === 0 || i === labels.length - 1);
             const sampledData = data.filter((_, i) => i % step === 0 || i === labels.length - 1);
@@ -344,7 +315,7 @@
                 data: {
                     labels: sampledLabels,
                     datasets: [{
-                        label: isEnglish ? 'Value' : '资产',
+                        label: currentLang === 'en' ? 'Value' : '资产',
                         data: sampledData,
                         borderColor: '#2563eb',
                         backgroundColor: 'rgba(37,99,235,0.1)',
@@ -356,13 +327,78 @@
                     responsive: true,
                     plugins: { legend: { display: false } },
                     scales: {
-                        y: { ticks: { callback: v => (v/10000).toFixed(0) + (isEnglish ? 'K' : '万') } }
+                        y: { 
+                            ticks: { 
+                                callback: v => {
+                                    if (currentLang === 'en') {
+                                        if (v >= 1000000) return (v/1000000).toFixed(1) + 'M';
+                                        if (v >= 1000) return (v/1000).toFixed(1) + 'K';
+                                        return v;
+                                    } else {
+                                        if (v >= 100000000) return (v/100000000).toFixed(1) + '亿';
+                                        if (v >= 10000) return (v/10000).toFixed(1) + '万';
+                                        return v;
+                                    }
+                                } 
+                            } 
+                        }
                     }
                 }
             });
         }
 
-        calculate();
+        function toggleLang() {
+            const html = document.documentElement;
+            const isEN = html.lang === 'en';
+            html.lang = isEN ? 'zh-CN' : 'en';
+            currentLang = isEN ? 'zh' : 'en';
+            
+            var btn = document.getElementById('langToggle');
+            if (btn) btn.textContent = isEN ? 'EN' : '中文';
+            
+            document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+            
+            // Sync all meta tags with data-zh/data-en
+            document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+                if (txt) el.content = txt;
+            });
+            
+            // Sync title
+            var titleEl = document.querySelector('title');
+            if (titleEl && titleEl.hasAttribute('data-zh')) {
+                var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+                if (txt) document.title = txt;
+            }
+            
+            // Recalculate to update chart labels
+            calculate();
+        }
+
+        function initLang() {
+            if (document.cookie.indexOf('lang=en') !== -1) {
+                document.documentElement.lang = 'en';
+                currentLang = 'en';
+                var btn = document.getElementById('langToggle');
+                if (btn) btn.textContent = '中文';
+                
+                document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                    var txt = el.getAttribute('data-en');
+                    if (txt) el.content = txt;
+                });
+                
+                var titleEl = document.querySelector('title');
+                if (titleEl && titleEl.hasAttribute('data-en')) {
+                    document.title = titleEl.getAttribute('data-en');
+                }
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initLang();
+            calculate();
+        });
     </script>
     <script type="application/ld+json">
     {
@@ -385,60 +421,5 @@
         ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "复利公式是什么？ | What is the compound interest formula?",
-                "acceptedAnswer": { "@type": "Answer", "text": "一次性复利 / Lump Sum: F = P × (1 + r)^n，定投 / DCA: F = PMT × [(1+r)^n - 1] / r" }
-            },
-            {
-                "@type": "Question",
-                "name": "10万存20年复利多少？ | 100K for 20 years at 8%?",
-                "acceptedAnswer": { "@type": "Answer", "text": "100K × (1.08)^20 ≈ 46.6万 / ~466K CNY, returns ~36.6万 / ~366K. Simple interest would only give 260K total." }
-            },
-            {
-                "@type": "Question",
-                "name": "定投和一次性投入哪个好？ | Lump sum vs DCA — which is better?",
-                "acceptedAnswer": { "@type": "Answer", "text": "各有优劣 / Both have pros and cons. 一次性投入适合大本金 / Lump sum is better if you have a large amount ready. 定投适合每月有固定收入的人，摊平成本 / DCA suits those with regular monthly income and averages out cost." }
-            },
-            {
-                "@type": "Question",
-                "name": "年化收益率8%算高吗？ | Is 8% annual return high?",
-                "acceptedAnswer": { "@type": "Answer", "text": "长期8%是很不错的收益 / Long-term 8% is a solid return. 参考 / Reference: 银行存款 bank ~2-3%, 国债 bonds ~3-4%, 优质指数基金 quality index funds ~7-10%." }
-            }
-        ]
-    }
-    </script>
-
-<script>
-function toggleLang() {
-    var isEN = document.documentElement.lang === 'en';
-    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
-    var btn = document.getElementById('langToggle');
-    if (btn) btn.textContent = isEN ? 'EN' : '中文';
-    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
-    var titleEl = document.querySelector('title');
-    if (titleEl) {
-        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
-        if (txt) document.title = txt;
-    }
-    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-        if (txt) el.content = txt;
-    });
-}
-function initLang() {
-    if (document.cookie.indexOf('lang=en') !== -1) {
-        document.documentElement.lang = 'en';
-        var btn = document.getElementById('langToggle');
-        if (btn) btn.textContent = '中文';
-    }
-}
-</script>
-
 </body>
 </html>

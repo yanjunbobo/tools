@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日期计算器 - Date Calculator | Days &amp; Work Days Counter</title>
-    <meta name="description" content="在线日期计算器，支持天数计算、工作日统计、中国法定节假日、倒计时功能。Online date calculator: count days, work days, holidays & countdowns.">
-    <meta name="keywords" content="日期计算器,工作日计算,天数计算,倒计时,Date Calculator,Days Counter,Work Days">
-    <meta name="author" content="计算器之家">
+    <title data-zh="日期计算器 - 计度AI工具箱" data-en="Date Calculator - JIDU AI Tools">日期计算器 - 计度AI工具箱</title>
+    <meta name="description" data-zh="在线日期计算器，支持天数计算、工作日统计、倒计时功能。" data-en="Online date calculator: count days, work days and countdowns.">
+    <meta name="keywords" data-zh="日期计算器,工作日计算,天数计算,倒计时" data-en="Date Calculator,Days Counter,Work Days,Countdown">
+    <meta name="author" content="JIDU AI Tools">
     <meta name="robots" content="index, follow">
     
     <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/date.html">
@@ -14,33 +14,36 @@
     <link rel="canonical" href="https://tools.xxym8.com/date.html">
     
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Date Calculator | 日期计算器 - Days &amp; Work Days Counter">
-    <meta property="og:description" content="计算天数、工作日、倒计时。Count days, work days & countdowns.">
+    <meta property="og:title" data-zh="日期计算器 - 计度AI工具箱" data-en="Date Calculator - JIDU AI Tools">
+    <meta property="og:description" data-zh="计算天数、工作日、倒计时" data-en="Count days, work days and countdowns">
     <meta property="og:url" content="https://tools.xxym8.com/date.html">
-    <meta property="og:site_name" content="计算器之家">
+    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:locale:alternate" content="en_US">
     
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Date Calculator | 日期计算器">
+    <meta name="twitter:title" data-zh="日期计算器 - 计度AI工具箱" data-en="Date Calculator - JIDU AI Tools">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>body { font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif; }
+    <style>
+        body { font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif; }
         [data-en] { display: none; }
         html[lang=en] [data-zh] { display: none; }
         html[lang=en] [data-en] { display: inline; }
         html[lang=en] [data-en-block] { display: block; }
-</style>
+        html[lang=en] [data-en-inline] { display: inline; }
+    </style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen" onload="initLang()">
     <header class="bg-white shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计算器之家</a>
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh="计度AI工具箱">计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
             <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600">首页</a>
-                <a href="/#tools" class="hover:text-blue-600">工具</a>
+                <a href="/" class="hover:text-blue-600"><span data-zh="首页">首页</span><span data-en>Home</span></a>
+                <a href="/#tools" class="hover:text-blue-600"><span data-zh="工具">工具</span><span data-en>Tools</span></a>
             </div>
+            <button id="langToggle" onclick="toggleLang()" class="px-4 py-2 bg-blue-100 hover:bg-blue-200 rounded-lg text-sm text-blue-700 font-medium transition">EN</button>
         </nav>
     </header>
 
@@ -48,12 +51,12 @@
         <nav aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页</span></a>
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页" data-en>Home</span></a>
                     <meta itemprop="position" content="1">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name">日期计算器</span>
+                    <span itemprop="name" data-zh="日期计算器" data-en="Date Calculator">日期计算器</span>
                     <meta itemprop="position" content="2">
                 </li>
             </ol>
@@ -61,15 +64,8 @@
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
-        <!-- Language Toggle -->
-        <div class="flex justify-end mb-4">
-            <button onclick="toggleLang()" class="px-4 py-2 bg-blue-100 hover:bg-blue-200 rounded-lg text-sm text-blue-700 font-medium transition">
-                🌐 <span id="langToggle">English</span>
-            </button>
-        </div>
-
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">📅 <span class="zh">日期/工作日计算器</span><span data-en>Date &amp; Work Days Calculator</span></h1>
-        <p class="text-gray-500 mb-6"><span class="zh">天数计算、工作日统计、倒计时</span><span data-en>Count days, work days & count down to special dates</span></p>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">📅 <span data-zh="日期/工作日计算器">日期/工作日计算器</span><span data-en>Date and Work Days Calculator</span></h1>
+        <p class="text-gray-500 mb-6"><span data-zh="天数计算、工作日统计、倒计时">天数计算、工作日统计、倒计时</span><span data-en>Count days, work days and count down to special dates</span></p>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,53 +73,53 @@
                     <div class="flex gap-4">
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="radio" name="mode" value="days" checked class="w-4 h-4 text-blue-600" onchange="toggleMode()">
-                            <span class="zh">天数计算</span><span data-en>Count Days</span>
+                            <span data-zh="天数计算">天数计算</span><span data-en>Count Days</span>
                         </label>
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="radio" name="mode" value="countdown" class="w-4 h-4 text-blue-600" onchange="toggleMode()">
-                            <span class="zh">倒计时</span><span data-en>Countdown</span>
+                            <span data-zh="倒计时">倒计时</span><span data-en>Countdown</span>
                         </label>
                     </div>
                     <div id="daysMode">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">开始日期</span><span data-en>Start Date</span></label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="开始日期">开始日期</span><span data-en>Start Date</span></label>
                                 <input type="date" id="startDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">结束日期</span><span data-en>End Date</span></label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="结束日期">结束日期</span><span data-en>End Date</span></label>
                                 <input type="date" id="endDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                             </div>
                         </div>
                         <div class="mt-4">
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" id="excludeWeekend" class="w-4 h-4 text-blue-600" onchange="calculate()">
-                                <span class="zh">排除周末（只计算工作日）</span><span data-en>Exclude weekends (work days only)</span>
+                                <span data-zh="排除周末（只计算工作日）">排除周末（只计算工作日）</span><span data-en>Exclude weekends (work days only)</span>
                             </label>
                         </div>
                     </div>
                     <div id="countdownMode" class="hidden">
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">目标日期</span><span data-en>Target Date</span></label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="目标日期">目标日期</span><span data-en>Target Date</span></label>
                         <input type="date" id="targetDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                     </div>
                 </div>
                 <div class="bg-blue-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 <span class="zh">计算结果</span><span data-en>Results</span></h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 <span data-zh="计算结果">计算结果</span><span data-en>Results</span></h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="zh text-gray-600">自然天数</span><span class="en hidden text-gray-600">Total Days</span>
+                            <span data-zh class="text-gray-600">自然天数</span><span data-en class="text-gray-600">Total Days</span>
                             <span id="totalDays" class="text-xl font-semibold text-gray-800">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="zh text-gray-600">工作日</span><span class="en hidden text-gray-600">Work Days</span>
+                            <span data-zh class="text-gray-600">工作日</span><span data-en class="text-gray-600">Work Days</span>
                             <span id="workDays" class="text-xl font-semibold text-blue-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="zh text-gray-600">周末天数</span><span class="en hidden text-gray-600">Weekend Days</span>
+                            <span data-zh class="text-gray-600">周末天数</span><span data-en class="text-gray-600">Weekend Days</span>
                             <span id="weekendDays" class="text-xl font-semibold text-orange-500">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2">
-                            <span class="zh text-gray-600">剩余天数</span><span class="en hidden text-gray-600">Days Left</span>
+                            <span data-zh class="text-gray-600">剩余天数</span><span data-en class="text-gray-600">Days Left</span>
                             <span id="remainingDays" class="text-2xl font-bold text-green-600">-</span>
                         </div>
                     </div>
@@ -132,103 +128,94 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 <span class="zh">常用节日倒计时</span><span data-en>Holiday Countdown</span></h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 <span data-zh="常用节日倒计时">常用节日倒计时</span><span data-en>Holiday Countdown</span></h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="holidayCountdown"></div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span class="zh">相关工具</span><span data-en>Related Tools</span></h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span data-zh="相关工具">相关工具</span><span data-en>Related Tools</span></h3>
             <div class="flex flex-wrap gap-3">
-                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 <span class="zh">房贷计算器</span><span data-en>Mortgage Calculator</span></a>
-                <a href="bmi.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">⚖️ <span class="zh">BMI计算器</span><span data-en>BMI Calculator</span></a>
+                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 <span data-zh="房贷计算器">房贷计算器</span><span data-en>Mortgage Calculator</span></a>
+                <a href="bmi.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">⚖️ <span data-zh="BMI计算器">BMI计算器</span><span data-en>BMI Calculator</span></a>
             </div>
         </div>
 
-        <!-- Bilingual Article Section -->
         <article class="bg-white rounded-xl shadow-sm p-6">
             <h2 class="text-xl font-bold text-gray-800 mb-4">
-                <span class="zh">关于日期计算器</span>
-                <span data-en>About This Date Calculator</span>
+                <span data-zh="关于日期计算器">关于日期计算器</span><span data-en>About This Date Calculator</span>
             </h2>
             <div class="prose text-gray-600 space-y-4">
-                <!-- Chinese Section -->
-                <div class="zh">
-                    <p>Hey，你有没有过这种经历——突然想知道距离某个重要日子还有多久？比如下个月的朋友婚礼、年底的旅行计划，或者 simply 想知道这个项目还得干多少天 😅</p>
-                    <p>别再用手指头数日子了！这个日期计算器就是来拯救你的。不管是算两个日期之间隔着多少天，还是想知道去掉周末还剩几个工作日，点点手指就能搞定。</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">🥰 它能帮你做什么</h3>
-                    <p><strong>天数计算：</strong>想知道从哪天到哪天一共多少天？选好日期，点一下，结果秒出。勾选"排除周末"，就能算出实实在在的工作日天数——再也不用手动数周一到周五了！</p>
-                    <p><strong>倒计时模式：</strong>设置一个目标日期，马上告诉你还剩多少天。考试、假期、生日、纪念日……统统可以倒计时！</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">💡 什么场景可以用</h3>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li><strong>打工人：</strong>请假前算算年假还剩几天</li>
-                        <li><strong>项目经理：</strong>排工期、算交付节点</li>
-                        <li><strong>学生党：</strong>期中期末考还有多少天复（yu）习（xi）</li>
-                        <li><strong>HR/行政：</strong>统计考勤、核算假期</li>
-                        <li><strong>剁手党：</strong>双十一还有多少天（钱包在颤抖）</li>
-                    </ul>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">📅 2025年法定节假日</h3>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li><strong>元旦：</strong>1月1日，放1天</li>
-                        <li><strong>春节：</strong>1月28日-2月3日，放7天（史上最长？）</li>
-                        <li><strong>清明节：</strong>4月4日-6日，踏青好时节</li>
-                        <li><strong>劳动节：</strong>5月1日-5日，凑个5天小长假</li>
-                        <li><strong>端午节：</strong>5月31日-6月2日，吃粽子啦</li>
-                        <li><strong>中秋节：</strong>10月6日-8日，赏月吃月饼</li>
-                        <li><strong>国庆节：</strong>10月1日-7日，7天假期安排起来</li>
-                    </ul>
-                </div>
-
-                <!-- English Section -->
-                <div class="en hidden">
-                    <p>Ever found yourself wondering how many days until that important date? Maybe it's your friend's wedding next month, a year-end vacation, or just figuring out how long until this project wraps up 😅</p>
-                    <p>Stop counting on your fingers! This date calculator is here to save the day. Whether you need to know exactly how many days separate two dates, or want to calculate actual working days minus weekends — it's all just a click away.</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">🥰 What It Does</h3>
-                    <p><strong>Day Counting:</strong> Pick a start and end date, get instant results. Check "Exclude weekends" and it'll crunch the actual work days for you — no more manually counting Mondays through Fridays!</p>
-                    <p><strong>Countdown Mode:</strong> Set a target date and see exactly how many days are left. Exams, holidays, birthdays, anniversaries — count them all down!</p>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">💡 Real-Life Use Cases</h3>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li><strong>Employees:</strong> Check remaining annual leave before requesting time off</li>
-                        <li><strong>Project Managers:</strong> Plan timelines and delivery milestones</li>
-                        <li><strong>Students:</strong> Count down to exams (and study time remaining...)</li>
-                        <li><strong>HR/Admin:</strong> Track attendance and calculate leave balances</li>
-                        <li><strong>Shopaholics:</strong> Count down to Double 11 (11.11) shopping festival</li>
-                    </ul>
-                    
-                    <h3 class="text-lg font-semibold text-gray-800 mt-6">📅 2025 Chinese Public Holidays</h3>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li><strong>New Year's Day:</strong> Jan 1, 1 day off</li>
-                        <li><strong>Spring Festival:</strong> Jan 28 - Feb 3, 7 days (longest of the year!)</li>
-                        <li><strong>Qingming Festival:</strong> Apr 4-6, perfect for spring outings</li>
-                        <li><strong>Labor Day:</strong> May 1-5, enjoy a 5-day mini vacation</li>
-                        <li><strong>Dragon Boat Festival:</strong> May 31 - Jun 2, time for zongzi!</li>
-                        <li><strong>Mid-Autumn Festival:</strong> Oct 6-8, mooncakes and moon-gazing</li>
-                        <li><strong>National Day:</strong> Oct 1-7, golden week holiday</li>
-                    </ul>
-                </div>
+                <p data-zh>你有没有过这种经历——突然想知道距离某个重要日子还有多久？比如下个月的朋友婚礼、年底的旅行计划，或者想知道这个项目还得干多少天 😅</p>
+                <p data-en>Ever found yourself wondering how many days until that important date? Maybe it is your friend\'s wedding next month, a year-end vacation, or just figuring out how long until this project wraps up 😅</p>
+                
+                <p data-zh>别再用手指头数日子了！这个日期计算器就是来拯救你的。不管是算两个日期之间隔着多少天，还是想知道去掉周末还剩几个工作日，点点手指就能搞定。</p>
+                <p data-en>Stop counting on your fingers! This date calculator is here to save the day. Whether you need to know exactly how many days separate two dates, or want to calculate actual working days minus weekends — it is all just a click away.</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-zh>🥰 它能帮你做什么</h3>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-en>🥰 What It Does</h3>
+                
+                <p data-zh><strong>天数计算：</strong>想知道从哪天到哪天一共多少天？选好日期，点一下，结果秒出。勾选"排除周末"，就能算出实实在在的工作日天数！</p>
+                <p data-en><strong>Day Counting:</strong> Pick a start and end date, get instant results. Check "Exclude weekends" and it will crunch the actual work days for you!</p>
+                
+                <p data-zh><strong>倒计时模式：</strong>设置一个目标日期，马上告诉你还剩多少天。考试、假期、生日、纪念日……统统可以倒计时！</p>
+                <p data-en><strong>Countdown Mode:</strong> Set a target date and see exactly how many days are left. Exams, holidays, birthdays, anniversaries — count them all down!</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-zh>💡 什么场景可以用</h3>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-en>💡 Real-Life Use Cases</h3>
+                
+                <ul class="list-disc list-inside space-y-1" data-zh>
+                    <li><strong>打工人：</strong>请假前算算年假还剩几天</li>
+                    <li><strong>项目经理：</strong>排工期、算交付节点</li>
+                    <li><strong>学生党：</strong>期中期末考还有多少天复习</li>
+                    <li><strong>HR/行政：</strong>统计考勤、核算假期</li>
+                </ul>
+                <ul class="list-disc list-inside space-y-1" data-en>
+                    <li><strong>Employees:</strong> Check remaining annual leave before requesting time off</li>
+                    <li><strong>Project Managers:</strong> Plan timelines and delivery milestones</li>
+                    <li><strong>Students:</strong> Count down to exams and study time remaining</li>
+                    <li><strong>HR/Admin:</strong> Track attendance and calculate leave balances</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-zh>📅 2026年法定节假日</h3>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-en>📅 2026 Chinese Public Holidays</h3>
+                
+                <ul class="list-disc list-inside space-y-1" data-zh>
+                    <li><strong>元旦：</strong>1月1日，放1天</li>
+                    <li><strong>春节：</strong>1月28日-2月3日，放7天</li>
+                    <li><strong>清明节：</strong>4月4日-6日，踏青好时节</li>
+                    <li><strong>劳动节：</strong>5月1日-5日，5天小长假</li>
+                    <li><strong>端午节：</strong>5月31日-6月2日</li>
+                    <li><strong>中秋节：</strong>10月6日-8日</li>
+                    <li><strong>国庆节：</strong>10月1日-7日</li>
+                </ul>
+                <ul class="list-disc list-inside space-y-1" data-en>
+                    <li><strong>New Year\'s Day:</strong> Jan 1, 1 day off</li>
+                    <li><strong>Spring Festival:</strong> Jan 28 - Feb 3, 7 days</li>
+                    <li><strong>Qingming Festival:</strong> Apr 4-6, spring outings</li>
+                    <li><strong>Labor Day:</strong> May 1-5, 5-day vacation</li>
+                    <li><strong>Dragon Boat Festival:</strong> May 31 - Jun 2</li>
+                    <li><strong>Mid-Autumn Festival:</strong> Oct 6-8</li>
+                    <li><strong>National Day:</strong> Oct 1-7, golden week</li>
+                </ul>
             </div>
         </article>
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2025 <span class="zh">计算器之家</span><span data-en>Calculator Hub</span></p>
+        <p>© 2026 <span data-zh="计度AI工具箱">计度AI工具箱</span><span data-en>JIDU AI Tools</span></p>
     </footer>
 
     <script>
         let currentLang = 'zh';
 
-        const HOLIDAYS = [
-            { name: { zh: '元旦', en: "New Year's Day" }, date: '2025-01-01', days: 1 },
-            { name: { zh: '春节', en: 'Spring Festival' }, date: '2025-01-28', days: 3 },
-            { name: { zh: '清明节', en: 'Qingming Festival' }, date: '2025-04-04', days: 1 },
-            { name: { zh: '劳动节', en: 'Labor Day' }, date: '2025-05-01', days: 1 },
-            { name: { zh: '端午节', en: 'Dragon Boat Festival' }, date: '2025-05-31', days: 1 },
-            { name: { zh: '中秋节', en: 'Mid-Autumn Festival' }, date: '2025-10-06', days: 1 },
-            { name: { zh: '国庆节', en: 'National Day' }, date: '2025-10-01', days: 3 }
+        const HOLIDAYS_2026 = [
+            { name: { zh: '元旦', en: "New Year's Day" }, date: '2026-01-01' },
+            { name: { zh: '春节', en: 'Spring Festival' }, date: '2026-01-28' },
+            { name: { zh: '清明节', en: 'Qingming Festival' }, date: '2026-04-04' },
+            { name: { zh: '劳动节', en: 'Labor Day' }, date: '2026-05-01' },
+            { name: { zh: '端午节', en: 'Dragon Boat Festival' }, date: '2026-05-31' },
+            { name: { zh: '中秋节', en: 'Mid-Autumn Festival' }, date: '2026-10-06' },
+            { name: { zh: '国庆节', en: 'National Day' }, date: '2026-10-01' }
         ];
 
         function toggleMode() {
@@ -264,9 +251,10 @@
                     else workDays++;
                 }
 
-                document.getElementById('totalDays').textContent = totalDays + (isZh ? '天' : ' days');
-                document.getElementById('workDays').textContent = excludeWeekend ? workDays + (isZh ? '天' : ' days') : '-';
-                document.getElementById('weekendDays').textContent = excludeWeekend ? weekendDays + (isZh ? '天' : ' days') : '-';
+                const dayLabel = isZh ? '天' : ' days';
+                document.getElementById('totalDays').textContent = totalDays + dayLabel;
+                document.getElementById('workDays').textContent = excludeWeekend ? workDays + dayLabel : '-';
+                document.getElementById('weekendDays').textContent = excludeWeekend ? weekendDays + dayLabel : '-';
 
                 const today = new Date();
                 today.setHours(0,0,0,0);
@@ -298,37 +286,94 @@
             const today = new Date();
             const isZh = currentLang === 'zh';
             let html = '';
-            HOLIDAYS.forEach(h => {
+            HOLIDAYS_2026.forEach(function(h) {
                 const target = new Date(h.date);
                 const diff = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
-                let status, color;
+                let status;
                 if (isZh) {
                     status = diff > 0 ? '还有' + diff + '天' : (diff === 0 ? '今天！' : '已过');
                 } else {
                     status = diff > 0 ? diff + ' days' : (diff === 0 ? 'Today!' : Math.abs(diff) + ' days ago');
                 }
-                color = diff > 30 ? 'bg-blue-50 text-blue-600' : diff > 0 ? 'bg-green-50 text-green-600' : 'bg-gray-100 text-gray-400';
-                html += `<div class="p-3 rounded ${color}"><div class="font-semibold">${isZh ? h.name.zh : h.name.en}</div><div class="text-sm">${status}</div></div>`;
+                const color = diff > 30 ? 'bg-blue-50 text-blue-600' : diff > 0 ? 'bg-green-50 text-green-600' : 'bg-gray-100 text-gray-400';
+                html += '<div class="p-3 rounded ' + color + '"><div class="font-semibold">' + (isZh ? h.name.zh : h.name.en) + '</div><div class="text-sm">' + status + '</div></div>';
             });
             container.innerHTML = html;
         }
 
-        const today = new Date();
-        const nextMonth = new Date(today);
-        nextMonth.setMonth(nextMonth.getMonth() + 1);
-        document.getElementById('startDate').valueAsDate = today;
-        document.getElementById('endDate').valueAsDate = nextMonth;
-        document.getElementById('targetDate').valueAsDate = new Date(today.getFullYear() + 1, 0, 1);
+        function toggleLang() {
+            const htmlEl = document.documentElement;
+            const isEN = htmlEl.lang === 'en';
+            htmlEl.lang = isEN ? 'zh-CN' : 'en';
+            currentLang = isEN ? 'zh' : 'en';
+            
+            const btn = document.getElementById('langToggle');
+            if (btn) btn.textContent = isEN ? 'EN' : '中文';
+            
+            document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+            
+            // Sync meta tags
+            document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                const txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+                if (txt) el.content = txt;
+            });
+            
+            // Update og:* meta tags
+            document.querySelectorAll('meta[property^="og:"][data-zh]').forEach(function(el) {
+                const txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+                if (txt) el.content = txt;
+            });
+            
+            // Update title
+            const titleEl = document.querySelector('title');
+            if (titleEl && titleEl.getAttribute('data-zh')) {
+                const txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+                if (txt) document.title = txt;
+            }
+            
+            // Recalculate with new language
+            calculate();
+            showHolidays();
+        }
 
-        calculate();
-        showHolidays();
+        function initLang() {
+            if (document.cookie.indexOf('lang=en') !== -1) {
+                document.documentElement.lang = 'en';
+                currentLang = 'en';
+                var btn = document.getElementById('langToggle');
+                if (btn) btn.textContent = '中文';
+                
+                // Apply meta tag content sync
+                document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                    const txt = el.getAttribute('data-en');
+                    if (txt) el.content = txt;
+                });
+                
+                const titleEl = document.querySelector('title');
+                if (titleEl && titleEl.getAttribute('data-en')) {
+                    document.title = titleEl.getAttribute('data-en');
+                }
+            }
+            
+            // Initialize dates
+            const today = new Date();
+            const nextMonth = new Date(today);
+            nextMonth.setMonth(nextMonth.getMonth() + 1);
+            document.getElementById('startDate').valueAsDate = today;
+            document.getElementById('endDate').valueAsDate = nextMonth;
+            document.getElementById('targetDate').valueAsDate = new Date(today.getFullYear() + 1, 0, 1);
+            
+            calculate();
+            showHolidays();
+        }
     </script>
+    
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": { "zh": "日期计算器", "en": "Date Calculator" },
-        "description": { "zh": "计算天数、工作日、倒计时", "en": "Count days, work days & countdowns" },
+        "description": { "zh": "计算天数、工作日、倒计时", "en": "Count days, work days and countdowns" },
         "url": "https://tools.xxym8.com/date.html",
         "applicationCategory": "UtilityApplication",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
@@ -344,73 +389,5 @@
         ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": { "zh": "如何计算两个日期之间的天数？", "en": "How do I calculate days between two dates?" },
-                "acceptedAnswer": { 
-                    "@type": "Answer", 
-                    "text": { "zh": "使用日期计算器的"天数计算"功能，选择开始日期和结束日期，即可自动计算包含首尾两天的总天数。", "en": "Use the 'Count Days' function, select start and end dates — it automatically includes both days in the count." }
-                }
-            },
-            {
-                "@type": "Question",
-                "name": { "zh": "工作日怎么计算？", "en": "How do I calculate work days?" },
-                "acceptedAnswer": { 
-                    "@type": "Answer", 
-                    "text": { "zh": "勾选"排除周末"选项，系统会自动计算排除周六周日后剩余的工作日天数。", "en": "Check 'Exclude weekends' and the calculator will automatically count only Monday-Friday." }
-                }
-            },
-            {
-                "@type": "Question",
-                "name": { "zh": "倒计时怎么用？", "en": "How do I use the countdown feature?" },
-                "acceptedAnswer": { 
-                    "@type": "Answer", 
-                    "text": { "zh": "选择"倒计时"模式，输入目标日期，即可看到距离今天还有多少天。", "en": "Switch to 'Countdown' mode, enter your target date, and instantly see how many days remain." }
-                }
-            },
-            {
-                "@type": "Question",
-                "name": { "zh": "法定节假日算工作日吗？", "en": "Are public holidays counted as work days?" },
-                "acceptedAnswer": { 
-                    "@type": "Answer", 
-                    "text": { "zh": "法定节假日不算工作日。本计算器的周末排除功能只排除周六周日，法定节假日需要结合具体日期判断。", "en": "Public holidays are not work days. This calculator excludes Saturdays and Sundays only. Actual work days depend on specific holiday schedules." }
-                }
-            }
-        ]
-    }
-    </script>
-
-<script>
-function toggleLang() {
-    var isEN = document.documentElement.lang === 'en';
-    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
-    currentLang = isEN ? 'zh' : 'en';
-    var btn = document.getElementById('langToggle');
-    if (btn) btn.textContent = isEN ? 'EN' : '中文';
-    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
-    var titleEl = document.querySelector('title');
-    if (titleEl) {
-        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
-        if (txt) document.title = txt;
-    }
-    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-        if (txt) el.content = txt;
-    });
-}
-function initLang() {
-    if (document.cookie.indexOf('lang=en') !== -1) {
-        document.documentElement.lang = 'en';
-        var btn = document.getElementById('langToggle');
-        if (btn) btn.textContent = '中文';
-    }
-}
-</script>
-
 </body>
 </html>

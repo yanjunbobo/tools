@@ -3,53 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>安全期计算器 | Period Tracker - 2026年生理周期安全期排卵期计算</title>
-    <meta name="description" content="Safety Period Calculator 2026 - Accurately calculate your menstrual cycle, fertile window and safe days. Bilingual Chinese-English. 中国女性生理周期计算器，备孕避孕好帮手。">
-    <meta name="keywords" content="安全期计算器,排卵期,安全期,月经周期,备孕,避孕,生理周期,period calculator,fertile window,ovulation tracker">
-    <meta name="author" content="计度AI工具箱 | JDu AI Tools">
+    <title data-zh="安全期计算器 | 计度AI工具箱" data-en="Period Calculator | JIDU AI Tools">安全期计算器 | 计度AI工具箱</title>
+    <meta name="description" data-zh="安全期计算器：准确计算女性生理周期、排卵期和安全期。备孕避孕好帮手。支持月经周期追踪和排卵日预测。" data-en="Period Calculator: Accurately calculate menstrual cycle, ovulation date, and safe days. Family planning tool for women. Track your cycle and predict fertile window.">
+    <meta name="keywords" data-zh="安全期计算器,排卵期,安全期,月经周期,备孕,避孕,生理周期,排卵日,女性健康" data-en="period calculator,ovulation calculator,fertile window,safe days,menstrual cycle,period tracker,family planning,women health">
+    <meta name="author" content="计度AI工具箱 | JIDU AI Tools">
     <meta name="robots" content="index, follow">
     
     <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/period.html">
     <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/period.html?lang=en">
     <link rel="canonical" href="https://tools.xxym8.com/period.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="安全期计算器 | Period Tracker - Safe Days & Ovulation">
-    <meta property="og:description" content="精准计算安全期、排卵期 | Accurately calculate safe days and ovulation">
+    <meta property="og:title" data-zh="安全期计算器 | 计度AI工具箱" data-en="Period Calculator | JIDU AI Tools">
+    <meta property="og:description" data-zh="安全期计算器：准确计算女性生理周期、排卵期和安全期" data-en="Period Calculator: Calculate ovulation and safe days">
     <meta property="og:url" content="https://tools.xxym8.com/period.html">
-    <meta property="og:site_name" content="计度AI工具箱">
+    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
     <meta name="twitter:card" content="summary">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }
+    <style>
+        body { font-family: 'Inter', 'PingFang SC', sans-serif; }
         [data-en] { display: none; }
         html[lang=en] [data-zh] { display: none; }
         html[lang=en] [data-en] { display: inline; }
         html[lang=en] [data-en-block] { display: block; }
-</style>
+        [data-en-block] { display: block; }
+    </style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
     <header class="bg-white shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计度AI工具箱</a>
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh="计度AI工具箱" data-en="JIDU AI Tools">计度AI工具箱</span></a>
             <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600">首页</a>
-                <a href="/#tools" class="hover:text-blue-600">工具</a>
+                <a href="/" class="hover:text-blue-600" data-zh="首页" data-en="Home">首页</a>
+                <a href="/#tools" class="hover:text-blue-600" data-zh="工具" data-en="Tools">工具</a>
             </div>
             <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
         </nav>
-            
     </header>
 
     <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
         <nav aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页 Home</span></a>
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页" data-en="Home">首页</span></a>
                     <meta itemprop="position" content="1">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name">安全期计算器 Period Calculator</span>
+                    <span class="text-gray-700" itemprop="name" data-zh="安全期计算器" data-en="Period Calculator">安全期计算器</span>
                     <meta itemprop="position" content="2">
                 </li>
             </ol>
@@ -57,199 +58,214 @@
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">📆 安全期计算器</h1>
-        <p class="text-gray-500 mb-2">Period Tracker & Ovulation Calculator</p>
-        <p class="text-gray-500 mb-6">计算安全期和排卵期，备孕避孕参考 · Track your cycle for family planning</p>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2" data-zh="📆 安全期计算器" data-en="📆 Period Calculator">📆 安全期计算器</h1>
+        <p class="text-gray-500 mb-2" data-zh="女性生理周期追踪与排卵期计算工具" data-en="Menstrual Cycle Tracker & Ovulation Calculator">女性生理周期追踪与排卵期计算工具</p>
+        <p class="text-gray-500 mb-6" data-zh="计算安全期和排卵期，备孕避孕参考" data-en="Calculate safe days and ovulation for family planning">计算安全期和排卵期，备孕避孕参考</p>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">上次月经开始日期 · Last Period Start</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-zh="上次月经开始日期" data-en="Last Period Start Date">上次月经开始日期</label>
                         <input type="date" id="lastPeriod" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">月经周期（天）· Cycle Length (days)</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-zh="月经周期（天）" data-en="Cycle Length (days)">月经周期（天）</label>
                         <input type="number" id="cycleLength" value="28" min="21" max="40" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">月经持续天数 · Period Duration</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-zh="月经持续天数" data-en="Period Duration (days)">月经持续天数</label>
                         <input type="number" id="periodDays" value="5" min="3" max="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                     </div>
-                    <button onclick="calculate()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-medium">计算 Calculate</button>
+                    <button onclick="calculate()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-medium" data-zh="计算" data-en="Calculate">计算</button>
                 </div>
                 <div class="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 计算结果 Results</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-zh="📊 计算结果" data-en="📊 Results">📊 计算结果</h3>
                     <div class="space-y-4">
                         <div class="p-4 bg-white rounded-lg text-center">
-                            <p class="text-sm text-gray-500 mb-1">排卵日 · Ovulation Day</p>
+                            <p class="text-sm text-gray-500 mb-1" data-zh="排卵日" data-en="Ovulation Day">排卵日</p>
                             <p id="ovulationDate" class="text-xl font-bold text-purple-600">-</p>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div class="p-3 bg-green-100 rounded-lg text-center">
-                                <p class="text-xs text-green-600 mb-1">相对安全期 · Relatively Safe</p>
+                                <p class="text-xs text-green-600 mb-1" data-zh="相对安全期" data-en="Relatively Safe">相对安全期</p>
                                 <p id="safeStart" class="font-semibold text-green-700 text-sm">-</p>
                             </div>
                             <div class="p-3 bg-green-100 rounded-lg text-center">
-                                <p class="text-xs text-green-600 mb-1">相对安全期 · Relatively Safe</p>
+                                <p class="text-xs text-green-600 mb-1" data-zh="相对安全期" data-en="Relatively Safe">相对安全期</p>
                                 <p id="safeEnd" class="font-semibold text-green-700 text-sm">-</p>
                             </div>
                         </div>
                         <div class="p-3 bg-red-100 rounded-lg text-center">
-                            <p class="text-sm font-medium text-red-700">⚠️ 危险期（排卵期）· Fertile Window</p>
+                            <p class="text-sm font-medium text-red-700" data-zh="⚠️ 危险期（排卵期）" data-en="⚠️ Fertile Window">⚠️ 危险期（排卵期）</p>
                             <p id="dangerPeriod" class="text-sm text-red-600 mt-1">-</p>
                         </div>
-                        <p class="text-xs text-gray-500 text-center">⚠️ 注：安全期并非100%安全 · Safe days are not 100% guaranteed</p>
+                        <p class="text-xs text-gray-500 text-center" data-zh="⚠️ 注：安全期并非100%安全" data-en="⚠️ Note: Safe days are not 100% guaranteed">⚠️ 注：安全期并非100%安全</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📅 本月周期日历 · Monthly Cycle Calendar</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-zh="📅 本月周期日历" data-en="📅 Monthly Cycle Calendar">📅 本月周期日历</h3>
             <div id="calendarView" class="grid grid-cols-7 gap-1 text-center text-sm"></div>
             <div class="flex justify-center gap-6 mt-4 text-sm">
-                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-green-200 rounded"></span><span>相对安全期 Safe</span></div>
-                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-red-200 rounded"></span><span>危险期 Fertile</span></div>
-                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-purple-400 rounded"></span><span>排卵日 Ovulation</span></div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-green-200 rounded"></span><span data-zh="相对安全期" data-en="Safe">相对安全期</span></div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-red-200 rounded"></span><span data-zh="危险期" data-en="Fertile">危险期</span></div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-purple-400 rounded"></span><span data-zh="排卵日" data-en="Ovulation">排卵日</span></div>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具 · Related Tools</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-zh="🔗 相关工具" data-en="🔗 Related Tools">🔗 相关工具</h3>
             <div class="flex flex-wrap gap-3">
-                <a href="ovulation.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🤰 排卵期计算器 Ovulation Calculator</a>
+                <a href="ovulation.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition" data-zh="🤰 排卵期计算器" data-en="🤰 Ovulation Calculator">🤰 排卵期计算器</a>
             </div>
         </div>
 
         <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关于安全期计算器 · About Period Tracker</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4" data-zh="关于安全期计算器" data-en="About Period Calculator">关于安全期计算器</h2>
             <div class="prose text-gray-600 space-y-4">
-                <p>安全期计算器根据你的月经周期推算排卵期和安全期。Whether you're trying to conceive or looking to avoid pregnancy, this tool helps you understand your body better.</p>
+                <p data-zh="安全期计算器根据你的月经周期推算排卵期和安全期。无论你是备孕还是避孕，这个工具都能帮助你更好地了解自己的身体。" data-en="This period calculator estimates your ovulation date and safe days based on your menstrual cycle. Whether you're trying to conceive or avoid pregnancy, this tool helps you understand your body better.">安全期计算器根据你的月经周期推算排卵期和安全期。无论你是备孕还是避孕，这个工具都能帮助你更好地了解自己的身体。</p>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">什么是安全期？· What Are Safe Days?</h3>
-                <p>安全期是指女性不易怀孕的时期。传统来说，月经来潮前后一周相对安全。Safe days refer to the time when pregnancy is less likely to occur. Generally, the week before and after your period is considered relatively safe — but here's the thing, it's not foolproof.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-zh="什么是安全期？" data-en="What Are Safe Days?">什么是安全期？</h3>
+                <p data-zh="安全期是指女性不易怀孕的时期。传统来说，月经来潮前后一周相对安全。但需要注意的是，安全期并非100%可靠。" data-en="Safe days refer to the time when pregnancy is less likely to occur. Generally, the week before and after your period is considered relatively safe — but please note, safe days are not foolproof.">安全期是指女性不易怀孕的时期。传统来说，月经来潮前后一周相对安全。但需要注意的是，安全期并非100%可靠。</p>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">安全期为什么不可靠？· Why Are Safe Days Unreliable?</h3>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-zh="安全期为什么不可靠？" data-en="Why Are Safe Days Unreliable?">安全期为什么不可靠？</h3>
                 <ul class="list-disc list-inside space-y-1">
-                    <li>排卵受情绪、压力、环境影响大 · Ovulation is easily affected by stress, emotions, and environment</li>
-                    <li>精子在体内可存活3-5天 · Sperm can survive in the body for 3-5 days</li>
-                    <li>月经不规律者无法准确计算 · Irregular cycles make calculation inaccurate</li>
-                    <li>个体差异大，安全期因人而异 · Everyone's body is different</li>
+                    <li data-zh="排卵受情绪、压力、环境影响大" data-en="Ovulation is easily affected by stress, emotions, and environment">排卵受情绪、压力、环境影响大</li>
+                    <li data-zh="精子在体内可存活3-5天" data-en="Sperm can survive in the body for 3-5 days">精子在体内可存活3-5天</li>
+                    <li data-zh="月经不规律者无法准确计算" data-en="Irregular cycles make calculation inaccurate">月经不规律者无法准确计算</li>
+                    <li data-zh="个体差异大，安全期因人而异" data-en="Everyone's body is different">个体差异大，安全期因人而异</li>
                 </ul>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">推荐的避孕方式 · Recommended Contraception</h3>
-                <p>安全期避孕失败率约20%，不建议单独使用。Safe days alone have about a 20% failure rate — not great odds if you're trying to avoid pregnancy. 可信赖的避孕方式：</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-zh="推荐的避孕方式" data-en="Recommended Contraception">推荐的避孕方式</h3>
+                <p data-zh="安全期避孕失败率约20%，不建议单独使用。可信赖的避孕方式：" data-en="Safe days alone have about a 20% failure rate — not great odds if you're trying to avoid pregnancy. Recommended contraception:">安全期避孕失败率约20%，不建议单独使用。可信赖的避孕方式：</p>
                 <ul class="list-disc list-inside space-y-1">
-                    <li>避孕套（正确使用成功率98%）· Condoms (98% effective when used correctly)</li>
-                    <li>短效避孕药（成功率99%）· Birth control pills (99% effective)</li>
-                    <li>宫内节育器（成功率99%）· IUD (99% effective)</li>
+                    <li data-zh="避孕套（正确使用成功率98%）" data-en="Condoms (98% effective when used correctly)">避孕套（正确使用成功率98%）</li>
+                    <li data-zh="短效避孕药（成功率99%）" data-en="Birth control pills (99% effective)">短效避孕药（成功率99%）</li>
+                    <li data-zh="宫内节育器（成功率99%）" data-en="IUD (99% effective)">宫内节育器（成功率99%）</li>
                 </ul>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题 · FAQ</h3>
-                <p><strong>Q: 安全期会怀孕吗？· Can I get pregnant during safe days?</strong></p>
-                <p>A: 会。安全期避孕失败率约20%，因为排卵可能提前或推迟，且精子可在体内存活数日。Yes, it's possible. The failure rate is about 20% because ovulation can shift, and sperm can live inside you for days.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-zh="常见问题" data-en="FAQ">常见问题</h3>
+                <p><strong data-zh="Q: 安全期会怀孕吗？" data-en="Q: Can I get pregnant during safe days?">Q: 安全期会怀孕吗？</strong></p>
+                <p data-zh="A: 会。安全期避孕失败率约20%，因为排卵可能提前或推迟，且精子可在体内存活数日。" data-en="A: Yes, it's possible. The failure rate is about 20% because ovulation can shift, and sperm can live inside you for days.">A: 会。安全期避孕失败率约20%，因为排卵可能提前或推迟，且精子可在体内存活数日。</p>
                 
-                <p><strong>Q: 月经期同房会怀孕吗？· Can I get pregnant during my period?</strong></p>
-                <p>A: 月经期一般不会排卵，但月经期同房容易引起感染，且排卵可能提前，不建议。Unlikely, but月经期同房容易引起感染，不建议。While pregnancy is unlikely during your period, it's not a good idea due to infection risks.</p>
+                <p><strong data-zh="Q: 月经期同房会怀孕吗？" data-en="Q: Can I get pregnant during my period?">Q: 月经期同房会怀孕吗？</strong></p>
+                <p data-zh="A: 月经期一般不会排卵，但月经期同房容易引起感染，且排卵可能提前，不建议。" data-en="A: While pregnancy is unlikely during your period, it's not recommended due to infection risks and the possibility of early ovulation.">A: 月经期一般不会排卵，但月经期同房容易引起感染，且排卵可能提前，不建议。</p>
                 
-                <p><strong>Q: 怎么知道自己的排卵期？· How can I track ovulation?</strong></p>
-                <p>A: 可使用排卵试纸、基础体温法、观察宫颈黏液、B超监测等方法。You can use ovulation test strips, track basal body temperature, monitor cervical mucus, or get an ultrasound.</p>
+                <p><strong data-zh="Q: 怎么知道自己的排卵期？" data-en="Q: How can I track ovulation?">Q: 怎么知道自己的排卵期？</strong></p>
+                <p data-zh="A: 可使用排卵试纸、基础体温法、观察宫颈黏液、B超监测等方法。" data-en="A: You can use ovulation test strips, track basal body temperature, monitor cervical mucus, or get an ultrasound.">A: 可使用排卵试纸、基础体温法、观察宫颈黏液、B超监测等方法。</p>
 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">小贴士 · Tips</h3>
-                <p>每个人的周期都不一样，28天只是平均值。有的姐妹25天，有的35天，都正常！别太焦虑，记录几个月你就会发现自己的规律啦。✨</p>
-                <p>Every cycle is unique. 28 days is just an average — some women have 25-day cycles, others have 35-day cycles, and both are normal! Don't stress too much. After tracking for a few months, you'll start to see your own pattern. ✨</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6" data-zh="小贴士" data-en="Tips">小贴士</h3>
+                <p data-zh="每个人的周期都不一样，28天只是平均值。有的姐妹25天，有的35天，都正常！别太焦虑，记录几个月你就会发现自己的规律啦。✨" data-en="Every cycle is unique. 28 days is just an average — some women have 25-day cycles, others have 35-day cycles, and both are normal! Don't stress too much. After tracking for a few months, you'll start to see your own pattern. ✨">每个人的周期都不一样，28天只是平均值。有的姐妹25天，有的35天，都正常！别太焦虑，记录几个月你就会发现自己的规律啦。✨</p>
             </div>
         </article>
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2026 计度AI工具箱 · JDu AI Tools</p>
+        <p>© 2026 <span data-zh="计度AI工具箱" data-en="JIDU AI Tools">计度AI工具箱</span></p>
     </footer>
 
     <script>
         function calculate() {
-            const lastPeriodStr = document.getElementById('lastPeriod').value;
+            var lastPeriodStr = document.getElementById('lastPeriod').value;
             if (!lastPeriodStr) return;
             
-            const lastPeriod = new Date(lastPeriodStr);
-            const cycleLength = parseInt(document.getElementById('cycleLength').value) || 28;
-            const periodDays = parseInt(document.getElementById('periodDays').value) || 5;
+            var lastPeriod = new Date(lastPeriodStr);
+            var cycleLength = parseInt(document.getElementById('cycleLength').value) || 28;
+            var periodDays = parseInt(document.getElementById('periodDays').value) || 5;
             
-            // 排卵日
-            const ovulationDay = new Date(lastPeriod);
+            // 排卵日 = 上次月经开始 + 周期长度 - 14天
+            var ovulationDay = new Date(lastPeriod);
             ovulationDay.setDate(ovulationDay.getDate() + cycleLength - 14);
             
-            // 安全期：月经开始后8天内（相对安全）+ 排卵后4天到下次月经前
-            const safePeriod1End = new Date(lastPeriod);
+            // 安全期1：月经开始后8天内（相对安全）
+            var safePeriod1End = new Date(lastPeriod);
             safePeriod1End.setDate(safePeriod1End.getDate() + 7);
             
-            const safePeriod2Start = new Date(ovulationDay);
+            // 安全期2：排卵后4天到下次月经前
+            var safePeriod2Start = new Date(ovulationDay);
             safePeriod2Start.setDate(safePeriod2Start.getDate() + 4);
             
-            const nextPeriod = new Date(lastPeriod);
+            var nextPeriod = new Date(lastPeriod);
             nextPeriod.setDate(nextPeriod.getDate() + cycleLength);
-            const safePeriod2End = new Date(nextPeriod);
+            var safePeriod2End = new Date(nextPeriod);
             safePeriod2End.setDate(safePeriod2End.getDate() - 1);
             
-            // Bilingual date display
-            const ovulationDateEl = document.getElementById('ovulationDate');
-            const ovulationStr = ovulationDay.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' });
-            const ovulationStrEn = ovulationDay.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-            ovulationDateEl.textContent = ovulationStr + ' / ' + ovulationStrEn;
+            // 显示排卵日
+            var ovulationDateEl = document.getElementById('ovulationDate');
+            var isEN = document.documentElement.lang === 'en';
+            if (isEN) {
+                ovulationDateEl.textContent = ovulationDay.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+            } else {
+                ovulationDateEl.textContent = ovulationDay.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' });
+            }
             
-            const safeStartEl = document.getElementById('safeStart');
-            const safeStartStr = lastPeriod.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
-            safeStartEl.textContent = safeStartStr + '起 / from';
+            // 显示安全期
+            var safeStartEl = document.getElementById('safeStart');
+            if (isEN) {
+                safeStartEl.textContent = 'Day 1 - ' + safePeriod1End.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            } else {
+                safeStartEl.textContent = '第1天 - ' + safePeriod1End.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
+            }
             
-            const safeEndEl = document.getElementById('safeEnd');
-            const safeEndStr = safePeriod1End.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
-            safeEndStrEn = safePeriod1End.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            safeEndEl.textContent = safeEndStr + ' (' + safeEndStrEn + ')';
+            var safeEndEl = document.getElementById('safeEnd');
+            if (isEN) {
+                safeEndEl.textContent = safePeriod2Start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' - End';
+            } else {
+                safeEndEl.textContent = safePeriod2Start.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' }) + ' - 结束';
+            }
             
-            const dangerStart = new Date(safePeriod1End);
+            // 显示危险期
+            var dangerStart = new Date(safePeriod1End);
             dangerStart.setDate(dangerStart.getDate() + 1);
-            const dangerStartStr = dangerStart.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
-            const dangerStartStrEn = dangerStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            const dangerEndStr = safePeriod2Start.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
-            const dangerEndStrEn = safePeriod2Start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            document.getElementById('dangerPeriod').textContent = dangerStartStr + '-' + dangerEndStr + ' / ' + dangerStartStrEn + '-' + dangerEndStrEn;
+            var dangerPeriodEl = document.getElementById('dangerPeriod');
+            if (isEN) {
+                dangerPeriodEl.textContent = dangerStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' - ' + safePeriod2Start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            } else {
+                dangerPeriodEl.textContent = dangerStart.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' }) + ' - ' + safePeriod2Start.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
+            }
             
             renderCalendar(lastPeriod, ovulationDay, safePeriod1End, safePeriod2Start, nextPeriod);
         }
         
         function renderCalendar(lastPeriod, ovulationDay, safePeriod1End, safePeriod2Start, nextPeriod) {
-            const container = document.getElementById('calendarView');
+            var container = document.getElementById('calendarView');
             container.innerHTML = '';
             
-            const startOfMonth = new Date(lastPeriod);
+            var startOfMonth = new Date(lastPeriod);
             startOfMonth.setDate(1);
             
-            const year = startOfMonth.getFullYear();
-            const month = startOfMonth.getMonth();
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            var year = startOfMonth.getFullYear();
+            var month = startOfMonth.getMonth();
+            var firstDay = new Date(year, month, 1).getDay();
+            var daysInMonth = new Date(year, month + 1, 0).getDate();
             
-            const weekDays = ['日 Sun', '一 Mon', '二 Tue', '三 Wed', '四 Thu', '五 Fri', '六 Sat'];
-            weekDays.forEach(d => {
-                const el = document.createElement('div');
+            var weekDaysZh = ['日', '一', '二', '三', '四', '五', '六'];
+            var weekDaysEn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            var isEN = document.documentElement.lang === 'en';
+            var weekDays = isEN ? weekDaysEn : weekDaysZh;
+            
+            weekDays.forEach(function(d) {
+                var el = document.createElement('div');
                 el.className = 'p-2 font-medium text-gray-500';
                 el.textContent = d;
                 container.appendChild(el);
             });
             
-            for (let i = 0; i < firstDay; i++) {
+            for (var i = 0; i < firstDay; i++) {
                 container.appendChild(document.createElement('div'));
             }
             
-            for (let day = 1; day <= daysInMonth; day++) {
-                const date = new Date(year, month, day);
-                const el = document.createElement('div');
+            for (var day = 1; day <= daysInMonth; day++) {
+                var date = new Date(year, month, day);
+                var el = document.createElement('div');
                 el.className = 'p-2 rounded';
                 el.textContent = day;
                 
                 // 安全期1（月经后8天内）
-                const safe1Start = new Date(lastPeriod);
+                var safe1Start = new Date(lastPeriod);
                 if (date > safe1Start && date <= safePeriod1End) {
                     el.className += ' bg-green-200 text-green-700';
                 }
@@ -271,17 +287,70 @@
             }
         }
 
-        const defaultDate = new Date();
+        // 设置默认日期（30天前）
+        var defaultDate = new Date();
         defaultDate.setDate(defaultDate.getDate() - 30);
         document.getElementById('lastPeriod').value = defaultDate.toISOString().split('T')[0];
-        calculate();
+        
+        // 页面加载时执行计算
+        window.onload = function() {
+            initLang();
+            calculate();
+        };
+        
+        function toggleLang() {
+            var isEN = document.documentElement.lang === 'en';
+            document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+            
+            var btn = document.getElementById('langToggle');
+            if (btn) btn.textContent = isEN ? 'EN' : '中文';
+            
+            // 保存语言偏好
+            document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+            
+            // 同步 title
+            var titleEl = document.querySelector('title');
+            if (titleEl) {
+                var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+                if (txt) document.title = txt;
+            }
+            
+            // 同步所有 meta 标签
+            document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+                if (txt) el.content = txt;
+            });
+            
+            // 重新计算以更新日历星期显示
+            calculate();
+        }
+        
+        function initLang() {
+            if (document.cookie.indexOf('lang=en') !== -1) {
+                document.documentElement.lang = 'en';
+                var btn = document.getElementById('langToggle');
+                if (btn) btn.textContent = '中文';
+                
+                // 同步 meta 标签
+                document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                    var txt = el.getAttribute('data-en');
+                    if (txt) el.content = txt;
+                });
+                
+                var titleEl = document.querySelector('title');
+                if (titleEl) {
+                    var txt = titleEl.getAttribute('data-en');
+                    if (txt) document.title = txt;
+                }
+            }
+        }
     </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "安全期计算器 Period Calculator",
-        "description": "计算女性安全期和排卵期 | Calculate menstrual cycle safe days and ovulation",
+        "name": "安全期计算器",
+        "description": "计算女性安全期和排卵期",
         "url": "https://tools.xxym8.com/period.html",
         "applicationCategory": "HealthApplication",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
@@ -292,8 +361,8 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "首页 Home", "item": "https://tools.xxym8.com/" },
-            { "@type": "ListItem", "position": 2, "name": "安全期计算器 Period Calculator", "item": "https://tools.xxym8.com/period.html" }
+            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
+            { "@type": "ListItem", "position": 2, "name": "安全期计算器", "item": "https://tools.xxym8.com/period.html" }
         ]
     }
     </script>
@@ -302,39 +371,12 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            { "@type": "Question", "name": "安全期会怀孕吗？Can I get pregnant during safe days?", "acceptedAnswer": { "@type": "Answer", "text": "会。安全期避孕失败率约20%，因为排卵可能提前或推迟，且精子可在体内存活数日。Yes, pregnancy is possible. Safe days have about 20% failure rate because ovulation can shift and sperm can survive for days." } },
-            { "@type": "Question", "name": "安全期怎么算？How to calculate safe days?", "acceptedAnswer": { "@type": "Answer", "text": "传统安全期：月经开始后8天内为相对安全期，排卵后4天到下次月经前也相对安全。Traditional safe days: first 8 days after period start, and 4 days after ovulation until next period." } },
-            { "@type": "Question", "name": "月经期同房会怀孕吗？Can I get pregnant during my period?", "acceptedAnswer": { "@type": "Answer", "text": "月经期一般不会排卵，但月经期同房容易引起感染，不建议。Pregnancy is unlikely during period, but period sex carries infection risk." } },
-            { "@type": "Question", "name": "不想吃药怎么避孕？What if I don't want to take medication?", "acceptedAnswer": { "@type": "Answer", "text": "推荐使用避孕套（正确使用成功率98%）、宫内节育器（成功率99%）等。Condoms (98% effective) or IUD (99% effective) are good options." } }
+            { "@type": "Question", "name": "安全期会怀孕吗？", "acceptedAnswer": { "@type": "Answer", "text": "会。安全期避孕失败率约20%，因为排卵可能提前或推迟，且精子可在体内存活数日。" } },
+            { "@type": "Question", "name": "安全期怎么算？", "acceptedAnswer": { "@type": "Answer", "text": "传统安全期：月经开始后8天内为相对安全期，排卵后4天到下次月经前也相对安全。" } },
+            { "@type": "Question", "name": "月经期同房会怀孕吗？", "acceptedAnswer": { "@type": "Answer", "text": "月经期一般不会排卵，但月经期同房容易引起感染，不建议。" } },
+            { "@type": "Question", "name": "不想吃药怎么避孕？", "acceptedAnswer": { "@type": "Answer", "text": "推荐使用避孕套（正确使用成功率98%）、宫内节育器（成功率99%）等。" } }
         ]
     }
     </script>
-
-<script>
-function toggleLang() {
-    var isEN = document.documentElement.lang === 'en';
-    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
-    var btn = document.getElementById('langToggle');
-    if (btn) btn.textContent = isEN ? 'EN' : '中文';
-    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
-    var titleEl = document.querySelector('title');
-    if (titleEl) {
-        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
-        if (txt) document.title = txt;
-    }
-    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-        if (txt) el.content = txt;
-    });
-}
-function initLang() {
-    if (document.cookie.indexOf('lang=en') !== -1) {
-        document.documentElement.lang = 'en';
-        var btn = document.getElementById('langToggle');
-        if (btn) btn.textContent = '中文';
-    }
-}
-</script>
-
 </body>
 </html>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个税计算器 | Personal Income Tax Calculator</title>
-    <meta name="description" content="2024最新个税计算器，支持月薪、年终奖、7项专项附加扣除，中英文双语。">
-    <meta name="keywords" content="个人所得税计算器,个税计算器,personal income tax calculator,tax bracket China">
-    <meta name="author" content="Calculator Hub">
+    <title data-zh="个税计算器 - 计度AI工具箱" data-en="Personal Income Tax Calculator - JIDU AI Tools">个税计算器 - 计度AI工具箱</title>
+    <meta name="description" data-zh="2026最新个人所得税计算器，支持月薪、年终奖、7项专项附加扣除，采用2026年最新税率表，中英文双语显示。" data-en="2026 latest China personal income tax calculator with monthly salary, year-end bonus, 7 special deductions, and 2026 tax brackets. Bilingual Chinese/English.">
+    <meta name="keywords" data-zh="个人所得税计算器,个税计算器,2026个税税率表,专项附加扣除,三险一金计算" data-en="personal income tax calculator,China tax calculator,2026 tax brackets,special additional deductions,social insurance">
+    <meta name="author" content="JIDU AI Tools">
     <meta name="robots" content="index, follow">
     
     <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/tax.html">
@@ -14,14 +14,15 @@
     <link rel="canonical" href="https://tools.xxym8.com/tax.html">
     
     <meta property="og:type" content="article">
-    <meta property="og:title" content="个税计算器 | Personal Income Tax Calculator">
-    <meta property="og:description" content="2024最新税率表 | 7项专项附加扣除 | 2024 Latest Tax Rates">
+    <meta property="og:title" data-zh="个税计算器 - 计度AI工具箱" data-en="Personal Income Tax Calculator - JIDU AI Tools">
+    <meta property="og:description" data-zh="2026最新税率表 | 7项专项附加扣除 | 中英文双语" data-en="2026 Latest Tax Rates | 7 Special Deductions | Bilingual">
     <meta property="og:url" content="https://tools.xxym8.com/tax.html">
-    <meta property="og:site_name" content="Calculator Hub">
+    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
     <meta property="og:locale" content="zh_CN">
     
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="个税计算器 | Personal Income Tax Calculator">
+    <meta name="twitter:title" data-zh="个税计算器 - 计度AI工具箱" data-en="Personal Income Tax Calculator - JIDU AI Tools">
+    <meta name="twitter:description" data-zh="2026最新税率表 | 7项专项附加扣除 | 中英文双语" data-en="2026 Latest Tax Rates | 7 Special Deductions | Bilingual">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -31,37 +32,32 @@
         html[lang=en] [data-zh] { display: none; }
         html[lang=en] [data-en] { display: inline; }
         html[lang=en] [data-en-block] { display: block; }
-        .lang-toggle { display: none; }
+        html[lang=en] [data-en-inline] { display: inline; }
         
+        [data-en-block] { display: block; }
         
-        
-        body .zh-content { display: none; }
-        body .en-content { display: block; }
-        body .lang-toggle { display: inline-flex; }
-        body:not(.english) .lang-toggle { display: inline-flex; }
-        /* =========================================== */
+        /* Form labels and inputs - preserve visibility */
+        label, input, select, button { visibility: visible; }
     </style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
     <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">🧮 Calculator Hub</a>
+            <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">🧮 <span data-zh="计度AI工具箱"</span><span data-en>JIDU AI Tools</span></a>
             <div class="flex items-center gap-4">
-                <button onclick="toggleLang()" class="lang-toggle px-3 py-1.5 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-full text-sm font-medium transition-colors">
-                    <span data-zh>🌐 English</span>
-                    <span data-en>🌐 中文</span>
+                <button id="langToggle" onclick="toggleLang()" class="px-3 py-1.5 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-full text-sm font-medium transition-colors">
+                    EN
                 </button>
                 <div class="hidden md:flex gap-6 text-gray-600">
                     <a href="/" class="hover:text-blue-600 transition-colors">
-                        <span class="zh-content">首页</span><span class="en-content">Home</span>
+                        <span data-zh>首页</span><span data-en>Home</span>
                     </a>
                     <a href="/#tools" class="hover:text-blue-600 transition-colors">
-                        <span class="zh-content">工具</span><span class="en-content">Tools</span>
+                        <span data-zh>工具</span><span data-en>Tools</span>
                     </a>
                 </div>
             </div>
-            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
         </nav>
     </header>
 
@@ -70,14 +66,14 @@
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <a href="/" class="hover:text-blue-600" itemprop="item">
-                        <span itemprop="name" class="zh-content">首页</span><span itemprop="name" class="en-content">Home</span>
+                        <span itemprop="name" data-zh>首页</span><span itemprop="name" data-en>Home</span>
                     </a>
                     <meta itemprop="position" content="1">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <span class="text-gray-700" itemprop="name">
-                        <span class="zh-content">个税计算器</span><span class="en-content">Tax Calculator</span>
+                        <span data-zh>个税计算器</span><span data-en>Tax Calculator</span>
                     </span>
                     <meta itemprop="position" content="2">
                 </li>
@@ -87,10 +83,9 @@
 
     <main class="max-w-4xl mx-auto px-4 py-6">
         <div class="text-center mb-6">
-            <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">💰 <span class="zh-content">个税计算器</span><span class="en-content">Personal Income Tax Calculator</span></h1>
+            <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">💰 <span data-zh>个税计算器</span><span data-en>Personal Income Tax Calculator</span></h1>
             <p class="text-gray-500 text-lg">
-                <span class="zh-content">2024最新税率表 | 支持专项附加扣除</span>
-                <span class="en-content">2024 Latest Tax Rates | Special Additional Deductions</span>
+                <span data-zh>2026最新税率表 | 支持7项专项附加扣除</span><span data-en>2026 Latest Tax Rates | 7 Special Additional Deductions</span>
             </p>
         </div>
 
@@ -99,56 +94,55 @@
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">税前月薪（元）</span><span class="en-content">Monthly Gross Salary (CNY)</span>
+                            <span data-zh>税前月薪（元）</span><span data-en>Monthly Gross Salary (CNY)</span>
                         </label>
                         <input type="number" id="monthlySalary" value="15000" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" oninput="calculate()">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">三险一金个人缴纳比例（%）</span><span class="en-content">Social Insurance Rate (Personal %)</span>
+                            <span data-zh>三险一金个人缴纳比例（%）</span><span data-en>Social Insurance Rate (Personal %)</span>
                         </label>
                         <input type="number" id="insuranceRate" value="10.5" step="0.1" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" oninput="calculate()">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">专项附加扣除（元/月）</span><span class="en-content">Special Additional Deduction (CNY/mo)</span>
+                            <span data-zh>专项附加扣除（元/月）</span><span data-en>Special Additional Deduction (CNY/mo)</span>
                         </label>
                         <input type="number" id="deduction" value="0" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" oninput="calculate()">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            <span class="zh-content">年终奖（元）</span><span class="en-content">Year-End Bonus (CNY)</span>
+                            <span data-zh>年终奖（元）</span><span data-en>Year-End Bonus (CNY)</span>
                         </label>
                         <input type="number" id="bonus" value="0" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" oninput="calculate()">
                         <p class="text-xs text-gray-400 mt-1">
-                            <span class="zh-content">输入0则不计算年终奖单独计税</span>
-                            <span class="en-content">Enter 0 to skip bonus separate taxation</span>
+                            <span data-zh>输入0则不计算年终奖单独计税</span><span data-en>Enter 0 to skip bonus separate taxation</span>
                         </p>
                     </div>
                 </div>
                 <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                        📊 <span class="zh-content">计算结果</span><span class="en-content">Results</span>
+                        📊 <span data-zh>计算结果</span><span data-en>Results</span>
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span class="zh-content">应纳税所得额</span><span class="en-content">Taxable Income</span></span>
+                            <span class="text-gray-600"><span data-zh>应纳税所得额</span><span data-en>Taxable Income</span></span>
                             <span id="taxableIncome" class="text-lg font-semibold text-gray-800">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span class="zh-content">适用税率</span><span class="en-content">Tax Rate</span></span>
+                            <span class="text-gray-600"><span data-zh>适用税率</span><span data-en>Tax Rate</span></span>
                             <span id="taxRate" class="text-lg font-semibold text-blue-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span class="zh-content">每月应缴个税</span><span class="en-content">Monthly Tax</span></span>
+                            <span class="text-gray-600"><span data-zh>每月应缴个税</span><span data-en>Monthly Tax</span></span>
                             <span id="monthlyTax" class="text-2xl font-bold text-orange-500">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span class="zh-content">税后月薪</span><span class="en-content">Net Monthly Salary</span></span>
+                            <span class="text-gray-600"><span data-zh>税后月薪</span><span data-en>Net Monthly Salary</span></span>
                             <span id="netSalary" class="text-xl font-semibold text-green-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-600"><span class="zh-content">税后年薪（不含年终奖）</span><span class="en-content">Annual Net (excl. bonus)</span></span>
+                            <span class="text-gray-600"><span data-zh>税后年薪（不含年终奖）</span><span data-en>Annual Net (excl. bonus)</span></span>
                             <span id="annualNet" class="text-lg font-semibold text-gray-800">-</span>
                         </div>
                     </div>
@@ -158,112 +152,104 @@
 
         <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 border border-purple-100">
             <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                📋 <span class="zh-content">专项附加扣除标准（7项）</span><span class="en-content">Special Additional Deductions (7 Items)</span>
+                📋 <span data-zh>专项附加扣除标准（7项）</span><span data-en>Special Additional Deductions (7 Items)</span>
             </h3>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm text-gray-600">
                 <div class="bg-gradient-to-r from-pink-50 to-rose-50 p-3 rounded-xl border border-pink-100">
-                    <span class="zh-content">👶 子女教育：1000元/月/孩</span>
-                    <span class="en-content">👶 Child Education: ¥1,000/mo/child</span>
+                    <span data-zh>👶 子女教育：1000元/月/孩</span><span data-en>👶 Child Education: ¥1,000/mo/child</span>
                 </div>
                 <div class="bg-gradient-to-r from-purple-50 to-violet-50 p-3 rounded-xl border border-purple-100">
-                    <span class="zh-content">📚 继续教育：400元/月</span>
-                    <span class="en-content">📚 Continuing Education: ¥400/mo</span>
+                    <span data-zh>📚 继续教育：400元/月</span><span data-en>📚 Continuing Education: ¥400/mo</span>
                 </div>
                 <div class="bg-gradient-to-r from-red-50 to-orange-50 p-3 rounded-xl border border-red-100">
-                    <span class="zh-content">🏥 大病医疗：上限8万/年</span>
-                    <span class="en-content">🏥 Serious Illness: ¥80k/year max</span>
+                    <span data-zh>🏥 大病医疗：上限8万/年</span><span data-en>🏥 Serious Illness: ¥80k/year max</span>
                 </div>
                 <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-3 rounded-xl border border-green-100">
-                    <span class="zh-content">🏠 住房贷款利息：1000元/月</span>
-                    <span class="en-content">🏠 Home Loan Interest: ¥1,000/mo</span>
+                    <span data-zh>🏠 住房贷款利息：1000元/月</span><span data-en>🏠 Home Loan Interest: ¥1,000/mo</span>
                 </div>
                 <div class="bg-gradient-to-r from-teal-50 to-cyan-50 p-3 rounded-xl border border-teal-100">
-                    <span class="zh-content">🏡 住房租金：800-1500元/月</span>
-                    <span class="en-content">🏡 Housing Rent: ¥800-1,500/mo</span>
+                    <span data-zh>🏡 住房租金：800-1500元/月</span><span data-en>🏡 Housing Rent: ¥800-1,500/mo</span>
                 </div>
                 <div class="bg-gradient-to-r from-amber-50 to-yellow-50 p-3 rounded-xl border border-amber-100">
-                    <span class="zh-content">👴 赡养老人：2000元/月</span>
-                    <span class="en-content">👴 Elderly Support: ¥2,000/mo</span>
+                    <span data-zh>👴 赡养老人：2000元/月</span><span data-en>👴 Elderly Support: ¥2,000/mo</span>
                 </div>
                 <div class="bg-gradient-to-r from-sky-50 to-blue-50 p-3 rounded-xl border border-sky-100">
-                    <span class="zh-content">🍼 3岁以下婴幼儿：1000元/月</span>
-                    <span class="en-content">🍼 Under-3 Infant Care: ¥1,000/mo</span>
+                    <span data-zh>🍼 3岁以下婴幼儿：1000元/月</span><span data-en>🍼 Under-3 Infant Care: ¥1,000/mo</span>
                 </div>
             </div>
         </div>
 
         <div class="bg-white rounded-2xl shadow-lg p-6 mb-6 border border-gray-100">
             <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                🔗 <span class="zh-content">相关工具</span><span class="en-content">Related Tools</span>
+                🔗 <span data-zh>相关工具</span><span data-en>Related Tools</span>
             </h3>
             <div class="flex flex-wrap gap-3">
                 <a href="mortgage.html" class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 hover:from-gray-200 hover:to-gray-100 rounded-xl text-sm text-gray-700 transition-all border border-gray-200">
-                    🏠 <span class="zh-content">房贷计算器</span><span class="en-content">Mortgage Calculator</span>
+                    🏠 <span data-zh>房贷计算器</span><span data-en>Mortgage Calculator</span>
                 </a>
                 <a href="compound.html" class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 hover:from-gray-200 hover:to-gray-100 rounded-xl text-sm text-gray-700 transition-all border border-gray-200">
-                    📈 <span class="zh-content">复利计算器</span><span class="en-content">Compound Interest Calculator</span>
+                    📈 <span data-zh>复利计算器</span><span data-en>Compound Interest Calculator</span>
                 </a>
             </div>
         </div>
 
         <article class="bg-white rounded-2xl shadow-lg p-6 border border-blue-100">
             <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                📖 <span class="zh-content">关于个税计算器</span><span class="en-content">About This Calculator</span>
+                📖 <span data-zh>关于个税计算器</span><span data-en>About This Calculator</span>
             </h2>
             <div class="prose text-gray-600 space-y-4">
-                <p class="zh-content">嗨！如果你正在为"到底要交多少税"这件事头疼，那你来对地方了～ 这个计算器完全根据<strong>2024年最新7级超额累进税率表</strong>设计的，保证给你算得明明白白。</p>
-                <p class="en-content">Hey there! If you've ever stared at your payslip wondering "why is the government taking so much?", you're in the right place. This calculator uses the <strong>2024 latest 7-level progressive tax bracket system</strong> — no more guessing!</p>
+                <p data-zh>嗨！如果你正在为"到底要交多少税"这件事头疼，那你来对地方了～ 这个计算器完全根据<strong>2026年最新7级超额累进税率表</strong>设计的，保证给你算得明明白白。</p>
+                <p data-en>Hey there! If you've ever stared at your payslip wondering "why is the government taking so much?", you're in the right place. This calculator uses the <strong>2026 latest 7-level progressive tax bracket system</strong> — no more guessing!</p>
                 
-                <p class="zh-content">不管是每月死工资，还是年底那笔让人期待又心疼的年终奖，又或者你正在享受<strong>子女教育、房贷利息、租房租金</strong>这些专项附加扣除——通通都能算！</p>
-                <p class="en-content">Whether it's your regular monthly salary, that eagerly-anticipated (and heartbreaking) year-end bonus, or those nifty <strong>special additional deductions</strong> like child education or home loan interest — we've got you covered!</p>
+                <p data-zh>不管是每月死工资，还是年底那笔让人期待又心疼的年终奖，又或者你正在享受<strong>子女教育、房贷利息、租房租金</strong>这些专项附加扣除——通通都能算！</p>
+                <p data-en>Whether it's your regular monthly salary, that eagerly-anticipated (and heartbreaking) year-end bonus, or those nifty <strong>special additional deductions</strong> like child education or home loan interest — we've got you covered!</p>
 
                 <h3 class="text-lg font-semibold text-gray-800 mt-6">
-                    <span class="zh-content">💡 什么是专项附加扣除？</span><span class="en-content">💡 What Are "Special Additional Deductions"?</span>
+                    <span data-zh>💡 什么是专项附加扣除？</span><span data-en>💡 What Are "Special Additional Deductions"?</span>
                 </h3>
-                <p class="zh-content">2019年个税改革后，国家给咱们发福利啦！简单说就是在5000元基本减除费用基础上，符合条件的还能再减一部分。关键是好消息：<strong>不用自己准备证明材料</strong>，单位每月直接帮你扣掉，省心！</p>
-                <p class="en-content">Since the 2019 tax reform, the government introduced these deductions to ease our tax burden. Essentially: on top of the ¥5,000 basic deduction, you can subtract more if you qualify. The best part? <strong>Your employer handles it automatically</strong> — no paperwork needed!</p>
+                <p data-zh>2019年个税改革后，国家给咱们发福利啦！简单说就是在5000元基本减除费用基础上，符合条件的还能再减一部分。关键是好消息：<strong>不用自己准备证明材料</strong>，单位每月直接帮你扣掉，省心！</p>
+                <p data-en>Since the 2019 tax reform, the government introduced these deductions to ease our tax burden. Essentially: on top of the ¥5,000 basic deduction, you can subtract more if you qualify. The best part? <strong>Your employer handles it automatically</strong> — no paperwork needed!</p>
 
                 <h3 class="text-lg font-semibold text-gray-800 mt-6">
-                    <span class="zh-content">📊 2024年个税税率表（7级累进）</span><span class="en-content">📊 2024 Tax Bracket Table (7 Levels)</span>
+                    <span data-zh>📊 2026年个税税率表（7级累进）</span><span data-en>📊 2026 Tax Bracket Table (7 Levels)</span>
                 </h3>
-                <p class="zh-content">income越高，rate越高，这就是传说中的"累进税率"——赚得多，交税比例也越高：</p>
-                <p class="en-content">The more you earn, the higher percentage you pay — progressive taxation in action:</p>
+                <p data-zh>income越高，rate越高，这就是传说中的"累进税率"——赚得多，交税比例也越高：</p>
+                <p data-en>The more you earn, the higher percentage you pay — progressive taxation in action:</p>
                 <ul class="list-disc list-inside space-y-1 bg-blue-50 p-4 rounded-xl">
-                    <li class="zh-content">应纳税所得额 ≤ 3.6万 → <strong>3%</strong>（速算扣除数 0）</li>
-                    <li class="en-content">Taxable income ≤ ¥36,000 → <strong>3%</strong> (quick deduction: 0)</li>
-                    <li class="zh-content">3.6万 ~ 14.4万 → <strong>10%</strong>（速算扣除数 2,520）</li>
-                    <li class="en-content">¥36,000 ~ ¥144,000 → <strong>10%</strong> (quick deduction: 2,520)</li>
-                    <li class="zh-content">14.4万 ~ 30万 → <strong>20%</strong>（速算扣除数 16,920）</li>
-                    <li class="en-content">¥144,000 ~ ¥300,000 → <strong>20%</strong> (quick deduction: 16,920)</li>
-                    <li class="zh-content">30万 ~ 42万 → <strong>25%</strong>（速算扣除数 31,920）</li>
-                    <li class="en-content">¥300,000 ~ ¥420,000 → <strong>25%</strong> (quick deduction: 31,920)</li>
-                    <li class="zh-content">42万 ~ 66万 → <strong>30%</strong>（速算扣除数 52,920）</li>
-                    <li class="en-content">¥420,000 ~ ¥660,000 → <strong>30%</strong> (quick deduction: 52,920)</li>
-                    <li class="zh-content">66万 ~ 96万 → <strong>35%</strong>（速算扣除数 85,920）</li>
-                    <li class="en-content">¥660,000 ~ ¥960,000 → <strong>35%</strong> (quick deduction: 85,920)</li>
-                    <li class="zh-content">超过96万 → <strong>45%</strong>（速算扣除数 181,920）</li>
-                    <li class="en-content">Over ¥960,000 → <strong>45%</strong> (quick deduction: 181,920)</li>
+                    <li data-zh>应纳税所得额 ≤ 3.6万 → <strong>3%</strong>（速算扣除数 0）</li>
+                    <li data-en>Taxable income ≤ ¥36,000 → <strong>3%</strong> (quick deduction: 0)</li>
+                    <li data-zh>3.6万 ~ 14.4万 → <strong>10%</strong>（速算扣除数 2,520）</li>
+                    <li data-en>¥36,000 ~ ¥144,000 → <strong>10%</strong> (quick deduction: 2,520)</li>
+                    <li data-zh>14.4万 ~ 30万 → <strong>20%</strong>（速算扣除数 16,920）</li>
+                    <li data-en>¥144,000 ~ ¥300,000 → <strong>20%</strong> (quick deduction: 16,920)</li>
+                    <li data-zh>30万 ~ 42万 → <strong>25%</strong>（速算扣除数 31,920）</li>
+                    <li data-en>¥300,000 ~ ¥420,000 → <strong>25%</strong> (quick deduction: 31,920)</li>
+                    <li data-zh>42万 ~ 66万 → <strong>30%</strong>（速算扣除数 52,920）</li>
+                    <li data-en>¥420,000 ~ ¥660,000 → <strong>30%</strong> (quick deduction: 52,920)</li>
+                    <li data-zh>66万 ~ 96万 → <strong>35%</strong>（速算扣除数 85,920）</li>
+                    <li data-en>¥660,000 ~ ¥960,000 → <strong>35%</strong> (quick deduction: 85,920)</li>
+                    <li data-zh>超过96万 → <strong>45%</strong>（速算扣除数 181,920）</li>
+                    <li data-en>Over ¥960,000 → <strong>45%</strong> (quick deduction: 181,920)</li>
                 </ul>
 
                 <h3 class="text-lg font-semibold text-gray-800 mt-6">
-                    <span class="zh-content">🎁 年终奖怎么算税？</span><span class="en-content">🎁 How Is Year-End Bonus Taxed?</span>
+                    <span data-zh>🎁 年终奖怎么算税？</span><span data-en>🎁 How Is Year-End Bonus Taxed?</span>
                 </h3>
-                <p class="zh-content">年终奖有两种计税方式：<strong>单独计税</strong>和<strong>合并计税</strong>。单独计税是把年终奖除以12个月，按月收入单独算；合并计税是加到全年综合所得里一起算。</p>
-                <p class="en-content">Two options: <strong>separate taxation</strong> (divide bonus by 12, apply monthly rate) or <strong>combined taxation</strong> (add to annual income).</p>
+                <p data-zh>年终奖有两种计税方式：<strong>单独计税</strong>和<strong>合并计税</strong>。单独计税是把年终奖除以12个月，按月收入单独算；合并计税是加到全年综合所得里一起算。</p>
+                <p data-en>Two options: <strong>separate taxation</strong> (divide bonus by 12, apply monthly rate) or <strong>combined taxation</strong> (add to annual income).</p>
                 
-                <p class="zh-content">一般来说：月薪<1万的单独计税更划算；月薪>3万的合并计税可能更省。具体怎么选，用计算器分别试试就知道啦！</p>
-                <p class="en-content">Rule of thumb: if your monthly salary is under ¥10k, separate is usually better. If it's over ¥30k, combined might save you more. When in doubt, calculate both ways!</p>
+                <p data-zh>一般来说：月薪&lt;1万的单独计税更划算；月薪&gt;3万的合并计税可能更省。具体怎么选，用计算器分别试试就知道啦！</p>
+                <p data-en>Rule of thumb: if your monthly salary is under ¥10k, separate is usually better. If it's over ¥30k, combined might save you more. When in doubt, calculate both ways!</p>
 
                 <h3 class="text-lg font-semibold text-gray-800 mt-6">
-                    <span class="zh-content">🧮 计算示例</span><span class="en-content">🧮 Example Calculation</span>
+                    <span data-zh>🧮 计算示例</span><span data-en>🧮 Example Calculation</span>
                 </h3>
-                <p class="zh-content"><strong>栗子：</strong>月薪15,000元，三险一金10.5%，有娃教育扣除1,000元/月</p>
-                <p class="en-content"><strong>Example:</strong> Monthly salary ¥15,000, social insurance 10.5%, child education deduction ¥1,000/month</p>
+                <p data-zh><strong>栗子：</strong>月薪15,000元，三险一金10.5%，有娃教育扣除1,000元/月</p>
+                <p data-en><strong>Example:</strong> Monthly salary ¥15,000, social insurance 10.5%, child education deduction ¥1,000/month</p>
                 <p class="bg-gray-50 p-3 rounded-xl">
-                    <span class="zh-content">三险一金 = 15,000 × 10.5% = 1,575元<br>
+                    <span data-zh>三险一金 = 15,000 × 10.5% = 1,575元<br>
                     应纳税所得额 = 15,000 - 1,575 - 5,000 - 1,000 = 7,425元<br>
-                    适用税率3%，每月个税 = 7,425 × 3% = <strong>222.75元</strong></span>
-                    <span class="en-content">Social insurance = 15,000 × 10.5% = ¥1,575<br>
+                    适用税率3%，每月个税 = 7,425 × 3% = <strong>222.75元</strong></span><span data-en>Social insurance = 15,000 × 10.5% = ¥1,575<br>
                     Taxable income = 15,000 - 1,575 - 5,000 - 1,000 = ¥7,425<br>
                     Tax rate 3%, monthly tax = 7,425 × 3% = <strong>¥222.75</strong></span>
                 </p>
@@ -272,10 +258,11 @@
     </main>
 
     <footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2024 Calculator Hub | <span class="zh-content">个税计算器</span><span class="en-content">Personal Income Tax Calculator</span></p>
+        <p>© 2026 JIDU AI Tools | <span data-zh>个税计算器</span><span data-en>Personal Income Tax Calculator</span></p>
     </footer>
 
     <script>
+        // 2026 China Individual Income Tax Brackets (7-level progressive)
         const TAX_BRACKETS = [
             { limit: 36000, rate: 0.03, deduction: 0 },
             { limit: 144000, rate: 0.10, deduction: 2520 },
@@ -292,9 +279,13 @@
             const deduction = parseFloat(document.getElementById('deduction').value) || 0;
             const bonus = parseFloat(document.getElementById('bonus').value) || 0;
 
+            // Social insurance and housing fund (personal portion)
             const insurance = salary * insuranceRate;
+            
+            // Taxable monthly income = gross salary - social insurance - 5000 basic deduction - special deductions
             const taxableMonthly = salary - insurance - 5000 - deduction;
             
+            // Find applicable tax bracket
             let rate = 0.03, deductionAmt = 0;
             for (const bracket of TAX_BRACKETS) {
                 if (taxableMonthly <= bracket.limit) {
@@ -304,10 +295,16 @@
                 }
             }
 
+            // Monthly income tax (using quick deduction method)
             const monthlyTax = Math.max(0, taxableMonthly * rate - deductionAmt);
+            
+            // Net monthly salary after tax
             const netSalary = salary - insurance - monthlyTax;
+            
+            // Annual net salary (excluding bonus)
             const annualNet = netSalary * 12;
 
+            // Update display
             document.getElementById('taxableIncome').textContent = taxableMonthly.toLocaleString('zh-CN') + '元';
             document.getElementById('taxRate').textContent = (rate * 100) + '%';
             document.getElementById('monthlyTax').textContent = monthlyTax.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
@@ -315,14 +312,65 @@
             document.getElementById('annualNet').textContent = annualNet.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
         }
 
+        // Initial calculation on page load
         calculate();
     </script>
+    
+    <script>
+    function toggleLang() {
+        var isEN = document.documentElement.lang === 'en';
+        document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+        
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = isEN ? 'EN' : '中文';
+        
+        // Save preference in cookie
+        document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+        
+        // Sync all meta tags with data-zh/data-en attributes
+        document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+            var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+            if (txt) el.content = txt;
+        });
+        
+        // Sync title
+        var titleEl = document.querySelector('title');
+        if (titleEl) {
+            var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+            if (txt) document.title = txt;
+        }
+    }
+    
+    function initLang() {
+        if (document.cookie.indexOf('lang=en') !== -1) {
+            document.documentElement.lang = 'en';
+            var btn = document.getElementById('langToggle');
+            if (btn) btn.textContent = '中文';
+            
+            // Sync meta tags on init
+            document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+                var txt = el.getAttribute('data-en');
+                if (txt) el.content = txt;
+            });
+            
+            var titleEl = document.querySelector('title');
+            if (titleEl) {
+                var txt = titleEl.getAttribute('data-en');
+                if (txt) document.title = txt;
+            }
+        }
+    }
+    
+    // Initialize language on page load
+    initLang();
+    </script>
+    
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "个税计算器 | Personal Income Tax Calculator",
-        "description": "Bilingual Chinese-English personal income tax calculator with 2024 latest rates and 7 special deductions",
+        "name": "个税计算器",
+        "description": "2026最新个人所得税计算器，支持月薪、年终奖、7项专项附加扣除",
         "url": "https://tools.xxym8.com/tax.html",
         "applicationCategory": "FinanceApplication",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
@@ -333,65 +381,11 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "首页 | Home", "item": "https://tools.xxym8.com/" },
-            { "@type": "ListItem", "position": 2, "name": "个税计算器 | Tax Calculator", "item": "https://tools.xxym8.com/tax.html" }
+            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
+            { "@type": "ListItem", "position": 2, "name": "个税计算器", "item": "https://tools.xxym8.com/tax.html" }
         ]
     }
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "个税起征点是多少？ | What's the tax threshold?",
-                "acceptedAnswer": { "@type": "Answer", "text": "个人所得税起征点是5000元/月。| The personal income tax threshold is ¥5,000/month (¥60,000/year)." }
-            },
-            {
-                "@type": "Question",
-                "name": "专项附加扣除有哪些？ | What are the special deductions?",
-                "acceptedAnswer": { "@type": "Answer", "text": "共7项：子女教育、继续教育、大病医疗、住房贷款利息、住房租金、赡养老人、3岁以下婴幼儿照护。| 7 items: child education, continuing education, serious illness, home loan interest, housing rent, elderly support, infant care." }
-            },
-            {
-                "@type": "Question",
-                "name": "三险一金包括哪些？ | What's included in social insurance?",
-                "acceptedAnswer": { "@type": "Answer", "text": "三险一金：养老保险(8%)、医疗保险(2%)、失业保险(0.5%)、住房公积金(5%-12%)。| Pension (8%), medical (2%), unemployment (0.5%), housing fund (5%-12%)." }
-            },
-            {
-                "@type": "Question",
-                "name": "年终奖单独计税和合并计税哪个更划算？ | Separate vs combined bonus taxation?",
-                "acceptedAnswer": { "@type": "Answer", "text": "低收入者（月薪<1万）单独计税更省，高收入者（月薪>3万）合并计税更省。| Lower income (<¥10k/mo): separate is better. Higher income (>¥30k/mo): combined may save more." }
-            }
-        ]
-    }
-    </script>
-
-<script>
-function toggleLang() {
-    var isEN = document.documentElement.lang === 'en';
-    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
-    var btn = document.getElementById('langToggle');
-    if (btn) btn.textContent = isEN ? 'EN' : '中文';
-    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
-    var titleEl = document.querySelector('title');
-    if (titleEl) {
-        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
-        if (txt) document.title = txt;
-    }
-    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-        if (txt) el.content = txt;
-    });
-}
-function initLang() {
-    if (document.cookie.indexOf('lang=en') !== -1) {
-        document.documentElement.lang = 'en';
-        var btn = document.getElementById('langToggle');
-        if (btn) btn.textContent = '中文';
-    }
-}
-</script>
 
 </body>
 </html>
