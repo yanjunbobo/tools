@@ -3,393 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-zh="存款利息计算器 | 计度AI工具箱 2026最新定期活期大额存单" data-en="Deposit Interest Calculator | JIDU AI Tools 2026 Term & Demand CDs">存款利息计算器 | 计度AI工具箱 2026最新定期活期大额存单</title>
-    <meta name="description" data-zh="2026年最新存款利息计算器，支持活期、定期、大额存单利息计算。输入存款金额，选择存期，即可计算利息收入。" data-en="2026 latest deposit interest calculator. Calculate interest for demand deposits, term deposits, and CDs. Enter amount, select term, get instant results.">
-    <meta name="keywords" data-zh="存款利息计算器,定期存款利率,活期存款,大额存单,2026年存款利率" data-en="Deposit Interest Calculator,Term Deposit Rate,Demand Deposit,CD Calculator,2026 Deposit Rates">
-    <meta name="author" data-zh="计度AI工具箱" data-en="Jidu AI Tools">
-    <meta name="robots" content="index, follow">
-    
-    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/deposit.html">
-    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/deposit.html?lang=en">
-    <link rel="canonical" href="https://tools.xxym8.com/deposit.html">
-    <meta property="og:type" content="article">
-    <meta property="og:title" data-zh="存款利息计算器 | 计度AI工具箱" data-en="Deposit Interest Calculator | JIDU AI Tools">
-    <meta property="og:description" data-zh="支持活期、定期、大额存单利息计算" data-en="Calculate interest for demand, term deposits and CDs">
-    <meta property="og:url" content="https://tools.xxym8.com/deposit.html">
-    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
-    <meta name="twitter:card" content="summary">
-    <meta property="og:title" content="存款利息计算器 | 计度AI工具箱">
-    <meta property="og:description" content="支持活期、定期、大额存单利息计算">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title data-zh="计度AI工具箱 - 存款利息计算器" data-en="JIDU AI Tools - Deposit Interest Calculator"></title>
+    <meta name="description" data-zh="在线存款利息计算器，支持活期和定期存款计算" data-en="Online deposit interest calculator supporting demand and time deposits">
     <style>
-        body { font-family: 'Inter', 'PingFang SC', sans-serif; }
-        [data-en] { display: none; }
-        html[lang=en] [data-zh] { display: none; }
-        html[lang=en] [data-en] { display: inline; }
-        html[lang=en] [data-en-block] { display: block; }
-        html[lang=en] [data-en-table] { display: table; }
-    </style>
-    <script src="ads.js"></script>
-</head>
-<body class="bg-gray-50 min-h-screen">
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh="计度AI工具箱" data-en="JIDU AI Tools">计度AI工具箱</span></a>
-            <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600"><span data-zh="首页" data-en="Home">首页</span></a>
-                <a href="/#tools" class="hover:text-blue-600"><span data-zh="工具" data-en="Tools">工具</span></a>
-            </div>
-            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
-        </nav>
-    </header>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .container {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+        }
+        h1 {
+            font-size: 20px;
+            color: #333;
+        }
+        #langToggle {
+            background: #667eea;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        #langToggle:hover {
+            background: #5a6fd6;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        button.calculate-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button.calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+        }
+        .result {
+            margin-top: 24px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            display: none;
+        }
+        .result.show {
+            display: block;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 18px;
+            color: #667eea;
+        }
+        .result-item span:first-child {
+            color: #666;
+        }
+        .result-item span:last-child {
+            color: #333;
+        }
+        .rate-info {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+        }
 
-    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
-        <nav aria-label="Breadcrumb">
-            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页" data-en="Home">首页</span></a>
-                    <meta itemprop="position" content="1">
-                </li>
-                <span class="mx-2 text-gray-400">/</span>
-                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name" data-zh="存款利息计算器" data-en="Deposit Interest Calculator">存款利息计算器</span>
-                    <meta itemprop="position" content="2">
-                </li>
-            </ol>
-        </nav>
+        [data-en]{display:none}
+        html[lang=en] [data-zh]{display:none}
+        html[lang=en] [data-en]{display:inline}
+        html[lang=en] .result-item span:first-child:empty{display:none}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <span data-zh="存款利息计算器</span>
+                <span data-en>Deposit Interest Calculator</span>
+            </h1>
+            <button id="langToggle" onclick="toggleLang()">EN</button>
+        </header>
+
+        <div class="form-group">
+            <label>
+                <span data-zh="存款金额（元）</span>
+                <span data-en>Principal (CNY)</span>
+            </label>
+            <input type="number" id="principal" placeholder="10000" min="0" step="100">
+        </div>
+
+        <div class="form-group">
+            <label>
+                <span data-zh="存款类型</span>
+                <span data-en>Deposit Type</span>
+            </label>
+            <select id="depositType" onchange="updateTerms()">
+                <option value="demand">
+                    <span data-zh>活期存款</span>
+                    <span data-en>Demand Deposit</span>
+                </option>
+                <option value="time3m">
+                    <span data-zh>定期3个月</span>
+                    <span data-en>Time Deposit 3M</span>
+                </option>
+                <option value="time6m">
+                    <span data-zh>定期6个月</span>
+                    <span data-en>Time Deposit 6M</span>
+                </option>
+                <option value="time1y">
+                    <span data-zh>定期1年</span>
+                    <span data-en>Time Deposit 1Y</span>
+                </option>
+                <option value="time2y">
+                    <span data-zh>定期2年</span>
+                    <span data-en>Time Deposit 2Y</span>
+                </option>
+                <option value="time3y">
+                    <span data-zh>定期3年</span>
+                    <span data-en>Time Deposit 3Y</span>
+                </option>
+                <option value="time5y">
+                    <span data-zh>定期5年</span>
+                    <span data-en>Time Deposit 5Y</span>
+                </option>
+            </select>
+        </div>
+
+        <div class="form-group" id="termGroup">
+            <label>
+                <span data-zh="存款期限</span>
+                <span data-en>Term</span>
+            </label>
+            <select id="term">
+                <option value="custom">
+                    <span data-zh>自定义天数</span>
+                    <span data-en>Custom Days</span>
+                </option>
+                <option value="30">30 <span data-zh>天</span><span data-en>Days</span></option>
+                <option value="90">90 <span data-zh>天</span><span data-en>Days</span></option>
+                <option value="180">180 <span data-zh>天</span><span data-en>Days</span></option>
+                <option value="365" selected>1 <span data-zh>年</span><span data-en>Year</span></option>
+            </select>
+        </div>
+
+        <div class="form-group" id="customTermGroup" style="display:none;">
+            <label>
+                <span data-zh="自定义期限（天）</span>
+                <span data-en>Custom Term (Days)</span>
+            </label>
+            <input type="number" id="customTerm" value="365" min="1">
+        </div>
+
+        <div class="form-group">
+            <label>
+                <span data-zh="年利率（%）</span>
+                <span data-en>Annual Interest Rate (%)</span>
+            </label>
+            <input type="number" id="rate" step="0.001" placeholder="1.5">
+            <div class="rate-info">
+                <span data-zh>2026年基准利率：活期0.72%，3个月1.35%，6个月1.55%，1年1.65%，2年2.05%，3年2.45%，5年2.5%</span>
+                <span data-en>2026 Base Rates: Demand 0.72%, 3M 1.35%, 6M 1.55%, 1Y 1.65%, 2Y 2.05%, 3Y 2.45%, 5Y 2.5%</span>
+            </div>
+        </div>
+
+        <button class="calculate-btn" onclick="calculate()">
+            <span data-zh>计算利息</span>
+            <span data-en>Calculate Interest</span>
+        </button>
+
+        <div class="result" id="result">
+            <div class="result-item">
+                <span>
+                    <span data-zh>存款金额</span>
+                    <span data-en>Principal</span>
+                </span>
+                <span id="resPrincipal">¥0</span>
+            </div>
+            <div class="result-item">
+                <span>
+                    <span data-zh>存款类型</span>
+                    <span data-en>Deposit Type</span>
+                </span>
+                <span id="resType">-</span>
+            </div>
+            <div class="result-item">
+                <span>
+                    <span data-zh>存款期限</span>
+                    <span data-en>Term</span>
+                </span>
+                <span id="resTerm">-</span>
+            </div>
+            <div class="result-item">
+                <span>
+                    <span data-zh>年利率</span>
+                    <span data-en>Annual Rate</span>
+                </span>
+                <span id="resRate">0%</span>
+            </div>
+            <div class="result-item">
+                <span>
+                    <span data-zh>利息总额</span>
+                    <span data-en>Total Interest</span>
+                </span>
+                <span id="resInterest">¥0</span>
+            </div>
+            <div class="result-item">
+                <span>
+                    <span data-zh>本息合计</span>
+                    <span data-en>Total Amount</span>
+                </span>
+                <span id="resTotal">¥0</span>
+            </div>
+        </div>
     </div>
 
-    <main class="max-w-4xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">💳 <span data-zh="存款利息计算器" data-en="Deposit Interest Calculator">存款利息计算器</span></h1>
-        <p class="text-gray-500 mb-6"><span data-zh="支持活期、定期、大额存单利息计算" data-en="Calculate interest for demand, term deposits & CDs">支持活期、定期、大额存单利息计算</span></p>
-
-        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="存款类型" data-en="Deposit Type">存款类型</span></label>
-                        <div class="flex flex-wrap gap-4">
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="depositType" value="demand" checked class="w-4 h-4 text-blue-600" onchange="toggleType()">
-                                <span data-zh="活期" data-en="Demand">活期</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="depositType" value="term" class="w-4 h-4 text-blue-600" onchange="toggleType()">
-                                <span data-zh="定期" data-en="Term">定期</span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="depositType" value="cd" class="w-4 h-4 text-blue-600" onchange="toggleType()">
-                                <span data-zh="大额存单" data-en="CD">大额存单</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="存款本金（元）" data-en="Principal (CNY)">存款本金（元）</span></label>
-                        <input type="number" id="principal" value="100000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                    </div>
-                    <div id="rateSection">
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="年利率（%）" data-en="Annual Rate (%)">年利率（%）</span></label>
-                        <input type="number" id="rate" value="0.35" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                    </div>
-                    <div id="termSection" class="hidden">
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="存期" data-en="Term">存期</span></label>
-                        <select id="term" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
-                            <option value="3" data-zh="3个月" data-en="3 Months">3个月</option>
-                            <option value="6" data-zh="6个月" data-en="6 Months">6个月</option>
-                            <option value="12" selected data-zh="1年" data-en="1 Year">1年</option>
-                            <option value="24" data-zh="2年" data-en="2 Years">2年</option>
-                            <option value="36" data-zh="3年" data-en="3 Years">3年</option>
-                            <option value="60" data-zh="5年" data-en="5 Years">5年</option>
-                        </select>
-                    </div>
-                    <div id="demandDaysSection">
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="存款天数" data-en="Days">存款天数</span></label>
-                        <input type="number" id="days" value="365" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                    </div>
-                </div>
-                <div class="bg-blue-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 <span data-zh="计算结果" data-en="Results">计算结果</span></h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span data-zh="存款本金" data-en="Principal">存款本金</span></span>
-                            <span id="principalDisplay" class="text-xl font-semibold text-gray-800">100,000<span data-zh="元" data-en=" CNY">元</span></span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span data-zh="年利率" data-en="Annual Rate">年利率</span></span>
-                            <span id="rateDisplay" class="text-xl font-semibold text-blue-600">0.35%</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span data-zh="存期" data-en="Term">存期</span></span>
-                            <span id="termDisplay" class="text-xl font-semibold text-gray-800"><span data-zh="365天" data-en="365 Days">365天</span></span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span data-zh="利息收入" data-en="Interest Earned">利息收入</span></span>
-                            <span id="interest" class="text-2xl font-bold text-green-600">350.00<span data-zh="元" data-en=" CNY">元</span></span>
-                        </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-600"><span data-zh="本息合计" data-en="Total Amount">本息合计</span></span>
-                            <span id="total" class="text-2xl font-bold text-orange-500">100,350.00<span data-zh="元" data-en=" CNY">元</span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 <span data-zh="2026年银行存款利率参考" data-en="2026 Bank Deposit Rates Reference">2026年银行存款利率参考</span></h3>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-4 py-2 text-left text-gray-600"><span data-zh="存款类型" data-en="Deposit Type">存款类型</span></th>
-                            <th class="px-4 py-2 text-right text-gray-600"><span data-zh="基准利率" data-en="Base Rate">基准利率</span></th>
-                            <th class="px-4 py-2 text-right text-gray-600"><span data-zh="常见上浮利率" data-en="Common Floating">常见上浮利率</span></th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100">
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="活期存款" data-en="Demand Deposit">活期存款</span></td>
-                            <td class="px-4 py-2 text-right">0.35%</td>
-                            <td class="px-4 py-2 text-right">0.3%-0.35%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="3个月定期" data-en="3M Term Deposit">3个月定期</span></td>
-                            <td class="px-4 py-2 text-right">1.10%</td>
-                            <td class="px-4 py-2 text-right">1.5%-1.8%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="6个月定期" data-en="6M Term Deposit">6个月定期</span></td>
-                            <td class="px-4 py-2 text-right">1.30%</td>
-                            <td class="px-4 py-2 text-right">1.7%-2.0%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="1年定期" data-en="1Y Term Deposit">1年定期</span></td>
-                            <td class="px-4 py-2 text-right">1.50%</td>
-                            <td class="px-4 py-2 text-right">1.8%-2.3%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="2年定期" data-en="2Y Term Deposit">2年定期</span></td>
-                            <td class="px-4 py-2 text-right">1.70%</td>
-                            <td class="px-4 py-2 text-right">2.1%-2.9%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="3年定期" data-en="3Y Term Deposit">3年定期</span></td>
-                            <td class="px-4 py-2 text-right">2.10%</td>
-                            <td class="px-4 py-2 text-right">2.6%-3.5%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="5年定期" data-en="5Y Term Deposit">5年定期</span></td>
-                            <td class="px-4 py-2 text-right">2.55%</td>
-                            <td class="px-4 py-2 text-right">2.9%-4.0%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="大额存单(1年)" data-en="CD (1Y)">大额存单(1年)</span></td>
-                            <td class="px-4 py-2 text-right">-</td>
-                            <td class="px-4 py-2 text-right">2.0%-2.5%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2"><span data-zh="大额存单(3年)" data-en="CD (3Y)">大额存单(3年)</span></td>
-                            <td class="px-4 py-2 text-right">-</td>
-                            <td class="px-4 py-2 text-right">3.0%-4.0%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="text-xs text-gray-400 mt-3"><span data-zh="注：实际利率因银行和地区而异，仅供参考" data-en="Note: Actual rates vary by bank and region, for reference only">注：实际利率因银行和地区而异，仅供参考</span></p>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span data-zh="相关工具" data-en="Related Tools">相关工具</span></h3>
-            <div class="flex flex-wrap gap-3">
-                <a href="compound.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">📈 <span data-zh="复利计算器" data-en="Compound Interest">复利计算器</span></a>
-                <a href="gjj.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏦 <span data-zh="公积金计算器" data-en="Housing Fund">公积金计算器</span></a>
-            </div>
-        </div>
-
-        <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="关于存款利息计算器" data-en="About Deposit Interest Calculator">关于存款利息计算器</span></h2>
-            <div class="prose text-gray-600 space-y-4">
-                <p data-zh="银行存钱大概是普通人最熟悉的"理财"方式了吧？虽然利息确实不高，但胜在稳——钱放进去基本不会少，适合当压舱石。2026年了，各家银行利率还是有差异的，用这个计算器帮你货比三家，看看存钱到底能赚多少利息。" data-en="Bank deposits are probably the most familiar 'investment' for ordinary people. The interest rate is indeed not high, but the advantage is stability—your money is safe. In 2026, interest rates still vary between banks. Use this calculator to compare and see how much interest your savings can earn.">银行存钱大概是普通人最熟悉的"理财"方式了吧？虽然利息确实不高，但胜在稳——钱放进去基本不会少，适合当压舱石。2026年了，各家银行利率还是有差异的，用这个计算器帮你货比三家，看看存钱到底能赚多少利息。</p>
-
-                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="活期存款" data-en="Demand Deposits">活期存款</span></h3>
-                <p data-zh="活期就是想存就存、想取就取，灵活度拉满，但利率也是最低的。大银行一般就0.3%左右，有些小银行可能稍微高一点点。我的建议是：留够3-6个月生活费当应急钱就行，多了真没必要放活期。" data-en="Demand deposits offer maximum flexibility—you can deposit and withdraw anytime. But the interest rate is the lowest, around 0.3% at major banks, slightly higher at some smaller ones. My advice: keep 3-6 months of living expenses as emergency fund, don't leave more than that in demand deposits.">活期就是想存就存、想取就取，灵活度拉满，但利率也是最低的。大银行一般就0.3%左右，有些小银行可能稍微高一点点。我的建议是：留够3-6个月生活费当应急钱就行，多了真没必要放活期。</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="定期存款" data-en="Term Deposits">定期存款</span></h3>
-                <p data-zh="定期就是约定期限，存3个月/6个月/1年/2年/3年/5年不等。存得越久利率越高，这个应该挺好理解的。需要注意的是：如果中途提前支取，利息会按活期利率算，等于白存了。所以存之前先想好这笔钱短期内用不用得上。" data-en="Term deposits lock your money for a set period: 3 months, 6 months, 1 year, 2 years, 3 years, or 5 years. Longer terms mean higher rates. Important note: if you withdraw early, interest is calculated at demand deposit rates—you essentially lose all the extra interest. So think carefully about whether you'll need this money before the term ends.">定期就是约定期限，存3个月/6个月/1年/2年/3年/5年不等。存得越久利率越高，这个应该挺好理解的。需要注意的是：如果中途提前支取，利息会按活期利率算，等于白存了。所以存之前先想好这笔钱短期内用不用得上。</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="大额存单" data-en="Certificates of Deposit (CDs)">大额存单</span></h3>
-                <p data-zh="大额存单是银行发行的大额存款凭证，起购门槛20万。利率比普通定期高，而且支持转让，流动性比普通定期好一些。如果你有一笔较大的闲置资金，短期内用不上，大额存单是个不错的稳定收益选择。" data-en="CDs are large-denomination deposit certificates issued by banks, with a minimum purchase of 200,000 CNY. Rates are higher than regular term deposits, and they can be transferred, giving better liquidity. If you have a sizable sum that you won't need short-term, CDs are a good stable-yield option.">大额存单是银行发行的大额存款凭证，起购门槛20万。利率比普通定期高，而且支持转让，流动性比普通定期好一些。如果你有一笔较大的闲置资金，短期内用不上，大额存单是个不错的稳定收益选择。</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="利息计算公式" data-en="Interest Calculation Formula">利息计算公式</span></h3>
-                <p><strong data-zh="利息 = 本金 × 年利率 × 存期（年）" data-en="Interest = Principal × Annual Rate × Term (Years)">利息 = 本金 × 年利率 × 存期（年）</strong></p>
-                <p data-zh="举例：存10万、1年、年利率2%，利息 = 100000 × 2% × 1 = 2000元" data-en="Example: Deposit 100,000 CNY for 1 year at 2% annual rate → Interest = 100,000 × 2% × 1 = 2,000 CNY">举例：存10万、1年、年利率2%，利息 = 100000 × 2% × 1 = 2000元</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="常见问题" data-en="FAQ">常见问题</span></h3>
-                <p><strong data-zh="Q: 10万存银行一年利息多少？" data-en="Q: How much interest does 100K CNY earn in one year?">Q: 10万存银行一年利息多少？</strong></p>
-                <p data-zh="A: 按年利率2%计算，10万存1年利息约2000元。不同银行利率不一样，建议多比较几家。" data-en="A: At 2% annual rate, 100,000 CNY earns about 2,000 CNY interest in one year. Rates vary between banks—worth shopping around.">A: 按年利率2%计算，10万存1年利息约2000元。不同银行利率不一样，建议多比较几家。</p>
-                
-                <p><strong data-zh="Q: 定期存款提前取会怎样？" data-en="Q: What happens if I withdraw a term deposit early?">Q: 定期存款提前取会怎样？</strong></p>
-                <p data-zh="A: 定期存款提前支取按活期利率算，利息会大打折扣。建议合理规划存期，或者用阶梯存款法分散风险。" data-en="A: Early withdrawal converts your term deposit to demand deposit rates, significantly reducing earned interest. Plan your terms carefully, or use a laddering strategy to spread risk.">A: 定期存款提前支取按活期利率算，利息会大打折扣。建议合理规划存期，或者用阶梯存款法分散风险。</p>
-                
-                <p><strong data-zh="Q: 存款保险是什么意思？" data-en="Q: What is deposit insurance?">Q: 存款保险是什么意思？</strong></p>
-                <p data-zh="A: 简单说就是：你在一家银行的存款，50万以内的部分受到国家存款保险制度保护。即使银行破产，这部分钱也能全额拿回来。超过50万的话，就要看银行清算结果了。" data-en="A: Simply put: deposits up to 500,000 CNY per bank are protected by national deposit insurance. If the bank goes bankrupt, you still get this amount back in full. Anything above 500K depends on the bank's liquidation.">A: 简单说就是：你在一家银行的存款，50万以内的部分受到国家存款保险制度保护。即使银行破产，这部分钱也能全额拿回来。超过50万的话，就要看银行清算结果了。</p>
-                
-                <p><strong data-zh="Q: 怎样存款利息最高？" data-en="Q: How to maximize deposit interest?">Q: 怎样存款利息最高？</strong></p>
-                <p data-zh="A: 几个小技巧：①小银行利率通常比大银行高；②大额存单利率优于普通定期；③分散存不同期限（阶梯存款）；④关注银行季末/年末的加息活动" data-en="A: Some tips: ① Smaller banks often offer higher rates than big banks; ② CDs rate better than regular term deposits; ③ Spread across different terms (laddering strategy); ④ Watch for rate promotions at quarter/year-end">A: 几个小技巧：①小银行利率通常比大银行高；②大额存单利率优于普通定期；③分散存不同期限（阶梯存款）；④关注银行季末/年末的加息活动</p>
-            </div>
-        </article>
-    </main>
-
-    <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2026 <span data-zh="计度AI工具箱" data-en="JIDU AI Tools">计度AI工具箱</span></p>
-    </footer>
-
     <script>
-        const TERM_RATES = { 3: 1.5, 6: 1.7, 12: 2.0, 24: 2.3, 36: 2.9, 60: 3.0 };
+        const BASE_RATES = {
+            'demand': 0.72,
+            'time3m': 1.35,
+            'time6m': 1.55,
+            'time1y': 1.65,
+            'time2y': 2.05,
+            'time3y': 2.45,
+            'time5y': 2.5
+        };
 
-        function toggleType() {
-            const type = document.querySelector('input[name="depositType"]:checked').value;
-            const rateSection = document.getElementById('rateSection');
-            const termSection = document.getElementById('termSection');
-            const demandDaysSection = document.getElementById('demandDaysSection');
+        const DEPOSIT_NAMES_ZH = {
+            'demand': '活期存款',
+            'time3m': '定期3个月',
+            'time6m': '定期6个月',
+            'time1y': '定期1年',
+            'time2y': '定期2年',
+            'time3y': '定期3年',
+            'time5y': '定期5年'
+        };
+
+        const DEPOSIT_NAMES_EN = {
+            'demand': 'Demand Deposit',
+            'time3m': 'Time Deposit 3M',
+            'time6m': 'Time Deposit 6M',
+            'time1y': 'Time Deposit 1Y',
+            'time2y': 'Time Deposit 2Y',
+            'time3y': 'Time Deposit 3Y',
+            'time5y': 'Time Deposit 5Y'
+        };
+
+        function initLang() {
+            const savedLang = localStorage.getItem('lang') || 'zh-CN';
+            document.documentElement.lang = savedLang;
+            updateLangToggle();
+        }
+
+        function toggleLang() {
+            const html = document.documentElement;
+            const currentLang = html.lang;
+            const newLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
+            html.lang = newLang;
+            localStorage.setItem('lang', newLang === 'en' ? 'zh-CN' : 'zh-CN');
+            updateLangToggle();
+        }
+
+        function updateLangToggle() {
+            const btn = document.getElementById('langToggle');
+            btn.textContent = document.documentElement.lang === 'zh-CN' ? 'EN' : '中文';
+        }
+
+        function updateTerms() {
+            const type = document.getElementById('depositType').value;
+            const termGroup = document.getElementById('termGroup');
+            const customGroup = document.getElementById('customTermGroup');
+            const termSelect = document.getElementById('term');
+            const rateInput = document.getElementById('rate');
+
+            rateInput.value = BASE_RATES[type];
 
             if (type === 'demand') {
-                rateSection.classList.remove('hidden');
-                termSection.classList.add('hidden');
-                demandDaysSection.classList.remove('hidden');
-                document.getElementById('rate').value = 0.35;
-            } else if (type === 'term') {
-                rateSection.classList.add('hidden');
-                termSection.classList.remove('hidden');
-                demandDaysSection.classList.add('hidden');
-                document.getElementById('rate').value = TERM_RATES[12];
+                termGroup.style.display = 'none';
+                customGroup.style.display = 'block';
             } else {
-                rateSection.classList.add('hidden');
-                termSection.classList.remove('hidden');
-                demandDaysSection.classList.add('hidden');
-                document.getElementById('rate').value = 2.3;
+                termGroup.style.display = 'block';
+                customGroup.style.display = 'none';
+                setDefaultTerm(type);
             }
-            calculate();
+        }
+
+        function setDefaultTerm(type) {
+            const termMap = {
+                'time3m': '90',
+                'time6m': '180',
+                'time1y': '365',
+                'time2y': '730',
+                'time3y': '1095',
+                'time5y': '1825'
+            };
+            document.getElementById('term').value = termMap[type] || '365';
         }
 
         function calculate() {
             const principal = parseFloat(document.getElementById('principal').value) || 0;
+            const type = document.getElementById('depositType').value;
             const rate = parseFloat(document.getElementById('rate').value) / 100 || 0;
-            const type = document.querySelector('input[name="depositType"]:checked').value;
-            const isEN = document.documentElement.lang === 'en';
-
-            let interest = 0, termDisplay = '';
-
+            
+            let termDays;
             if (type === 'demand') {
-                const days = parseInt(document.getElementById('days').value) || 365;
-                interest = principal * rate * days / 365;
-                termDisplay = isEN ? days + ' Days' : days + '天';
+                termDays = parseInt(document.getElementById('customTerm').value) || 365;
             } else {
-                const term = parseInt(document.getElementById('term').value) || 12;
-                const years = term / 12;
-                interest = principal * rate * years;
-                const termLabels = {
-                    3: isEN ? '3 Months' : '3个月',
-                    6: isEN ? '6 Months' : '6个月',
-                    12: isEN ? '1 Year' : '1年',
-                    24: isEN ? '2 Years' : '2年',
-                    36: isEN ? '3 Years' : '3年',
-                    60: isEN ? '5 Years' : '5年'
-                };
-                termDisplay = termLabels[term];
+                termDays = parseInt(document.getElementById('term').value) || 365;
             }
 
+            if (principal <= 0) {
+                alert(document.documentElement.lang === 'zh-CN' ? '请输入有效存款金额' : 'Please enter a valid principal amount');
+                return;
+            }
+
+            const interest = principal * rate * (termDays / 365);
             const total = principal + interest;
 
-            document.getElementById('principalDisplay').innerHTML = principal.toLocaleString() + (isEN ? ' CNY' : '元');
-            document.getElementById('rateDisplay').textContent = (rate * 100).toFixed(2) + '%';
-            document.getElementById('termDisplay').innerHTML = termDisplay;
-            document.getElementById('interest').innerHTML = interest.toLocaleString(undefined, {minimumFractionDigits: 2}) + (isEN ? ' CNY' : '元');
-            document.getElementById('total').innerHTML = total.toLocaleString(undefined, {minimumFractionDigits: 2}) + (isEN ? ' CNY' : '元');
+            const isZh = document.documentElement.lang === 'zh-CN';
+            
+            document.getElementById('resPrincipal').textContent = '¥' + principal.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('resType').textContent = isZh ? DEPOSIT_NAMES_ZH[type] : DEPOSIT_NAMES_EN[type];
+            document.getElementById('resTerm').textContent = termDays + ' ' + (isZh ? '天' : 'Days');
+            document.getElementById('resRate').textContent = (rate * 100).toFixed(3) + '%';
+            document.getElementById('resInterest').textContent = '¥' + interest.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('resTotal').textContent = '¥' + total.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+            document.getElementById('result').classList.add('show');
         }
 
-        toggleType();
+        window.onload = function() {
+            initLang();
+            updateTerms();
+        };
     </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "存款利息计算器",
-        "description": "计算活期、定期、大额存单存款利息",
-        "url": "https://tools.xxym8.com/deposit.html",
-        "applicationCategory": "FinanceApplication",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
-            { "@type": "ListItem", "position": 2, "name": "存款利息计算器", "item": "https://tools.xxym8.com/deposit.html" }
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            { "@type": "Question", "name": "10万存银行一年利息多少？", "acceptedAnswer": { "@type": "Answer", "text": "按年利率2%计算，10万存1年利息约2000元。不同银行利率不同，建议比较后选择。" } },
-            { "@type": "Question", "name": "定期存款提前取会怎样？", "acceptedAnswer": { "@type": "Answer", "text": "定期存款提前支取将按活期利率计算，会损失大部分利息。建议合理规划存期，或采用阶梯存款法。" } },
-            { "@type": "Question", "name": "大额存单和定期存款有什么区别？", "acceptedAnswer": { "@type": "Answer", "text": "大额存单起购金额20万，利率比定期更高，支持转让。定期存款无起购门槛，但利率较低。" } },
-            { "@type": "Question", "name": "存款保险是什么？", "acceptedAnswer": { "@type": "Answer", "text": "存款保险保障同一银行50万以内的存款，即使银行破产也能全额赔付。50万以上的部分按比例赔付。" } }
-        ]
-    }
-    </script>
-
-<script>
-function toggleLang() {
-    var isEN = document.documentElement.lang === 'en';
-    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
-    var btn = document.getElementById('langToggle');
-    if (btn) btn.textContent = isEN ? 'EN' : '中文';
-    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
-    
-    // Sync meta tags
-    var titleEl = document.querySelector('title');
-    if (titleEl && titleEl.getAttribute('data-zh')) {
-        document.title = isEN ? titleEl.getAttribute('data-en') : titleEl.getAttribute('data-zh');
-    }
-    
-    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-        var txt = isEN ? el.getAttribute('data-en') : el.getAttribute('data-zh');
-        if (txt) el.content = txt;
-    });
-    
-    // Recalculate to update term display in correct language
-    calculate();
-}
-
-function initLang() {
-    if (document.cookie.indexOf('lang=en') !== -1) {
-        document.documentElement.lang = 'en';
-        var btn = document.getElementById('langToggle');
-        if (btn) btn.textContent = '中文';
-        
-        // Sync meta tags on init
-        document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-            var txt = el.getAttribute('data-en');
-            if (txt) el.content = txt;
-        });
-        
-        var titleEl = document.querySelector('title');
-        if (titleEl && titleEl.getAttribute('data-en')) {
-            document.title = titleEl.getAttribute('data-en');
-        }
-        
-        calculate();
-    }
-}
-
-initLang();
-</script>
-
 </body>
 </html>

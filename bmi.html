@@ -3,347 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-zh="BMI计算器 | 身体质量指数" data-en="BMI Calculator | Body Mass Index">BMI计算器 | 身体质量指数</title>
-    <meta name="description" data-zh="免费BMI计算器，采用中国BMI标准。计算身体质量指数、基础代谢率、理想体重和健康体重范围。" data-en="Free BMI Calculator using Chinese BMI standards. Calculate Body Mass Index, BMR, ideal weight and healthy weight range.">
-    <meta name="keywords" data-zh="BMI计算器，身体质量指数，基础代谢率，理想体重，健康指数，中国标准" data-en="BMI calculator, body mass index, BMR calculator, ideal weight, Chinese BMI standard">
-    <meta name="author" content="JIDU AI Tools">
-    <meta name="robots" content="index, follow">
-    
-    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/bmi.html">
-    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/bmi.html?lang=en">
-    <link rel="canonical" href="https://tools.xxym8.com/bmi.html">
-    
-    <meta property="og:type" content="article">
-    <meta property="og:title" data-zh="BMI计算器 | 身体质量指数" data-en="BMI Calculator | Body Mass Index">
-    <meta property="og:description" data-zh="采用中国BMI标准的免费BMI计算器" data-en="Free BMI Calculator using Chinese BMI standards">
-    <meta property="og:url" content="https://tools.xxym8.com/bmi.html">
-    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
-    <meta property="og:locale" content="zh_CN">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" data-zh="BMI计算器 | 身体质量指数" data-en="BMI Calculator | Body Mass Index">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>
+        <span data-zh>BMI计算器 - 计度AI工具箱</span>
+        <span data-en>BMI Calculator - JIDU AI Tools</span>
+    </title>
     <style>
-        body { font-family: 'Inter', 'PingFang SC', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; min-height: 100vh; display: flex; flex-direction: column; }
+        nav { background: #2c3e50; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 1.2rem; font-weight: bold; }
+        #langToggle { background: #3498db; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+        #langToggle:hover { background: #2980b9; }
+        .container { max-width: 500px; margin: 2rem auto; padding: 0 1rem; flex: 1; }
+        .card { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; margin-bottom: 1.5rem; color: #2c3e50; font-size: 1.5rem; }
+        .form-group { margin-bottom: 1.2rem; }
+        label { display: block; margin-bottom: 0.5rem; color: #555; font-weight: 500; }
+        input { width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        input:focus { outline: none; border-color: #3498db; }
+        button.calculate-btn { width: 100%; padding: 1rem; background: #3498db; color: white; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; margin-top: 0.5rem; }
+        button.calculate-btn:hover { background: #2980b9; }
+        .result { margin-top: 1.5rem; padding: 1.5rem; background: #f8f9fa; border-radius: 8px; display: none; }
+        .result.show { display: block; }
+        .bmi-value { font-size: 2.5rem; font-weight: bold; text-align: center; color: #2c3e50; margin-bottom: 0.5rem; }
+        .bmi-category { text-align: center; font-size: 1.2rem; padding: 0.3rem 1rem; border-radius: 20px; display: inline-block; margin: 0.5rem auto; }
+        .category-underweight { background: #fff3cd; color: #856404; }
+        .category-normal { background: #d4edda; color: #155724; }
+        .category-overweight { background: #ffeeba; color: #856404; }
+        .category-obese { background: #f8d7da; color: #721c24; }
+        .ideal-weight { text-align: center; margin-top: 1rem; color: #666; font-size: 0.95rem; }
+        .footer { text-align: center; padding: 1rem; color: #888; font-size: 0.85rem; }
         [data-en] { display: none; }
         html[lang=en] [data-zh] { display: none; }
         html[lang=en] [data-en] { display: inline; }
-        html[lang=en] [data-en-block] { display: block; }
     </style>
-    <script src="ads.js"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh="计度AI工具箱" data-en="JIDU AI Tools">计度AI工具箱</span></a>
-            <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600"><span data-zh="首页" data-en="Home">首页</span></a>
-                <a href="/#tools" class="hover:text-blue-600"><span data-zh="工具" data-en="Tools">工具</span></a>
+<body>
+    <nav>
+        <span class="nav-brand">
+            <span data-zh>计度AI工具箱</span>
+            <span data-en>JIDU AI Tools</span>
+        </span>
+        <button id="langToggle" onclick="toggleLang()">EN</button>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h1>
+                <span data-zh>BMI身体质量指数计算器</span>
+                <span data-en>BMI Body Mass Index Calculator</span>
+            </h1>
+            <div class="form-group">
+                <label>
+                    <span data-zh>身高 (cm)</span>
+                    <span data-en>Height (cm)</span>
+                </label>
+                <input type="number" id="height" placeholder="170" min="100" max="250">
             </div>
-            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
-        </nav>
-    </header>
-
-    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
-        <nav aria-label="Breadcrumb">
-            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页" data-en="Home">首页</span></a>
-                    <meta itemprop="position" content="1">
-                </li>
-                <span class="mx-2 text-gray-400">/</span>
-                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name" data-zh="BMI计算器" data-en="BMI Calculator">BMI计算器</span>
-                    <meta itemprop="position" content="2">
-                </li>
-            </ol>
-        </nav>
+            <div class="form-group">
+                <label>
+                    <span data-zh>体重 (kg)</span>
+                    <span data-en>Weight (kg)</span>
+                </label>
+                <input type="number" id="weight" placeholder="65" min="30" max="300">
+            </div>
+            <button class="calculate-btn" onclick="calculate()">
+                <span data-zh>计算BMI</span>
+                <span data-en>Calculate BMI</span>
+            </button>
+            <div class="result" id="result">
+                <div class="bmi-value" id="bmiValue">--</div>
+                <div style="text-align:center">
+                    <span class="bmi-category" id="bmiCategory">--</span>
+                </div>
+                <div class="ideal-weight" id="idealWeight"></div>
+            </div>
+        </div>
     </div>
-
-    <main class="max-w-4xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">⚖️ <span data-zh="BMI身体质量指数计算器" data-en="BMI & Body Metrics Calculator">BMI身体质量指数计算器</span></h1>
-        <p class="text-gray-500 mb-6"><span data-zh="基于中国BMI标准" data-en="Based on Chinese BMI Standards">基于中国BMI标准</span></p>
-
-        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="性别" data-en="Gender">性别</span></label>
-                        <div class="flex gap-4">
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="gender" value="male" checked class="w-4 h-4 text-blue-600" onchange="calculate()">
-                                <span>👨 <span data-zh="男" data-en="Male">男</span></span>
-                            </label>
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="gender" value="female" class="w-4 h-4 text-blue-600" onchange="calculate()">
-                                <span>👩 <span data-zh="女" data-en="Female">女</span></span>
-                            </label>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="身高 (cm)" data-en="Height (cm)">身高 (cm)</span></label>
-                        <input type="number" id="height" value="170" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="体重 (kg)" data-en="Weight (kg)">体重 (kg)</span></label>
-                        <input type="number" id="weight" value="65" step="0.1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span data-zh="年龄 (岁)" data-en="Age (years)">年龄 (岁)</span></label>
-                        <input type="number" id="age" value="30" min="18" max="100" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                    </div>
-                </div>
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 <span data-zh="计算结果" data-en="Results">计算结果</span></h3>
-                    <div class="text-center mb-6">
-                        <div class="text-6xl font-bold" id="bmiValue">-</div>
-                        <div class="text-lg text-gray-500 mt-2" id="bmiCategory"><span data-zh="请输入下方信息" data-en="Enter your info below">请输入下方信息</span></div>
-                    </div>
-                    <div class="space-y-3 text-sm">
-                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span data-zh="BMI 身体质量指数" data-en="BMI">BMI 身体质量指数</span></span>
-                            <span id="bmi" class="font-semibold">-</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span data-zh="BMR 基础代谢率" data-en="BMR (kcal/day)">BMR 基础代谢率</span></span>
-                            <span id="bmr" class="font-semibold">-</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600"><span data-zh="标准体重" data-en="Ideal Weight">标准体重</span></span>
-                            <span id="idealWeight" class="font-semibold">-</span>
-                        </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-600"><span data-zh="健康体重范围" data-en="Healthy Range">健康体重范围</span></span>
-                            <span id="healthyRange" class="font-semibold">-</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 <span data-zh="BMI参考标准" data-en="BMI Reference">BMI参考标准</span></h3>
-            <p class="text-sm text-gray-500 mb-4"><span data-zh="中国标准 (更适合中国人)" data-en="Chinese Standard (More suitable for Chinese body types)">中国标准 (更适合中国人)</span></p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
-                <div class="p-3 bg-blue-50 rounded-lg">
-                    <span class="text-blue-600 font-semibold" data-zh="偏瘦" data-en="Underweight">偏瘦</span><br>
-                    <span class="text-gray-500">&lt; 18.5</span>
-                </div>
-                <div class="p-3 bg-green-50 rounded-lg">
-                    <span class="text-green-600 font-semibold" data-zh="正常" data-en="Normal">正常</span><br>
-                    <span class="text-gray-500">18.5 - 23.9</span>
-                </div>
-                <div class="p-3 bg-orange-50 rounded-lg">
-                    <span class="text-orange-600 font-semibold" data-zh="超重" data-en="Overweight">超重</span><br>
-                    <span class="text-gray-500">24 - 27.9</span>
-                </div>
-                <div class="p-3 bg-red-50 rounded-lg">
-                    <span class="text-red-600 font-semibold" data-zh="肥胖" data-en="Obese">肥胖</span><br>
-                    <span class="text-gray-500">≥ 28</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span data-zh="相关工具" data-en="Related Tools">相关工具</span></h3>
-            <div class="flex flex-wrap gap-3">
-                <a href="compound.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">📈 <span data-zh="复利计算器" data-en="Compound Interest">复利计算器</span></a>
-                <a href="date.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">📅 <span data-zh="日期计算器" data-en="Date Calculator">日期计算器</span></a>
-            </div>
-        </div>
-
-        <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">📖 <span data-zh="关于BMI计算器" data-en="About BMI Calculator">关于BMI计算器</span></h2>
-            <div class="prose text-gray-600 space-y-4">
-                
-                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
-                    <p class="text-sm text-gray-700"><strong>💡 <span data-zh="你知道吗？" data-en="Did you know?">你知道吗？</span></strong><br><span data-zh="BMI(身体质量指数)是最广泛使用的健康体重指标。中国的BMI标准比欧美更严格，因为亚洲人在相同BMI下往往有更高的体脂率。" data-en="BMI (Body Mass Index) is the most widely used indicator to assess whether your weight is healthy. The Chinese BMI standard is stricter than the Western one because people of Asian descent tend to carry more body fat at the same BMI level.">BMI(身体质量指数)是最广泛使用的健康体重指标。中国的BMI标准比欧美更严格，因为亚洲人在相同BMI下往往有更高的体脂率。</span></p>
-                </div>
-                
-                <p><strong data-zh="BMI是什么？" data-en="What is BMI?">BMI是什么？</strong><br><span data-zh="BMI(身体质量指数)是用体重和身高计算的简单指标，可以大致判断体重是否健康。它不是完美的——它无法区分肌肉和脂肪——但对大多数人来说是一个很好的参考。" data-en="BMI (Body Mass Index) is a simple calculation using your weight and height. It gives you a rough idea of whether you're at a healthy weight. It's not perfect — it doesn't distinguish between muscle and fat — but it's a good starting point for most people.">BMI(身体质量指数)是用体重和身高计算的简单指标，可以大致判断体重是否健康。它不是完美的——它无法区分肌肉和脂肪——但对大多数人来说是一个很好的参考。</span></p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">📐 <span data-zh="计算公式" data-en="Formula">计算公式</span></h3>
-                <p><strong>BMI = <span data-zh="体重(kg)" data-en="Weight(kg)">体重(kg)</span> ÷ <span data-zh="身高(m)" data-en="Height(m)">身高(m)</span>²</strong></p>
-                <p class="text-sm text-gray-500"><span data-zh="例如：65kg ÷ (1.7m)² = 65 ÷ 2.89 ≈" data-en="Example: 65kg ÷ (1.7m)² = 65 ÷ 2.89 ≈">例如：65kg ÷ (1.7m)² = 65 ÷ 2.89 ≈</span> <strong>22.5</strong></p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">🇨🇳 <span data-zh="中国与欧美标准对比" data-en="Chinese vs. Western Standards">中国与欧美标准对比</span></h3>
-                <p><span data-zh="中国人的体质和欧美人不同，在相同BMI下，中国人往往有更高的体脂率。因此：中国制定了更严格的参考标准：" data-en="Here's something many people don't realize: the Chinese BMI standard is different from the Western one.中国人的体质和欧美人不同，在相同BMI下，中国人往往有更高的体脂率。因此：中国制定了更严格的参考标准：">中国人的体质和欧美人不同，在相同BMI下，中国人往往有更高的体脂率。因此：中国制定了更严格的参考标准：</span></p>
-                <ul class="list-disc list-inside space-y-2">
-                    <li><strong data-zh="偏瘦：" data-en="Underweight：">偏瘦：</strong><span data-zh="BMI < 18.5 — 可能有营养不良风险" data-en="BMI < 18.5 — Might indicate nutritional deficiency">BMI < 18.5 — Might indicate nutritional deficiency</span></li>
-                    <li><strong data-zh="正常：" data-en="Normal：">正常：</strong><span data-zh="BMI 18.5 - 23.9 — 很好！保持健康生活方式" data-en="BMI 18.5 - 23.9 — Great! Keep it up!">BMI 18.5 - 23.9 — Great! Keep it up!</span></li>
-                    <li><strong data-zh="超重：" data-en="Overweight：">超重：</strong><span data-zh="BMI 24 - 27.9 — 轻度超重，建议适当运动" data-en="BMI 24 - 27.9 — A little extra — consider more movement">BMI 24 - 27.9 — A little extra — consider more movement</span></li>
-                    <li><strong data-zh="肥胖：" data-en="Obese：">肥胖：</strong><span data-zh="BMI ≥ 28 — 值得重视，建议积极干预" data-en="BMI ≥ 28 — Worth paying attention to">BMI ≥ 28 — Worth paying attention to</span></li>
-                </ul>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">🔥 <span data-zh="基础代谢率 (BMR)" data-en="BMR — Your Base Metabolic Rate">基础代谢率 (BMR)</span></h3>
-                <p><strong data-zh="什么是BMR？" data-en="What is BMR?">什么是BMR？</strong><br><span data-zh="BMR(基础代谢率)是你的身体在完全休息状态下燃烧的卡路里数量——呼吸、血液循环、细胞生长等。类似于你整天躺在床上什么都不做时燃烧的卡路里。" data-en="BMR (Basal Metabolic Rate) is the number of calories your body burns just to stay alive — breathing, circulating blood, growing cells, everything. Think of it as the calories you'd burn if you just lay in bed all day doing nothing.">BMR(基础代谢率)是你的身体在完全休息状态下燃烧的卡路里数量——呼吸、血液循环、细胞生长等。类似于你整天躺在床上什么都不做时燃烧的卡路里。</span></p>
-                <p><strong data-zh="为什么重要？" data-en="Why does it matter?">为什么重要？</strong><br><span data-zh="了解BMR有助于合理规划饮食。如果你摄入的热量大约等于BMR，并通过运动燃烧额外卡路里，你就在体重管理的正确轨道上。" data-en="Knowing your BMR helps you plan meals intelligently. If you eat roughly your BMR worth of food and exercise to burn extra calories, you're on a solid track for weight management.">了解BMR有助于合理规划饮食。如果你摄入的热量大约等于BMR，并通过运动燃烧额外卡路里，你就在体重管理的正确轨道上。</span></p>
-                <p><strong data-zh="公式：" data-en="Formulas：">公式：</strong></p>
-                <p class="text-sm"><span data-zh="男性：" data-en="Men：">男性：</span><code class="bg-gray-100 px-2 py-1 rounded">66.47 + 13.75 × <span data-zh="体重" data-en="weight">体重</span> + 5.003 × <span data-zh="身高(cm)" data-en="height(cm)">身高(cm)</span> - 6.755 × <span data-zh="年龄" data-en="age">年龄</span></code></p>
-                <p class="text-sm"><span data-zh="女性：" data-en="Women：">女性：</span><code class="bg-gray-100 px-2 py-1 rounded">655.1 + 9.563 × <span data-zh="体重" data-en="weight">体重</span> + 1.850 × <span data-zh="身高(cm)" data-en="height(cm)">身高(cm)</span> - 4.676 × <span data-zh="年龄" data-en="age">年龄</span></code></p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">🎯 <span data-zh="理想体重" data-en="Ideal Weight">理想体重</span></h3>
-                <p><span data-zh="我们使用BMI = 22作为目标计算理想体重——这是与大多数人最低健康风险相关的BMI值。" data-en="We calculate your ideal weight using BMI = 22 as the target — this is the BMI value associated with the lowest health risks for most people.">我们使用BMI = 22作为目标计算理想体重——这是与大多数人最低健康风险相关的BMI值。</span></p>
-                <p class="text-sm text-gray-500"><span data-zh="理想体重 = 22 × 身高(m)²" data-en="Ideal Weight = 22 × Height(m)²">理想体重 = 22 × 身高(m)²</span></p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">⚠️ <span data-zh="BMI的局限性" data-en="Limitations of BMI">BMI的局限性</span></h3>
-                <div class="bg-gray-50 p-4 rounded-lg text-sm">
-                    <p><strong data-zh="BMI的真相——它有盲点：" data-en="Here's the truth about BMI — it has blind spots:">BMI的真相——它有盲点：</strong></p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
-                        <li><span data-zh="它分不清肌肉和脂肪，健身达人的BMI可能偏高。" data-en="It can't tell muscle from fat. A bodybuilder might score 'obese' even with low body fat">它分不清肌肉和脂肪，健身达人的BMI可能偏高。</span></li>
-                        <li><span data-zh="它不能反映老年人肌肉流失。" data-en="It doesn't account for age-related muscle loss in seniors">它不能反映老年人肌肉流失。</span></li>
-                        <li><span data-zh="它不能区分脂肪存储位置，腹部脂肪更危险。" data-en="It doesn't measure where fat is stored. Belly fat is riskier than hip fat">它不能区分脂肪存储位置，腹部脂肪更危险。</span></li>
-                    </ul>
-                    <p class="mt-2">💡 <strong data-zh="建议：结合腰围使用BMI以获得更准确的健康状况。" data-en="Pro tip: Combine BMI with waist circumference for a clearer picture of your health.">建议：结合腰围使用BMI以获得更准确的健康状况。</strong></p>
-                </div>
-            </div>
-        </article>
-    </main>
-
-    <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2026 <span data-zh="计度AI工具箱" data-en="JIDU AI Tools">计度AI工具箱</span></p>
+    <footer class="footer">
+        <span data-zh>2026 计度AI工具箱 | 数据仅供参考</span>
+        <span data-en>2026 JIDU AI Tools | For reference only</span>
     </footer>
-
     <script>
-        function calculate() {
-            const gender = document.querySelector('input[name="gender"]:checked').value;
-            const height = parseFloat(document.getElementById('height').value) / 100;
-            const weight = parseFloat(document.getElementById('weight').value);
-            const age = parseInt(document.getElementById('age').value);
-
-            if (!height || !weight || height <= 0 || weight <= 0) return;
-
-            const bmi = weight / (height * height);
-            const bmr = gender === 'male' 
-                ? 66.47 + 13.75 * weight + 5.003 * height * 100 - 6.755 * age
-                : 655.1 + 9.563 * weight + 1.850 * height * 100 - 4.676 * age;
-            const idealWeight = height * height * 22;
-            const healthyMin = 18.5 * height * height;
-            const healthyMax = 23.9 * height * height;
-
-            let category, colorClass;
-            if (bmi < 18.5) { category = '偏瘦'; colorClass = 'text-blue-600'; }
-            else if (bmi < 24) { category = '正常'; colorClass = 'text-green-600'; }
-            else if (bmi < 28) { category = '超重'; colorClass = 'text-orange-600'; }
-            else { category = '肥胖'; colorClass = 'text-red-600'; }
-
-            document.getElementById('bmiValue').textContent = bmi.toFixed(1);
-            document.getElementById('bmiValue').className = `text-6xl font-bold ${colorClass}`;
-            
-            const isEN = document.documentElement.lang === 'en';
-            document.getElementById('bmiCategory').innerHTML = isEN 
-                ? `${getCategoryEn(bmi)} · ${category}`
-                : `${category} · ${getCategoryEn(bmi)}`;
-            
-            document.getElementById('bmi').textContent = bmi.toFixed(1);
-            document.getElementById('bmr').textContent = Math.round(bmr) + ' kcal/day';
-            document.getElementById('idealWeight').textContent = idealWeight.toFixed(1) + ' kg';
-            document.getElementById('healthyRange').textContent = healthyMin.toFixed(1) + ' - ' + healthyMax.toFixed(1) + ' kg';
-        }
-
-        function getCategoryEn(bmi) {
-            if (bmi < 18.5) return 'Underweight';
-            if (bmi < 24) return 'Normal';
-            if (bmi < 28) return 'Overweight';
-            return 'Obese';
-        }
-
+        let currentLang = 'zh';
         function toggleLang() {
-            var isEN = document.documentElement.lang === 'en';
-            document.documentElement.lang = isEN ? 'zh-CN' : 'en';
-            var btn = document.getElementById('langToggle');
-            if (btn) btn.textContent = isEN ? 'EN' : '中文';
-            document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
-            
-            // Sync title
-            var titleEl = document.querySelector('title');
-            if (titleEl) {
-                var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
-                if (txt) document.title = txt;
-            }
-            
-            // Sync meta tags
-            document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-                var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-                if (txt) el.content = txt;
-            });
-            
-            // Update result category text
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            document.getElementById('langToggle').textContent = currentLang === 'zh' ? 'EN' : '中';
             calculate();
         }
-
         function initLang() {
-            if (document.cookie.indexOf('lang=en') !== -1) {
-                document.documentElement.lang = 'en';
-                var btn = document.getElementById('langToggle');
-                if (btn) btn.textContent = '中文';
-                document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-                    var txt = el.getAttribute('data-en');
-                    if (txt) el.content = txt;
-                });
-                var titleEl = document.querySelector('title');
-                if (titleEl) {
-                    var txt = titleEl.getAttribute('data-en');
-                    if (txt) document.title = txt;
-                }
-            }
+            document.documentElement.lang = 'zh-CN';
         }
-
-        // Initialize on load
-        initLang();
-        // Calculate on page load
-        calculate();
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "BMI Calculator",
-        "alternateName": "BMI计算器",
-        "description": "Calculate BMI body mass index, BMR basal metabolic rate, and ideal weight using Chinese BMI standards",
-        "url": "https://tools.xxym8.com/bmi.html",
-        "applicationCategory": "HealthApplication",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tools.xxym8.com/" },
-            { "@type": "ListItem", "position": 2, "name": "BMI Calculator", "item": "https://tools.xxym8.com/bmi.html" }
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What's the normal BMI range for Chinese people?",
-                "acceptedAnswer": { "@type": "Answer", "text": "For Chinese adults, normal BMI is 18.5-23.9. Below 18.5 is underweight, 24-27.9 is overweight, and 28+ is obese. The Chinese standard is stricter than the Western one because Asians tend to have higher body fat at the same BMI." }
-            },
-            {
-                "@type": "Question",
-                "name": "How do you calculate BMI?",
-                "acceptedAnswer": { "@type": "Answer", "text": "BMI = Weight(kg) ÷ Height(m)². For example: 65kg ÷ (1.7m)² = 65 ÷ 2.89 ≈ 22.5" }
-            },
-            {
-                "@type": "Question",
-                "name": "What is BMR?",
-                "acceptedAnswer": { "@type": "Answer", "text": "BMR (Basal Metabolic Rate) is the calories your body burns at complete rest. It represents the minimum energy needed to sustain life. Knowing your BMR helps with meal planning and weight management." }
-            },
-            {
-                "@type": "Question",
-                "name": "Why is the Chinese BMI standard different from Western?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Chinese people typically have higher body fat percentages at the same BMI compared to Westerners. Therefore, China uses stricter thresholds: normal BMI in China is 18.5-23.9, versus 18.5-24.9 in Western countries." }
+        function calculate() {
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const resultDiv = document.getElementById('result');
+            if (!height || !weight || height <= 0 || weight <= 0) {
+                resultDiv.classList.remove('show');
+                return;
             }
-        ]
-    }
+            const heightM = height / 100;
+            const bmi = weight / (heightM * heightM);
+            const bmiValue = document.getElementById('bmiValue');
+            const bmiCategory = document.getElementById('bmiCategory');
+            const idealWeight = document.getElementById('idealWeight');
+            bmiValue.textContent = bmi.toFixed(1);
+            let categoryText, categoryClass;
+            if (bmi < 18.5) {
+                categoryText = currentLang === 'zh' ? '偏瘦' : 'Underweight';
+                categoryClass = 'category-underweight';
+            } else if (bmi < 24) {
+                categoryText = currentLang === 'zh' ? '正常' : 'Normal';
+                categoryClass = 'category-normal';
+            } else if (bmi < 28) {
+                categoryText = currentLang === 'zh' ? '超重' : 'Overweight';
+                categoryClass = 'category-overweight';
+            } else {
+                categoryText = currentLang === 'zh' ? '肥胖' : 'Obese';
+                categoryClass = 'category-obese';
+            }
+            bmiCategory.textContent = categoryText;
+            bmiCategory.className = 'bmi-category ' + categoryClass;
+            const idealLow = (18.5 * heightM * heightM).toFixed(1);
+            const idealHigh = (23.9 * heightM * heightM).toFixed(1);
+            const idealText = currentLang === 'zh' 
+                ? '理想体重范围: ' + idealLow + ' - ' + idealHigh + ' kg'
+                : 'Ideal weight range: ' + idealLow + ' - ' + idealHigh + ' kg';
+            idealWeight.textContent = idealText;
+            resultDiv.classList.add('show');
+        }
+        window.onload = initLang;
     </script>
 </body>
 </html>
