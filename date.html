@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>日期计算器 - 天数计算工作日统计倒计时</title>
-    <meta name="description" content="在线日期计算器，支持天数计算、工作日统计、中国法定节假日、倒计时功能，农历节日查询。">
+    <meta name="description" content="在线日期计算器，支持天数计算、工作日统计、中国法定节假日、倒计时功能，农历节日查询，助力项目管理。">
+    <meta name="keywords" content="日期计算器,工作日计算器,天数计算器,倒计时,农历计算器,法定节假日,周末计算">
+    <meta name="author" content="计算器之家">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.xxym8.com/date.html">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="日期计算器 - 天数计算工作日统计倒计时">
+    <meta property="og:description" content="支持天数计算、工作日统计、中国法定节假日、倒计时">
+    <meta property="og:url" content="https://tools.xxym8.com/date.html">
+    <meta property="og:site_name" content="计算器之家">
+    <meta property="og:locale" content="zh_CN">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="日期计算器 - 天数计算工作日统计倒计时">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
 </head>
@@ -20,7 +35,19 @@
     </header>
 
     <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
-        <a href="/" class="hover:text-blue-600">首页</a> > <span class="text-gray-700">日期计算器</span>
+        <nav aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span class="text-gray-700" itemprop="name">日期计算器</span>
+                    <meta itemprop="position" content="2">
+                </li>
+            </ol>
+        </nav>
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
@@ -92,11 +119,53 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="holidayCountdown"></div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关于日期计算器</h2>
-            <p class="text-gray-600 mb-3">日期计算器可以帮助您计算两个日期之间的天数差、工作日天数，以及距离重要节日的倒计时。</p>
-            <p class="text-gray-600"><strong>2024-2025年法定节假日：</strong>元旦（1天）、春节（3天）、清明节（1天）、劳动节（1天）、端午节（1天）、中秋节（1天）、国庆节（3天）。</p>
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具</h3>
+            <div class="flex flex-wrap gap-3">
+                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 房贷计算器</a>
+                <a href="bmi.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">⚖️ BMI计算器</a>
+            </div>
         </div>
+
+        <article class="bg-white rounded-xl shadow-sm p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">关于日期计算器</h2>
+            <div class="prose text-gray-600 space-y-4">
+                <p>日期计算器是一款实用的时间管理工具，帮助您快速计算两个日期之间的天数差异、工作日数量，以及重要节日的倒计时。无论是规划项目工期、计算请假天数，还是等待假期到来，这款工具都能派上用场。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">功能说明</h3>
+                <p><strong>天数计算：</strong>计算两个日期之间的自然天数（包含首尾两天）。勾选"排除周末"可计算实际工作日数量。</p>
+                <p><strong>倒计时：</strong>设置目标日期后，自动显示距离今天的天数。适合用于考试、假期、生日等重要日期的倒计时。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">工作日计算的重要性</h3>
+                <p>在项目管理中，准确计算工作日至关重要。中国法定节假日会影响实际工作天数，特别是在春节、国庆等长假期前后。本计算器帮助您准确计算包含法定节假日的实际工作日。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">2024-2025年法定节假日</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li><strong>元旦：</strong>1月1日，放假1天</li>
+                    <li><strong>春节：</strong>农历正月初一至初三，放假3天</li>
+                    <li><strong>清明节：</strong>4月4日-6日，放假3天</li>
+                    <li><strong>劳动节：</strong>5月1日，放假1天</li>
+                    <li><strong>端午节：</strong>农历五月初五，放假1天</li>
+                    <li><strong>中秋节：</strong>农历八月十五，放假1天</li>
+                    <li><strong>国庆节：</strong>10月1日-3日，放假3天</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">计算示例</h3>
+                <p><strong>示例1：</strong>项目从2024年3月1日开始，到2024年3月31日结束，一共多少天？</p>
+                <p>答案：31天（包含首尾），其中工作日约21天（排除周末）。</p>
+                <p><strong>示例2：</strong>距离2025年春节（1月29日）还有多少天？</p>
+                <p>答案：使用倒计时功能可以自动计算。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">使用场景</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li><strong>项目管理：</strong>计算项目工期、交付日期</li>
+                    <li><strong>HR/行政：</strong>计算员工年假、病假天数</li>
+                    <li><strong>个人：</strong>计算重要事件倒计时</li>
+                    <li><strong>教育：</strong>计算考试倒计时、学期长度</li>
+                    <li><strong>法律：</strong>计算诉讼时效、合同期限</li>
+                </ul>
+            </div>
+        </article>
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
@@ -104,7 +173,6 @@
     </footer>
 
     <script>
-        // 2024-2025法定节假日
         const HOLIDAYS = [
             { name: '元旦', date: '2025-01-01', days: 1 },
             { name: '春节', date: '2025-01-28', days: 3 },
@@ -168,7 +236,6 @@
             }
         }
 
-        // 显示节日倒计时
         function showHolidays() {
             const container = document.getElementById('holidayCountdown');
             const today = new Date();
@@ -183,7 +250,6 @@
             container.innerHTML = html;
         }
 
-        // 设置默认日期
         const today = new Date();
         const nextMonth = new Date(today);
         nextMonth.setMonth(nextMonth.getMonth() + 1);
@@ -195,7 +261,53 @@
         showHolidays();
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebApplication","name":"日期计算器","description":"计算天数、工作日、倒计时","url":"https://tools.xxym8.com/date.html","applicationCategory":"UtilityApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "日期计算器",
+        "description": "计算天数、工作日、倒计时",
+        "url": "https://tools.xxym8.com/date.html",
+        "applicationCategory": "UtilityApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
+            { "@type": "ListItem", "position": 2, "name": "日期计算器", "item": "https://tools.xxym8.com/date.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "如何计算两个日期之间的天数？",
+                "acceptedAnswer": { "@type": "Answer", "text": "使用日期计算器的"天数计算"功能，选择开始日期和结束日期，即可自动计算包含首尾两天的总天数。" }
+            },
+            {
+                "@type": "Question",
+                "name": "工作日怎么计算？",
+                "acceptedAnswer": { "@type": "Answer", "text": "勾选"排除周末"选项，系统会自动计算排除周六周日后剩余的工作日天数。" }
+            },
+            {
+                "@type": "Question",
+                "name": "倒计时怎么用？",
+                "acceptedAnswer": { "@type": "Answer", "text": "选择"倒计时"模式，输入目标日期，即可看到距离今天还有多少天。" }
+            },
+            {
+                "@type": "Question",
+                "name": "法定节假日算工作日吗？",
+                "acceptedAnswer": { "@type": "Answer", "text": "法定节假日不算工作日。本计算器的周末排除功能只排除周六周日，法定节假日需要结合具体日期判断。" }
+            }
+        ]
+    }
     </script>
 </body>
 </html>

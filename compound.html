@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>复利计算器 - 定投收益年化收益率计算</title>
-    <meta name="description" content="在线复利计算器，支持一次性本金复利和每月定投计算，可视化增长曲线图，精准计算年化收益率和收益总额。">
+    <title>复利计算器 - 定投收益年化收益率计算器</title>
+    <meta name="description" content="在线复利计算器，支持一次性本金复利和每月定投计算，可视化增长曲线图，精准计算年化收益率、收益总额，助您规划理财目标。">
+    <meta name="keywords" content="复利计算器,定投计算器,年化收益率计算器,基金收益计算器,复利公式,投资收益计算器,储蓄计算器">
+    <meta name="author" content="计算器之家">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.xxym8.com/compound.html">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="复利计算器 - 定投收益年化收益率计算器">
+    <meta property="og:description" content="支持一次性复利和每月定投，可视化增长曲线">
+    <meta property="og:url" content="https://tools.xxym8.com/compound.html">
+    <meta property="og:site_name" content="计算器之家">
+    <meta property="og:locale" content="zh_CN">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="复利计算器 - 定投收益年化收益率计算器">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
@@ -21,7 +36,19 @@
     </header>
 
     <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
-        <a href="/" class="hover:text-blue-600">首页</a> > <span class="text-gray-700">复利计算器</span>
+        <nav aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span class="text-gray-700" itemprop="name">复利计算器</span>
+                    <meta itemprop="position" content="2">
+                </li>
+            </ol>
+        </nav>
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
@@ -90,10 +117,49 @@
             <canvas id="chart" height="200"></canvas>
         </div>
 
-        <div class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关于复利计算器</h2>
-            <p class="text-gray-600">复利是指将本金产生的利息加入本金继续计息的方式，即"利滚利"。定投则是每月投入固定金额，长期平均成本。本计算器支持两种模式，助您规划理财目标。</p>
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具</h3>
+            <div class="flex flex-wrap gap-3">
+                <a href="tax.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💰 个人所得税计算器</a>
+                <a href="bmi.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">⚖️ BMI计算器</a>
+            </div>
         </div>
+
+        <article class="bg-white rounded-xl shadow-sm p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">关于复利计算器</h2>
+            <div class="prose text-gray-600 space-y-4">
+                <p>复利是指将本金产生的利息加入本金继续计息的方式，即"<strong>利滚利</strong>"。爱因斯坦曾说复利是世界第八大奇迹。复利的力量是惊人的——随着时间推移，利息产生利息，雪球越滚越大。本计算器支持一次性复利和每月定投两种模式，帮助您直观了解复利的威力。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">复利公式</h3>
+                <p><strong>一次性复利终值公式：</strong>F = P × (1 + r)<sup>n</sup></p>
+                <p>其中：F = 到期总资产，P = 本金，r = 月利率，n = 计息期数（月数）</p>
+                <p><strong>定投终值公式：</strong>F = PMT × [(1 + r)<sup>n</sup - 1] / r</p>
+                <p>其中：PMT = 每月定投金额</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">复利 vs 单利</h3>
+                <p><strong>单利：</strong>只有本金产生利息，利息不再生息。例如10万本金、年利率8%、20年：总收益 = 10万 × 8% × 20 = 16万。</p>
+                <p><strong>复利：</strong>本金和利息都产生利息。同样10万、年8%、20年：终值约46.6万，收益36.6万。复利比单利多出20万的收益！</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见投资渠道年化收益率参考</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>银行存款：1.5%-3%</li>
+                    <li>国债：3%-4%</li>
+                    <li>银行理财产品：3%-5%</li>
+                    <li>债券基金：4%-6%</li>
+                    <li>指数基金（长期）：7%-10%</li>
+                    <li>股票基金：10%-15%（波动大）</li>
+                </ul>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">计算示例</h3>
+                <p><strong>示例1：</strong>一次性投入10万，年化8%，20年后是多少？</p>
+                <p>答案：10万 × (1 + 8%)<sup>20</sup> ≈ 46.6万，收益约36.6万。</p>
+                <p><strong>示例2：</strong>每月定投1000元，年化8%，20年后是多少？</p>
+                <p>答案：约494万。其中本金24万，收益约470万！这就是定投+复利的威力。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">定投为什么有效？</h3>
+                <p>定投（定期定额投资）通过<strong>平均成本法</strong>降低择时风险。市场低位时，同样的钱买更多份额；市场高位时买较少份额。长期坚持，成本会被摊平，再加上复利效应，收益非常可观。基金定投被认为是适合普通人的最佳投资方式之一。</p>
+            </div>
+        </article>
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
@@ -188,7 +254,53 @@
         calculate();
     </script>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebApplication","name":"复利计算器","description":"计算复利收益和定投收益","url":"https://tools.xxym8.com/compound.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "复利计算器",
+        "description": "计算复利收益和定投收益，支持可视化增长曲线",
+        "url": "https://tools.xxym8.com/compound.html",
+        "applicationCategory": "FinanceApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
+            { "@type": "ListItem", "position": 2, "name": "复利计算器", "item": "https://tools.xxym8.com/compound.html" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "复利公式是什么？",
+                "acceptedAnswer": { "@type": "Answer", "text": "复利公式：F = P × (1 + r)^n，其中F为终值，P为本金，r为利率，n为期数。定投公式：F = PMT × [(1+r)^n - 1] / r。" }
+            },
+            {
+                "@type": "Question",
+                "name": "10万存20年复利多少？",
+                "acceptedAnswer": { "@type": "Answer", "text": "按年化8%计算：10万 × (1.08)^20 ≈ 46.6万，收益约36.6万。同样的钱存银行按单利只有16万。" }
+            },
+            {
+                "@type": "Question",
+                "name": "定投和一次性投入哪个好？",
+                "acceptedAnswer": { "@type": "Answer", "text": "各有优劣。一次性投入适合有较大本金的情况；定投适合每月有固定收入的人群，可以摊平成本、分散风险。" }
+            },
+            {
+                "@type": "Question",
+                "name": "年化收益率8%算高吗？",
+                "acceptedAnswer": { "@type": "Answer", "text": "长期年化8%是一个不错的收益。参考：银行存款约2-3%，国债约3-4%，优质指数基金长期可达7-10%。" }
+            }
+        ]
+    }
     </script>
 </body>
 </html>

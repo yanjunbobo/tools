@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tools.xxym8.com/sitemap.xml
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Sogou
+User-agent: Sogou web spider
+Allow: /
+
+# 360
+User-agent: 360Spider
+Allow: /
