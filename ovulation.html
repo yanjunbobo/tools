@@ -8,6 +8,9 @@
     <meta name="keywords" content="ovulation calculator,fertility calculator,period tracker,排卵期计算器,备孕,易孕期,排卵日">
     <meta name="author" content="Jdu AI Tools">
     <meta name="robots" content="index, follow">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/ovulation.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/ovulation.html?lang=en">
     <link rel="canonical" href="https://tools.xxym8.com/ovulation.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Ovulation Calculator - Pregnancy & Fertility Tracker">
@@ -16,7 +19,12 @@
     <meta property="og:site_name" content="Jdu AI Tools">
     <meta name="twitter:card" content="summary">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
+    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }
+        [data-en] { display: none; }
+        html[lang=en] [data-zh] { display: none; }
+        html[lang=en] [data-en] { display: inline; }
+        html[lang=en] [data-en-block] { display: block; }
+</style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -28,7 +36,7 @@
                 <a href="/#tools" class="hover:text-blue-600">Tools</a>
             </div>
         </nav>
-            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">🇺🇸 EN</button>
+            
     </header>
 
     <!-- Language Toggle -->
@@ -368,5 +376,32 @@
         ]
     }
     </script>
+
+<script>
+function toggleLang() {
+    var isEN = document.documentElement.lang === 'en';
+    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    var btn = document.getElementById('langToggle');
+    if (btn) btn.textContent = isEN ? 'EN' : '中文';
+    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+        if (txt) document.title = txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        if (txt) el.content = txt;
+    });
+}
+function initLang() {
+    if (document.cookie.indexOf('lang=en') !== -1) {
+        document.documentElement.lang = 'en';
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = '中文';
+    }
+}
+</script>
+
 </body>
 </html>

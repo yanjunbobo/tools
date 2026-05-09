@@ -8,6 +8,9 @@
     <meta name="keywords" content="公积金计算器,公积金贷款,housing provident fund calculator,公积金缴存,住房公积金">
     <meta name="author" content="计度AI工具箱">
     <meta name="robots" content="index, follow">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/gjj.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/gjj.html?lang=en">
     <link rel="canonical" href="https://tools.xxym8.com/gjj.html">
     <meta property="og:type" content="article">
     <meta property="og:title" content="公积金计算器 | Housing Provident Fund Calculator">
@@ -16,7 +19,12 @@
     <meta property="og:site_name" content="计度AI工具箱">
     <meta name="twitter:card" content="summary">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
+    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }
+        [data-en] { display: none; }
+        html[lang=en] [data-zh] { display: none; }
+        html[lang=en] [data-en] { display: inline; }
+        html[lang=en] [data-en-block] { display: block; }
+</style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -52,9 +60,7 @@
                 <h1 class="text-3xl font-bold text-gray-800 mb-2">🏦 公积金计算器</h1>
                 <h1 class="text-3xl font-bold text-gray-800">🏦 Housing Provident Fund Calculator</h1>
             </div>
-            <button id="langToggle" onclick="toggleLang()" class="px-4 py-2 bg-blue-100 hover:bg-blue-200 rounded-lg text-sm font-medium text-blue-600 transition">
-                🌐 EN / 中文
-            </button>
+            
         </div>
         <p class="text-gray-500 mb-6" id="subtitle">计算公积金缴存金额、账户余额、贷款额度</p>
 
@@ -62,106 +68,106 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">计算模式</label>
-                        <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Calculation Mode</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-zh>计算模式</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-en >Calculation Mode</label>
                         <div class="flex flex-wrap gap-4">
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="radio" name="mode" value="deposit" checked class="w-4 h-4 text-blue-600" onchange="toggleMode()">
-                                <span data-lang="zh">缴存计算</span>
-                                <span data-lang="en" style="display:none;">Contribution</span>
+                                <span data-zh>缴存计算</span>
+                                <span data-en >Contribution</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="radio" name="mode" value="loan" class="w-4 h-4 text-blue-600" onchange="toggleMode()">
-                                <span data-lang="zh">可贷额度</span>
-                                <span data-lang="en" style="display:none;">Loan Amount</span>
+                                <span data-zh>可贷额度</span>
+                                <span data-en >Loan Amount</span>
                             </label>
                         </div>
                     </div>
                     <div id="depositMode">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">月工资（元）</label>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Monthly Salary (CNY)</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-zh>月工资（元）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en >Monthly Salary (CNY)</label>
                             <input type="number" id="salary" value="15000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                         <div class="mt-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">公积金缴存比例（%）</label>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Contribution Rate (%)</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-zh>公积金缴存比例（%）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en >Contribution Rate (%)</label>
                             <input type="number" id="ratio" value="12" min="5" max="12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                            <p class="text-xs text-gray-400 mt-1" data-lang="zh">通常为5%-12%，单位或个人同比例</p>
-                            <p class="text-xs text-gray-400 mt-1" data-lang="en" style="display:none;">Usually 5%-12%, both employer and employee pay same rate</p>
+                            <p class="text-xs text-gray-400 mt-1" data-zh>通常为5%-12%，单位或个人同比例</p>
+                            <p class="text-xs text-gray-400 mt-1" data-en >Usually 5%-12%, both employer and employee pay same rate</p>
                         </div>
                         <div class="mt-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">缴存月数</label>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Number of Months</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-zh>缴存月数</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en >Number of Months</label>
                             <input type="number" id="months" value="12" min="1" max="600" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                     </div>
                     <div id="loanMode" class="hidden space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">账户余额（元）</label>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Account Balance (CNY)</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-zh>账户余额（元）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en >Account Balance (CNY)</label>
                             <input type="number" id="balance" value="50000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">缴存年限（年）</label>
-                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Years of Contribution</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-zh>缴存年限（年）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-en >Years of Contribution</label>
                             <input type="number" id="years" value="5" min="1" max="30" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                     </div>
                 </div>
                 <div class="bg-blue-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="zh">📊 计算结果</h3>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="en" style="display:none;">📊 Results</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-zh>📊 计算结果</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-en >📊 Results</h3>
                     <div class="space-y-3" id="results">
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600" data-lang="zh">个人月缴存</span>
-                            <span class="text-gray-600" data-lang="en" style="display:none;">Your Monthly Contribution</span>
+                            <span class="text-gray-600" data-zh>个人月缴存</span>
+                            <span class="text-gray-600" data-en >Your Monthly Contribution</span>
                             <span id="personalMonthly" class="text-xl font-bold text-blue-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600" data-lang="zh">单位月缴存</span>
-                            <span class="text-gray-600" data-lang="en" style="display:none;">Employer Monthly Contribution</span>
+                            <span class="text-gray-600" data-zh>单位月缴存</span>
+                            <span class="text-gray-600" data-en >Employer Monthly Contribution</span>
                             <span id="companyMonthly" class="text-xl font-semibold text-green-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600" data-lang="zh">月缴存总额</span>
-                            <span class="text-gray-600" data-lang="en" style="display:none;">Total Monthly Contribution</span>
+                            <span class="text-gray-600" data-zh>月缴存总额</span>
+                            <span class="text-gray-600" data-en >Total Monthly Contribution</span>
                             <span id="totalMonthly" class="text-xl font-semibold text-gray-800">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-600" data-lang="zh">账户累计余额</span>
-                            <span class="text-gray-600" data-lang="en" style="display:none;">Total Account Balance</span>
+                            <span class="text-gray-600" data-zh>账户累计余额</span>
+                            <span class="text-gray-600" data-en >Total Account Balance</span>
                             <span id="totalBalance" class="text-2xl font-bold text-orange-500">-</span>
                         </div>
                     </div>
-                    <div class="mt-4 p-3 bg-white rounded-lg" id="loanResult" style="display:none;">
+                    <div class="mt-4 p-3 bg-white rounded-lg" id="loanResult" >
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600" data-lang="zh">可贷额度</span>
-                            <span class="text-gray-600" data-lang="en" style="display:none;">Maximum Loan Amount</span>
+                            <span class="text-gray-600" data-zh>可贷额度</span>
+                            <span class="text-gray-600" data-en >Maximum Loan Amount</span>
                             <span id="loanAmount" class="text-2xl font-bold text-blue-600">-</span>
                         </div>
-                        <p class="text-xs text-gray-400 mt-2" data-lang="zh">注：实际可贷额度以当地公积金中心审核为准</p>
-                        <p class="text-xs text-gray-400 mt-2" data-lang="en" style="display:none;">Note: Actual loan amount subject to local housing fund center approval</p>
+                        <p class="text-xs text-gray-400 mt-2" data-zh>注：实际可贷额度以当地公积金中心审核为准</p>
+                        <p class="text-xs text-gray-400 mt-2" data-en >Note: Actual loan amount subject to local housing fund center approval</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="zh">📋 2026年全国主要城市公积金缴存比例</h3>
-            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="en" style="display:none;">📋 2026 Major City Contribution Rates in China</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-zh>📋 2026年全国主要城市公积金缴存比例</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-en >📋 2026 Major City Contribution Rates in China</h3>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-4 py-2 text-left text-gray-600" data-lang="zh">城市</th>
-                            <th class="px-4 py-2 text-left text-gray-600" data-lang="en" style="display:none;">City</th>
-                            <th class="px-4 py-2 text-right text-gray-600" data-lang="zh">个人比例</th>
-                            <th class="px-4 py-2 text-right text-gray-600" data-lang="en" style="display:none;">Employee Rate</th>
-                            <th class="px-4 py-2 text-right text-gray-600" data-lang="zh">单位比例</th>
-                            <th class="px-4 py-2 text-right text-gray-600" data-lang="en" style="display:none;">Employer Rate</th>
-                            <th class="px-4 py-2 text-right text-gray-600" data-lang="zh">存款利率</th>
-                            <th class="px-4 py-2 text-right text-gray-600" data-lang="en" style="display:none;">Interest Rate</th>
+                            <th class="px-4 py-2 text-left text-gray-600" data-zh>城市</th>
+                            <th class="px-4 py-2 text-left text-gray-600" data-en >City</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-zh>个人比例</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-en >Employee Rate</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-zh>单位比例</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-en >Employer Rate</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-zh>存款利率</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-en >Interest Rate</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
@@ -175,8 +181,8 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="zh">🔗 相关工具</h3>
-            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="en" style="display:none;">🔗 Related Tools</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-zh>🔗 相关工具</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-en >🔗 Related Tools</h3>
             <div class="flex flex-wrap gap-3">
                 <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 房贷计算器</a>
                 <a href="salary.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💵 工资计算器</a>
@@ -185,11 +191,11 @@
         </div>
 
         <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4" data-lang="zh">关于公积金计算器</h2>
-            <h2 class="text-xl font-bold text-gray-800 mb-4" data-lang="en" style="display:none;">About Housing Provident Fund Calculator</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4" data-zh>关于公积金计算器</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4" data-en >About Housing Provident Fund Calculator</h2>
             <div class="prose text-gray-600 space-y-4">
                 <!-- Chinese Content -->
-                <div data-lang="zh">
+                <div data-zh>
                     <p>公积金（住房公积金）是中国特有的住房保障制度，由职工和单位共同缴存，用于购房、租房、装修等住房消费。公积金贷款利率比商业贷款低很多，是购房的重要融资渠道。2026年，全国各地公积金政策有所调整，本计算器提供参考计算。</p>
                     
                     <p class="mt-4">说起来，公积金可能是打工人最熟悉的"存钱罐"了——每个月工资条上都会扣掉一笔，单位再补一笔，相当于强制储蓄。对于打算买房的朋友，这笔钱用得好，能省下不少利息呢！😄</p>
@@ -218,7 +224,7 @@
                 </div>
                 
                 <!-- English Content -->
-                <div data-lang="en" style="display:none;">
+                <div data-en >
                     <p>The Housing Provident Fund (公积金, gōngjījīn) is a unique housing security system in China where both employees and employers contribute. It's designed for housing purchases, rentals, renovations, and other housing-related expenses. The interest rate on housing fund loans is significantly lower than commercial loans, making it a crucial financing option for homebuyers. This calculator provides reference calculations for 2026.</p>
                     
                     <p class="mt-4">Honestly, the Housing Provident Fund might be the most familiar "piggy bank" for working people — every month, a portion is deducted from your salary, and your employer adds matching contributions. It's like a forced savings plan! For those planning to buy property, making good use of this fund can save you quite a bit on interest. 😄</p>
@@ -256,11 +262,7 @@
     <script>
         let currentLang = 'zh';
 
-        function toggleLang() {
-            currentLang = currentLang === 'zh' ? 'en' : 'zh';
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                el.style.display = el.getAttribute('data-lang') === currentLang ? '' : 'none';
-            });
+        );
             calculate();
         }
 
@@ -333,5 +335,32 @@
         ]
     }
     </script>
+
+<script>
+function toggleLang() {
+    var isEN = document.documentElement.lang === 'en';
+    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    var btn = document.getElementById('langToggle');
+    if (btn) btn.textContent = isEN ? 'EN' : '中文';
+    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+        if (txt) document.title = txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        if (txt) el.content = txt;
+    });
+}
+function initLang() {
+    if (document.cookie.indexOf('lang=en') !== -1) {
+        document.documentElement.lang = 'en';
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = '中文';
+    }
+}
+</script>
+
 </body>
 </html>

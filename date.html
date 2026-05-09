@@ -8,6 +8,9 @@
     <meta name="keywords" content="日期计算器,工作日计算,天数计算,倒计时,Date Calculator,Days Counter,Work Days">
     <meta name="author" content="计算器之家">
     <meta name="robots" content="index, follow">
+    
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/date.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/date.html?lang=en">
     <link rel="canonical" href="https://tools.xxym8.com/date.html">
     
     <meta property="og:type" content="article">
@@ -22,7 +25,12 @@
     <meta name="twitter:title" content="Date Calculator | 日期计算器">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>body { font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif; }</style>
+    <style>body { font-family: 'Inter', 'PingFang SC', -apple-system, sans-serif; }
+        [data-en] { display: none; }
+        html[lang=en] [data-zh] { display: none; }
+        html[lang=en] [data-en] { display: inline; }
+        html[lang=en] [data-en-block] { display: block; }
+</style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -60,8 +68,8 @@
             </button>
         </div>
 
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">📅 <span class="zh">日期/工作日计算器</span><span class="en hidden">Date &amp; Work Days Calculator</span></h1>
-        <p class="text-gray-500 mb-6"><span class="zh">天数计算、工作日统计、倒计时</span><span class="en hidden">Count days, work days & count down to special dates</span></p>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">📅 <span class="zh">日期/工作日计算器</span><span data-en>Date &amp; Work Days Calculator</span></h1>
+        <p class="text-gray-500 mb-6"><span class="zh">天数计算、工作日统计、倒计时</span><span data-en>Count days, work days & count down to special dates</span></p>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -69,38 +77,38 @@
                     <div class="flex gap-4">
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="radio" name="mode" value="days" checked class="w-4 h-4 text-blue-600" onchange="toggleMode()">
-                            <span class="zh">天数计算</span><span class="en hidden">Count Days</span>
+                            <span class="zh">天数计算</span><span data-en>Count Days</span>
                         </label>
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="radio" name="mode" value="countdown" class="w-4 h-4 text-blue-600" onchange="toggleMode()">
-                            <span class="zh">倒计时</span><span class="en hidden">Countdown</span>
+                            <span class="zh">倒计时</span><span data-en>Countdown</span>
                         </label>
                     </div>
                     <div id="daysMode">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">开始日期</span><span class="en hidden">Start Date</span></label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">开始日期</span><span data-en>Start Date</span></label>
                                 <input type="date" id="startDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">结束日期</span><span class="en hidden">End Date</span></label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">结束日期</span><span data-en>End Date</span></label>
                                 <input type="date" id="endDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                             </div>
                         </div>
                         <div class="mt-4">
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="checkbox" id="excludeWeekend" class="w-4 h-4 text-blue-600" onchange="calculate()">
-                                <span class="zh">排除周末（只计算工作日）</span><span class="en hidden">Exclude weekends (work days only)</span>
+                                <span class="zh">排除周末（只计算工作日）</span><span data-en>Exclude weekends (work days only)</span>
                             </label>
                         </div>
                     </div>
                     <div id="countdownMode" class="hidden">
-                        <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">目标日期</span><span class="en hidden">Target Date</span></label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2"><span class="zh">目标日期</span><span data-en>Target Date</span></label>
                         <input type="date" id="targetDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                     </div>
                 </div>
                 <div class="bg-blue-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 <span class="zh">计算结果</span><span class="en hidden">Results</span></h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 <span class="zh">计算结果</span><span data-en>Results</span></h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
                             <span class="zh text-gray-600">自然天数</span><span class="en hidden text-gray-600">Total Days</span>
@@ -124,15 +132,15 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 <span class="zh">常用节日倒计时</span><span class="en hidden">Holiday Countdown</span></h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 <span class="zh">常用节日倒计时</span><span data-en>Holiday Countdown</span></h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="holidayCountdown"></div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span class="zh">相关工具</span><span class="en hidden">Related Tools</span></h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span class="zh">相关工具</span><span data-en>Related Tools</span></h3>
             <div class="flex flex-wrap gap-3">
-                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 <span class="zh">房贷计算器</span><span class="en hidden">Mortgage Calculator</span></a>
-                <a href="bmi.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">⚖️ <span class="zh">BMI计算器</span><span class="en hidden">BMI Calculator</span></a>
+                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 <span class="zh">房贷计算器</span><span data-en>Mortgage Calculator</span></a>
+                <a href="bmi.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">⚖️ <span class="zh">BMI计算器</span><span data-en>BMI Calculator</span></a>
             </div>
         </div>
 
@@ -140,7 +148,7 @@
         <article class="bg-white rounded-xl shadow-sm p-6">
             <h2 class="text-xl font-bold text-gray-800 mb-4">
                 <span class="zh">关于日期计算器</span>
-                <span class="en hidden">About This Date Calculator</span>
+                <span data-en>About This Date Calculator</span>
             </h2>
             <div class="prose text-gray-600 space-y-4">
                 <!-- Chinese Section -->
@@ -207,24 +215,11 @@
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2025 <span class="zh">计算器之家</span><span class="en hidden">Calculator Hub</span></p>
+        <p>© 2025 <span class="zh">计算器之家</span><span data-en>Calculator Hub</span></p>
     </footer>
 
     <script>
         let currentLang = 'zh';
-
-        function toggleLang() {
-            currentLang = currentLang === 'zh' ? 'en' : 'zh';
-            const zhEls = document.querySelectorAll('.zh');
-            const enEls = document.querySelectorAll('.en');
-            const toggle = document.getElementById('langToggle');
-            
-            zhEls.forEach(el => el.classList.toggle('hidden', currentLang !== 'zh'));
-            enEls.forEach(el => el.classList.toggle('hidden', currentLang !== 'en'));
-            toggle.textContent = currentLang === 'zh' ? 'English' : '中文';
-            
-            showHolidays();
-        }
 
         const HOLIDAYS = [
             { name: { zh: '元旦', en: "New Year's Day" }, date: '2025-01-01', days: 1 },
@@ -389,5 +384,32 @@
         ]
     }
     </script>
+
+<script>
+function toggleLang() {
+    var isEN = document.documentElement.lang === 'en';
+    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    var btn = document.getElementById('langToggle');
+    if (btn) btn.textContent = isEN ? 'EN' : '中文';
+    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+        if (txt) document.title = txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        if (txt) el.content = txt;
+    });
+}
+function initLang() {
+    if (document.cookie.indexOf('lang=en') !== -1) {
+        document.documentElement.lang = 'en';
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = '中文';
+    }
+}
+</script>
+
 </body>
 </html>

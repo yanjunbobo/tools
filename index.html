@@ -3,263 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>计度AI工具箱 - 精准实用的在线计算器 | JIDU AI Tools</title>
-    <meta name="description" content="计度AI工具箱提供房贷计算器、个税计算器、公积金计算器、工资计算器等实用在线工具，2026年最新数据。JIDU AI Tools offers mortgage calculator, tax calculator, salary calculator and more free online tools.">
-    <meta name="keywords" content="在线计算器,房贷计算器,个税计算器,公积金计算器,工资计算器,复利计算器,BMI计算器,排卵期计算器,安全期计算器,密码生成器,等额本息,mortgage calculator,tax calculator,salary calculator">
+    <title data-zh="计度AI工具箱 - 精准实用的在线计算器工具" data-en="JIDU AI Tools - Free Online Calculators & Utilities">计度AI工具箱 - 精准实用的在线计算器工具</title>
+    <meta name="description" data-zh="计度AI工具箱提供房贷计算器、个税计算器、公积金计算器、工资计算器等实用在线工具，完全免费，2026年最新数据。" data-en="Free online calculators: mortgage, income tax, salary, BMI, ovulation and more. Accurate, fast, no signup required.">
+    <meta name="keywords" data-zh="在线计算器,房贷计算器,个税计算器,公积金计算器,工资计算器,复利计算器,BMI计算器,排卵期计算器,安全期计算器,密码生成器" data-en="online calculator,mortgage calculator,income tax calculator,salary calculator,compound interest calculator,BMI calculator,ovulation calculator,password generator">
     <meta name="author" content="计度AI工具箱">
     <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="9iR16Pj9o70OLRY0a8GwzryOAvnkJQR3gq2AYIfnFQ0">
-    <meta name="baidu-site-verification" content="codeva-SwZSdJtb8R">
-    <meta name="msvalidate.01" content="06348E2D3365CEEC6C11DC7D2A94F86E">
     <link rel="canonical" href="https://tools.xxym8.com/">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="计度AI工具箱 - 精准实用的在线计算器 | JIDU AI Tools">
-    <meta property="og:description" content="提供房贷计算器、个税计算器、公积金计算器、工资计算器等实用在线工具">
-    <meta property="og:url" content="https://tools.xxym8.com/">
-    <meta property="og:site_name" content="计度AI工具箱">
-    <meta property="og:locale" content="zh_CN">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="计度AI工具箱 - 精准实用的在线计算器 | JIDU AI Tools">
-    <meta name="twitter:description" content="提供房贷计算器、个税计算器、公积金计算器等实用在线工具">
-    
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/?lang=en">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
         .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
         .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
-        .lang-separator { border-left: 2px solid #d1d5db; height: 1.2em; margin: 0 0.5rem; display: inline-block; }
+
+        [data-en] { display: none; }
+        html[lang=en] [data-zh] { display: none; }
+        html[lang=en] [data-en] { display: inline; }
+        html[lang=en] [data-en-block] { display: block; }
+
     </style>
     <script src="ads.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <!-- Header -->
     <header class="bg-white shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计度AI工具箱 <span class="lang-separator"></span> JIDU AI Tools</a>
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
             <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600 transition">首页 <span class="text-xs text-gray-400">Home</span></a>
-                <a href="#tools" class="hover:text-blue-600 transition">工具 <span class="text-xs text-gray-400">Tools</span></a>
-                <a href="#about" class="hover:text-blue-600 transition">关于 <span class="text-xs text-gray-400">About</span></a>
+                <a href="/" class="hover:text-blue-600 transition"><span data-zh>首页</span><span data-en>Home</span></a>
+                <a href="#tools" class="hover:text-blue-600 transition"><span data-zh>工具</span><span data-en>Tools</span></a>
             </div>
+            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
         </nav>
-            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">🇺🇸 EN</button>
     </header>
 
-    <!-- Hero -->
     <section class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">🧮 计度AI工具箱</h1>
-            <p class="text-xl text-blue-100 mb-2">精准 · 便捷 · 免费 · 2026年最新数据</p>
-            <p class="text-lg text-blue-200 mb-8">Accurate · Convenient · Free · 2026 Latest Data</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></h1>
+            <p class="text-xl text-blue-100 mb-8"><span data-zh>精准 · 便捷 · 免费 · 2026年最新数据</span><span data-en>Accurate · Convenient · Free · 2026 Latest Data</span></p>
             <a href="#tools" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
-                立即使用 / Get Started ↓
+                <span data-zh>立即使用 ↓</span><span data-en>Get Started ↓</span>
             </a>
         </div>
     </section>
 
-    <!-- Tools Grid -->
     <section id="tools" class="max-w-6xl mx-auto px-4 py-12">
-        <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">📦 所有工具 <span class="text-gray-400">|</span> All Tools</h2>
+        <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">📦 <span data-zh>所有工具</span><span data-en>All Tools</span></h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- 房贷计算器 / Mortgage Calculator -->
             <a href="mortgage.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">🏠</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">房贷计算器 <span class="lang-separator"></span> <span class="text-gray-600">Mortgage Calculator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">支持商业贷款、公积金贷款、组合贷款，计算月供、利息总额</p>
-                <p class="text-gray-400 text-xs mb-3">Business loan, provident fund loan, combo loan; calculate monthly payments & total interest</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>房贷计算器</span><span data-en>Mortgage Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 公积金计算器 / Housing Provident Fund Calculator -->
             <a href="gjj.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">🏦</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">公积金计算器 <span class="lang-separator"></span> <span class="text-gray-600">HPF Calculator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">计算公积金缴存基数、贷款额度、还款金额，2026最新利率</p>
-                <p class="text-gray-400 text-xs mb-3">Calculate deposit base, loan amount, repayment; 2026 latest rates</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>公积金计算器</span><span data-en>HPF Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 工资计算器 / Salary Calculator -->
             <a href="salary.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">💵</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">工资计算器 <span class="lang-separator"></span> <span class="text-gray-600">Salary Calculator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">税前工资反推税后，社保公积金扣除，五险一金明细</p>
-                <p class="text-gray-400 text-xs mb-3">Gross to net salary, social security & housing fund deductions, breakdown</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>工资计算器</span><span data-en>Salary Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 个人所得税计算器 / Income Tax Calculator -->
             <a href="tax.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">💰</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">个人所得税计算器 <span class="lang-separator"></span> <span class="text-gray-600">Income Tax Calculator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">支持税前工资、年终奖、专项附加扣除，2026最新税率表</p>
-                <p class="text-gray-400 text-xs mb-3">Salary, year-end bonus, special deductions; 2026 latest tax brackets</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>个人所得税计算器</span><span data-en>Income Tax Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 存款利息计算器 / Deposit Interest Calculator -->
             <a href="deposit.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">💳</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">存款利息计算器 <span class="lang-separator"></span> <span class="text-gray-600">Deposit Calculator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">活期、定期、大额存单利息计算，对比各银行利率</p>
-                <p class="text-gray-400 text-xs mb-3">Current, fixed-term, CD interest; compare bank rates</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>存款利息计算器</span><span data-en>Deposit Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 复利计算器 / Compound Interest Calculator -->
             <a href="compound.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">📈</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">复利/定投计算器 <span class="lang-separator"></span> <span class="text-gray-600">Compound Interest & SIP</span></h3>
-                <p class="text-gray-500 text-sm mb-3">计算复利收益、定投收益，可视化增长曲线图</p>
-                <p class="text-gray-400 text-xs mb-3">Compound interest & systematic investment returns with growth charts</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>复利/定投计算器</span><span data-en>Compound Interest Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- BMI计算器 / BMI Calculator -->
             <a href="bmi.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">⚖️</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">BMI身体指标计算器 <span class="lang-separator"></span> <span class="text-gray-600">BMI Calculator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">计算BMI、BMR、理想体重，适合中国人的健康标准</p>
-                <p class="text-gray-400 text-xs mb-3">BMI, BMR, ideal weight; health standards tailored for Chinese</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>BMI身体指标计算器</span><span data-en>BMI Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 日期计算器 / Date Calculator -->
             <a href="date.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">📅</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">日期/工作日计算器 <span class="lang-separator"></span> <span class="text-gray-600">Date & Business Days</span></h3>
-                <p class="text-gray-500 text-sm mb-3">天数计算、工作日统计、中国法定节假日、倒计时</p>
-                <p class="text-gray-400 text-xs mb-3">Day count, business days, China holidays, countdown</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>日期/工作日计算器</span><span data-en>Date Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 排卵期计算器 / Ovulation Calculator -->
             <a href="ovulation.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">🤰</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">排卵期计算器 <span class="lang-separator"></span> <span class="text-gray-600">Ovulation Calculator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">备孕神器，精准计算排卵日、易孕期，支持月经周期调节</p>
-                <p class="text-gray-400 text-xs mb-3">Track ovulation & fertile window; adjustable menstrual cycle</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>排卵期计算器</span><span data-en>Ovulation Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 安全期计算器 / Safe Period Calculator -->
             <a href="period.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">📊</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">安全期计算器 <span class="lang-separator"></span> <span class="text-gray-600">Safe Period Calculator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">生理周期管理，安全期、易孕期计算，女性健康助手</p>
-                <p class="text-gray-400 text-xs mb-3">Cycle management, safe & fertile period tracking</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>安全期计算器</span><span data-en>Safe Period Calculator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
-            <!-- 密码生成器 / Password Generator -->
             <a href="password.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div class="text-4xl mb-4">🔐</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-1">密码生成器 <span class="lang-separator"></span> <span class="text-gray-600">Password Generator</span></h3>
-                <p class="text-gray-500 text-sm mb-3">自定义长度、字符类型，生成强密码，支持批量生成</p>
-                <p class="text-gray-400 text-xs mb-3">Custom length & characters; generate strong passwords, batch supported</p>
-                <span class="text-blue-600 text-sm font-medium">立即使用 → Use Now</span>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2"><span data-zh>密码生成器</span><span data-en>Password Generator</span></h3>
+                <span class="text-blue-600 text-sm font-medium"><span data-zh>立即使用 →</span><span data-en>Use Now →</span></span>
             </a>
         </div>
     </section>
 
-    <!-- Features -->
     <section id="about" class="bg-white py-12">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">✨ 为什么选择计度AI工具箱 <span class="text-gray-400">|</span> Why Choose JIDU AI Tools</h2>
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">✨ <span data-zh>为什么选择计度AI工具箱</span><span data-en>Why Choose JIDU AI Tools</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
                 <div class="text-center p-4">
                     <div class="text-3xl mb-3">⚡</div>
-                    <h3 class="font-semibold text-gray-800 mb-2">无需下载 <span class="text-gray-400 text-sm">No Download</span></h3>
-                    <p class="text-gray-500 text-sm">即点即用，无需安装任何软件</p>
-                    <p class="text-gray-400 text-xs">Instant use, no software install needed</p>
+                    <h3 class="font-semibold text-gray-800 mb-2"><span data-zh>无需下载</span><span data-en>No Download</span></h3>
+                    <p class="text-gray-500 text-sm"><span data-zh>即点即用，无需安装任何软件</span><span data-en>Click and use, no software to install</span></p>
                 </div>
                 <div class="text-center p-4">
                     <div class="text-3xl mb-3">🎯</div>
-                    <h3 class="font-semibold text-gray-800 mb-2">精准计算 <span class="text-gray-400 text-sm">Accurate</span></h3>
-                    <p class="text-gray-500 text-sm">采用官方计算标准，结果可靠</p>
-                    <p class="text-gray-400 text-xs">Official calculation standards, reliable results</p>
+                    <h3 class="font-semibold text-gray-800 mb-2"><span data-zh>精准计算</span><span data-en>Accurate</span></h3>
+                    <p class="text-gray-500 text-sm"><span data-zh>采用官方计算标准，结果可靠</span><span data-en>Official calculation standards, reliable results</span></p>
                 </div>
                 <div class="text-center p-4">
                     <div class="text-3xl mb-3">📱</div>
-                    <h3 class="font-semibold text-gray-800 mb-2">响应式设计 <span class="text-gray-400 text-sm">Responsive</span></h3>
-                    <p class="text-gray-500 text-sm">手机电脑都能完美使用</p>
-                    <p class="text-gray-400 text-xs">Perfect on mobile and desktop</p>
+                    <h3 class="font-semibold text-gray-800 mb-2"><span data-zh>响应式设计</span><span data-en>Responsive</span></h3>
+                    <p class="text-gray-500 text-sm"><span data-zh>手机电脑都能完美使用</span><span data-en>Works perfectly on mobile and desktop</span></p>
                 </div>
                 <div class="text-center p-4">
                     <div class="text-3xl mb-3">💚</div>
-                    <h3 class="font-semibold text-gray-800 mb-2">完全免费 <span class="text-gray-400 text-sm">100% Free</span></h3>
-                    <p class="text-gray-500 text-sm">无广告弹窗，无隐藏收费</p>
-                    <p class="text-gray-400 text-xs">No ads, no hidden fees</p>
+                    <h3 class="font-semibold text-gray-800 mb-2"><span data-zh>完全免费</span><span data-en>100% Free</span></h3>
+                    <p class="text-gray-500 text-sm"><span data-zh>无广告弹窗，无隐藏收费</span><span data-en>No ads, no hidden fees</span></p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- SEO Content -->
-    <section class="max-w-4xl mx-auto px-4 py-12">
-        <article class="bg-white rounded-xl shadow-sm p-8">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">关于计度AI工具箱 <span class="text-gray-400">|</span> About JIDU AI Tools</h2>
-            <div class="text-gray-600 space-y-4">
-                <p>计度AI工具箱（tools.xxym8.com）是一款专注于提供实用在线工具的网站。我们的名称"计度"取自"计算衡量"之意，寓意用精准的数据工具帮助用户做出更好的决策。</p>
-                <p class="text-gray-500 text-sm italic">JIDU AI Tools (tools.xxym8.com) is a website dedicated to providing practical online tools. Our name "JIDU" means "calculation and measurement" — helping users make better decisions with precise data.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">🏠 房贷计算器 <span class="text-gray-400 text-base">| Mortgage Calculator</span></h3>
-                <p>买房是大多数人一生中最大额的消费。房贷计算器帮助您提前了解每月还款金额、总利息支出，以及不同还款方式的对比。无论您是商业贷款、公积金贷款还是组合贷款，都能得到精准的计算结果。</p>
-                <p class="text-gray-500 text-sm italic">Buying a house is usually the biggest purchase in one's life. Our mortgage calculator helps you preview monthly payments, total interest, and compare different repayment methods — whether it's commercial loan, housing provident fund loan, or a combo.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">🏦 公积金计算器 <span class="text-gray-400 text-base">| HPF Calculator</span></h3>
-                <p>公积金贷款是购房的重要渠道，利率比商业贷款低很多。公积金计算器帮助您计算可贷额度、每月缴存金额，以及使用公积金贷款后的月供金额。</p>
-                <p class="text-gray-500 text-sm italic">Housing provident fund loans are a key way to buy property, with rates much lower than commercial loans. Our HPF calculator helps you figure out loan eligibility, monthly contributions, and repayments.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">💰 个人所得税计算器 <span class="text-gray-400 text-base">| Income Tax Calculator</span></h3>
-                <p>个人所得税关系到每个人的钱袋子。我们的个税计算器支持2026年最新7级累进税率表，涵盖子女教育、住房贷款、赡养老人等7项专项附加扣除。</p>
-                <p class="text-gray-500 text-sm italic">Income tax affects everyone's pocket. Our tax calculator supports the 2026 latest 7-tier progressive tax table, covering 7 special additional deductions including children's education, housing loans, and elderly care.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">💵 工资计算器 <span class="text-gray-400 text-base">| Salary Calculator</span></h3>
-                <p>工资计算器帮助您了解每月到手工资明细，扣除五险一金和个税后的真实收入，适合求职比较和理财规划。</p>
-                <p class="text-gray-500 text-sm italic">The salary calculator shows you the breakdown of your monthly take-home pay after social security, housing fund, and tax deductions — great for job comparisons and financial planning.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">💳 存款利息计算器 <span class="text-gray-400 text-base">| Deposit Interest Calculator</span></h3>
-                <p>在银行存款安全可靠。存款利息计算器帮助您计算活期、定期、大额存单的利息收入，对比不同存期的收益。</p>
-                <p class="text-gray-500 text-sm italic">Bank deposits are safe and reliable. Our deposit calculator helps you compute interest on current accounts, fixed deposits, and CDs, comparing returns across different terms.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">📈 复利/定投计算器 <span class="text-gray-400 text-base">| Compound Interest & SIP Calculator</span></h3>
-                <p>爱因斯坦说复利是世界第八大奇迹。我们的复利计算器帮助您直观看到"利滚利"的威力，定投计算器则帮助基金投资者规划每月投资金额。</p>
-                <p class="text-gray-500 text-sm italic">Einstein reportedly called compound interest the eighth wonder of the world. Our compound interest calculator shows you the power of "interest on interest," while the SIP calculator helps fund investors plan their monthly contributions.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">⚖️ BMI身体指标计算器 <span class="text-gray-400 text-base">| BMI Calculator</span></h3>
-                <p>健康是最大的财富。BMI计算器采用更适合中国人的BMI标准，帮助您了解自己的体重是否健康。</p>
-                <p class="text-gray-500 text-sm italic">Health is the greatest wealth. Our BMI calculator uses standards tailored for Chinese body types, helping you understand whether your weight is in a healthy range.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">🤰 排卵期计算器 <span class="text-gray-400 text-base">| Ovulation Calculator</span></h3>
-                <p>备孕好帮手，精准计算排卵日和易孕期，提高受孕几率。</p>
-                <p class="text-gray-500 text-sm italic">A helpful tool for trying to conceive — accurately calculates ovulation dates and fertile windows to improve pregnancy chances.</p>
-                
-                <h3 class="text-xl font-semibold text-gray-800 mt-6">🔐 密码生成器 <span class="text-gray-400 text-base">| Password Generator</span></h3>
-                <p>网络安全从强密码开始。生成包含大小写字母、数字、特殊字符的高强度密码。</p>
-                <p class="text-gray-500 text-sm italic">Online security starts with a strong password. Generate high-strength passwords with uppercase, lowercase, numbers, and special characters.</p>
-            </div>
-        </article>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <p>© 2026 计度AI工具箱 · 基于 GitHub Pages 免费托管</p>
-            <p class="text-sm">© 2026 JIDU AI Tools · Free hosting on GitHub Pages</p>
-            <p class="mt-2 text-sm">工具仅供参考，请以官方数据为准 <span class="text-gray-500">|</span> For reference only, please verify with official sources</p>
-            <div class="mt-4 text-sm">
-                <a href="sitemap.xml" class="hover:text-gray-200">网站地图 <span class="text-gray-500">|</span> Sitemap</a>
-            </div>
-        </div>
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
+        <p>© 2026 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></p>
+        <p class="mt-2 text-sm"><span data-zh>工具仅供参考，请以官方数据为准</span><span data-en>For reference only. Official data prevails</span></p>
     </footer>
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "计度AI工具箱",
-        "alternateName": ["JIDU AI Tools", "tools.xxym8.com"],
-        "url": "https://tools.xxym8.com",
-        "description": "提供房贷计算器、个税计算器、公积金计算器等实用在线工具",
-        "inLanguage": ["zh-CN", "en-US"]
+
+<script>
+function toggleLang() {
+    var isEN = document.documentElement.lang === 'en';
+    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    document.getElementById('langToggle').textContent = isEN ? 'EN' : '中文';
+    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+        if (txt) document.title = txt;
     }
-    </script>
+    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        if (txt) el.content = txt;
+    });
+}
+function initLang() {
+    if (document.cookie.indexOf('lang=en') !== -1) {
+        document.documentElement.lang = 'en';
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = '中文';
+    }
+}
+</script>
+
+<script>initLang();</script>
 </body>
 </html>
