@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实用在线计算器 - 精准便捷免费</title>
+    <meta name="description" content="提供房贷计算器、个人所得税计算器、复利计算器、BMI计算器、日期计算器等实用在线工具，完全免费，即点即用。">
+    <meta name="keywords" content="在线计算器,房贷计算器,个税计算器,复利计算器,BMI计算器,日期计算器">
+    <link rel="canonical" href="https://tools.xxym8.com/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+        .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计算器之家</a>
+            <div class="hidden md:flex gap-6 text-gray-600">
+                <a href="/" class="hover:text-blue-600 transition">首页</a>
+                <a href="#tools" class="hover:text-blue-600 transition">工具</a>
+                <a href="#about" class="hover:text-blue-600 transition">关于</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">🔢 实用在线计算器</h1>
+            <p class="text-xl text-blue-100 mb-8">精准 · 便捷 · 免费</p>
+            <a href="#tools" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
+                立即使用 ↓
+            </a>
+        </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <section id="tools" class="max-w-6xl mx-auto px-4 py-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">📦 所有工具</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 房贷计算器 -->
+            <a href="mortgage.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div class="text-4xl mb-4">🏠</div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">房贷计算器</h3>
+                <p class="text-gray-500 text-sm mb-3">支持商业贷款、公积金贷款、组合贷款，计算月供、利息总额</p>
+                <span class="text-blue-600 text-sm font-medium">立即使用 →</span>
+            </a>
+            <!-- 个人所得税计算器 -->
+            <a href="tax.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div class="text-4xl mb-4">💰</div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">个人所得税计算器</h3>
+                <p class="text-gray-500 text-sm mb-3">支持税前工资、年终奖、专项附加扣除，2024最新税率表</p>
+                <span class="text-blue-600 text-sm font-medium">立即使用 →</span>
+            </a>
+            <!-- 复利计算器 -->
+            <a href="compound.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div class="text-4xl mb-4">📈</div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">复利/定投计算器</h3>
+                <p class="text-gray-500 text-sm mb-3">计算复利收益、定投收益，可视化增长曲线图</p>
+                <span class="text-blue-600 text-sm font-medium">立即使用 →</span>
+            </a>
+            <!-- BMI计算器 -->
+            <a href="bmi.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div class="text-4xl mb-4">⚖️</div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">BMI身体指标计算器</h3>
+                <p class="text-gray-500 text-sm mb-3">计算BMI、BMR、理想体重，适合中国人的健康标准</p>
+                <span class="text-blue-600 text-sm font-medium">立即使用 →</span>
+            </a>
+            <!-- 日期计算器 -->
+            <a href="date.html" class="card-hover bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div class="text-4xl mb-4">📅</div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">日期/工作日计算器</h3>
+                <p class="text-gray-500 text-sm mb-3">天数计算、工作日统计、中国法定节假日、倒计时</p>
+                <span class="text-blue-600 text-sm font-medium">立即使用 →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="about" class="bg-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">✨ 为什么选择我们</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center p-4">
+                    <div class="text-3xl mb-3">⚡</div>
+                    <h3 class="font-semibold text-gray-800 mb-2">无需下载</h3>
+                    <p class="text-gray-500 text-sm">即点即用，无需安装任何软件</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-3xl mb-3">🎯</div>
+                    <h3 class="font-semibold text-gray-800 mb-2">精准计算</h3>
+                    <p class="text-gray-500 text-sm">采用官方计算标准，结果可靠</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-3xl mb-3">📱</div>
+                    <h3 class="font-semibold text-gray-800 mb-2">响应式设计</h3>
+                    <p class="text-gray-500 text-sm">手机电脑都能完美使用</p>
+                </div>
+                <div class="text-center p-4">
+                    <div class="text-3xl mb-3">💚</div>
+                    <h3 class="font-semibold text-gray-800 mb-2">完全免费</h3>
+                    <p class="text-gray-500 text-sm">无广告弹窗，无隐藏收费</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>© 2024 计算器之家 · 基于 GitHub Pages 免费托管</p>
+            <p class="mt-2 text-sm">工具仅供参考，请以官方数据为准</p>
+        </div>
+    </footer>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "计算器之家",
+        "url": "https://tools.xxym8.com",
+        "description": "提供房贷计算器、个人所得税计算器、复利计算器等实用在线工具",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://tools.xxym8.com/{search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</body>
+</html>

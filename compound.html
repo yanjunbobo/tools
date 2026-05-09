@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复利计算器 - 定投收益年化收益率计算</title>
+    <meta name="description" content="在线复利计算器，支持一次性本金复利和每月定投计算，可视化增长曲线图，精准计算年化收益率和收益总额。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计算器之家</a>
+            <div class="hidden md:flex gap-6 text-gray-600">
+                <a href="/" class="hover:text-blue-600">首页</a>
+                <a href="/#tools" class="hover:text-blue-600">工具</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
+        <a href="/" class="hover:text-blue-600">首页</a> > <span class="text-gray-700">复利计算器</span>
+    </div>
+
+    <main class="max-w-4xl mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">📈 复利/定投计算器</h1>
+        <p class="text-gray-500 mb-6">计算复利收益和定投收益，可视化增长曲线</p>
+
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">计算模式</label>
+                        <div class="flex gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="mode" value="lump" checked class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <span>一次性复利</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="mode" value="dca" class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <span>每月定投</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="principalDiv">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">初始本金（元）</label>
+                        <input type="number" id="principal" value="100000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                    </div>
+                    <div id="monthlyDiv" class="hidden">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">每月定投金额（元）</label>
+                        <input type="number" id="monthly" value="1000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">年化收益率（%）</label>
+                        <input type="number" id="rate" value="8" step="0.1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">投资期限（年）</label>
+                        <input type="number" id="years" value="20" min="1" max="50" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                    </div>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 计算结果</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">到期总资产</span>
+                            <span id="finalValue" class="text-2xl font-bold text-blue-600">-</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">收益总额</span>
+                            <span id="totalReturn" class="text-xl font-semibold text-green-600">-</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">本金总额</span>
+                            <span id="totalPrincipal" class="text-xl font-semibold text-gray-800">-</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">收益率</span>
+                            <span id="returnRate" class="text-xl font-semibold text-orange-500">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📈 收益增长曲线</h3>
+            <canvas id="chart" height="200"></canvas>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">关于复利计算器</h2>
+            <p class="text-gray-600">复利是指将本金产生的利息加入本金继续计息的方式，即"利滚利"。定投则是每月投入固定金额，长期平均成本。本计算器支持两种模式，助您规划理财目标。</p>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
+        <p>© 2024 计算器之家</p>
+    </footer>
+
+    <script>
+        let chart = null;
+
+        function calculate() {
+            const mode = document.querySelector('input[name="mode"]:checked').value;
+            const principal = parseFloat(document.getElementById('principal').value) || 0;
+            const monthly = parseFloat(document.getElementById('monthly').value) || 0;
+            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
+            const years = parseInt(document.getElementById('years').value) || 1;
+            const months = years * 12;
+
+            document.getElementById('principalDiv').classList.toggle('hidden', mode === 'dca');
+            document.getElementById('monthlyDiv').classList.toggle('hidden', mode === 'lump');
+
+            let finalValue, totalPrincipal, data;
+
+            if (mode === 'lump') {
+                totalPrincipal = principal;
+                finalValue = principal * Math.pow(1 + rate, months);
+                data = [principal];
+                for (let m = 1; m <= months; m++) {
+                    data.push(principal * Math.pow(1 + rate, m));
+                }
+            } else {
+                totalPrincipal = monthly * months;
+                finalValue = 0;
+                for (let m = 1; m <= months; m++) {
+                    finalValue += monthly * Math.pow(1 + rate, m);
+                }
+                data = [monthly];
+                let running = monthly;
+                for (let m = 1; m <= months; m++) {
+                    running = running * (1 + rate) + monthly;
+                    data.push(running);
+                }
+            }
+
+            const totalReturn = finalValue - totalPrincipal;
+            const returnRate = (totalReturn / totalPrincipal * 100).toFixed(1);
+
+            document.getElementById('finalValue').textContent = format(finalValue);
+            document.getElementById('totalReturn').textContent = format(totalReturn);
+            document.getElementById('totalPrincipal').textContent = format(totalPrincipal);
+            document.getElementById('returnRate').textContent = returnRate + '%';
+
+            updateChart(data, mode);
+        }
+
+        function format(num) {
+            if (num >= 100000000) return (num / 100000000).toFixed(2) + '亿';
+            if (num >= 10000) return (num / 10000).toFixed(2) + '万';
+            return num.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+        }
+
+        function updateChart(data, mode) {
+            const ctx = document.getElementById('chart').getContext('2d');
+            const labels = data.map((_, i) => i === 0 ? '初始' : `第${i}月`);
+            const step = Math.ceil(data.length / 24);
+            const sampledLabels = labels.filter((_, i) => i % step === 0 || i === labels.length - 1);
+            const sampledData = data.filter((_, i) => i % step === 0 || i === data.length - 1);
+
+            if (chart) chart.destroy();
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sampledLabels,
+                    datasets: [{
+                        label: '资产',
+                        data: sampledData,
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37,99,235,0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { ticks: { callback: v => (v/10000).toFixed(0) + '万' } }
+                    }
+                }
+            });
+        }
+
+        calculate();
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"复利计算器","description":"计算复利收益和定投收益","url":"https://tools.xxym8.com/compound.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}
+    </script>
+</body>
+</html>

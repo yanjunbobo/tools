@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>房贷计算器 - 2024最新商贷公积金贷款月供计算</title>
+    <meta name="description" content="最新2024年房贷计算器，支持商业贷款、公积金贷款、组合贷款，等额本息与等额本金两种还款方式对比，精准计算月供、利息总额。">
+    <meta name="keywords" content="房贷计算器,房贷利率计算器,等额本息计算器,等额本金计算器,组合贷款计算器,公积金贷款计算器">
+    <link rel="canonical" href="https://tools.xxym8.com/mortgage.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计算器之家</a>
+            <div class="hidden md:flex gap-6 text-gray-600">
+                <a href="/" class="hover:text-blue-600 transition">首页</a>
+                <a href="/#tools" class="hover:text-blue-600 transition">工具</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
+        <a href="/" class="hover:text-blue-600">首页</a> > <span class="text-gray-700">房贷计算器</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">🏠 房贷计算器</h1>
+        <p class="text-gray-500 mb-6">支持商业贷款、公积金贷款、组合贷款，2024最新利率</p>
+
+        <!-- Calculator Form -->
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Left: Inputs -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">贷款类型</label>
+                        <div class="flex gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="loanType" value="commercial" checked class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <span>商业贷款</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="loanType" value="provident" class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <span>公积金贷款</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="loanType" value="combined" class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <span>组合贷款</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="commercialAmount" class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">商业贷款金额（万元）</label>
+                            <input type="number" id="amount1" value="100" min="1" max="5000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculate()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">商业贷款利率（%）</label>
+                            <input type="number" id="rate1" value="4.2" step="0.01" min="1" max="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculate()">
+                        </div>
+                    </div>
+
+                    <div id="providentAmount" class="hidden grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">公积金贷款金额（万元）</label>
+                            <input type="number" id="amount2" value="50" min="1" max="500" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculate()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">公积金利率（%）</label>
+                            <input type="number" id="rate2" value="3.1" step="0.01" min="1" max="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculate()">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">贷款期限</label>
+                        <select id="years" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" onchange="calculate()">
+                            <option value="5">5年（60期）</option>
+                            <option value="10">10年（120期）</option>
+                            <option value="15">15年（180期）</option>
+                            <option value="20">20年（240期）</option>
+                            <option value="25">25年（300期）</option>
+                            <option value="30" selected>30年（360期）</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">还款方式</label>
+                        <div class="flex gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="repayType" value="equalPrincipal" checked class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <span>等额本息</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="repayType" value="equalPrincipalInterest" class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <span>等额本金</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Results -->
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 计算结果</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">每月月供</span>
+                            <span id="monthlyPayment" class="text-2xl font-bold text-blue-600">4,868元</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">利息总额</span>
+                            <span id="totalInterest" class="text-xl font-semibold text-orange-500">752,458元</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">还款总额</span>
+                            <span id="totalPayment" class="text-xl font-semibold text-gray-800">1,752,458元</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-600">贷款总额</span>
+                            <span id="totalAmount" class="text-xl font-semibold text-gray-800">1,000,000元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📈 还款构成分析</h3>
+            <canvas id="chart" height="200"></canvas>
+        </div>
+
+        <!-- Amortization Table -->
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 还款计划表（前12个月）</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-2 text-left text-gray-600">期数</th>
+                            <th class="px-4 py-2 text-right text-gray-600">月供</th>
+                            <th class="px-4 py-2 text-right text-gray-600">本金</th>
+                            <th class="px-4 py-2 text-right text-gray-600">利息</th>
+                            <th class="px-4 py-2 text-right text-gray-600">剩余本金</th>
+                        </tr>
+                    </thead>
+                    <tbody id="amortTable" class="divide-y divide-gray-100"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">关于房贷计算器</h2>
+            <div class="prose text-gray-600 space-y-3">
+                <p>房贷计算器是帮助购房者计算商业贷款、公积金贷款或组合贷款每月月供金额的工具。本计算器支持等额本息和等额本金两种还款方式，帮助您全面了解贷款成本。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-4">等额本息 vs 等额本金</h3>
+                <p><strong>等额本息：</strong>每月月供固定，还款初期利息占比高、本金占比低，后期逐渐反转。适合收入稳定、希望月供不变的人群。</p>
+                <p><strong>等额本金：</strong>每月本金固定，利息逐月递减，月供也逐月递减。适合前期还款能力强、希望总利息更少的人群。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-4">2024年最新贷款利率参考</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li>商业贷款基准利率：4.2%（LPR）</li>
+                    <li>公积金贷款利率：3.1%</li>
+                    <li>组合贷款利率：分别按商业和公积金利率计算</li>
+                </ul>
+
+                <h3 class="text-lg font-semibold text-gray-800 mt-4">常见问题</h3>
+                <div class="space-y-2">
+                    <p><strong>Q: 房贷100万30年每月还款多少？</strong></p>
+                    <p>A: 按当前LPR 4.2%计算，等额本息每月约4,868元，利息总额约75.2万。</p>
+                    <p><strong>Q: 组合贷款怎么计算？</strong></p>
+                    <p>A: 商业贷款和公积金贷款分别计算后相加，本工具自动完成。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>© 2024 计算器之家</p>
+        </div>
+    </footer>
+
+    <script>
+        let chart = null;
+
+        function calculate() {
+            const loanType = document.querySelector('input[name="loanType"]:checked').value;
+            const repayType = document.querySelector('input[name="repayType"]:checked').value;
+
+            // Show/hide inputs based on loan type
+            const commercialDiv = document.getElementById('commercialAmount');
+            const providentDiv = document.getElementById('providentAmount');
+            
+            if (loanType === 'commercial') {
+                commercialDiv.classList.remove('hidden');
+                providentDiv.classList.add('hidden');
+            } else if (loanType === 'provident') {
+                commercialDiv.classList.add('hidden');
+                providentDiv.classList.remove('hidden');
+            } else {
+                commercialDiv.classList.remove('hidden');
+                providentDiv.classList.remove('hidden');
+            }
+
+            // Get amounts
+            let amount1 = 0, rate1 = 0, amount2 = 0, rate2 = 0;
+            if (loanType === 'commercial' || loanType === 'combined') {
+                amount1 = parseFloat(document.getElementById('amount1').value) || 0;
+                rate1 = parseFloat(document.getElementById('rate1').value) / 100 / 12;
+            }
+            if (loanType === 'provident' || loanType === 'combined') {
+                amount2 = parseFloat(document.getElementById('amount2').value) || 0;
+                rate2 = parseFloat(document.getElementById('rate2').value) / 100 / 12;
+            }
+            const years = parseInt(document.getElementById('years').value);
+            const months = years * 12;
+
+            const totalAmount = amount1 * 10000 + amount2 * 10000;
+
+            let monthlyPayment, totalInterest, totalPayment, schedule;
+
+            if (repayType === 'equalPrincipal') {
+                // 等额本息
+                const monthlyRate = rate1 * (amount1 * 10000) / (amount1 * 10000 + amount2 * 10000) + 
+                                    rate2 * (amount2 * 10000) / (amount1 * 10000 + amount2 * 10000);
+                const combinedRate = (rate1 * amount1 + rate2 * amount2) / (amount1 + amount2) || rate1;
+                
+                monthlyPayment = totalAmount * combinedRate * Math.pow(1 + combinedRate, months) / (Math.pow(1 + combinedRate, months) - 1);
+                totalPayment = monthlyPayment * months;
+                totalInterest = totalPayment - totalAmount;
+
+                // Generate schedule
+                schedule = [];
+                let balance = totalAmount;
+                for (let i = 1; i <= months; i++) {
+                    const interest = balance * combinedRate;
+                    const principal = monthlyPayment - interest;
+                    balance -= principal;
+                    schedule.push({ month: i, payment: monthlyPayment, principal, interest, balance: Math.max(0, balance) });
+                }
+            } else {
+                // 等额本金
+                const combinedRate = (rate1 * amount1 + rate2 * amount2) / (amount1 + amount2) || rate1;
+                const monthlyPrincipal = totalAmount / months;
+                
+                schedule = [];
+                let balance = totalAmount;
+                let firstMonthPayment = 0;
+                
+                for (let i = 1; i <= months; i++) {
+                    const interest = balance * combinedRate;
+                    const payment = monthlyPrincipal + interest;
+                    if (i === 1) firstMonthPayment = payment;
+                    balance -= monthlyPrincipal;
+                    schedule.push({ month: i, payment, principal: monthlyPrincipal, interest, balance: Math.max(0, balance) });
+                }
+                
+                // Average monthly payment for display
+                monthlyPayment = firstMonthPayment;
+                totalPayment = schedule.reduce((sum, s) => sum + s.payment, 0);
+                totalInterest = totalPayment - totalAmount;
+            }
+
+            // Update display
+            document.getElementById('monthlyPayment').textContent = formatCurrency(monthlyPayment);
+            document.getElementById('totalInterest').textContent = formatCurrency(totalInterest);
+            document.getElementById('totalPayment').textContent = formatCurrency(totalPayment);
+            document.getElementById('totalAmount').textContent = formatCurrency(totalAmount);
+
+            // Update chart
+            updateChart(schedule, totalAmount);
+
+            // Update table
+            updateTable(schedule);
+        }
+
+        function formatCurrency(num) {
+            return num.toLocaleString('zh-CN', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(/,/g, ',') + '元';
+        }
+
+        function updateChart(schedule, totalAmount) {
+            const ctx = document.getElementById('chart').getContext('2d');
+            
+            // Sample data every year
+            const labels = [];
+            const principalData = [];
+            const interestData = [];
+            
+            for (let i = 0; i < 12; i++) {
+                labels.push(`第${i+1}年`);
+                let principal = 0, interest = 0;
+                for (let m = i * 12; m < (i + 1) * 12 && m < schedule.length; m++) {
+                    principal += schedule[m].principal;
+                    interest += schedule[m].interest;
+                }
+                principalData.push(principal);
+                interestData.push(interest);
+            }
+
+            if (chart) chart.destroy();
+            
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [
+                        { label: '本金', data: principalData, backgroundColor: '#2563eb' },
+                        { label: '利息', data: interestData, backgroundColor: '#f97316' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: { display: true, text: '每年还款构成（本息分解）' },
+                        legend: { position: 'bottom' }
+                    },
+                    scales: {
+                        x: { stacked: true },
+                        y: { stacked: true, ticks: { callback: v => (v/10000).toFixed(0) + '万' } }
+                    }
+                }
+            });
+        }
+
+        function updateTable(schedule) {
+            const tbody = document.getElementById('amortTable');
+            tbody.innerHTML = '';
+            
+            for (let i = 0; i < Math.min(12, schedule.length); i++) {
+                const s = schedule[i];
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="px-4 py-2">第${s.month}期</td>
+                        <td class="px-4 py-2 text-right">${s.payment.toLocaleString('zh-CN', {minimumFractionDigits: 2})}</td>
+                        <td class="px-4 py-2 text-right">${s.principal.toLocaleString('zh-CN', {minimumFractionDigits: 2})}</td>
+                        <td class="px-4 py-2 text-right">${s.interest.toLocaleString('zh-CN', {minimumFractionDigits: 2})}</td>
+                        <td class="px-4 py-2 text-right">${s.balance.toLocaleString('zh-CN', {minimumFractionDigits: 2})}</td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Listen for radio changes
+        document.querySelectorAll('input[name="loanType"]').forEach(radio => {
+            radio.addEventListener('change', calculate);
+        });
+
+        // Initial calculation
+        calculate();
+    </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "房贷计算器",
+        "description": "精准的房贷还款计算工具，支持商业贷款、公积金贷款、组合贷款",
+        "url": "https://tools.xxym8.com/mortgage.html",
+        "applicationCategory": "FinanceApplication",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "房贷100万每月还款多少？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "按最新LPR利率4.2%计算，贷款100万、30年期，等额本息月供约4,868元。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "等额本息和等额本金哪个更划算？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "等额本金总利息更少，但前期月供压力更大；等额本息月供固定，适合收入稳定的人群。"
+                }
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
