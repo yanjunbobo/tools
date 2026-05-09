@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工资计算器 - 2026年五险一金税后工资计算器</title>
-    <meta name="description" content="2026年最新工资计算器，支持五险一金扣除、税后工资反推、社保公积金明细，精准计算到手工资，2026年最新社保基数。">
-    <meta name="keywords" content="工资计算器,税后工资,五险一金,社保计算器,公积金计算器,到手工资,实发工资">
+    <title>工资计算器 / Salary Calculator - 2026年五险一金税后工资</title>
+    <meta name="description" content="2026年最新工资计算器，支持中英双语 / Bilingual salary calculator with Five Insurance & Housing Fund deductions, after-tax calculation.">
+    <meta name="keywords" content="工资计算器,税后工资,五险一金,社保计算器,Salary Calculator,China Social Insurance">
     <meta name="author" content="计度AI工具箱">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://tools.xxym8.com/salary.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="工资计算器 - 2026年五险一金税后工资计算器">
-    <meta property="og:description" content="支持五险一金扣除、税后工资反推">
+    <meta property="og:title" content="工资计算器 / Salary Calculator - 五险一金税后工资">
+    <meta property="og:description" content="中英双语工资计算器 / Bilingual salary calculator">
     <meta property="og:url" content="https://tools.xxym8.com/salary.html">
     <meta property="og:site_name" content="计度AI工具箱">
     <meta name="twitter:card" content="summary">
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/salary.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/salary.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
     <script src="ads.js"></script>
@@ -24,22 +26,23 @@
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" class="text-2xl font-bold text-blue-600">🧮 计度AI工具箱</a>
             <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600">首页</a>
-                <a href="/#tools" class="hover:text-blue-600">工具</a>
+                <a href="/" class="hover:text-blue-600">首页 Home</a>
+                <a href="/#tools" class="hover:text-blue-600">工具 Tools</a>
             </div>
         </nav>
+            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">🇺🇸 EN</button>
     </header>
 
     <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
         <nav aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页</span></a>
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页 Home</span></a>
                     <meta itemprop="position" content="1">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name">工资计算器</span>
+                    <span class="text-gray-700" itemprop="name">工资计算器 Salary</span>
                     <meta itemprop="position" content="2">
                 </li>
             </ol>
@@ -47,55 +50,55 @@
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">💵 工资计算器</h1>
-        <p class="text-gray-500 mb-6">计算五险一金扣除后的到手工资</p>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">💵 工资计算器 / Salary Calculator</h1>
+        <p class="text-gray-500 mb-6">算算到手多少钱 | Calculate your take-home pay after deductions</p>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">税前工资（元）</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">税前工资 Gross Salary（元）</label>
                         <input type="number" id="grossSalary" value="20000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">公积金缴存比例（%）</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">公积金缴存比例 Housing Fund Rate（%）</label>
                         <input type="number" id="fundRatio" value="12" min="5" max="12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">公积金缴存基数（元）</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">公积金缴存基数 Housing Fund Base（元）</label>
                         <input type="number" id="fundBase" value="20000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                        <p class="text-xs text-gray-400 mt-1">通常等于税前工资或当地平均工资的3倍上限</p>
+                        <p class="text-xs text-gray-400 mt-1">通常等于税前工资或当地平均工资的3倍上限 | Usually equals gross salary or 3x local average</p>
                     </div>
                     <div class="p-3 bg-gray-50 rounded-lg text-sm text-gray-600">
-                        <p class="font-semibold mb-2">2026年北京社保缴费基数上下限（示例）</p>
-                        <p>养老保险上限：32305元，下限：6326元</p>
-                        <p>医疗保险上限：32305元，下限：6326元</p>
-                        <p>公积金上限：36000元，下限：2500元</p>
+                        <p class="font-semibold mb-2">2026年北京社保缴费基数上下限（示例）/ Beijing 2026 Social Security Base Limits</p>
+                        <p>养老保险上限：32305元，下限：6326元 | Pension: 32305 max, 6326 min</p>
+                        <p>医疗保险上限：32305元，下限：6326元 | Medical: 32305 max, 6326 min</p>
+                        <p>公积金上限：36000元，下限：2500元 | Housing Fund: 36000 max, 2500 min</p>
                     </div>
                 </div>
                 <div class="bg-blue-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 工资明细</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 工资明细 / Salary Breakdown</h3>
                     <div class="space-y-2 text-sm">
                         <div class="flex justify-between py-2 border-b border-blue-100">
-                            <span class="text-gray-600">税前工资</span>
+                            <span class="text-gray-600">税前工资 Gross</span>
                             <span id="grossDisplay" class="font-medium">20,000元</span>
                         </div>
                         <div class="pl-4 space-y-1 text-xs text-gray-500">
-                            <div class="flex justify-between"><span>养老保险（8%）</span><span id="yanglao">-1,600元</span></div>
-                            <div class="flex justify-between"><span>医疗保险（2%）</span><span id="yiliao">-400元</span></div>
-                            <div class="flex justify-between"><span>失业保险（0.5%）</span><span id="shiye">-100元</span></div>
-                            <div class="flex justify-between"><span>公积金（12%）</span><span id="gongjijin">-2,400元</span></div>
+                            <div class="flex justify-between"><span>养老保险 Pension（8%）</span><span id="yanglao">-1,600元</span></div>
+                            <div class="flex justify-between"><span>医疗保险 Medical（2%）</span><span id="yiliao">-400元</span></div>
+                            <div class="flex justify-between"><span>失业保险 Unemployment（0.5%）</span><span id="shiye">-100元</span></div>
+                            <div class="flex justify-between"><span>公积金 Housing Fund（12%）</span><span id="gongjijin">-2,400元</span></div>
                         </div>
                         <div class="flex justify-between py-2 border-b border-blue-100">
-                            <span class="text-gray-600">五险一金合计</span>
+                            <span class="text-gray-600">五险一金合计 Total Deductions</span>
                             <span id="totalDeduction" class="font-semibold text-orange-500">-4,500元</span>
                         </div>
                         <div class="flex justify-between py-2 border-b border-blue-100">
-                            <span class="text-gray-600">个税</span>
+                            <span class="text-gray-600">个税 Income Tax</span>
                             <span id="tax" class="font-semibold text-red-500">-</span>
                         </div>
                         <div class="flex justify-between py-2 border-b border-blue-100 bg-blue-100 -mx-4 px-4">
-                            <span class="text-gray-800 font-semibold">税后到手</span>
+                            <span class="text-gray-800 font-semibold">税后到手 Take-Home</span>
                             <span id="netSalary" class="text-2xl font-bold text-green-600">-</span>
                         </div>
                     </div>
@@ -104,81 +107,98 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 五险一金缴纳比例（2026年）</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 五险一金缴纳比例（2026年）/ Social Insurance Rates (2026)</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">养老保险</p>
-                    <p class="text-gray-500">个人：8% | 单位：16%</p>
+                    <p class="font-medium text-gray-700">养老保险 Pension</p>
+                    <p class="text-gray-500">个人 Employee: 8% | 单位 Employer: 16%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">医疗保险</p>
-                    <p class="text-gray-500">个人：2% | 单位：8%</p>
+                    <p class="font-medium text-gray-700">医疗保险 Medical</p>
+                    <p class="text-gray-500">个人 Employee: 2% | 单位 Employer: 8%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">失业保险</p>
-                    <p class="text-gray-500">个人：0.5% | 单位：0.5%</p>
+                    <p class="font-medium text-gray-700">失业保险 Unemployment</p>
+                    <p class="text-gray-500">个人 Employee: 0.5% | 单位 Employer: 0.5%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">工伤保险</p>
-                    <p class="text-gray-500">个人：0 | 单位：0.2-1.4%</p>
+                    <p class="font-medium text-gray-700">工伤保险 Work Injury</p>
+                    <p class="text-gray-500">个人 Employee: 0 | 单位 Employer: 0.2-1.4%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">生育保险</p>
-                    <p class="text-gray-500">个人：0 | 单位：0.8%</p>
+                    <p class="font-medium text-gray-700">生育保险 Maternity</p>
+                    <p class="text-gray-500">个人 Employee: 0 | 单位 Employer: 0.8%</p>
                 </div>
                 <div class="p-3 bg-gray-50 rounded">
-                    <p class="font-medium text-gray-700">住房公积金</p>
-                    <p class="text-gray-500">个人：5%-12% | 单位：5%-12%</p>
+                    <p class="font-medium text-gray-700">住房公积金 Housing Fund</p>
+                    <p class="text-gray-500">个人 Employee: 5%-12% | 单位 Employer: 5%-12%</p>
                 </div>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具 / Related Tools</h3>
             <div class="flex flex-wrap gap-3">
-                <a href="tax.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💰 个人所得税计算器</a>
-                <a href="gjj.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏦 公积金计算器</a>
-                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 房贷计算器</a>
+                <a href="tax.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💰 个人所得税计算器 Income Tax Calculator</a>
+                <a href="gjj.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏦 公积金计算器 Housing Fund Calculator</a>
+                <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 房贷计算器 Mortgage Calculator</a>
             </div>
         </div>
 
         <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关于工资计算器</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">关于工资计算器 / About Salary Calculator</h2>
             <div class="prose text-gray-600 space-y-4">
-                <p>工资计算器帮助上班族准确计算每月到手工资。五险一金是法律规定必须缴纳的社会保障费用，了解扣除明细有助于更好地规划个人财务。本工具基于2026年最新政策数据计算。</p>
+                <p>作为一个打工人，每次看工资条都有点懵——扣掉的那些钱到底是什么？ 这个工资计算器帮你把账算清楚，知道每一分钱去哪儿了。 Based on 2026 latest policies.</p>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">五险一金是什么？</h3>
-                <p><strong>五险：</strong>养老保险、医疗保险、失业保险、工伤保险、生育保险</p>
-                <p><strong>一金：</strong>住房公积金</p>
-                <p>五险由个人和单位共同缴纳（工伤和生育保险个人不缴），公积金由个人和单位同比例缴纳。</p>
+                <p>作为一个打工人，每次看工资条都有点懵——扣掉的那些钱到底是什么？这个工资计算器帮你把账算清楚，知道每一分钱去哪儿了。As a salaried worker, it's confusing to see all those deductions. This calculator helps you understand where every yuan goes.</p>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">为什么工资要扣五险一金？</h3>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">五险一金是什么？/ What are "Five Insurance & One Fund"?</h3>
+                <p><strong>五险（Five Insurance）：</strong></p>
+                <ul class="list-disc list-inside space-y-1 ml-4">
+                    <li>养老保险 Pension — 老了退休了有钱领</li>
+                    <li>医疗保险 Medical — 看病能报销</li>
+                    <li>失业保险 Unemployment — 失业了能领补贴</li>
+                    <li>工伤保险 Work Injury — 工作受伤有保障</li>
+                    <li>生育保险 Maternity — 生孩子能报销</li>
+                </ul>
+                <p class="mt-2"><strong>一金（One Fund）：</strong>住房公积金 Housing Fund — 买房贷款利率低，租房也可以提取</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">为什么工资要扣这些？/ Why are these deducted?</h3>
                 <ul class="list-disc list-inside space-y-1">
-                    <li><strong>养老保险：</strong>退休后领取养老金，保障晚年生活</li>
-                    <li><strong>医疗保险：</strong>看病报销，减轻医疗负担</li>
-                    <li><strong>失业保险：</strong>失业期间领取失业金</li>
-                    <li><strong>工伤保险：</strong>工作中受伤获得赔偿</li>
-                    <li><strong>生育保险：</strong>生育费用报销和产假工资</li>
-                    <li><strong>住房公积金：</strong>购房租房可提取，享受低利率贷款</li>
+                    <li><strong>养老钱存着</strong> — 现在交钱，老了领养老金，不能白交</li>
+                    <li><strong>看病不慌</strong> — 医保报销比例不低，大病有依靠</li>
+                    <li><strong>买房省钱</strong> — 公积金贷款利率比商业贷款低不少，能省一大笔利息</li>
                 </ul>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">到手工资怎么算？</h3>
-                <p><strong>税后工资 = 税前工资 - 五险一金 - 个人所得税</strong></p>
-                <p>其中五险一金 = 养老保险 + 医疗保险 + 失业保险 + 住房公积金</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">到手工资怎么算？/ How to calculate take-home pay?</h3>
+                <p class="bg-gray-50 p-3 rounded-lg"><strong>税后工资 = 税前工资 - 五险一金 - 个人所得税</strong></p>
+                <p class="mt-2">简单说：税前工资减去个人承担的社保公积金，再减去个税，就是到手的钱。Gross minus personal social insurance, minus housing fund, minus income tax.</p>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题</h3>
-                <p><strong>Q: 为什么实际到手比计算少？</strong></p>
-                <p>A: 可能因为社保基数有上限限制，或者有其他扣除项（如党费、商业保险等）。</p>
-                <p><strong>Q: 公积金有什么用？</strong></p>
-                <p>A: 可用于购房贷款（享受低利率）、租房提取、装修提取等。</p>
-                <p><strong>Q: 辞职后五险一金怎么办？</strong></p>
-                <p>A: 可以转移合并到新单位，也可以以自由职业者身份继续缴纳（需自付全部费用）。</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题 FAQ</h3>
+                <div class="space-y-3">
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="font-medium">Q: 为什么实际到手比计算少？/ Why is actual net pay less than calculated?</p>
+                        <p class="text-gray-600 mt-1">A: 可能是社保基数有上限（高工资只能按最高基数交），或者有其他扣款如党费、商业保险等。May be due to social security caps or other deductions like party fees.</p>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="font-medium">Q: 公积金有什么用？/ What's Housing Fund for?</p>
+                        <p class="text-gray-600 mt-1">A: 买房用公积金贷款（利率比商贷低2-3个百分点）、租房提取、装修提取都可以。Used for housing loans (lower interest rate), rent withdrawal, home renovation.</p>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="font-medium">Q: 辞职了五险一金怎么办？/ What happens to insurance when I quit?</p>
+                        <p class="text-gray-600 mt-1">A: 可以转到新单位继续交，也可以自己以灵活就业人员身份交（但要自己掏全部）。Transfer to new employer, or pay as self-employed (but you cover both portions).</p>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="font-medium">Q: 社保交多久能领养老金？/ How long to contribute for pension?</p>
+                        <p class="text-gray-600 mt-1">A: 目前需要累计缴满15年才能领养老金。Currently need 15+ years of contributions to receive pension.</p>
+                    </div>
+                </div>
             </div>
         </article>
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2026 计度AI工具箱</p>
+        <p>© 2026 计度AI工具箱 | Jdu Tools</p>
     </footer>
 
     <script>
@@ -209,7 +229,7 @@
             const totalDeduction = yanglao + yiliao + shiye + gongjijin;
             document.getElementById('totalDeduction').textContent = '-' + totalDeduction.toLocaleString('zh-CN') + '元';
 
-            // 计算个税
+            // 计算个税 Calculate income tax
             const taxable = gross - totalDeduction - 5000;
             let tax = 0;
             if (taxable > 0) {
@@ -233,8 +253,8 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "工资计算器",
-        "description": "计算五险一金扣除后的税后工资",
+        "name": "工资计算器 Salary Calculator",
+        "description": "计算五险一金扣除后的税后工资 / Calculate after-tax salary with Five Insurance & Housing Fund",
         "url": "https://tools.xxym8.com/salary.html",
         "applicationCategory": "FinanceApplication",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
@@ -245,8 +265,8 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
-            { "@type": "ListItem", "position": 2, "name": "工资计算器", "item": "https://tools.xxym8.com/salary.html" }
+            { "@type": "ListItem", "position": 1, "name": "首页 Home", "item": "https://tools.xxym8.com/" },
+            { "@type": "ListItem", "position": 2, "name": "工资计算器 Salary", "item": "https://tools.xxym8.com/salary.html" }
         ]
     }
     </script>
@@ -255,10 +275,10 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            { "@type": "Question", "name": "五险一金包括哪些？", "acceptedAnswer": { "@type": "Answer", "text": "五险：养老保险、医疗保险、失业保险、工伤保险、生育保险；一金：住房公积金。" } },
-            { "@type": "Question", "name": "到手工资怎么计算？", "acceptedAnswer": { "@type": "Answer", "text": "税后工资 = 税前工资 - 五险一金 - 个人所得税。五险一金个人缴纳部分约为税前工资的10.5%。" } },
-            { "@type": "Question", "name": "公积金缴存比例多少合适？", "acceptedAnswer": { "@type": "Answer", "text": "公积金缴存比例在5%-12%之间，比例越高，账户积累越快，但到手工资会减少。建议根据收入情况选择。" } },
-            { "@type": "Question", "name": "辞职后五险一金怎么处理？", "acceptedAnswer": { "@type": "Answer", "text": "可以转移合并到新单位，或以自由职业者身份继续缴纳。公积金账户余额可提取。" } }
+            { "@type": "Question", "name": "五险一金包括哪些？What does Five Insurance include?", "acceptedAnswer": { "@type": "Answer", "text": "五险：养老保险、医疗保险、失业保险、工伤保险、生育保险；一金：住房公积金。Five insurance: Pension, Medical, Unemployment, Work Injury, Maternity. One fund: Housing Fund." } },
+            { "@type": "Question", "name": "到手工资怎么计算？How to calculate take-home pay?", "acceptedAnswer": { "@type": "Answer", "text": "税后工资 = 税前工资 - 五险一金 - 个人所得税。个人缴纳部分约为税前工资的10.5%。After-tax = Gross - Five Insurance - Income Tax. Personal contribution ~10.5% of gross." } },
+            { "@type": "Question", "name": "公积金缴存比例多少合适？What housing fund rate to choose?", "acceptedAnswer": { "@type": "Answer", "text": "公积金缴存比例在5%-12%之间，比例越高账户积累越快，但到手工资会减少。建议根据收入情况选择。Rate between 5-12%, higher rate = faster savings but less take-home. Choose based on your income." } },
+            { "@type": "Question", "name": "辞职后五险一金怎么处理？What to do with insurance after quitting?", "acceptedAnswer": { "@type": "Answer", "text": "可以转移合并到新单位，或以自由职业者身份继续缴纳（需自付全部费用）。Transfer to new employer, or pay as freelancer (you cover all portions)." } }
         ]
     }
     </script>

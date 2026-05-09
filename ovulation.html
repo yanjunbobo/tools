@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>排卵期计算器 - 2026年备孕排卵日计算器</title>
-    <meta name="description" content="2026年最新排卵期计算器，输入月经周期和经期天数，精准计算排卵日、排卵期、易孕期，备孕怀孕好帮手。">
-    <meta name="keywords" content="排卵期计算器,排卵日计算,备孕,排卵期,易孕期,安全期,月经周期">
-    <meta name="author" content="计度AI工具箱">
+    <title>Ovulation Calculator - 2026 Pregnancy & Fertility Tracker</title>
+    <meta name="description" content="2026 Ovulation Calculator | Track your fertility window, ovulation day & fertile days. Chinese & English bilingual. Trying to conceive or prevent pregnancy.">
+    <meta name="keywords" content="ovulation calculator,fertility calculator,period tracker,排卵期计算器,备孕,易孕期,排卵日">
+    <meta name="author" content="Jdu AI Tools">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://tools.xxym8.com/ovulation.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="排卵期计算器 - 2026年备孕排卵日计算器">
-    <meta property="og:description" content="精准计算排卵日、排卵期、易孕期">
+    <meta property="og:title" content="Ovulation Calculator - Pregnancy & Fertility Tracker">
+    <meta property="og:description" content="Calculate ovulation day and fertility window | 中英双语">
     <meta property="og:url" content="https://tools.xxym8.com/ovulation.html">
-    <meta property="og:site_name" content="计度AI工具箱">
+    <meta property="og:site_name" content="Jdu AI Tools">
     <meta name="twitter:card" content="summary">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
@@ -22,24 +22,34 @@
 <body class="bg-gray-50 min-h-screen">
     <header class="bg-white shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计度AI工具箱</a>
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 Jdu AI Tools</a>
             <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600">首页</a>
-                <a href="/#tools" class="hover:text-blue-600">工具</a>
+                <a href="/" class="hover:text-blue-600">Home</a>
+                <a href="/#tools" class="hover:text-blue-600">Tools</a>
             </div>
         </nav>
+            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">🇺🇸 EN</button>
     </header>
 
+    <!-- Language Toggle -->
+    <div class="max-w-4xl mx-auto px-4 py-3 flex justify-end">
+        <div class="flex bg-gray-100 rounded-lg p-1 text-sm">
+            <button onclick="setLang('zh')" id="btn-zh" class="px-4 py-1.5 rounded-md bg-blue-600 text-white font-medium transition">中文</button>
+            <button onclick="setLang('en')" id="btn-en" class="px-4 py-1.5 rounded-md text-gray-600 hover:text-blue-600 transition">EN</button>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
     <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
         <nav aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页</span></a>
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页 / Home</span></a>
                     <meta itemprop="position" content="1">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name">排卵期计算器</span>
+                    <span class="text-gray-700" itemprop="name" data-zh="排卵期计算器" data-en="Ovulation Calculator" class="en-only">排卵期计算器</span>
                     <meta itemprop="position" content="2">
                 </li>
             </ol>
@@ -47,47 +57,67 @@
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">🤰 排卵期计算器</h1>
-        <p class="text-gray-500 mb-6">计算排卵日、排卵期，备孕怀孕好帮手</p>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">🤰 <span data-zh="排卵期计算器" data-en="Ovulation Calculator" class="en-only">排卵期计算器</span></h1>
+        <p class="text-gray-500 mb-6" data-zh="计算排卵日、排卵期，备孕怀孕好帮手" data-en="Track your fertility window - perfect for trying to conceive" class="en-only">计算排卵日、排卵期，备孕怀孕好帮手</p>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">上次月经开始日期</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <span data-zh="上次月经开始日期" data-en="First Day of Last Period" class="en-only">上次月经开始日期</span>
+                        </label>
                         <input type="date" id="lastPeriod" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">月经周期（天）</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <span data-zh="月经周期（天）" data-en="Cycle Length (days)" class="en-only">月经周期（天）</span>
+                        </label>
                         <input type="number" id="cycleLength" value="28" min="21" max="40" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                        <p class="text-xs text-gray-400 mt-1">通常为21-35天，平均28天</p>
+                        <p class="text-xs text-gray-400 mt-1">
+                            <span data-zh="通常为21-35天，平均28天" data-en="Usually 21-35 days, average is 28" class="en-only">通常为21-35天，平均28天</span>
+                        </p>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">月经持续天数</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            <span data-zh="月经持续天数" data-en="Period Duration" class="en-only">月经持续天数</span>
+                        </label>
                         <input type="number" id="periodDays" value="5" min="3" max="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                     </div>
-                    <button onclick="calculate()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-medium">计算排卵期</button>
+                    <button onclick="calculate()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-medium">
+                        <span data-zh="计算排卵期" data-en="Calculate" class="en-only">计算排卵期</span>
+                    </button>
                 </div>
                 <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 计算结果</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 <span data-zh="计算结果" data-en="Results" class="en-only">计算结果</span></h3>
                     <div class="space-y-4">
                         <div class="text-center p-4 bg-white rounded-lg">
-                            <p class="text-sm text-gray-500 mb-1">预计排卵日</p>
+                            <p class="text-sm text-gray-500 mb-1">
+                                <span data-zh="预计排卵日" data-en="Estimated Ovulation Day" class="en-only">预计排卵日</span>
+                            </p>
                             <p id="ovulationDate" class="text-2xl font-bold text-purple-600">-</p>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <div class="text-center p-3 bg-white rounded-lg">
-                                <p class="text-xs text-gray-500">易孕期开始</p>
+                                <p class="text-xs text-gray-500">
+                                    <span data-zh="易孕期开始" data-en="Fertile Window Starts" class="en-only">易孕期开始</span>
+                                </p>
                                 <p id="fertileStart" class="font-semibold text-pink-600">-</p>
                             </div>
                             <div class="text-center p-3 bg-white rounded-lg">
-                                <p class="text-xs text-gray-500">易孕期结束</p>
+                                <p class="text-xs text-gray-500">
+                                    <span data-zh="易孕期结束" data-en="Fertile Window Ends" class="en-only">易孕期结束</span>
+                                </p>
                                 <p id="fertileEnd" class="font-semibold text-pink-600">-</p>
                             </div>
                         </div>
                         <div class="text-center p-3 bg-purple-100 rounded-lg">
-                            <p class="text-sm text-purple-700">易孕期（共<span id="fertileDays" class="font-bold">-</span>天）</p>
-                            <p class="text-xs text-purple-500 mt-1">排卵前5天 + 排卵当天 + 排卵后4天</p>
+                            <p class="text-sm text-purple-700">
+                                <span data-zh="易孕期（共" data-en="Fertile Window (" class="en-only">易孕期（共</span><span id="fertileDays" class="font-bold">-</span><span data-zh="天）" data-en=" days)" class="en-only">天）</span>
+                            </p>
+                            <p class="text-xs text-purple-500 mt-1">
+                                <span data-zh="排卵前5天 + 排卵当天 + 排卵后4天" data-en="5 days before + ovulation day + 4 days after" class="en-only">排卵前5天 + 排卵当天 + 排卵后4天</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -95,60 +125,121 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📅 本月日历视图</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📅 <span data-zh="本月日历视图" data-en="This Month's Calendar" class="en-only">本月日历视图</span></h3>
             <div id="calendarView" class="grid grid-cols-7 gap-1 text-center text-sm"></div>
             <div class="flex justify-center gap-6 mt-4 text-sm">
-                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-pink-200 rounded"></span><span>易孕期</span></div>
-                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-purple-400 rounded"></span><span>排卵日</span></div>
-                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-red-100 rounded"></span><span>月经期</span></div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-pink-200 rounded"></span><span data-zh="易孕期" data-en="Fertile" class="en-only">易孕期</span></div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-purple-400 rounded"></span><span data-zh="排卵日" data-en="Ovulation" class="en-only">排卵日</span></div>
+                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-red-100 rounded"></span><span data-zh="月经期" data-en="Period" class="en-only">月经期</span></div>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span data-zh="相关工具" data-en="Related Tools" class="en-only">相关工具</span></h3>
             <div class="flex flex-wrap gap-3">
-                <a href="period.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">📆 安全期计算器</a>
+                <a href="period.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">📆 <span data-zh="安全期计算器" data-en="Safe Period Calculator" class="en-only">安全期计算器</span></a>
             </div>
         </div>
 
+        <!-- Bilingual Article Section -->
         <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关于排卵期计算器</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+                <span data-zh="关于排卵期计算器" data-en="About This Ovulation Calculator" class="en-only">关于排卵期计算器</span>
+            </h2>
             <div class="prose text-gray-600 space-y-4">
-                <p>排卵期计算器帮助女性了解自己的生理周期，精准计算排卵日和易孕期。无论是备孕还是避孕，都能提供重要参考。本工具基于月经周期规律计算，实际排卵可能因情绪、环境等因素提前或推迟。</p>
+
+                <!-- Bilingual intro -->
+                <div class="p-4 bg-blue-50 rounded-lg">
+                    <p class="mb-2" data-zh="这个小小的计算器，承载着很多家庭的期待。无论是正在积极备孕的准爸妈，还是想更了解自己身体的姐妹，它都能帮到你。" data-en="This little calculator carries the hopes of many families. Whether you're actively trying to conceive or just want to understand your body better, we're here to help." class="en-only">这个小小的计算器，承载着很多家庭的期待。无论是正在积极备孕的准爸妈，还是想更了解自己身体的姐妹，它都能帮到你。</p>
+                    <p data-zh="但请记住，这只是基于月经周期的估算。每个人的身体都不一样，实际排卵可能会因为压力、情绪、环境变化等因素提前或推迟。必要时请咨询专业医生。" data-en="But remember - this is just an estimate based on your cycle. Every body is different, and actual ovulation may vary due to stress, emotions, or environmental changes. Please consult a doctor when needed." class="en-only">但请记住，这只是基于月经周期的估算。每个人的身体都不一样，实际排卵可能会因为压力、情绪、环境变化等因素提前或推迟。必要时请咨询专业医生。</p>
+                </div>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">什么是排卵日？</h3>
-                <p>排卵日是卵子从卵巢排出的日子，通常发生在下次月经来潮前的14天左右。排卵日及其前后的几天是受孕的最佳时机，称为易孕期。</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">
+                    <span data-zh="💡 什么是排卵日？" data-en="💡 What is Ovulation Day?" class="en-only">什么是排卵日？</span>
+                </h3>
+                <div class="pl-4 border-l-4 border-pink-300">
+                    <p data-zh="排卵日就是卵子从卵巢排出的那一天。它通常发生在下次月经来潮前的14天左右。排卵的那一刻，是一个月经周期中最容易被受孕的黄金时刻。" data-en="Ovulation day is when your ovary releases an egg. It typically happens about 14 days before your next period starts. This moment is the prime time for conception in your entire cycle." class="en-only">排卵日就是卵子从卵巢排出的那一天。它通常发生在下次月经来潮前的14天左右。排卵的那一刻，是一个月经周期中最容易被受孕的黄金时刻。</p>
+                </div>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">什么是易孕期？</h3>
-                <p>易孕期包括排卵前5天和排卵后4天，共约10天。精子在女性体内可存活3-5天，卵子排出后可存活1-2天，所以这段时间同房怀孕几率最高。</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">
+                    <span data-zh="🌸 什么是易孕期（排卵期）？" data-en="🌸 What is the Fertile Window?" class="en-only">什么是易孕期（排卵期）？</span>
+                </h3>
+                <div class="pl-4 border-l-4 border-purple-300">
+                    <p data-zh="易孕期也叫排卵期，包括排卵前的5天和排卵后的4天，加起来大约10天。为什么是这么算的呢？" data-en="Your fertile window (also called the ovulation period) includes 5 days before ovulation and 4 days after - about 10 days total. Why does this work?" class="en-only">易孕期也叫排卵期，包括排卵前的5天和排卵后的4天，加起来大约10天。为什么是这么算的呢？</p>
+                    <ul class="list-disc list-inside space-y-1 mt-2">
+                        <li data-zh="精子在女性体内可以存活3-5天" data-en="Sperm can survive 3-5 days inside you" class="en-only">精子在女性体内可以存活3-5天</li>
+                        <li data-zh="卵子排出后可以存活1-2天" data-en="Egg can survive 1-2 days after release" class="en-only">卵子排出后可以存活1-2天</li>
+                        <li data-zh="所以这10天是受孕的"窗口期"" data-en="So these 10 days are your conception 'window'" class="en-only">所以这10天是受孕的"窗口期"</li>
+                    </ul>
+                </div>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">如何提高备孕成功率？</h3>
-                <ul class="list-disc list-inside space-y-1">
-                    <li>使用排卵试纸监测排卵</li>
-                    <li>记录基础体温</li>
-                    <li>观察宫颈黏液变化</li>
-                    <li>保持规律作息和心情愉快</li>
-                    <li>排卵期前后隔天同房</li>
-                </ul>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">
+                    <span data-zh="🎯 如何提高备孕成功率？" data-en="🎯 Tips to Boost Your Conception Chances" class="en-only">如何提高备孕成功率？</span>
+                </h3>
+                <div class="pl-4 border-l-4 border-green-300">
+                    <ul class="list-disc list-inside space-y-2">
+                        <li data-zh="使用排卵试纸监测排卵（LH试纸）" data-en="Use ovulation predictor kits (LH strips)" class="en-only">使用排卵试纸监测排卵（LH试纸）</li>
+                        <li data-zh="每天早晨测量基础体温（BBT）并记录" data-en="Track your basal body temperature (BBT) every morning" class="en-only">每天早晨测量基础体温（BBT）并记录</li>
+                        <li data-zh="观察宫颈黏液的变化（排卵期会变得透明拉丝）" data-en="Monitor cervical mucus changes (becomes clear and stretchy near ovulation)" class="en-only">观察宫颈黏液的变化（排卵期会变得透明拉丝）</li>
+                        <li data-zh="保持规律作息，减少熬夜，调节心情" data-en="Maintain regular sleep schedule, reduce stress" class="en-only">保持规律作息，减少熬夜，调节心情</li>
+                        <li data-zh="排卵期前后隔天同房，比每天更有效" data-en="Try every other day during fertile window - it can be more effective than daily" class="en-only">排卵期前后隔天同房，比每天更有效</li>
+                        <li data-zh="提前补充叶酸，为孕期做准备" data-en="Start taking folic acid to prepare for pregnancy" class="en-only">提前补充叶酸，为孕期做准备</li>
+                    </ul>
+                </div>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题</h3>
-                <p><strong>Q: 安全期真的安全吗？</strong></p>
-                <p>A: 安全期并非绝对安全，受情绪、环境、压力等因素影响，排卵可能提前或推迟。不想怀孕建议使用避孕套等安全措施。</p>
-                <p><strong>Q: 月经不规律怎么算排卵？</strong></p>
-                <p>A: 月经不规律建议使用排卵试纸、基础体温法或B超监测，更准确判断排卵日。</p>
-                <p><strong>Q: 排卵期有什么症状？</strong></p>
-                <p>A: 排卵期可能出现透明拉丝状白带、下腹轻微疼痛、乳房胀痛、体温升高等症状。</p>
-                <p><strong>Q: 备孕多久没怀需要看医生？</strong></p>
-                <p>A: 35岁以下女性规律同房1年未孕、35岁以上半年未孕，建议就医检查。</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">
+                    <span data-zh="🤔 常见问题解答" data-en="🤔 Frequently Asked Questions" class="en-only">常见问题解答</span>
+                </h3>
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <p class="font-medium text-gray-800"><strong>Q1: <span data-zh="安全期真的安全吗？" data-en="Is the 'safe period' actually safe?" class="en-only">安全期真的安全吗？</span></strong></p>
+                        <p class="mt-2 text-gray-600">A: <span data-zh="安全期并非绝对安全！排卵可能因为情绪波动、压力、旅途疲劳、甚至气候变化而提前或推迟。如果不想怀孕，还是建议用避孕套等更可靠的避孕方式。" data-en="Not at all! Ovulation can shift due to stress, emotions, travel, or even weather changes. If you're not trying to conceive, use more reliable contraception like condoms." class="en-only">安全期并非绝对安全！排卵可能因为情绪波动、压力、旅途疲劳、甚至气候变化而提前或推迟。如果不想怀孕，还是建议用避孕套等更可靠的避孕方式。</span></p>
+                    </div>
+                    
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <p class="font-medium text-gray-800"><strong>Q2: <span data-zh="月经不规律怎么算排卵？" data-en="My periods are irregular - how do I track ovulation?" class="en-only">月经不规律怎么算排卵？</span></strong></p>
+                        <p class="mt-2 text-gray-600">A: <span data-zh="月经不规律的话，这个计算器的结果仅供参考。建议结合排卵试纸、基础体温法、或者去医院做B超监测，这样判断排卵日会更准确。" data-en="If your cycles are irregular, this calculator is just a rough guide. Try combining with ovulation strips, BBT charting, or get a transvaginal ultrasound at your doctor's." class="en-only">月经不规律的话，这个计算器的结果仅供参考。建议结合排卵试纸、基础体温法、或者去医院做B超监测，这样判断排卵日会更准确。</span></p>
+                    </div>
+                    
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <p class="font-medium text-gray-800"><strong>Q3: <span data-zh="排卵期有什么身体感觉？" data-en="What does ovulation feel like?" class="en-only">排卵期有什么身体感觉？</span></strong></p>
+                        <p class="mt-2 text-gray-600">A: <span data-zh="有些人会有感觉：阴道出现透明拉丝状白带、下腹一侧轻微刺痛或胀痛（叫“排卵痛”）、乳房胀痛、体温略微升高。如果你注意到这些信号，说明身体正在排卵。" data-en="Some people feel it: clear stretchy discharge, mild twinge on one side of lower abdomen (called 'mittelschmerz'), breast tenderness, or slight temperature rise. These signals mean your body is ovulating." class="en-only">有些人会有感觉：阴道出现透明拉丝状白带、下腹一侧轻微刺痛或胀痛（叫"排卵痛"）、乳房胀痛、体温略微升高。如果你注意到这些信号，说明身体正在排卵。</span></p>
+                    </div>
+                    
+                    <div class="p-4 bg-gray-50 rounded-lg">
+                        <p class="font-medium text-gray-800"><strong>Q4: <span data-zh="备孕多久没消息需要看医生？" data-en="When should I see a doctor if I'm not getting pregnant?" class="en-only">备孕多久没消息需要看医生？</span></strong></p>
+                        <p class="mt-2 text-gray-600">A: <span data-zh="35岁以下：规律同房1年未孕；35岁以上：半年未孕，就建议去医院生殖科做检查了。不要太焦虑，但也不要讳疾忌医哦。" data-en="Under 35: see a doctor after 1 year of regular unprotected sex. Over 35: after 6 months. Don't stress too much, but don't delay seeking help either." class="en-only">35岁以下：规律同房1年未孕；35岁以上：半年未孕，就建议去医院生殖科做检查了。不要太焦虑，但也不要讳疾忌医哦。</span></p>
+                    </div>
+                </div>
+
+                <!-- Warm closing -->
+                <div class="p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg text-center mt-6">
+                    <p class="text-gray-700" data-zh="💖 祝每一位备孕的姐妹都能如愿以偿，也祝每一位想了解自己身体的女孩更爱自己。" data-en="💖 To all the hopeful mamas trying to conceive - wishing you all the best. And to every woman wanting to understand her body - you're doing great!" class="en-only">💖 祝每一位备孕的姐妹都能如愿以偿，也祝每一位想了解自己身体的女孩更爱自己。</p>
+                </div>
             </div>
         </article>
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2026 计度AI工具箱</p>
+        <p>© 2026 Jdu AI Tools | 计度AI工具箱</p>
     </footer>
 
     <script>
+        let currentLang = 'zh';
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.getElementById('btn-zh').className = lang === 'zh' ? 'px-4 py-1.5 rounded-md bg-blue-600 text-white font-medium transition' : 'px-4 py-1.5 rounded-md text-gray-600 hover:text-blue-600 transition';
+            document.getElementById('btn-en').className = lang === 'en' ? 'px-4 py-1.5 rounded-md bg-blue-600 text-white font-medium transition' : 'px-4 py-1.5 rounded-md text-gray-600 hover:text-blue-600 transition';
+            
+            document.querySelectorAll('[data-zh]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            
+            // Re-render calendar with new language
+            calculate();
+        }
+
         function calculate() {
             const lastPeriodStr = document.getElementById('lastPeriod').value;
             if (!lastPeriodStr) return;
@@ -157,21 +248,29 @@
             const cycleLength = parseInt(document.getElementById('cycleLength').value) || 28;
             const periodDays = parseInt(document.getElementById('periodDays').value) || 5;
             
-            // 排卵日 = 上次月经开始 + 周期 - 14
+            // Ovulation = last period + cycle - 14
             const ovulationDay = new Date(lastPeriod);
             ovulationDay.setDate(ovulationDay.getDate() + cycleLength - 14);
             
-            // 易孕期开始（排卵前5天）
+            // Fertile window start (5 days before)
             const fertileStart = new Date(ovulationDay);
             fertileStart.setDate(fertileStart.getDate() - 5);
             
-            // 易孕期结束（排卵后4天）
+            // Fertile window end (4 days after)
             const fertileEnd = new Date(ovulationDay);
             fertileEnd.setDate(fertileEnd.getDate() + 4);
             
-            document.getElementById('ovulationDate').textContent = ovulationDay.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' });
-            document.getElementById('fertileStart').textContent = fertileStart.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
-            document.getElementById('fertileEnd').textContent = fertileEnd.toLocaleDateString('zh-CN', { month: 'numeric', day: 'numeric' });
+            // Format based on language
+            const dateFormat = currentLang === 'zh' 
+                ? { month: 'long', day: 'numeric', weekday: 'long' }
+                : { month: 'long', day: 'numeric', weekday: 'long' };
+            const shortFormat = currentLang === 'zh'
+                ? { month: 'numeric', day: 'numeric' }
+                : { month: 'numeric', day: 'numeric' };
+            
+            document.getElementById('ovulationDate').textContent = ovulationDay.toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', dateFormat);
+            document.getElementById('fertileStart').textContent = fertileStart.toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', shortFormat);
+            document.getElementById('fertileEnd').textContent = fertileEnd.toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', shortFormat);
             document.getElementById('fertileDays').textContent = '10';
             
             renderCalendar(lastPeriod, ovulationDay, fertileStart, fertileEnd, periodDays);
@@ -181,7 +280,6 @@
             const container = document.getElementById('calendarView');
             container.innerHTML = '';
             
-            // 从月经开始日期渲染本月日历
             const startOfMonth = new Date(lastPeriod);
             startOfMonth.setDate(1);
             
@@ -190,7 +288,10 @@
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
             
-            const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+            const weekDaysZh = ['日', '一', '二', '三', '四', '五', '六'];
+            const weekDaysEn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const weekDays = currentLang === 'zh' ? weekDaysZh : weekDaysEn;
+            
             weekDays.forEach(d => {
                 const el = document.createElement('div');
                 el.className = 'p-2 font-medium text-gray-500';
@@ -208,17 +309,17 @@
                 el.className = 'p-2 rounded';
                 el.textContent = day;
                 
-                // 月经期
+                // Period
                 const periodEnd = new Date(lastPeriod);
                 periodEnd.setDate(periodEnd.getDate() + periodDays - 1);
                 if (date >= lastPeriod && date <= periodEnd) {
                     el.className += ' bg-red-100 text-red-700';
                 }
-                // 易孕期
+                // Fertile window
                 else if (date >= fertileStart && date <= fertileEnd) {
                     el.className += ' bg-pink-200 text-pink-700 font-semibold';
                 }
-                // 排卵日
+                // Ovulation day
                 if (date.toDateString() === ovulationDay.toDateString()) {
                     el.className = 'p-2 rounded bg-purple-400 text-white font-bold';
                 }
@@ -227,7 +328,7 @@
             }
         }
 
-        // 默认设置上次月经为30天前
+        // Set default last period to 30 days ago
         const defaultDate = new Date();
         defaultDate.setDate(defaultDate.getDate() - 30);
         document.getElementById('lastPeriod').value = defaultDate.toISOString().split('T')[0];
@@ -237,8 +338,9 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "排卵期计算器",
-        "description": "计算排卵日、排卵期和易孕期",
+        "name": "Ovulation Calculator",
+        "alternateName": "排卵期计算器",
+        "description": "Calculate ovulation day and fertility window",
         "url": "https://tools.xxym8.com/ovulation.html",
         "applicationCategory": "HealthApplication",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
@@ -249,8 +351,8 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://tools.xxym8.com/" },
-            { "@type": "ListItem", "position": 2, "name": "排卵期计算器", "item": "https://tools.xxym8.com/ovulation.html" }
+            { "@type": "ListItem", "position": 1, "name": "首页 / Home", "item": "https://tools.xxym8.com/" },
+            { "@type": "ListItem", "position": 2, "name": "排卵期计算器 / Ovulation Calculator", "item": "https://tools.xxym8.com/ovulation.html" }
         ]
     }
     </script>
@@ -259,10 +361,10 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            { "@type": "Question", "name": "排卵期是哪几天？", "acceptedAnswer": { "@type": "Answer", "text": "排卵期约10天：排卵前5天 + 排卵当天 + 排卵后4天。排卵日通常在下次月经前14天左右。" } },
-            { "@type": "Question", "name": "安全期真的安全吗？", "acceptedAnswer": { "@type": "Answer", "text": "安全期并非绝对安全，排卵可能因情绪、环境等因素提前或推迟。不想怀孕建议使用安全措施。" } },
-            { "@type": "Question", "name": "排卵期有什么症状？", "acceptedAnswer": { "@type": "Answer", "text": "排卵期可能出现透明拉丝状白带、下腹轻微疼痛、乳房胀痛、基础体温升高等症状。" } },
-            { "@type": "Question", "name": "备孕多久没怀需要看医生？", "acceptedAnswer": { "@type": "Answer", "text": "35岁以下女性规律同房1年未孕、35岁以上半年未孕，建议就医检查。" } }
+            { "@type": "Question", "name": "What is the fertile window?", "alternateName": "易孕期是哪几天？", "acceptedAnswer": { "@type": "Answer", "text": "About 10 days: 5 days before + ovulation day + 4 days after. Ovulation usually occurs ~14 days before your next period.", "alternateName": "约10天：排卵前5天 + 排卵当天 + 排卵后4天。排卵日通常在下次月经前14天左右。" } },
+            { "@type": "Question", "name": "Is the 'safe period' actually safe?", "alternateName": "安全期真的安全吗？", "acceptedAnswer": { "@type": "Answer", "text": "No, not absolutely. Ovulation may shift due to stress, environment, or other factors. Use reliable contraception if not trying to conceive.", "alternateName": "安全期并非绝对安全，排卵可能因情绪、环境等因素提前或推迟。" } },
+            { "@type": "Question", "name": "What does ovulation feel like?", "alternateName": "排卵期有什么症状？", "acceptedAnswer": { "@type": "Answer", "text": "Some signs: clear stretchy discharge, mild abdominal twinge, breast tenderness, slight temperature rise.", "alternateName": "排卵期可能出现透明拉丝状白带、下腹轻微疼痛、乳房胀痛、基础体温升高等症状。" } },
+            { "@type": "Question", "name": "When to see a doctor if not getting pregnant?", "alternateName": "备孕多久没怀需要看医生？", "acceptedAnswer": { "@type": "Answer", "text": "Under 35: after 1 year of regular sex without pregnancy. Over 35: after 6 months.", "alternateName": "35岁以下女性规律同房1年未孕、35岁以上半年未孕，建议就医检查。" } }
         ]
     }
     </script>

@@ -4,45 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>房贷计算器 - 2026最新商贷公积金贷款月供计算</title>
-    <meta name="description" content="2026年最新房贷计算器，支持商业贷款、公积金贷款、组合贷款，等额本息与等额本金两种还款方式对比，精准计算月供、利息总额、还款计划表。">
-    <meta name="keywords" content="房贷计算器,房贷利率计算器,等额本息计算器,等额本金计算器,组合贷款计算器,公积金贷款计算器,房贷月供,提前还款计算器">
-    <meta name="author" content="计算器之家">
+    <meta name="description" content="2026年最新房贷计算器，支持商业贷款、公积金贷款、组合贷款，精准计算月供、利息总额、还款对比。">
+    <meta name="keywords" content="房贷计算器,商业贷款计算器,公积金贷款,等额本息,等额本金,月供计算,房贷利率2026">
+    <meta name="author" content="计度AI工具箱">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://tools.xxym8.com/mortgage.html">
-    
-    <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="房贷计算器 - 2026最新商贷公积金贷款月供计算">
-    <meta property="og:description" content="支持商业贷款、公积金贷款、组合贷款，等额本息与等额本金对比计算">
+    <meta property="og:description" content="支持商业贷款、公积金贷款、组合贷款">
     <meta property="og:url" content="https://tools.xxym8.com/mortgage.html">
-    <meta property="og:site_name" content="计算器之家">
-    <meta property="og:locale" content="zh_CN">
-    <meta property="article:published_time" content="2026-05-09">
-    
-    <!-- Twitter Card -->
+    <meta property="og:site_name" content="计度AI工具箱">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="房贷计算器 - 2026最新商贷公积金贷款月供计算">
-    <meta name="twitter:description" content="支持商业贷款、公积金贷款、组合贷款，等额本息与等额本金对比">
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }</style>
-    <script src="ads.js"></script>
+    <style>body { font-family: 'Inter', 'PingFang SC', sans-serif; }</style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <!-- Header -->
     <header class="bg-white shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计算器之家</a>
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计度AI工具箱</a>
             <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600 transition">首页</a>
-                <a href="/#tools" class="hover:text-blue-600 transition">工具</a>
+                <a href="/" class="hover:text-blue-600">首页</a>
+                <a href="/#tools" class="hover:text-blue-600">工具</a>
             </div>
         </nav>
+            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">🇺🇸 EN</button>
     </header>
 
-    <!-- Breadcrumb -->
     <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
         <nav aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -59,349 +46,268 @@
         </nav>
     </div>
 
-    <!-- Main Content -->
     <main class="max-w-4xl mx-auto px-4 py-6">
         <h1 class="text-3xl font-bold text-gray-800 mb-2">🏠 房贷计算器</h1>
-        <p class="text-gray-500 mb-6">支持商业贷款、公积金贷款、组合贷款，2026最新利率</p>
+        <p class="text-gray-500 mb-6">支持商业贷款、公积金贷款、组合贷款 · 2026年最新利率</p>
 
-        <!-- Calculator Form -->
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Left: Inputs -->
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">贷款类型</label>
                         <div class="flex flex-wrap gap-4">
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="loanType" value="commercial" checked class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <input type="radio" name="loanType" value="commercial" checked class="w-4 h-4 text-blue-600" onchange="toggleLoanType()">
                                 <span>商业贷款</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="loanType" value="provident" class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <input type="radio" name="loanType" value="fund" class="w-4 h-4 text-blue-600" onchange="toggleLoanType()">
                                 <span>公积金贷款</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="loanType" value="combined" class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <input type="radio" name="loanType" value="combined" class="w-4 h-4 text-blue-600" onchange="toggleLoanType()">
                                 <span>组合贷款</span>
                             </label>
                         </div>
                     </div>
-
-                    <div id="commercialAmount" class="grid grid-cols-2 gap-4">
+                    <div id="commercialSection">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">商业贷款金额（万元）</label>
-                            <input type="number" id="amount1" value="100" min="1" max="5000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculate()">
+                            <input type="number" id="commercialAmount" value="100" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                        </div>
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">商业贷款利率（%）</label>
+                            <input type="number" id="commercialRate" value="3.6" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                        </div>
+                    </div>
+                    <div id="fundSection" class="hidden">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">公积金贷款金额（万元）</label>
+                            <input type="number" id="fundAmount" value="50" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                        </div>
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">公积金贷款利率（%）</label>
+                            <input type="number" id="fundRate" value="3.1" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+                        </div>
+                    </div>
+                    <div id="combinedSection" class="hidden space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">商业贷款金额（万元）</label>
+                            <input type="number" id="comAmount" value="70" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">商业贷款利率（%）</label>
-                            <input type="number" id="rate1" value="4.2" step="0.01" min="1" max="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculate()">
+                            <input type="number" id="comRate" value="3.6" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
-                    </div>
-
-                    <div id="providentAmount" class="hidden grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">公积金贷款金额（万元）</label>
-                            <input type="number" id="amount2" value="50" min="1" max="500" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculate()">
+                            <input type="number" id="fundAmountCombined" value="50" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">公积金利率（%）</label>
-                            <input type="number" id="rate2" value="3.1" step="0.01" min="1" max="10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="calculate()">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">公积金贷款利率（%）</label>
+                            <input type="number" id="fundRateCombined" value="3.1" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                     </div>
-
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">贷款期限</label>
-                        <select id="years" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" onchange="calculate()">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">贷款年限</label>
+                        <select id="years" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" onchange="calculate()">
                             <option value="5">5年（60期）</option>
                             <option value="10">10年（120期）</option>
                             <option value="15">15年（180期）</option>
-                            <option value="20">20年（240期）</option>
+                            <option value="20" selected>20年（240期）</option>
                             <option value="25">25年（300期）</option>
-                            <option value="30" selected>30年（360期）</option>
+                            <option value="30">30年（360期）</option>
                         </select>
                     </div>
-
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">还款方式</label>
-                        <div class="flex flex-wrap gap-4">
+                        <div class="flex gap-4">
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="repayType" value="equalPrincipal" checked class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <input type="radio" name="repayType" value="averageCapitalPlus" checked class="w-4 h-4 text-blue-600" onchange="calculate()">
                                 <span>等额本息</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="repayType" value="equalPrincipalInterest" class="w-4 h-4 text-blue-600" onchange="calculate()">
+                                <input type="radio" name="repayType" value="averageCapital" class="w-4 h-4 text-blue-600" onchange="calculate()">
                                 <span>等额本金</span>
                             </label>
                         </div>
                     </div>
                 </div>
-
-                <!-- Right: Results -->
                 <div class="bg-blue-50 rounded-xl p-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 计算结果</h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
                             <span class="text-gray-600">每月月供</span>
-                            <span id="monthlyPayment" class="text-2xl font-bold text-blue-600">4,868元</span>
+                            <span id="monthlyPayment" class="text-2xl font-bold text-blue-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
                             <span class="text-gray-600">利息总额</span>
-                            <span id="totalInterest" class="text-xl font-semibold text-orange-500">752,458元</span>
+                            <span id="totalInterest" class="text-xl font-semibold text-orange-500">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
                             <span class="text-gray-600">还款总额</span>
-                            <span id="totalPayment" class="text-xl font-semibold text-gray-800">1,752,458元</span>
+                            <span id="totalPayment" class="text-xl font-semibold text-gray-800">-</span>
                         </div>
-                        <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-600">贷款总额</span>
-                            <span id="totalAmount" class="text-xl font-semibold text-gray-800">1,000,000元</span>
+                        <div id="firstMonthInterest" class="flex justify-between items-center py-2 border-b border-blue-100">
+                            <span class="text-gray-600">首月利息</span>
+                            <span id="firstInterest" class="text-lg font-medium text-red-400">-</span>
                         </div>
+                    </div>
+                    <div id="compareTip" class="mt-4 p-3 bg-white rounded-lg text-sm text-gray-600" style="display:none;">
+                        <p id="compareText"></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Chart -->
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📈 还款构成分析</h3>
-            <canvas id="chart" height="200"></canvas>
-        </div>
-
-        <!-- Amortization Table -->
-        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 还款计划表（前12个月）</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 2026年最新贷款利率参考</h3>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-4 py-2 text-left text-gray-600">期数</th>
-                            <th class="px-4 py-2 text-right text-gray-600">月供</th>
-                            <th class="px-4 py-2 text-right text-gray-600">本金</th>
-                            <th class="px-4 py-2 text-right text-gray-600">利息</th>
-                            <th class="px-4 py-2 text-right text-gray-600">剩余本金</th>
+                            <th class="px-4 py-2 text-left text-gray-600">贷款类型</th>
+                            <th class="px-4 py-2 text-right text-gray-600">5年以上利率</th>
+                            <th class="px-4 py-2 text-right text-gray-600">特点</th>
                         </tr>
                     </thead>
-                    <tbody id="amortTable" class="divide-y divide-gray-100"></tbody>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr><td class="px-4 py-2">商业贷款（LPR）</td><td class="px-4 py-2 text-right">3.6%</td><td class="px-4 py-2 text-gray-500">基准利率可上下浮动</td></tr>
+                        <tr><td class="px-4 py-2">公积金贷款</td><td class="px-4 py-2 text-right">3.1%</td><td class="px-4 py-2 text-gray-500">利率低，但有额度上限</td></tr>
+                        <tr><td class="px-4 py-2">公积金二套</td><td class="px-4 py-2 text-right">3.575%</td><td class="px-4 py-2 text-gray-500">上浮15%</td></tr>
+                    </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Related Tools -->
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具</h3>
             <div class="flex flex-wrap gap-3">
-                <a href="tax.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💰 个人所得税计算器</a>
-                <a href="compound.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">📈 复利计算器</a>
+                <a href="gjj.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏦 公积金计算器</a>
+                <a href="deposit.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💳 存款利息计算器</a>
             </div>
         </div>
 
-        <!-- SEO Content -->
         <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关于房贷计算器</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">买房前必看的还款攻略</h2>
             <div class="prose text-gray-600 space-y-4">
-                <p>房贷计算器是帮助购房者计算商业贷款、公积金贷款或组合贷款每月月供金额的工具。本计算器支持<strong>等额本息</strong>和<strong>等额本金</strong>两种还款方式，帮助您全面了解贷款成本，做出明智的购房决策。</p>
+                <p>我自己买第一套房的时候，光是研究还款方式就头疼了好几天。等额本息和等额本金到底差多少？公积金能贷多少？组合贷合算吗？这些问题我都遇到过。今天把经验分享出来，希望能帮大家少走弯路。</p>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">什么是等额本息？</h3>
-                <p>等额本息是指每月月供金额固定，其中本金占比逐月递增、利息占比逐月递减。还款初期，利息占月供的大部分，本金占小部分；随着时间推移，本金占比逐渐增加，利息占比逐渐减少。这种方式适合收入稳定、希望月供金额固定不变的人群。</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">什么是等额本金？</h3>
-                <p>等额本金是指每月偿还固定金额的本金，利息随剩余本金的减少而逐月递减，因此月供金额也逐月递减。还款初期月供金额较高，后期逐渐降低。这种方式的总利息支出较少，但前期还款压力较大，适合前期还款能力较强的购房者。</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">2026年最新贷款利率参考</h3>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">等额本息 vs 等额本金，我该怎么选？</h3>
+                <p>等额本息：每月还款金额固定，前期还得主要是利息，本金还得慢。适合收入稳定、不想前期压力太大的上班族。</p>
+                <p>等额本金：每月本金固定，利息逐月减少，所以前期月供高、后期月供低。总利息比等额本息少约20%-30%，但前期还款压力大。</p>
+                <p>举例：贷款100万、20年、商贷3.6%</p>
                 <ul class="list-disc list-inside space-y-1">
-                    <li>商业贷款基准利率（LPR）：4.2%（2026年最新）</li>
-                    <li>公积金贷款利率：3.1%（5年以上）</li>
-                    <li>组合贷款利率：分别按商业贷款和公积金贷款利率计算</li>
+                    <li>等额本息：月供约5736元，总利息约37.7万</li>
+                    <li>等额本金：首月约7167元，末月约4188元，总利息约30.1万</li>
+                </ul>
+                <p>如果手里有闲钱、或者收入会稳步增长，等额本金更划算。如果追求月供稳定、留点余钱投资，等额本息更合适。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">公积金能贷多少？</h3>
+                <p>公积金贷款额度 = 账户余额 × 15 + 缴存年限 × 10000（各地规则不同）</p>
+                <p>以北京为例，单人最高60万，双人最高120万。但很多城市如果二套房，额度会打折扣。</p>
+                <p>我的建议：能贷公积金就贷公积金，利率比商贷低一大截。但要注意公积金贷款审核比较严格，征信、负债都有要求。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">组合贷到底合不合算？</h3>
+                <p>组合贷就是一部分公积金+一部分商贷。适合公积金贷款额度不够用的情况。</p>
+                <p>比如要贷款150万，公积金最多贷60万，剩下的90万走商贷。虽然商贷部分利率高，但比纯商贷还是要省一些利息。</p>
+                
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">还款小技巧</h3>
+                <ul class="list-disc list-inside space-y-1">
+                    <li><strong>提前还款：</strong>公积金贷款提前还款没违约金，商贷大部分也没有，但要注意合同约定</li>
+                    <li><strong>商贷转公积金：</strong>如果之前纯商贷，后来公积金缴存达标，可以申请商转公，能省不少利息</li>
+                    <li><strong>还款日：</strong>建议设在发工资之后几天，避免忘了还影响征信</li>
                 </ul>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">计算示例</h3>
-                <p><strong>示例1：</strong>贷款100万，30年，等额本息，利率4.2%。每月月供约4,868元，利息总额约75.2万，还款总额约175.2万。</p>
-                <p><strong>示例2：</strong>贷款100万，20年，等额本金，利率4.2%。首月月供约6,833元，每月递减约10元，利息总额约42.2万。</p>
-                <p><strong>示例3：</strong>组合贷款：商业贷款60万（利率4.2%）+ 公积金贷款40万（利率3.1%），30年，等额本息。月供约4,512元。</p>
-
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">如何选择还款方式？</h3>
-                <p>如果您收入稳定、希望月供固定不变，建议选择等额本息。如果您希望总利息支出更少、且前期还款能力较强，建议选择等额本金。同样的贷款金额，等额本金的总利息通常比等额本息少10%-20%。</p>
+                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题</h3>
+                <p><strong>Q: 贷款100万30年月供多少？</strong></p>
+                <p>A: 按2026年商贷利率3.6%等额本息计算，月供约4558元，总利息约64万。</p>
+                <p><strong>Q: 等额本息第几年还最划算？</strong></p>
+                <p>A: 前5年提前还款最划算，因为这时候利息占比最高，本金还得少。</p>
+                <p><strong>Q: 收入证明不够怎么办？</strong></p>
+                <p>A: 可以让配偶作为共同借款人，或者提供其他资产证明。</p>
             </div>
         </article>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-400 py-6 mt-8">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <p>© 2026 计算器之家</p>
-        </div>
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
+        <p>© 2026 计度AI工具箱</p>
     </footer>
 
     <script>
-        let chart = null;
+        function toggleLoanType() {
+            const type = document.querySelector('input[name="loanType"]:checked').value;
+            document.getElementById('commercialSection').classList.toggle('hidden', type !== 'commercial' && type !== 'fund');
+            document.getElementById('fundSection').classList.toggle('hidden', type !== 'fund');
+            document.getElementById('combinedSection').classList.toggle('hidden', type !== 'combined');
+            if (type === 'fund') {
+                document.getElementById('commercialRate').value = '3.1';
+            } else {
+                document.getElementById('commercialRate').value = '3.6';
+            }
+            calculate();
+        }
 
         function calculate() {
             const loanType = document.querySelector('input[name="loanType"]:checked').value;
-            const repayType = document.querySelector('input[name="repayType"]:checked').value;
-
-            const commercialDiv = document.getElementById('commercialAmount');
-            const providentDiv = document.getElementById('providentAmount');
-            
-            if (loanType === 'commercial') {
-                commercialDiv.classList.remove('hidden');
-                providentDiv.classList.add('hidden');
-            } else if (loanType === 'provident') {
-                commercialDiv.classList.add('hidden');
-                providentDiv.classList.remove('hidden');
-            } else {
-                commercialDiv.classList.remove('hidden');
-                providentDiv.classList.remove('hidden');
-            }
-
-            let amount1 = 0, rate1 = 0, amount2 = 0, rate2 = 0;
-            if (loanType === 'commercial' || loanType === 'combined') {
-                amount1 = parseFloat(document.getElementById('amount1').value) || 0;
-                rate1 = parseFloat(document.getElementById('rate1').value) / 100 / 12;
-            }
-            if (loanType === 'provident' || loanType === 'combined') {
-                amount2 = parseFloat(document.getElementById('amount2').value) || 0;
-                rate2 = parseFloat(document.getElementById('rate2').value) / 100 / 12;
-            }
             const years = parseInt(document.getElementById('years').value);
             const months = years * 12;
+            const repayType = document.querySelector('input[name="repayType"]:checked').value;
 
-            const totalAmount = amount1 * 10000 + amount2 * 10000;
+            let totalAmount = 0, totalRate = 0;
 
-            let monthlyPayment, totalInterest, totalPayment, schedule;
+            if (loanType === 'commercial') {
+                totalAmount = parseFloat(document.getElementById('commercialAmount').value) * 10000;
+                totalRate = parseFloat(document.getElementById('commercialRate').value) / 100;
+            } else if (loanType === 'fund') {
+                totalAmount = parseFloat(document.getElementById('fundAmount').value) * 10000;
+                totalRate = parseFloat(document.getElementById('fundRate').value) / 100;
+            } else {
+                const comAmount = parseFloat(document.getElementById('comAmount').value) * 10000;
+                const comRate = parseFloat(document.getElementById('comRate').value) / 100;
+                const fundAmount = parseFloat(document.getElementById('fundAmountCombined').value) * 10000;
+                const fundRate = parseFloat(document.getElementById('fundRateCombined').value) / 100;
+                totalAmount = comAmount + fundAmount;
+                totalRate = (comAmount * comRate + fundAmount * fundRate) / totalAmount;
+            }
 
-            if (repayType === 'equalPrincipal') {
-                const combinedRate = (rate1 * amount1 + rate2 * amount2) / (amount1 + amount2) || rate1;
-                
-                monthlyPayment = totalAmount * combinedRate * Math.pow(1 + combinedRate, months) / (Math.pow(1 + combinedRate, months) - 1);
+            const monthlyRate = totalRate / 12;
+            let monthlyPayment = 0, totalInterest = 0, totalPayment = 0, firstInterest = 0;
+
+            if (repayType === 'averageCapitalPlus') {
+                monthlyPayment = totalAmount * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
                 totalPayment = monthlyPayment * months;
                 totalInterest = totalPayment - totalAmount;
-
-                schedule = [];
-                let balance = totalAmount;
-                for (let i = 1; i <= months; i++) {
-                    const interest = balance * combinedRate;
-                    const principal = monthlyPayment - interest;
-                    balance -= principal;
-                    schedule.push({ month: i, payment: monthlyPayment, principal, interest, balance: Math.max(0, balance) });
-                }
+                firstInterest = totalAmount * monthlyRate;
             } else {
-                const combinedRate = (rate1 * amount1 + rate2 * amount2) / (amount1 + amount2) || rate1;
-                const monthlyPrincipal = totalAmount / months;
-                
-                schedule = [];
-                let balance = totalAmount;
-                let firstMonthPayment = 0;
-                
-                for (let i = 1; i <= months; i++) {
-                    const interest = balance * combinedRate;
-                    const payment = monthlyPrincipal + interest;
-                    if (i === 1) firstMonthPayment = payment;
-                    balance -= monthlyPrincipal;
-                    schedule.push({ month: i, payment, principal: monthlyPrincipal, interest, balance: Math.max(0, balance) });
+                const principal = totalAmount / months;
+                firstInterest = totalAmount * monthlyRate;
+                totalInterest = 0;
+                for (let i = 0; i < months; i++) {
+                    const interest = (totalAmount - principal * i) * monthlyRate;
+                    totalInterest += interest;
                 }
-                
-                monthlyPayment = firstMonthPayment;
-                totalPayment = schedule.reduce((sum, s) => sum + s.payment, 0);
-                totalInterest = totalPayment - totalAmount;
+                monthlyPayment = principal + firstInterest;
+                totalPayment = totalAmount + totalInterest;
             }
 
-            document.getElementById('monthlyPayment').textContent = formatCurrency(monthlyPayment);
-            document.getElementById('totalInterest').textContent = formatCurrency(totalInterest);
-            document.getElementById('totalPayment').textContent = formatCurrency(totalPayment);
-            document.getElementById('totalAmount').textContent = formatCurrency(totalAmount);
-
-            updateChart(schedule, totalAmount);
-            updateTable(schedule);
+            document.getElementById('monthlyPayment').textContent = monthlyPayment.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+            document.getElementById('totalInterest').textContent = totalInterest.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+            document.getElementById('totalPayment').textContent = totalPayment.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
+            document.getElementById('firstInterest').textContent = firstInterest.toLocaleString('zh-CN', {minimumFractionDigits: 2}) + '元';
         }
 
-        function formatCurrency(num) {
-            return num.toLocaleString('zh-CN', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).replace(/,/g, ',') + '元';
-        }
-
-        function updateChart(schedule, totalAmount) {
-            const ctx = document.getElementById('chart').getContext('2d');
-            
-            const labels = [];
-            const principalData = [];
-            const interestData = [];
-            
-            for (let i = 0; i < 12; i++) {
-                labels.push(`第${i+1}年`);
-                let principal = 0, interest = 0;
-                for (let m = i * 12; m < (i + 1) * 12 && m < schedule.length; m++) {
-                    principal += schedule[m].principal;
-                    interest += schedule[m].interest;
-                }
-                principalData.push(principal);
-                interestData.push(interest);
-            }
-
-            if (chart) chart.destroy();
-            
-            chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels,
-                    datasets: [
-                        { label: '本金', data: principalData, backgroundColor: '#2563eb' },
-                        { label: '利息', data: interestData, backgroundColor: '#f97316' }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        title: { display: true, text: '每年还款构成（本息分解）' },
-                        legend: { position: 'bottom' }
-                    },
-                    scales: {
-                        x: { stacked: true },
-                        y: { stacked: true, ticks: { callback: v => (v/10000).toFixed(0) + '万' } }
-                    }
-                }
-            });
-        }
-
-        function updateTable(schedule) {
-            const tbody = document.getElementById('amortTable');
-            tbody.innerHTML = '';
-            
-            for (let i = 0; i < Math.min(12, schedule.length); i++) {
-                const s = schedule[i];
-                tbody.innerHTML += `
-                    <tr>
-                        <td class="px-4 py-2">第${s.month}期</td>
-                        <td class="px-4 py-2 text-right">${s.payment.toLocaleString('zh-CN', {minimumFractionDigits: 2})}</td>
-                        <td class="px-4 py-2 text-right">${s.principal.toLocaleString('zh-CN', {minimumFractionDigits: 2})}</td>
-                        <td class="px-4 py-2 text-right">${s.interest.toLocaleString('zh-CN', {minimumFractionDigits: 2})}</td>
-                        <td class="px-4 py-2 text-right">${s.balance.toLocaleString('zh-CN', {minimumFractionDigits: 2})}</td>
-                    </tr>
-                `;
-            }
-        }
-
-        document.querySelectorAll('input[name="loanType"]').forEach(radio => {
-            radio.addEventListener('change', calculate);
-        });
-
-        calculate();
+        toggleLoanType();
     </script>
-
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
         "name": "房贷计算器",
-        "description": "精准的房贷还款计算工具，支持商业贷款、公积金贷款、组合贷款，等额本息与等额本金对比",
+        "description": "计算商业贷款、公积金贷款月供和利息",
         "url": "https://tools.xxym8.com/mortgage.html",
         "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "ratingCount": "256"
-        }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
     }
     </script>
     <script type="application/ld+json">
@@ -419,46 +325,10 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "房贷100万30年每月还款多少？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "按最新LPR利率4.2%计算，贷款100万、30年期，等额本息月供约4,868元，总利息约75.2万。"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "等额本息和等额本金哪个更划算？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "等额本金总利息更少，但前期月供压力更大；等额本息月供固定，适合收入稳定的人群。同样的贷款，等额本金通常比等额本息少10%-20%的利息。"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "组合贷款怎么计算？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "组合贷款是商业贷款和公积金贷款的组合，商业贷款部分按商贷利率计算，公积金贷款部分按公积金利率计算，两者相加即为每月总月供。"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "2026年最新贷款利率是多少？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "2026年商业贷款LPR基准利率为4.2%，公积金贷款利率为3.1%（5年以上）。实际利率可能因银行政策和个人资质有所浮动。"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "提前还款划算吗？",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "提前还款可以减少利息支出，特别是还款初期效果更明显。但如果手头资金有更高收益的投资渠道，保留贷款可能更划算。建议根据个人情况综合考虑。"
-                }
-            }
+            { "@type": "Question", "name": "贷款100万30年月供多少？", "acceptedAnswer": { "@type": "Answer", "text": "按2026年商贷利率3.6%等额本息计算，月供约4558元，总利息约64万。" } },
+            { "@type": "Question", "name": "等额本息和等额本金哪个划算？", "acceptedAnswer": { "@type": "Answer", "text": "等额本金总利息少约20-30%，但前期月供高；等额本息月供固定，压力小。收入稳定选等额本息，收入增长快选等额本金。" } },
+            { "@type": "Question", "name": "公积金能贷多少？", "acceptedAnswer": { "@type": "Answer", "text": "公积金贷款额度 = 账户余额 × 15 + 缴存年限 × 10000，各地规则不同，北京单人最高60万双人120万。" } },
+            { "@type": "Question", "name": "提前还款划算吗？", "acceptedAnswer": { "@type": "Answer", "text": "前5年提前还款最划算，因为利息占比最高。公积金贷款提前还款通常没有违约金。" } }
         ]
     }
     </script>

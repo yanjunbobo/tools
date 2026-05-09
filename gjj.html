@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>公积金计算器 - 2026最新公积金贷款额度缴存计算</title>
-    <meta name="description" content="2026年最新公积金计算器，支持公积金缴存计算、贷款额度评估、每月缴存金额查询，帮助您了解公积金账户余额和可贷额度。">
-    <meta name="keywords" content="公积金计算器,公积金贷款额度,公积金缴存,公积金提取,公积金利率2026">
+    <title>公积金计算器 | Housing Provident Fund Calculator - 2026最新</title>
+    <meta name="description" content="2026年最新公积金计算器，支持中英文切换。计算公积金缴存金额、账户余额、贷款额度。Housing Provident Fund calculator for China.">
+    <meta name="keywords" content="公积金计算器,公积金贷款,housing provident fund calculator,公积金缴存,住房公积金">
     <meta name="author" content="计度AI工具箱">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://tools.xxym8.com/gjj.html">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="公积金计算器 - 2026最新公积金贷款额度缴存计算">
-    <meta property="og:description" content="支持公积金缴存、贷款额度、利率计算">
+    <meta property="og:title" content="公积金计算器 | Housing Provident Fund Calculator">
+    <meta property="og:description" content="支持公积金缴存、贷款额度、利率计算，中英文双语">
     <meta property="og:url" content="https://tools.xxym8.com/gjj.html">
     <meta property="og:site_name" content="计度AI工具箱">
     <meta name="twitter:card" content="summary">
@@ -47,106 +47,136 @@
     </div>
 
     <main class="max-w-4xl mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-gray-800 mb-2">🏦 公积金计算器</h1>
-        <p class="text-gray-500 mb-6">计算公积金缴存金额、账户余额、贷款额度</p>
+        <div class="flex items-center justify-between mb-4">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">🏦 公积金计算器</h1>
+                <h1 class="text-3xl font-bold text-gray-800">🏦 Housing Provident Fund Calculator</h1>
+            </div>
+            <button id="langToggle" onclick="toggleLang()" class="px-4 py-2 bg-blue-100 hover:bg-blue-200 rounded-lg text-sm font-medium text-blue-600 transition">
+                🌐 EN / 中文
+            </button>
+        </div>
+        <p class="text-gray-500 mb-6" id="subtitle">计算公积金缴存金额、账户余额、贷款额度</p>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">计算模式</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">计算模式</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Calculation Mode</label>
                         <div class="flex flex-wrap gap-4">
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="radio" name="mode" value="deposit" checked class="w-4 h-4 text-blue-600" onchange="toggleMode()">
-                                <span>缴存计算</span>
+                                <span data-lang="zh">缴存计算</span>
+                                <span data-lang="en" style="display:none;">Contribution</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
                                 <input type="radio" name="mode" value="loan" class="w-4 h-4 text-blue-600" onchange="toggleMode()">
-                                <span>可贷额度</span>
+                                <span data-lang="zh">可贷额度</span>
+                                <span data-lang="en" style="display:none;">Loan Amount</span>
                             </label>
                         </div>
                     </div>
                     <div id="depositMode">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">月工资（元）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">月工资（元）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Monthly Salary (CNY)</label>
                             <input type="number" id="salary" value="15000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                         <div class="mt-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">公积金缴存比例（%）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">公积金缴存比例（%）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Contribution Rate (%)</label>
                             <input type="number" id="ratio" value="12" min="5" max="12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
-                            <p class="text-xs text-gray-400 mt-1">通常为5%-12%，单位或个人同比例</p>
+                            <p class="text-xs text-gray-400 mt-1" data-lang="zh">通常为5%-12%，单位或个人同比例</p>
+                            <p class="text-xs text-gray-400 mt-1" data-lang="en" style="display:none;">Usually 5%-12%, both employer and employee pay same rate</p>
                         </div>
                         <div class="mt-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">缴存月数</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">缴存月数</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Number of Months</label>
                             <input type="number" id="months" value="12" min="1" max="600" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                     </div>
                     <div id="loanMode" class="hidden space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">账户余额（元）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">账户余额（元）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Account Balance (CNY)</label>
                             <input type="number" id="balance" value="50000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">缴存年限（年）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="zh">缴存年限（年）</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2" data-lang="en" style="display:none;">Years of Contribution</label>
                             <input type="number" id="years" value="5" min="1" max="30" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" oninput="calculate()">
                         </div>
                     </div>
                 </div>
                 <div class="bg-blue-50 rounded-xl p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-4">📊 计算结果</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="zh">📊 计算结果</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="en" style="display:none;">📊 Results</h3>
                     <div class="space-y-3" id="results">
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600">个人月缴存</span>
+                            <span class="text-gray-600" data-lang="zh">个人月缴存</span>
+                            <span class="text-gray-600" data-lang="en" style="display:none;">Your Monthly Contribution</span>
                             <span id="personalMonthly" class="text-xl font-bold text-blue-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600">单位月缴存</span>
+                            <span class="text-gray-600" data-lang="zh">单位月缴存</span>
+                            <span class="text-gray-600" data-lang="en" style="display:none;">Employer Monthly Contribution</span>
                             <span id="companyMonthly" class="text-xl font-semibold text-green-600">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-b border-blue-100">
-                            <span class="text-gray-600">月缴存总额</span>
+                            <span class="text-gray-600" data-lang="zh">月缴存总额</span>
+                            <span class="text-gray-600" data-lang="en" style="display:none;">Total Monthly Contribution</span>
                             <span id="totalMonthly" class="text-xl font-semibold text-gray-800">-</span>
                         </div>
                         <div class="flex justify-between items-center py-2">
-                            <span class="text-gray-600">账户累计余额</span>
+                            <span class="text-gray-600" data-lang="zh">账户累计余额</span>
+                            <span class="text-gray-600" data-lang="en" style="display:none;">Total Account Balance</span>
                             <span id="totalBalance" class="text-2xl font-bold text-orange-500">-</span>
                         </div>
                     </div>
                     <div class="mt-4 p-3 bg-white rounded-lg" id="loanResult" style="display:none;">
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-600">可贷额度</span>
+                            <span class="text-gray-600" data-lang="zh">可贷额度</span>
+                            <span class="text-gray-600" data-lang="en" style="display:none;">Maximum Loan Amount</span>
                             <span id="loanAmount" class="text-2xl font-bold text-blue-600">-</span>
                         </div>
-                        <p class="text-xs text-gray-400 mt-2">注：实际可贷额度以当地公积金中心审核为准</p>
+                        <p class="text-xs text-gray-400 mt-2" data-lang="zh">注：实际可贷额度以当地公积金中心审核为准</p>
+                        <p class="text-xs text-gray-400 mt-2" data-lang="en" style="display:none;">Note: Actual loan amount subject to local housing fund center approval</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">📋 2026年全国主要城市公积金缴存比例</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="zh">📋 2026年全国主要城市公积金缴存比例</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="en" style="display:none;">📋 2026 Major City Contribution Rates in China</h3>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-4 py-2 text-left text-gray-600">城市</th>
-                            <th class="px-4 py-2 text-right text-gray-600">个人比例</th>
-                            <th class="px-4 py-2 text-right text-gray-600">单位比例</th>
-                            <th class="px-4 py-2 text-right text-gray-600">存款利率</th>
+                            <th class="px-4 py-2 text-left text-gray-600" data-lang="zh">城市</th>
+                            <th class="px-4 py-2 text-left text-gray-600" data-lang="en" style="display:none;">City</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-lang="zh">个人比例</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-lang="en" style="display:none;">Employee Rate</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-lang="zh">单位比例</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-lang="en" style="display:none;">Employer Rate</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-lang="zh">存款利率</th>
+                            <th class="px-4 py-2 text-right text-gray-600" data-lang="en" style="display:none;">Interest Rate</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
-                        <tr><td class="px-4 py-2">北京</td><td class="px-4 py-2 text-right">12%</td><td class="px-4 py-2 text-right">12%</td><td class="px-4 py-2 text-right">1.5%</td></tr>
-                        <tr><td class="px-4 py-2">上海</td><td class="px-4 py-2 text-right">7%</td><td class="px-4 py-2 text-right">7%</td><td class="px-4 py-2 text-right">1.5%</td></tr>
-                        <tr><td class="px-4 py-2">深圳</td><td class="px-4 py-2 text-right">5%-12%</td><td class="px-4 py-2 text-right">5%-12%</td><td class="px-4 py-2 text-right">1.5%</td></tr>
-                        <tr><td class="px-4 py-2">广州</td><td class="px-4 py-2 text-right">2%-12%</td><td class="px-4 py-2 text-right">2%-12%</td><td class="px-4 py-2 text-right">1.5%</td></tr>
+                        <tr><td class="px-4 py-2">北京 Beijing</td><td class="px-4 py-2 text-right">12%</td><td class="px-4 py-2 text-right">12%</td><td class="px-4 py-2 text-right">1.5%</td></tr>
+                        <tr><td class="px-4 py-2">上海 Shanghai</td><td class="px-4 py-2 text-right">7%</td><td class="px-4 py-2 text-right">7%</td><td class="px-4 py-2 text-right">1.5%</td></tr>
+                        <tr><td class="px-4 py-2">深圳 Shenzhen</td><td class="px-4 py-2 text-right">5%-12%</td><td class="px-4 py-2 text-right">5%-12%</td><td class="px-4 py-2 text-right">1.5%</td></tr>
+                        <tr><td class="px-4 py-2">广州 Guangzhou</td><td class="px-4 py-2 text-right">2%-12%</td><td class="px-4 py-2 text-right">2%-12%</td><td class="px-4 py-2 text-right">1.5%</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 相关工具</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="zh">🔗 相关工具</h3>
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-lang="en" style="display:none;">🔗 Related Tools</h3>
             <div class="flex flex-wrap gap-3">
                 <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 房贷计算器</a>
                 <a href="salary.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💵 工资计算器</a>
@@ -155,40 +185,85 @@
         </div>
 
         <article class="bg-white rounded-xl shadow-sm p-6">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">关于公积金计算器</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4" data-lang="zh">关于公积金计算器</h2>
+            <h2 class="text-xl font-bold text-gray-800 mb-4" data-lang="en" style="display:none;">About Housing Provident Fund Calculator</h2>
             <div class="prose text-gray-600 space-y-4">
-                <p>公积金（住房公积金）是中国特有的住房保障制度，由职工和单位共同缴存，用于购房、租房、装修等住房消费。公积金贷款利率比商业贷款低很多，是购房的重要融资渠道。2026年，全国各地公积金政策有所调整，本计算器提供参考计算。</p>
+                <!-- Chinese Content -->
+                <div data-lang="zh">
+                    <p>公积金（住房公积金）是中国特有的住房保障制度，由职工和单位共同缴存，用于购房、租房、装修等住房消费。公积金贷款利率比商业贷款低很多，是购房的重要融资渠道。2026年，全国各地公积金政策有所调整，本计算器提供参考计算。</p>
+                    
+                    <p class="mt-4">说起来，公积金可能是打工人最熟悉的"存钱罐"了——每个月工资条上都会扣掉一笔，单位再补一笔，相当于强制储蓄。对于打算买房的朋友，这笔钱用得好，能省下不少利息呢！😄</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-6">公积金缴存规则</h3>
+                    <p>公积金由职工和单位共同缴存，缴存基数为职工本人上一年度月平均工资，缴存比例在5%-12%之间由单位自行选择。个人缴存部分和单位缴存部分均存入职工个人账户，归职工所有。</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-6">公积金贷款优势</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>利率低：</strong>2026年公积金贷款利率5年以上约3.1%，比商业贷款低约30%</li>
+                        <li><strong>额度高：</strong>单人最高可贷60万，双人最高100万（因城市而异）</li>
+                        <li><strong>可抵扣：</strong>公积金账户余额可抵扣房贷本金</li>
+                        <li><strong>还款灵活：</strong>支持提前还款，无违约金</li>
+                    </ul>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-6">可贷额度计算规则</h3>
+                    <p>公积金贷款额度一般由以下因素决定：账户余额×倍数（通常为14-20倍）+ 缴存年限×固定额度。不同城市规则不同，本计算器按常见规则估算，实际额度以当地公积金中心审核为准。</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题</h3>
+                    <p><strong>Q: 公积金可以取出来吗？</strong></p>
+                    <p>A: 可以。在购房、租房、装修、退休、离职等情况下可提取公积金。</p>
+                    <p><strong>Q: 换工作后公积金怎么办？</strong></p>
+                    <p>A: 公积金账户会自动转移合并，无需担心。</p>
+                    <p><strong>Q: 公积金贷款利率是多少？</strong></p>
+                    <p>A: 2026年，5年以下利率约2.6%，5年以上利率约3.1%。</p>
+                </div>
                 
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">公积金缴存规则</h3>
-                <p>公积金由职工和单位共同缴存，缴存基数为职工本人上一年度月平均工资，缴存比例在5%-12%之间由单位自行选择。个人缴存部分和单位缴存部分均存入职工个人账户，归职工所有。</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">公积金贷款优势</h3>
-                <ul class="list-disc list-inside space-y-1">
-                    <li><strong>利率低：</strong>2026年公积金贷款利率5年以上约3.1%，比商业贷款低约30%</li>
-                    <li><strong>额度高：</strong>单人最高可贷60万，双人最高100万（因城市而异）</li>
-                    <li><strong>可抵扣：</strong>公积金账户余额可抵扣房贷本金</li>
-                    <li><strong>还款灵活：</strong>支持提前还款，无违约金</li>
-                </ul>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">可贷额度计算规则</h3>
-                <p>公积金贷款额度一般由以下因素决定：账户余额×倍数（通常为14-20倍）+ 缴存年限×固定额度。不同城市规则不同，本计算器按常见规则估算，实际额度以当地公积金中心审核为准。</p>
-                
-                <h3 class="text-lg font-semibold text-gray-800 mt-6">常见问题</h3>
-                <p><strong>Q: 公积金可以取出来吗？</strong></p>
-                <p>A: 可以。在购房、租房、装修、退休、离职等情况下可提取公积金。</p>
-                <p><strong>Q: 换工作后公积金怎么办？</strong></p>
-                <p>A: 公积金账户会自动转移合并，无需担心。</p>
-                <p><strong>Q: 公积金贷款利率是多少？</strong></p>
-                <p>A: 2026年，5年以下利率约2.6%，5年以上利率约3.1%。</p>
+                <!-- English Content -->
+                <div data-lang="en" style="display:none;">
+                    <p>The Housing Provident Fund (公积金, gōngjījīn) is a unique housing security system in China where both employees and employers contribute. It's designed for housing purchases, rentals, renovations, and other housing-related expenses. The interest rate on housing fund loans is significantly lower than commercial loans, making it a crucial financing option for homebuyers. This calculator provides reference calculations for 2026.</p>
+                    
+                    <p class="mt-4">Honestly, the Housing Provident Fund might be the most familiar "piggy bank" for working people — every month, a portion is deducted from your salary, and your employer adds matching contributions. It's like a forced savings plan! For those planning to buy property, making good use of this fund can save you quite a bit on interest. 😄</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-6">Contribution Rules</h3>
+                    <p>The Housing Provident Fund is contributed by both the employee and employer. The contribution base is the employee's average monthly salary from the previous year. The contribution rate (typically between 5%-12%) is determined by the employer. Both the employee's and employer's contributions go into the employee's personal account, belonging entirely to the employee.</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-6">Advantages of Housing Fund Loans</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Low Interest Rate:</strong> In 2026, rates for loans over 5 years are approximately 3.1%, about 30% lower than commercial loans</li>
+                        <li><strong>High Loan Amount:</strong> Up to 600,000 CNY for individuals, up to 1,000,000 CNY for couples (varies by city)</li>
+                        <li><strong>Can Offset Principal:</strong> Account balance can be used to offset mortgage principal</li>
+                        <li><strong>Flexible Repayment:</strong> Early repayment supported with no penalty</li>
+                    </ul>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-6">Maximum Loan Amount Calculation</h3>
+                    <p>The housing fund loan amount is generally determined by: Account Balance × Multiple (usually 14-20x) + Years of Contribution × Fixed Amount. Rules vary by city. This calculator estimates based on common rules — actual amounts are subject to your local housing fund center's approval.</p>
+                    
+                    <h3 class="text-lg font-semibold text-gray-800 mt-6">FAQ</h3>
+                    <p><strong>Q: Can I withdraw my Housing Provident Fund?</strong></p>
+                    <p>A: Yes. You can withdraw funds when purchasing property, renting, renovating, retiring, or changing jobs.</p>
+                    <p><strong>Q: What happens to my Housing Provident Fund when I change jobs?</strong></p>
+                    <p>A: Your account transfers automatically — no need to worry!</p>
+                    <p><strong>Q: What's the interest rate for Housing Provident Fund loans in 2026?</strong></p>
+                    <p>A: In 2026, rates are approximately 2.6% for terms under 5 years, and approximately 3.1% for terms over 5 years.</p>
+                </div>
             </div>
         </article>
     </main>
 
     <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
-        <p>© 2026 计度AI工具箱</p>
+        <p>© 2026 计度AI工具箱 | Jidu AI Toolbox</p>
     </footer>
 
     <script>
+        let currentLang = 'zh';
+
+        function toggleLang() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === currentLang ? '' : 'none';
+            });
+            calculate();
+        }
+
         function toggleMode() {
             const mode = document.querySelector('input[name="mode"]:checked').value;
             document.getElementById('depositMode').classList.toggle('hidden', mode !== 'deposit');
@@ -211,16 +286,15 @@
                 const totalMonthly = personalMonthly + companyMonthly;
                 const totalBalance = totalMonthly * months;
 
-                document.getElementById('personalMonthly').textContent = personalMonthly.toLocaleString('zh-CN') + '元';
-                document.getElementById('companyMonthly').textContent = companyMonthly.toLocaleString('zh-CN') + '元';
-                document.getElementById('totalMonthly').textContent = totalMonthly.toLocaleString('zh-CN') + '元';
-                document.getElementById('totalBalance').textContent = totalBalance.toLocaleString('zh-CN') + '元';
+                document.getElementById('personalMonthly').textContent = personalMonthly.toLocaleString('zh-CN') + (currentLang === 'zh' ? '元' : ' CNY');
+                document.getElementById('companyMonthly').textContent = companyMonthly.toLocaleString('zh-CN') + (currentLang === 'zh' ? '元' : ' CNY');
+                document.getElementById('totalMonthly').textContent = totalMonthly.toLocaleString('zh-CN') + (currentLang === 'zh' ? '元' : ' CNY');
+                document.getElementById('totalBalance').textContent = totalBalance.toLocaleString('zh-CN') + (currentLang === 'zh' ? '元' : ' CNY');
             } else {
                 const balance = parseFloat(document.getElementById('balance').value) || 0;
                 const years = parseInt(document.getElementById('years').value) || 1;
-                // 常见规则：余额的15倍 + 缴存年限×10000
                 const loanAmount = Math.min(balance * 15 + years * 10000, 600000);
-                document.getElementById('loanAmount').textContent = loanAmount.toLocaleString('zh-CN') + '元';
+                document.getElementById('loanAmount').textContent = loanAmount.toLocaleString('zh-CN') + (currentLang === 'zh' ? '元' : ' CNY');
             }
         }
 
