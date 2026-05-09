@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SEO工具箱 - 关键词密度与友链检测</title>
-  <meta name="description" content="在线SEO工具，检测关键词密度和分析友链状态">
+  <title data-zh="SEO工具箱 - 关键词密度分析与友链检测工具" data-en="SEO Tools - Keyword Density & Backlink Analyzer">SEO工具箱 - 关键词密度分析与友链检测工具</title>
+  <meta name="description" data-zh="在线SEO工具箱，提供关键词密度分析、友链检测服务。分析网页关键词分布、检测外链状态、识别nofollow链接，帮助优化网站SEO排名。" data-en="Free SEO tools: keyword density analyzer and backlink checker. Analyze keyword distribution, detect external links, identify nofollow tags to improve search rankings.">
+  <meta name="keywords" data-zh="SEO工具,关键词密度分析,友链检测,外链检测,nofollow检测,关键词优化,网站SEO,搜索引擎优化,关键词排名,页面关键词,SEO检测,网站外链,友链查询,导出链接检测,网页SEO分析" data-en="SEO tools,keyword density analyzer,backlink checker,nofollow detector,keyword optimization,website SEO,search engine optimization,keyword ranking,page SEO analysis,external link检测,friend link query">
+  <meta name="author" content="计度AI工具箱">
+  <meta name="robots" content="index, follow">
+  
   <link rel="canonical" href="https://tools.xxym8.com/seo.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/seo.html">
   <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/seo.html?lang=en">
+  <meta property="og:type" content="article">
+  <meta property="og:title" data-zh="SEO工具箱 - 关键词密度分析与友链检测工具" data-en="SEO Tools - Keyword Density & Backlink Analyzer">
+  <meta property="og:description" data-zh="在线SEO工具箱，提供关键词密度分析、友链检测服务" data-en="Free SEO tools: keyword density analyzer and backlink checker">
+  <meta property="og:url" content="https://tools.xxym8.com/seo.html">
+  <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+  <meta name="twitter:card" content="summary">
   <script src="ads.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -16,13 +27,13 @@
     .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
     #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
     .container{max-width:900px;margin:24px auto;padding:0 16px}
-.breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
     .breadcrumb a{color:#666;text-decoration:none}
     h1{font-size:26px;margin-bottom:20px;color:#111}
     .tabs{display:flex;gap:8px;margin-bottom:16px}
     .tab-btn{padding:10px 20px;background:#e5e5e5;border:none;border-radius:8px 8px 0 0;cursor:pointer;font-size:14px}
     .tab-btn.active{background:#fff;color:#222;font-weight:600}
-    .card{background:#fff;border-radius:0 12px 12px 12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}}
+    .card{background:#fff;border-radius:0 12px 12px 12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
     .card h2{font-size:18px;margin-bottom:12px;color:#111}
     .input-group{display:flex;gap:8px;margin-bottom:12px}
     input,select,textarea{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px}
@@ -60,23 +71,37 @@
     .summary-box{background:#f5f5f5;padding:12px;border-radius:8px;margin-top:16px}
     .summary-box h4{font-size:14px;margin-bottom:8px}
     .summary-box ul{margin-left:20px;font-size:13px;line-height:1.8}
+    .guide-section{background:#fff;border-radius:12px;padding:24px;margin-top:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .guide-section h2{font-size:20px;margin-bottom:16px;color:#111}
+    .guide-section h3{font-size:16px;margin:16px 0 10px;color:#333}
+    .guide-section p{font-size:14px;line-height:1.8;color:#555;margin-bottom:12px}
+    .guide-section ul{margin-left:20px;font-size:14px;line-height:1.8;color:#555}
+    .guide-section .tip{background:#e8f5e9;padding:12px;border-radius:8px;margin:12px 0}
+    .guide-section .tip strong{color:#2e7d32}
+    .faq-section{background:#fff;border-radius:12px;padding:24px;margin-top:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .faq-section h2{font-size:20px;margin-bottom:16px;color:#111}
+    .faq-item{margin-bottom:16px;border-bottom:1px solid #eee;padding-bottom:16px}
+    .faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .faq-q{font-weight:600;font-size:15px;color:#222;margin-bottom:8px}
+    .faq-a{font-size:14px;line-height:1.7;color:#555}
     footer{text-align:center;padding:24px;color:#888;font-size:13px}
     a{color:#222}
     [data-en]{display:none}
     html[lang=en] [data-zh]{display:none}
     html[lang=en] [data-en]{display:block}
-    html[lang=en]{font-family:'Segoe UI',sans-serif}
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-container">
-      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
       <button id="langToggle" onclick="toggleLang()">EN</button>
     </div>
   </nav>
   <div class="container">
-    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>SEO工具箱</span><span data-en>SEO Tools</span></p>
+    <p class="breadcrumb">
+      <a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>SEO工具箱</span><span data-en>SEO Tools</span>
+    </p>
     <h1><span data-zh>SEO工具箱</span><span data-en>SEO Tools</span></h1>
     
     <div class="tabs">
@@ -84,7 +109,7 @@
         <span data-zh>关键词密度</span><span data-en>Keyword Density</span>
       </button>
       <button class="tab-btn" onclick="switchTab('links')" id="tab-links">
-        <span data-zh>友链检测</span><span data-en>Link Analysis</span>
+        <span data-zh>友链检测</span><span data-en>Backlink Checker</span>
       </button>
     </div>
     
@@ -111,20 +136,144 @@
     </div>
     
     <div class="card" id="links-card" style="display:none">
-      <h2><span data-zh>友链检测</span><span data-en>Link Analysis</span></h2>
+      <h2><span data-zh>友链检测</span><span data-en>Backlink Checker</span></h2>
       <textarea id="inputHtml" placeholder="在此粘贴网页HTML源码，检测所有外链..."></textarea>
       <button onclick="analyzeLinks()" id="linksBtn">
         <span data-zh>检测链接</span><span data-en>Analyze Links</span>
       </button>
       <div id="linksResult"></div>
     </div>
+
+    <!-- 使用说明 -->
+    <div class="guide-section">
+      <h2><span data-zh>📖 使用说明</span><span data-en>📖 How to Use</span></h2>
+      
+      <h3><span data-zh>关键词密度分析怎么用？</span><span data-en>How to Use Keyword Density Analyzer?</span></h3>
+      <p><span data-zh="关键词密度分析是SEO优化的重要工具，帮助您了解网页内容中关键词的分布情况。">Keyword density analysis is an important SEO optimization tool that helps you understand the keyword distribution in your webpage content.</span><span data-en>The keyword density analyzer helps you understand how keywords are distributed across your webpage content.</span></p>
+      <p><span data-zh="使用方法：">Usage:</span></p>
+      <ul>
+        <li><span data-zh="在左侧文本框中输入或粘贴文章内容、博客帖子、网页HTML源码">Enter or paste your article content, blog post, or webpage HTML source code in the text box on the left</span><span data-en>Enter or paste your article content, blog post, or webpage HTML source code in the text box</span></li>
+        <li><span data-zh="选择最小词长（建议中文用2-3，英文用3-4）">Select minimum word length (recommended: 2-3 for Chinese, 3-4 for English)</span><span data-en>Select minimum word length (recommended: 2-3 for Chinese, 3-4 for English)</span></li>
+        <li><span data-zh="选择显示前N个高频关键词">Select how many top keywords to display</span><span data-en>Select how many top keywords to display</span></li>
+        <li><span data-zh="点击"开始分析"按钮获取结果">Click "Analyze" button to get results</span><span data-en>Click "Analyze" button to get results</span></li>
+      </ul>
+      <div class="tip">
+        <strong>💡 <span data-zh">SEO小贴士：</span><span data-en>SEO Tips:</span></strong> <span data-zh="关键词密度建议控制在1%-5%之间，过低不利于SEO，过高可能被搜索引擎认为是关键词堆砌">Keyword density should be kept between 1%-5%. Too low is bad for SEO, too high may be considered keyword stuffing by search engines</span><span data-en>Keyword density should be kept between 1%-5%. Too low is bad for SEO, too high may be flagged as keyword stuffing</span>
+      </div>
+      
+      <h3><span data-zh>友链检测怎么用？</span><span data-en>How to Use Backlink Checker?</span></h3>
+      <p><span data-zh="友链检测工具可以帮助您分析网页上的所有外部链接，了解链接结构并优化SEO策略。">The backlink checker helps you analyze all external links on a webpage to understand your link structure and optimize SEO strategy.</span><span data-en>The backlink checker helps you analyze all external links on a webpage to understand your link structure.</span></p>
+      <p><span data-zh="使用方法：">Usage:</span></p>
+      <ul>
+        <li><span data-zh="切换到"友链检测"标签页">Switch to the "Backlink Checker" tab</span><span data-en>Switch to the "Backlink Checker" tab</span></li>
+        <li><span data-zh="在文本框中粘贴网页的完整HTML源码">Paste the complete HTML source code of a webpage into the text box</span><span data-en>Paste the complete HTML source code of a webpage into the text box</span></li>
+        <li><span data-zh="点击"检测链接"按钮开始分析">Click "Analyze Links" button to start analysis</span><span data-en>Click "Analyze Links" button to start analysis</span></li>
+        <li><span data-zh="查看外链数量、Nofollow链接统计和详细链接列表">View external link count, Nofollow link statistics, and detailed link list</span><span data-en>View external link count, Nofollow statistics, and detailed link list</span></li>
+      </ul>
+      <div class="tip">
+        <strong>💡 <span data-zh">SEO小贴士：</span><span data-en>SEO Tips:</span></strong> <span data-zh="建议对不重要的外链添加Nofollow属性，可以防止权重流失，将权重留给重要页面">Adding Nofollow to unimportant external links prevents PageRank leakage and preserves link equity for important pages</span><span data-en>Adding Nofollow to unimportant external links prevents PageRank leakage and preserves link equity for important pages</span>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+      <h2><span data-zh>❓ 常见问题</span><span data-en>❓ FAQ</span></h2>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="关键词密度多少算正常？"</span><span data-en>What is a normal keyword density?</span></div>
+        <div class="faq-a">
+          <span data-zh="一般来说，关键词密度在1%-5%之间比较合理。太低（&lt;1%）可能导致搜索引擎认为内容与目标关键词相关性不高；太高（&gt;5%）则可能被判定为关键词堆砌，反而影响排名。">Generally, keyword density between 1%-5% is considered healthy. Below 1% may cause search engines to think the content isn't relevant to the target keyword; above 5% may be flagged as keyword stuffing, which can hurt rankings.</span><span data-en>Generally, keyword density between 1%-5% is considered healthy. Below 1% may cause search engines to think the content isn't relevant; above 5% may be flagged as keyword stuffing and hurt rankings.</span>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="关键词密度分析支持英文吗？"</span><span data-en>Does the keyword density analyzer support English?</span></div>
+        <div class="faq-a">
+          <span data-zh="支持！工具可以同时分析中文和英文内容。它会自动识别中英文词语，分别统计字数和关键词出现次数，生成完整的密度报告。">Yes! The tool supports both Chinese and English content analysis. It automatically identifies Chinese and English words, calculates character counts, and generates a complete density report for both languages.</span><span data-en>Yes! The tool supports both Chinese and English. It automatically identifies Chinese and English words, calculates character counts, and generates a complete density report.</span>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="Nofollow链接有什么作用？"</span><span data-en>What do Nofollow links do?</span></div>
+        <div class="faq-a">
+          <span data-zh="Nofollow是一个HTML属性，用于告诉搜索引擎"不要追踪此链接"。添加Nofollow的外链不会传递PageRank权重，有助于保护网站权重不被稀释。">Nofollow is an HTML attribute that tells search engines "don't follow this link." External links with Nofollow don't pass PageRank, which helps preserve your website's link equity.</span><span data-en>Nofollow is an HTML attribute that tells search engines "don't follow this link." Nofollow external links don't pass PageRank, which helps preserve your site's link equity.</span>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="友链检测能检测死链吗？"</span><span data-en>Can the backlink checker detect dead links?</span></div>
+        <div class="faq-a">
+          <span data-zh="友链检测工具可以提取页面中所有的外部链接并显示URL地址。但它不直接验证链接是否有效（是否为死链）。您可以结合其他工具或手动访问来确认链接状态。">The backlink checker extracts all external links and displays their URLs. However, it doesn't directly verify if links are valid (dead or alive). You can use other tools or manually visit to confirm link status.</span><span data-en>The backlink checker extracts all external links and displays their URLs. However, it doesn't directly verify if links are valid. You can use other tools or manually visit to confirm link status.</span>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="如何降低关键词密度？"</span><span data-en>How to reduce keyword density?</span></div>
+        <div class="faq-a">
+          <span data-zh="如果关键词密度过高，可以：1) 增加更多相关但不同的关键词；2) 扩充文章内容，增加总字数；3) 使用同义词或长尾关键词替代部分核心关键词；4) 删除或改写包含关键词过多的段落。">If keyword density is too high: 1) Add more related but different keywords; 2) Expand content to increase total word count; 3) Use synonyms or long-tail keywords instead of some core keywords; 4) Delete or rewrite paragraphs with excessive keyword usage.</span><span data-en>If keyword density is too high: 1) Add more related but different keywords; 2) Expand content to increase total word count; 3) Use synonyms or long-tail keywords; 4) Delete or rewrite paragraphs with excessive keyword usage.</span>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="外链数量多少合适？"</span><span data-en>How many external links is appropriate?</span></div>
+        <div class="faq-a">
+          <span data-zh="没有一个固定标准，但建议控制外链总数。如果一个页面导出外链过多（超过50个），搜索引擎可能会认为该页面是链接农场。建议只添加与内容高度相关、有价值的外部链接，并对不重要的链接添加Nofollow。">There's no fixed standard, but it's recommended to control the total number of external links. If a page has too many outbound links (>50), search engines may consider it a link farm. Only add highly relevant, valuable external links, and add Nofollow to unimportant ones.</span><span data-en>There's no fixed standard, but control the total number. If a page has too many outbound links (>50), search engines may consider it a link farm. Only add relevant, valuable external links and Nofollow unimportant ones.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 相关工具 -->
+    <div class="guide-section">
+      <h2><span data-zh>🔗 相关工具</span><span data-en>🔗 Related Tools</span></h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:12px">
+        <a href="mortgage.html" style="padding:10px 16px;background:#f5f5f5;border-radius:8px;text-decoration:none;color:#333;font-size:14px">🏦 <span data-zh="房贷计算器</span><span data-en>Mortgage Calculator</span></a>
+        <a href="gjj.html" style="padding:10px 16px;background:#f5f5f5;border-radius:8px;text-decoration:none;color:#333;font-size:14px">💰 <span data-zh="公积金计算器</span><span data-en>HPF Calculator</span></a>
+        <a href="deposit.html" style="padding:10px 16px;background:#f5f5f5;border-radius:8px;text-decoration:none;color:#333;font-size:14px">💳 <span data-zh="存款利息计算器</span><span data-en>Deposit Interest Calculator</span></a>
+      </div>
+    </div>
   </div>
   
   <footer>
     <div class="footer-content">
-      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 JIDU AI Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
     </div>
   </footer>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": { "zh": "SEO工具箱", "en": "SEO Tools" },
+    "description": { "zh": "关键词密度分析与友链检测工具", "en": "Keyword density analyzer and backlink checker" },
+    "url": "https://tools.xxym8.com/seo.html",
+    "applicationCategory": "WebApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": { "zh": "首页", "en": "Home" }, "item": "https://tools.xxym8.com/" },
+        { "@type": "ListItem", "position": 2, "name": { "zh": "SEO工具箱", "en": "SEO Tools" }, "item": "https://tools.xxym8.com/seo.html" }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        { "@type": "Question", "name": { "zh": "关键词密度多少算正常？", "en": "What is a normal keyword density?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "一般来说，关键词密度在1%-5%之间比较合理。太低可能导致搜索引擎认为内容与目标关键词相关性不高；太高则可能被判定为关键词堆砌，反而影响排名。", "en": "Keyword density between 1%-5% is considered healthy. Below 1% may hurt relevance; above 5% may be flagged as keyword stuffing." } } },
+        { "@type": "Question", "name": { "zh": "关键词密度分析支持英文吗？", "en": "Does the keyword density analyzer support English?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "支持！工具可以同时分析中文和英文内容，自动识别中英文词语，分别统计字数和关键词出现次数。", "en": "Yes! The tool supports both Chinese and English content and automatically identifies words in both languages." } } },
+        { "@type": "Question", "name": { "zh": "Nofollow链接有什么作用？", "en": "What do Nofollow links do?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "Nofollow是HTML属性，告诉搜索引擎不要追踪此链接。外链添加Nofollow不会传递PageRank权重，有助于保护网站权重。", "en": "Nofollow tells search engines not to follow the link. Nofollow external links don't pass PageRank, preserving your site's link equity." } } },
+        { "@type": "Question", "name": { "zh": "友链检测能检测死链吗？", "en": "Can the backlink checker detect dead links?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "友链检测工具可以提取页面中所有外部链接并显示URL地址，但不直接验证链接是否有效。", "en": "The backlink checker extracts external links and displays URLs, but doesn't directly verify if links are valid." } } },
+        { "@type": "Question", "name": { "zh": "如何降低关键词密度？", "en": "How to reduce keyword density?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "增加更多相关关键词、扩充文章内容、使用同义词或长尾关键词替代、删除或改写关键词过多的段落。", "en": "Add more related keywords, expand content, use synonyms or long-tail keywords, delete or rewrite paragraphs with excessive keywords." } } },
+        { "@type": "Question", "name": { "zh": "外链数量多少合适？", "en": "How many external links is appropriate?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "控制外链总数，过多外链（超过50个）可能被搜索引擎认为是链接农场。建议只添加与内容高度相关的外链。", "en": "Control total external links. Too many (>50) may be seen as a link farm. Only add highly relevant external links." } } }
+    ]
+}
+</script>
 
 <script>
 (function(){
@@ -134,6 +283,17 @@
     var isEn=document.documentElement.lang==='zh-CN';
     document.documentElement.lang=isEn?'en':'zh-CN';
     document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+    var btn=document.getElementById('langToggle');
+    if(btn)btn.textContent=isEn?'中文':'EN';
+    var titleEl=document.querySelector('title');
+    if(titleEl){
+      var txt=isEn?titleEl.getAttribute('data-zh'):titleEl.getAttribute('data-en');
+      if(txt)document.title=txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el){
+      var txt=isEn?el.getAttribute('data-zh'):el.getAttribute('data-en');
+      if(txt)el.content=txt;
+    });
   }
   window.toggleLang=toggleLang;
 })();

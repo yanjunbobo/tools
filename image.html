@@ -3,10 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>图片工具箱</title>
-  <meta name="description" content="">
-  <link rel="canonical" href="https://tools.xxym8.com/image.html">
+  <title data-zh="图片工具箱 - 在线图片压缩/格式转换/裁剪工具" data-en="Image Tools - Online Image Compressor/Converter/Cropper">图片工具箱 - 在线图片压缩/格式转换/裁剪工具</title>
+  <meta name="description" data-zh="免费在线图片压缩、格式转换、裁剪工具。支持JPG/PNG/WebP格式互转，批量压缩，划选裁剪。无需上传，本地处理保护隐私。" data-en="Free online image compressor, format converter, and cropper. Support JPG/PNG/WebP conversion, quality adjustment, area selection crop. Local processing protects privacy.">
+  <meta name="keywords" data-zh="图片压缩,图片转换,JPG转PNG,PNG转JPG,WebP转换,图片裁剪,在线裁剪,图片处理,照片压缩,图片优化,批量压缩,无损压缩" data-en="image compressor,image converter,JPG to PNG,PNG to JPG,WebP converter,image crop,online crop,photo resize,image optimizer,batch compress,lossless compression">
+  <meta name="author" content="计度AI工具箱">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/image.html">
   <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/image.html?lang=en">
+  <link rel="canonical" href="https://tools.xxym8.com/image.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" data-zh="图片工具箱 - 在线图片压缩/格式转换/裁剪" data-en="Image Tools - Online Compressor/Converter/Cropper">
+  <meta property="og:description" data-zh="支持JPG/PNG/WebP格式互转，可调整压缩质量、划选裁剪区域。本地处理，保护隐私。" data-en="Supports JPG/PNG/WebP conversion, quality adjustment, and area crop. Local processing, privacy protected.">
+  <meta property="og:url" content="https://tools.xxym8.com/image.html">
+  <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://tools.xxym8.com/assets/image-tools-preview.jpg">
+  
   <script src="ads.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -16,11 +29,12 @@
     .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
     #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
     .container{max-width:900px;margin:24px auto;padding:0 16px}
-.breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
     .breadcrumb a{color:#666;text-decoration:none}
     h1{font-size:26px;margin-bottom:20px;color:#111}
     .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-    .card h2{font-size:18px;margin-bottom:12px}
+    .card h2{font-size:18px;margin-bottom:12px;font-weight:600}
+    .card h3{font-size:16px;margin-bottom:10px;font-weight:600;color:#333}
     input,select,textarea{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px;margin-bottom:10px}
     button{background:#222;color:#fff;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-size:14px}
     button:hover{background:#444}
@@ -55,18 +69,60 @@
     .slider-row{display:flex;align-items:center;gap:12px}
     .slider-row input[type="range"]{flex:1;margin:0}
     .slider-row span{min-width:40px;text-align:right}
+
+    .guide-section{margin-top:24px}
+    .guide-item{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .guide-item h3{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .guide-item p{color:#666;font-size:14px;line-height:1.7;margin-bottom:10px}
+    .guide-step{margin:12px 0;padding-left:20px}
+    .guide-step li{margin:8px 0;color:#555;font-size:14px;line-height:1.6}
+    .tip-box{background:#f0f9ff;border-left:4px solid #3b82f6;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0}
+    .tip-box span{font-weight:500;color:#1e40af}
+
+    .faq-item{margin-bottom:16px;border-bottom:1px solid #eee;padding-bottom:16px}
+    .faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .faq-q{font-weight:600;color:#333;font-size:15px;margin-bottom:8px;display:flex;align-items:flex-start;gap:8px}
+    .faq-q::before{content:"Q";background:#222;color:#fff;width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+    .faq-a{color:#666;font-size:14px;line-height:1.7;padding-left:30px}
+
+    .related-tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .related-tools a{padding:8px 16px;background:#f5f5f5;border-radius:8px;text-decoration:none;color:#333;font-size:13px;transition:background .2s}
+    .related-tools a:hover{background:#e8e8e8}
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-container">
-      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
+      <div class="hidden md:flex gap-6 text-gray-600 text-sm">
+        <a href="index.html" class="hover:text-blue-600"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="index.html#tools" class="hover:text-blue-600"><span data-zh>工具</span><span data-en>Tools</span></a>
+      </div>
       <button id="langToggle" onclick="toggleLang()">EN</button>
     </div>
   </nav>
+
   <div class="container">
-    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>图片工具箱</span><span data-en>Image Tools</span></p>
-    <h1><span data-zh>图片工具箱</span><span data-en>Image Tools</span></h1>
+    <p class="breadcrumb">
+      <nav aria-label="Breadcrumb">
+        <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="index.html" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页">首页</span><span data-en>Home</span></a>
+            <meta itemprop="position" content="1">
+          </li>
+          <span class="mx-2 text-gray-400">/</span>
+          <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="text-gray-700" itemprop="name" data-zh="图片工具箱">图片工具箱</span><span data-en>Image Tools</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </nav>
+    </p>
+    <h1>🖼️ <span data-zh>图片工具箱</span><span data-en>Image Tools</span></h1>
+    <p class="text-gray-500 mb-6" style="margin-top:-10px;margin-bottom:20px">
+      <span data-zh="在线图片压缩/格式转换/裁剪 · 隐私安全，本地处理">在线图片压缩/格式转换/裁剪 · 隐私安全，本地处理</span>
+      <span data-en>Compress/Convert/Crop · Privacy-safe, local processing</span>
+    </p>
     
     <div class="card">
       <h2><span data-zh>上传图片</span><span data-en>Upload Image</span></h2>
@@ -140,24 +196,113 @@
         <button onclick="downloadImage()"><span data-zh>下载图片</span><span data-en>Download Image</span></button>
       </div>
     </div>
+
+    <!-- 使用说明教程 -->
+    <div class="guide-section">
+      <h2 style="font-size:20px;margin-bottom:16px;font-weight:600">📖 <span data-zh>使用教程</span><span data-en>User Guide</span></h2>
+
+      <div class="guide-item">
+        <h3>🗜️ <span data-zh="图片压缩教程">图片压缩教程</span><span data-en>Image Compression Tutorial</span></h3>
+        <p><span data-zh="想让图片文件更小，方便上传或节省存储空间？按以下步骤操作：">Want smaller image files for easier upload or storage? Follow these steps:</span><span data-en>Want smaller image files for easier upload or storage? Follow these steps:</span></p>
+        <ol class="guide-step">
+          <li><span data-zh="上传图片：点击上传区域或拖拽图片文件">Upload: Click upload area or drag and drop image file</span><span data-en>Upload: Click upload area or drag and drop image file</span></li>
+          <li><span data-zh="选择格式：JPG压缩率高，PNG适合图标，WebP兼顾画质与大小">Select format: JPG has high compression, PNG for icons, WebP balances quality and size</span><span data-en>Select format: JPG has high compression, PNG for icons, WebP balances quality and size</span></li>
+          <li><span data-zh="调整质量：向左拖动滑块降低质量（减小文件），向右增加质量（更大文件）">Adjust quality: Drag left to reduce quality (smaller file), right to increase quality (larger file)</span><span data-en>Adjust quality: Drag left to reduce quality (smaller file), right to increase quality (larger file)</span></li>
+          <li><span data-zh="实时预览：下方会显示压缩后的预估文件大小">Preview: Estimated compressed file size shown below in real time</span><span data-en>Preview: Estimated compressed file size shown below in real time</span></li>
+          <li><span data-zh="下载保存：点击下载按钮保存压缩后的图片">Download: Click download button to save compressed image</span><span data-en>Download: Click download button to save compressed image</span></li>
+        </ol>
+        <div class="tip-box">
+          <span data-zh="💡 提示：">💡 Tip:</span><span data-en>💡 Tip:</span>
+          <span data-zh="质量80-90%通常能达到较好的压缩效果，同时保持较好的视觉质量。">Quality 80-90% usually achieves good compression while maintaining visual quality.</span><span data-en>Quality 80-90% usually achieves good compression while maintaining visual quality.</span>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <h3>🔄 <span data-zh="格式转换教程">格式转换教程</span><span data-en>Format Conversion Tutorial</span></h3>
+        <p><span data-zh="需要将图片转为其他格式？不同格式有不同的适用场景：">Need to convert images to other formats? Different formats have different use cases:</span><span data-en>Need to convert images to other formats? Different formats have different use cases:</span></p>
+        <ul class="guide-step">
+          <li><strong>JPG</strong>：<span data-zh="适合照片、风景图等自然图像，压缩率高但有损">Suitable for photos and natural images, high compression but lossy</span><span data-en>Suitable for photos and natural images, high compression but lossy</span></li>
+          <li><strong>PNG</strong>：<span data-zh="支持透明背景，适合图标、UI设计、截图">Supports transparent background, suitable for icons, UI design, screenshots</span><span data-en>Supports transparent background, suitable for icons, UI design, screenshots</span></li>
+          <li><strong>WebP</strong>：<span data-zh="Google开发的现代格式，同质量下比JPG/PNG小25-35%">Modern format by Google, 25-35% smaller than JPG/PNG at same quality</span><span data-en>Modern format by Google, 25-35% smaller than JPG/PNG at same quality</span></li>
+        </ul>
+        <p style="margin-top:12px"><span data-zh="操作方法：上传图片 → 选择目标格式 → 调整质量 → 下载">How to: Upload → Select target format → Adjust quality → Download</span><span data-en>How to: Upload → Select target format → Adjust quality → Download</span></p>
+      </div>
+
+      <div class="guide-item">
+        <h3>✂️ <span data-zh="裁剪图片教程">裁剪图片教程</span><span data-en>Image Cropping Tutorial</span></h3>
+        <p><span data-zh="需要裁剪掉图片边缘不需要的部分？两种方式任选：">Need to crop unwanted edges? Two methods to choose from:</span><span data-en>Need to crop unwanted edges? Two methods to choose from:</span></p>
+        <p><strong><span data-zh="方式一：鼠标拖拽选择区域">Method 1: Mouse drag to select area</span><span data-en>Method 1: Mouse drag to select area</span></strong></p>
+        <ul class="guide-step">
+          <li><span data-zh="上传图片后，在预览图上按住鼠标左键拖动">After uploading, hold left mouse button and drag on preview image</span><span data-en>After uploading, hold left mouse button and drag on preview image</span></li>
+          <li><span data-zh="虚线框内为选中区域，可调整大小和位置">Dashed box shows selected area, can adjust size and position</span><span data-en>Dashed box shows selected area, can adjust size and position</span></li>
+          <li><span data-zh="松开鼠标后点击"应用裁剪"确认">After releasing mouse, click "Apply Crop" to confirm</span><span data-en>After releasing mouse, click "Apply Crop" to confirm</span></li>
+        </ul>
+        <p style="margin-top:12px"><strong><span data-zh="方式二：手动输入坐标">Method 2: Manual coordinate input</span><span data-en>Method 2: Manual coordinate input</span></strong></p>
+        <ul class="guide-step">
+          <li><span data-zh="在裁剪区域输入框中直接填入 X（起始X坐标）、Y（起始Y坐标）、W（宽度）、H（高度）">Enter X (start X), Y (start Y), W (width), H (height) directly in crop area inputs</span><span data-en>Enter X (start X), Y (start Y), W (width), H (height) directly in crop area inputs</span></li>
+          <li><span data-zh="点击"应用裁剪"预览效果">Click "Apply Crop" to preview result</span><span data-en>Click "Apply Crop" to preview result</span></li>
+        </ul>
+        <div class="tip-box">
+          <span data-zh="💡 提示：">💡 Tip:</span><span data-en>💡 Tip:</span>
+          <span data-zh="裁剪坐标以图片左上角为原点(0,0)，向右向下为正方向。">Crop coordinates use top-left corner as origin (0,0), positive direction is right and down.</span><span data-en>Crop coordinates use top-left corner as origin (0,0), positive direction is right and down.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card" style="margin-top:24px">
+      <h2>❓ <span data-zh="常见问题">Common Questions</span><span data-en>FAQ</span></h2>
+      
+      <div class="faq-item">
+        <div class="faq-q"><span data-zh="图片压缩会影响画质吗？">Will compression affect image quality?</span><span data-en>Will compression affect image quality?</span></div>
+        <div class="faq-a"><span data-zh="JPG和WebP格式使用有损压缩，质量低于100%会损失画质。质量85%以上人眼几乎看不出差异。建议照片用80-90%，截图用70-85%。">JPG and WebP use lossy compression; quality below 100% loses data. Above 85% quality, differences are barely visible. Recommend 80-90% for photos, 70-85% for screenshots.</span><span data-en>JPG and WebP use lossy compression; quality below 100% loses data. Above 85% quality, differences are barely visible. Recommend 80-90% for photos, 70-85% for screenshots.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span data-zh="PNG能压缩吗？会不会变模糊？">Can PNG be compressed? Will it become blurry?</span><span data-en>Can PNG be compressed? Will it become blurry?</span></div>
+        <div class="faq-a"><span data-zh="PNG是无损格式，压缩后画质不会损失。PNG本身已经压缩过，再次压缩效果有限。如果文件很大，建议转换为JPG或WebP能获得更小体积。">PNG is lossless; compression won't lose quality. PNG is already compressed, so recompression has limited effect. If file is large, converting to JPG or WebP achieves smaller size.</span><span data-en>PNG is lossless; compression won't lose quality. PNG is already compressed, so recompression has limited effect. If file is large, converting to JPG or WebP achieves smaller size.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span data-zh="WebP格式兼容哪些浏览器？">Which browsers support WebP?</span><span en>Which browsers support WebP?</span></div>
+        <div class="faq-a"><span data-zh="Chrome、Edge、Firefox、Safari 14+、Opera 均支持WebP。IE浏览器不支持。如需兼容旧版浏览器，建议使用JPG格式。">Chrome, Edge, Firefox, Safari 14+, Opera all support WebP. IE doesn't support it. Use JPG for legacy browser compatibility.</span><span data-en>Chrome, Edge, Firefox, Safari 14+, Opera all support WebP. IE doesn't support it. Use JPG for legacy browser compatibility.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span data-zh="我的图片会上传到服务器吗？">Will my images be uploaded to a server?</span><span data-en>Will my images be uploaded to a server?</span></div>
+        <div class="faq-a"><span data-zh="不会！所有图片处理都在浏览器本地完成，不会上传到任何服务器。关闭页面后数据立即清除，充分保护您的隐私。">No! All image processing is done locally in your browser. Nothing is uploaded to any server. Data is cleared when you close the page, fully protecting your privacy.</span><span data-en>No! All image processing is done locally in your browser. Nothing is uploaded to any server. Data is cleared when you close the page, fully protecting your privacy.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span data-zh="支持批量处理多张图片吗？">Does it support batch processing multiple images?</span><span data-en>Does it support batch processing multiple images?</span></div>
+        <div class="faq-a"><span data-zh="目前版本仅支持单张图片处理。如需批量处理，建议多次上传或使用专业图片软件。">Current version supports only single image processing. For batch processing, upload multiple times or use professional image software.</span><span data-en>Current version supports only single image processing. For batch processing, upload multiple times or use professional image software.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span data-zh="裁剪时如何精确定位？">How to precisely position during cropping?</span><span data-en>How to precisely position during cropping?</span></div>
+        <div class="faq-a"><span data-zh="可以使用手动输入坐标的方式精确定位。先鼠标拖动大致选区，然后微调X/Y/W/H数值达到精确效果。">Use manual coordinate input for precision. First drag to make rough selection, then fine-tune X/Y/W/H values for precise results.</span><span data-en>Use manual coordinate input for precision. First drag to make rough selection, then fine-tune X/Y/W/H values for precise results.</span></div>
+      </div>
+    </div>
+
+    <!-- 相关工具 -->
+    <div class="card" style="margin-top:24px">
+      <h3>🔗 <span data-zh="相关工具">Related Tools</span><span data-en>Related Tools</span></h3>
+      <div class="related-tools">
+        <a href="index.html"><span data-zh="🏠 首页">🏠 Home</span><span data-en>🏠 Home</span></a>
+        <a href="mortgage.html"><span data-zh="🏦 房贷计算器">🏦 Mortgage Calculator</span><span data-en>🏦 Mortgage Calculator</span></a>
+        <a href="gjj.html"><span data-zh="💰 公积金计算器">💰 HPF Calculator</span><span data-en>💰 HPF Calculator</span></a>
+      </div>
+    </div>
   </div>
+
   <footer>
     <div class="footer-content">
-      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 JIDU AI Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+      <p class="mt-2 text-sm"><span data-zh="工具仅供参考，请以官方数据为准">For reference only. Official data prevails</span><span data-en>For reference only. Official data prevails</span></p>
     </div>
   </footer>
-<script>
-(function(){
-  var lang=document.cookie.match(/lang=(en|zh)/);
-  if(lang&&lang[1]==='en'){toggleLang();}
-  function toggleLang(){
-    var isEn=document.documentElement.lang==='zh-CN';
-    document.documentElement.lang=isEn?'en':'zh-CN';
-    document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
-  }
-  window.toggleLang=toggleLang;
-})();
 
+<script>
 (function(){
   var originalImage=null;
   var currentImage=null;
@@ -385,5 +530,129 @@
   });
 })();
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": { "zh": "图片工具箱", "en": "Image Tools" },
+  "description": { "zh": "在线图片压缩、格式转换、裁剪工具", "en": "Online image compressor, format converter, and cropper" },
+  "url": "https://tools.xxym8.com/image.html",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": { "zh": "首页", "en": "Home" }, "item": "https://tools.xxym8.com/" },
+    { "@type": "ListItem", "position": 2, "name": { "zh": "图片工具箱", "en": "Image Tools" }, "item": "https://tools.xxym8.com/image.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": { "zh": "图片压缩会影响画质吗？", "en": "Will compression affect image quality?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {
+          "zh": "JPG和WebP格式使用有损压缩，质量低于100%会损失画质。质量85%以上人眼几乎看不出差异。建议照片用80-90%，截图用70-85%。",
+          "en": "JPG and WebP use lossy compression; quality below 100% loses data. Above 85% quality, differences are barely visible. Recommend 80-90% for photos, 70-85% for screenshots."
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "name": { "zh": "PNG能压缩吗？会不会变模糊？", "en": "Can PNG be compressed? Will it become blurry?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {
+          "zh": "PNG是无损格式，压缩后画质不会损失。PNG本身已经压缩过，再次压缩效果有限。如果文件很大，建议转换为JPG或WebP能获得更小体积。",
+          "en": "PNG is lossless; compression won't lose quality. PNG is already compressed, so recompression has limited effect. If file is large, converting to JPG or WebP achieves smaller size."
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "name": { "zh": "WebP格式兼容哪些浏览器？", "en": "Which browsers support WebP?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {
+          "zh": "Chrome、Edge、Firefox、Safari 14+、Opera 均支持WebP。IE浏览器不支持。如需兼容旧版浏览器，建议使用JPG格式。",
+          "en": "Chrome, Edge, Firefox, Safari 14+, Opera all support WebP. IE doesn't support it. Use JPG for legacy browser compatibility."
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "name": { "zh": "我的图片会上传到服务器吗？", "en": "Will my images be uploaded to a server?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {
+          "zh": "不会！所有图片处理都在浏览器本地完成，不会上传到任何服务器。关闭页面后数据立即清除，充分保护您的隐私。",
+          "en": "No! All image processing is done locally in your browser. Nothing is uploaded to any server. Data is cleared when you close the page, fully protecting your privacy."
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "name": { "zh": "支持批量处理多张图片吗？", "en": "Does it support batch processing multiple images?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {
+          "zh": "目前版本仅支持单张图片处理。如需批量处理，建议多次上传或使用专业图片软件。",
+          "en": "Current version supports only single image processing. For batch processing, upload multiple times or use professional image software."
+        }
+      }
+    },
+    {
+      "@type": "Question",
+      "name": { "zh": "裁剪时如何精确定位？", "en": "How to precisely position during cropping?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {
+          "zh": "可以使用手动输入坐标的方式精确定位。先鼠标拖动大致选区，然后微调X/Y/W/H数值达到精确效果。",
+          "en": "Use manual coordinate input for precision. First drag to make rough selection, then fine-tune X/Y/W/H values for precise results."
+        }
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+function toggleLang() {
+    var isEN = document.documentElement.lang === 'en';
+    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    var btn = document.getElementById('langToggle');
+    if (btn) btn.textContent = isEN ? 'EN' : '中文';
+    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+        if (txt) document.title = txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        if (txt) el.content = txt;
+    });
+}
+function initLang() {
+    if (document.cookie.indexOf('lang=en') !== -1) {
+        document.documentElement.lang = 'en';
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = '中文';
+    }
+}
+</script>
+
 </body>
 </html>

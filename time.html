@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><span data-zh>时间时区工具</span><span data-en>Time Tools</span></title>
-  <meta name="description" content="">
-  <link rel="canonical" href="https://tools.xxym8.com/time.html">
+  <title data-zh="时间时区工具 - 世界时钟/时区转换/工作时间计算器" data-en="Time Tools - World Clock/Timezone Converter/Work Hours Calculator">时间时区工具 - 世界时钟/时区转换/工作时间计算器</title>
+  <meta name="description" data-zh="在线时间时区工具，支持世界时钟实时查看、时区转换、工作时间计算。适用于跨时区沟通、会议安排和考勤统计。" data-en="Online time tools: real-time world clock, timezone converter, work hours calculator. Perfect for cross-timezone communication and attendance tracking.">
+  <meta name="keywords" data-zh="时区转换,世界时钟,北京时间,工作时间计算,跨时区,时差计算,万年历,工作日计算" data-en="timezone converter,world clock,Beijing time,work hours calculator,cross timezone,time difference,workday calculator">
+  <meta name="author" content="计度AI工具箱">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/time.html">
   <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/time.html?lang=en">
+  <link rel="canonical" href="https://tools.xxym8.com/time.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" data-zh="时间时区工具 - 世界时钟/时区转换/工作时间计算器" data-en="Time Tools - World Clock/Timezone Converter/Work Hours Calculator">
+  <meta property="og:description" data-zh="支持世界时钟实时查看、时区转换、工作时间计算" data-en="Real-time world clock, timezone converter, work hours calculator">
+  <meta property="og:url" content="https://tools.xxym8.com/time.html">
+  <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.tailwindcss.com">
   <script src="ads.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -14,9 +26,11 @@
     .navbar{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
     .nav-container{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between}
     .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
-    .breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
-    .breadcrumb a{color:#666;text-decoration:none}
+    .nav-links{display:flex;gap:20px;color:#666;font-size:14px}
+    .nav-links a:hover{color:#222}
     #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+    .breadcrumb{font-size:13px;color:#888;margin:16px 0}
+    .breadcrumb a{color:#666;text-decoration:none}
     .container{max-width:900px;margin:24px auto;padding:0 16px}
     h1{font-size:26px;margin-bottom:20px;color:#111}
     .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
@@ -43,20 +57,42 @@
     a{color:#222}
     [data-en]{display:none}
     html[lang=en] [data-zh]{display:none}
-    html[lang=en] [data-en]{display:block}
+    html[lang=en] [data-en]{display:inline}
+    html[lang=en] [data-en-block]{display:block}
     html[lang=en]{font-family:'Segoe UI',sans-serif}
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-container">
-      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <a class="nav-logo" href="/"><span data-zh>🧮 计度AI工具箱</span><span data-en>🧮 JIDU AI Tools</span></a>
+      <div class="nav-links hidden md:flex">
+        <a href="/"><span data-zh>首页</span><span data-en>Home</span></a>
+        <a href="/#tools"><span data-zh>工具</span><span data-en>Tools</span></a>
+      </div>
       <button id="langToggle" onclick="toggleLang()">EN</button>
     </div>
   </nav>
+
   <div class="container">
-    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>时间时区工具</span><span data-en>Time Tools</span></p>
-    <h1><span data-zh>时间时区工具</span><span data-en>Time Tools</span></h1>
+    <div class="breadcrumb">
+      <nav aria-label="Breadcrumb">
+        <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页">首页</span><span data-en>Home</span></a>
+            <meta itemprop="position" content="1">
+          </li>
+          <span class="mx-2 text-gray-400">/</span>
+          <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="text-gray-700" itemprop="name" data-zh="时间时区工具">时间时区工具</span><span data-en>Time Tools</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <h1>🕐 <span data-zh>时间时区工具</span><span data-en>Time Tools</span></h1>
+    <p class="text-gray-500 mb-6"><span data-zh="世界时钟 · 时区转换 · 工作时间计算 · 2026年最新">世界时钟 · 时区转换 · 工作时间计算 · 2026年最新</span><span data-en>World Clock · Timezone Converter · Work Hours Calculator · 2026 Latest</span></p>
 
     <div class="card">
       <div class="tabs">
@@ -75,6 +111,7 @@
       </div>
 
       <div id="tab-world" class="tab-content">
+        <p class="text-sm text-gray-500 mb-4"><span data-zh="以下城市时间实时更新，点击「时区转换」可换算其他时间</span><span data-en>Times update in real-time. Use "Timezone" tab to convert other times</span></p>
         <div class="world-clock-grid" id="worldClocks"></div>
       </div>
 
@@ -87,10 +124,64 @@
         <div id="workResult" class="result"></div>
       </div>
     </div>
+
+    <div class="card">
+      <h3 class="text-lg font-semibold text-gray-800 mb-4">🔗 <span data-zh="相关工具">Related Tools</span></h3>
+      <div class="flex flex-wrap gap-3">
+        <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 <span data-zh="房贷计算器">房贷计算器</span><span data-en>Mortgage Calculator</span></a>
+        <a href="deposit.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💳 <span data-zh="存款利息计算器">存款利息计算器</span><span data-en>Deposit Interest Calculator</span></a>
+      </div>
+    </div>
+
+    <article class="card">
+      <h2 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="📖 使用说明">📖 User Guide</span></h2>
+      <div class="prose text-gray-600 space-y-4">
+        <p><span data-zh="经常需要和国外同事开会、或者和海外客户沟通时，时区问题让人头疼。这个工具整合了时区转换、世界时钟和工作时间计算三个实用功能，一站式解决跨时区协作的时间问题。">When you frequently need to meet with overseas colleagues or communicate with international clients, timezone issues can be a headache. This tool combines timezone conversion, world clock, and work hours calculation to solve cross-timezone collaboration problems in one place.</span><span data-en>When you frequently need to meet with overseas colleagues or communicate with international clients, timezone issues can be a headache. This tool combines timezone conversion, world clock, and work hours calculation to solve cross-timezone collaboration problems in one place.</span></p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="时区转换怎么用？">How to Use Timezone Conversion?</span></h3>
+        <p><span data-zh="在「时区转换」标签页：">In the "Timezone" tab:</span><span data-en>In the "Timezone" tab:</span></p>
+        <ol class="list-decimal list-inside space-y-1">
+          <li><span data-zh="选择你要转换的源时区（如「上海 Beijing」）">Select source timezone (e.g., "Shanghai Beijing")</span><span data-en>Select source timezone (e.g., "Shanghai Beijing")</span></li>
+          <li><span data-zh="输入要转换的时间">Enter the time you want to convert</span><span data-en>Enter the time you want to convert</span></li>
+          <li><span data-zh="点击「转换」按钮，即可看到全球13个主要城市的对应时间">Click "Convert" to see corresponding times in 13 major cities worldwide</span><span data-en>Click "Convert" to see corresponding times in 13 major cities worldwide</span></li>
+        </ol>
+        <p><span data-zh="支持的城市包括：上海、东京、首尔、新加坡、迪拜、伦敦、巴黎、柏林、纽约、洛杉矶、芝加哥、悉尼、奥克兰。">Supported cities: Shanghai, Tokyo, Seoul, Singapore, Dubai, London, Paris, Berlin, New York, Los Angeles, Chicago, Sydney, Auckland.</span><span data-en>Supported cities: Shanghai, Tokyo, Seoul, Singapore, Dubai, London, Paris, Berlin, New York, Los Angeles, Chicago, Sydney, Auckland.</span></p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="世界时钟有什么用途？">What's the World Clock For?</span></h3>
+        <p><span data-zh="世界时钟实时显示各主要城市当前时间，适合：">World Clock shows real-time current time in major cities, suitable for:</span><span data-en>World Clock shows real-time current time in major cities, suitable for:</span></p>
+        <ul class="list-disc list-inside space-y-1">
+          <li><span data-zh="远程团队协作 - 快速了解各地同事的当地时间">Remote team collaboration - quickly check local time of colleagues worldwide</span><span data-en>Remote team collaboration - quickly check local time of colleagues worldwide</span></li>
+          <li><span data-zh="跨国会议安排 - 选择大家都能接受的时间段">International meeting scheduling - choose time slots that work for everyone</span><span data-en>International meeting scheduling - choose time slots that work for everyone</span></li>
+          <li><span data-zh="航班时刻参考 - 了解出发地和目的地的时间差异">Flight time reference - understand time differences between departure and arrival</span><span data-en>Flight time reference - understand time differences between departure and arrival</span></li>
+        </ul>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="工作时间计算适合谁用？">Who Is Work Hours Calculator For?</span></h3>
+        <p><span data-zh="工作时间计算功能自动排除周末（周六、周日），按每天8小时计算总工时。适合：">Work Hours Calculator automatically excludes weekends (Saturday & Sunday) and calculates at 8 hours per day. Suitable for:</span><span data-en>Work Hours Calculator automatically excludes weekends (Saturday & Sunday) and calculates at 8 hours per day. Suitable for:</span></p>
+        <ul class="list-disc list-inside space-y-1">
+          <li><span data-zh="项目经理 - 估算项目工期和人天">Project managers - estimate project duration and person-days</span><span data-en>Project managers - estimate project duration and person-days</span></li>
+          <li><span data-zh="HR/行政 - 统计请假天数和加班工时">HR/Admin - calculate leave days and overtime hours</span><span data-en>HR/Admin - calculate leave days and overtime hours</span></li>
+          <li><span data-zh="自由职业者 - 核算项目报价工时">Freelancers - calculate project quote hours</span><span data-en>Freelancers - calculate project quote hours</span></li>
+          <li><span data-zh="出差报销 - 计算出差天数">Business travel - calculate trip days</span><span data-en>Business travel - calculate trip days</span></li>
+        </ul>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-6"><span data-zh="常见问题">FAQ</span></h3>
+        <p><strong>Q: <span data-zh="时区转换的原理是什么？">What's the principle behind timezone conversion?</span></strong></p>
+        <p>A: <span data-zh="基于UTC（协调世界时）进行计算。各时区表示为UTC的偏移量，如北京时间UTC+8，东京UTC+9。转换时先将输入时间转为UTC，再转目标时区。">Based on UTC (Coordinated Universal Time). Each timezone is expressed as UTC offset, e.g., Beijing is UTC+8, Tokyo is UTC+9. Conversion first converts input time to UTC, then to target timezone.</span><span data-en>Based on UTC (Coordinated Universal Time). Each timezone is expressed as UTC offset, e.g., Beijing is UTC+8, Tokyo is UTC+9. Conversion first converts input time to UTC, then to target timezone.</span></p>
+        <p><strong>Q: <span data-zh="为什么选择这13个城市？">Why these 13 cities?</span></strong></p>
+        <p>A: <span data-zh="这13个城市覆盖了亚洲、欧洲、北美和大洋洲的主要金融中心和商务城市，基本满足跨时区协作需求。如需其他城市，请在首页搜索或联系我们。">These 13 cities cover major financial and business centers in Asia, Europe, North America, and Oceania, meeting most cross-timezone collaboration needs. For other cities, search on homepage or contact us.</span><span data-en>These 13 cities cover major financial and business centers in Asia, Europe, North America, and Oceania, meeting most cross-timezone collaboration needs. For other cities, search on homepage or contact us.</span></p>
+        <p><strong>Q: <span data-zh="工作时间计算是否考虑节假日？">Does work hours calculation consider holidays?</span></strong></p>
+        <p>A: <span data-zh="目前版本仅自动排除周六周日。法定节假日需手动扣除，或使用我们即将上线的「假期日历」功能。">Current version only automatically excludes Saturday & Sunday. Legal holidays need manual deduction, or use our upcoming "Holiday Calendar" feature.</span><span data-en>Current version only automatically excludes Saturday & Sunday. Legal holidays need manual deduction, or use our upcoming "Holiday Calendar" feature.</span></p>
+        <p><strong>Q: <span data-zh="支持夏令时吗？">Is daylight saving time supported?</span></strong></p>
+        <p>A: <span data-zh="是的，世界时钟和时区转换会自动处理夏令时。Intl.DateTimeFormat API会根据各地夏令时规则自动调整显示时间。">Yes, world clock and timezone conversion automatically handle daylight saving. Intl.DateTimeFormat API automatically adjusts display time based on local DST rules.</span><span data-en>Yes, world clock and timezone conversion automatically handle daylight saving. Intl.DateTimeFormat API automatically adjusts display time based on local DST rules.</span></p>
+      </div>
+    </article>
   </div>
-  <footer>
-    <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+
+  <footer class="bg-gray-800 text-gray-400 py-6 mt-8 text-center">
+    <p>© 2026 <span data-zh="计度AI工具箱">计度AI工具箱</span><span data-en>JIDU AI Tools</span></p>
+    <p class="mt-2 text-sm"><span data-zh="工具仅供参考，请以官方数据为准">工具仅供参考，请以官方数据为准</span><span data-en>For reference only. Official data prevails</span></p>
   </footer>
+
 <script>
 (function(){
   var lang=document.cookie.match(/lang=(en|zh)/);
@@ -99,6 +190,17 @@
     var isEn=document.documentElement.lang==='zh-CN';
     document.documentElement.lang=isEn?'en':'zh-CN';
     document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+    var btn=document.getElementById('langToggle');
+    if(btn)btn.textContent=isEn?'中文':'EN';
+    var titleEl=document.querySelector('title');
+    if(titleEl){
+      var txt=isEn?titleEl.getAttribute('data-zh'):titleEl.getAttribute('data-en');
+      if(txt)document.title=txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el){
+      var txt=isEn?el.getAttribute('data-zh'):el.getAttribute('data-en');
+      if(txt)el.content=txt;
+    });
   }
   window.toggleLang=toggleLang;
 
@@ -178,5 +280,68 @@
   }
 })();
 </script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": { "zh": "时间时区工具", "en": "Time Tools" },
+    "description": { "zh": "在线时间时区工具，支持世界时钟、时区转换、工作时间计算", "en": "Online time tools: world clock, timezone converter, work hours calculator" },
+    "url": "https://tools.xxym8.com/time.html",
+    "applicationCategory": "UtilityApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": { "zh": "首页", "en": "Home" }, "item": "https://tools.xxym8.com/" },
+        { "@type": "ListItem", "position": 2, "name": { "zh": "时间时区工具", "en": "Time Tools" }, "item": "https://tools.xxym8.com/time.html" }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": { "zh": "时区转换的原理是什么？", "en": "What's the principle behind timezone conversion?" },
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": { "zh": "基于UTC（协调世界时）进行计算。各时区表示为UTC的偏移量，如北京时间UTC+8，东京UTC+9。转换时先将输入时间转为UTC，再转目标时区。", "en": "Based on UTC (Coordinated Universal Time). Each timezone is expressed as UTC offset, e.g., Beijing is UTC+8, Tokyo is UTC+9. Conversion first converts input time to UTC, then to target timezone." }
+            }
+        },
+        {
+            "@type": "Question",
+            "name": { "zh": "为什么选择这13个城市？", "en": "Why these 13 cities?" },
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": { "zh": "这13个城市覆盖了亚洲、欧洲、北美和大洋洲的主要金融中心和商务城市，基本满足跨时区协作需求。", "en": "These 13 cities cover major financial and business centers in Asia, Europe, North America, and Oceania, meeting most cross-timezone collaboration needs." }
+            }
+        },
+        {
+            "@type": "Question",
+            "name": { "zh": "工作时间计算是否考虑节假日？", "en": "Does work hours calculation consider holidays?" },
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": { "zh": "目前版本仅自动排除周六周日。法定节假日需手动扣除。", "en": "Current version only automatically excludes Saturday & Sunday. Legal holidays need manual deduction." }
+            }
+        },
+        {
+            "@type": "Question",
+            "name": { "zh": "支持夏令时吗？", "en": "Is daylight saving time supported?" },
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": { "zh": "是的，世界时钟和时区转换会自动处理夏令时。", "en": "Yes, world clock and timezone conversion automatically handle daylight saving." }
+            }
+        }
+    ]
+}
+</script>
+
 </body>
 </html>

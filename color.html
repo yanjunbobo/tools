@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>颜色工具箱</title>
-  <meta name="description" content="HEX/RGB/HSL颜色代码互转、调色板、渐变色生成工具">
+  <title data-zh="颜色工具箱 - HEX/RGB/HSL颜色代码互转/渐变色生成器" data-en="Color Tools - HEX/RGB/HSL Converter & Gradient Generator">颜色工具箱 - HEX/RGB/HSL颜色代码互转/渐变色生成器</title>
+  <meta name="description" data-zh="在线颜色代码转换工具，支持HEX/RGB/HSL格式互转，提供调色板和渐变色CSS代码生成功能。">
+  <meta name="keywords" data-zh="颜色代码转换,HEX转RGB,RGB转HSL,颜色选择器,调色板,渐变色生成,CSS渐变,网页配色,颜色转换器,HSL颜色,十六进制颜色" data-en="color converter,HEX to RGB,RGB to HSL,color picker,color palette,gradient generator,CSS gradient,web colors,HSL color,hex color">
+  <meta name="author" content="计度AI工具箱">
+  <meta name="robots" content="index, follow">
+  
   <link rel="canonical" href="https://tools.xxym8.com/color.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/color.html">
   <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/color.html?lang=en">
+  <meta property="og:type" content="article">
+  <meta property="og:title" data-zh="颜色工具箱 - HEX/RGB/HSL颜色代码互转" data-en="Color Tools - HEX/RGB/HSL Converter">
+  <meta property="og:description" data-zh="在线颜色代码转换，支持HEX/RGB/HSL格式互转，调色板和渐变色CSS代码生成" data-en="Online color converter: HEX/RGB/HSL conversion, palette and gradient generator">
+  <meta property="og:url" content="https://tools.xxym8.com/color.html">
+  <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+  <meta name="twitter:card" content="summary">
   <script src="ads.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -16,7 +27,7 @@
     .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
     #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
     .container{max-width:900px;margin:24px auto;padding:0 16px}
-.breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
     .breadcrumb a{color:#666;text-decoration:none}
     h1{font-size:26px;margin-bottom:20px;color:#111}
     .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
@@ -54,17 +65,31 @@
     html[lang=en] [data-zh]{display:none}
     html[lang=en] [data-en]{display:block}
     html[lang=en]{font-family:'Segoe UI',sans-serif}
+    
+    .usage-section{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .usage-section h2{font-size:18px;margin-bottom:16px;color:#222}
+    .usage-section h3{font-size:15px;margin:16px 0 8px;color:#333;font-weight:600}
+    .usage-section p{color:#555;line-height:1.7;margin-bottom:8px;font-size:14px}
+    .usage-section ul{margin:8px 0 12px 20px;color:#555;line-height:1.8;font-size:14px}
+    .faq-item{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #eee}
+    .faq-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .faq-q{font-weight:600;color:#222;margin-bottom:8px;font-size:15px}
+    .faq-a{color:#555;line-height:1.6;font-size:14px}
+    .tip-box{background:#f0f9ff;border-left:4px solid #3b82f6;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+    .tip-box p{color:#1e40af;font-size:13px;margin:0}
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-container">
-      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
       <button id="langToggle" onclick="toggleLang()">EN</button>
     </div>
   </nav>
   <div class="container">
-    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>颜色工具箱</span><span data-en>Color Tools</span></p>
+    <p class="breadcrumb">
+      <a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>颜色工具箱</span><span data-en>Color Tools</span>
+    </p>
     <h1><span data-zh>颜色工具箱</span><span data-en>Color Tools</span></h1>
 
     <!-- 颜色转换 -->
@@ -95,7 +120,7 @@
       </div>
       <div class="result" id="copyResult" onclick="copyValue(this)">
         <div class="result-label"><span data-zh>点击复制</span><span data-en>Click to copy</span></div>
-        <div id="resultText">#3b82f6</div>
+        <div id="resultText">#3B82F6</div>
       </div>
     </div>
 
@@ -131,13 +156,67 @@
         <div id="gradientText">linear-gradient(135deg, #3b82f6, #8b5cf6)</div>
       </div>
     </div>
+
+    <!-- 使用说明 -->
+    <div class="usage-section">
+      <h2>📖 <span data-zh>使用说明</span><span data-en>User Guide</span></h2>
+      
+      <h3><span data-zh">颜色代码转换教程</span><span data-en>Color Conversion Tutorial</span></h3>
+      <p><span data-zh="本工具支持HEX（十六进制）、RGB和HSL三种常用颜色格式的实时互转。修改任意一种格式的值，其他格式会自动更新。">This tool supports real-time conversion between HEX (hexadecimal), RGB and HSL color formats. Modify any format and others update automatically.</span></p>
+      <ul>
+        <li><strong>HEX</strong>：<span data-zh="如 #3B82F6，六位十六进制数，前两位红色、中间两位绿色、最后两位蓝色">Such as #3B82F6, six-digit hex: first two red, middle two green, last two blue</span></li>
+        <li><strong>RGB</strong>：<span data-zh="格式为 rgb(R, G, B)，R/G/B值范围 0-255">Format is rgb(R, G, B), R/G/B range 0-255</span></li>
+        <li><strong>HSL</strong>：<span data-zh="格式为 hsl(H°, S%, L%)，H范围0-360，S和L范围0-100%">Format is hsl(H°, S%, L%), H range 0-360, S and L range 0-100%</span></li>
+      </ul>
+
+      <h3><span data-zh>复制颜色教程</span><span data-en>Copy Color Tutorial</span></h3>
+      <p><span data-zh="点击转换结果下方的色值区域，即可一键复制当前颜色代码。复制成功后会显示"已复制"提示。">Click the color value area below the conversion result to copy the current color code with one click. A "Copied!" notification will appear on success.</span></p>
+      <div class="tip-box">
+        <p><span data-zh="💡 提示：调色板中的颜色点击后也会自动复制，方便快速获取常用颜色代码">💡 Tip: Colors in the palette are also auto-copied on click for quick access to common colors</span></p>
+      </div>
+
+      <h3><span data-zh>渐变生成教程</span><span data-en>Gradient Generation Tutorial</span></h3>
+      <p><span data-zh="渐变色生成器可以帮助您创建美观的CSS渐变效果：">The gradient generator helps you create beautiful CSS gradient effects:</span></p>
+      <ul>
+        <li><span data-zh="设置起始颜色和结束颜色，支持HEX格式输入">Set start and end colors, HEX format supported</span></li>
+        <li><span data-zh="调整角度控制渐变方向（0-360度），135度为从左上到右下的对角渐变">Adjust angle to control gradient direction (0-360°), 135° gives diagonal top-left to bottom-right</span></li>
+        <li><span data-zh="点击"生成渐变"预览效果，然后点击结果区域复制CSS代码">Click "Generate" to preview, then click the result area to copy CSS code</span></li>
+      </ul>
+      <p><span data-zh="生成的CSS代码可直接用于网页设计，如 background: linear-gradient(135deg, #3b82f6, #8b5cf6);">The generated CSS code can be used directly in web design, e.g., background: linear-gradient(135deg, #3b82f6, #8b5cf6);</span></p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="card">
+      <h2>❓ <span data-zh>常见问题</span><span data-en>FAQ</span></h2>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="HEX颜色代码中的#号可以省略吗？"</span><span data-en>Can I omit the # in HEX color code?</span></div>
+        <div class="faq-a">A: <span data-zh="支持省略#号输入，如输入 FFFFFF 也会自动识别为 #FFFFFF 并正常转换。">Yes, you can omit the #. Entering FFFFFF will automatically be recognized as #FFFFFF and convert normally.</span></div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="RGB值超过255会怎样？"</span><span data-en>What happens if RGB value exceeds 255?</span></div>
+        <div class="faq-a">A: <span data-zh="RGB值会自动限制在0-255范围内，超出部分会被自动截断。">RGB values are automatically limited to the 0-255 range. Values exceeding this are truncated.</span></div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="渐变角度0度和360度有什么区别？"</span><span data-en>What's the difference between 0° and 360° gradient angle?</span></div>
+        <div class="faq-a">A: <span data-zh="0度为从下往上渐变，360度也是从下往上（等价于0度）。角度按顺时针方向计算，90度为从左往右，180度为从上往下，270度为从右往左。">0° gradients from bottom to top, 360° is also bottom to top (equivalent to 0°). Angle is calculated clockwise: 90° is left to right, 180° is top to bottom, 270° is right to left.</span></div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="如何获取更精确的HSL颜色？"</span><span data-en>How to get more precise HSL colors?</span></div>
+        <div class="faq-a">A: <span data-zh="直接修改HSL输入框中的S（饱和度）和L（亮度）值。S值越大颜色越鲜艳，L值越大颜色越亮。">Modify the S (saturation) and L (lightness) values directly in the HSL input. Higher S means more vivid color, higher L means brighter color.</span></div>
+      </div>
+    </div>
   </div>
   <div class="copy-toast" id="copyToast"><span data-zh>已复制！</span><span data-en>Copied!</span></div>
   <footer>
     <div class="footer-content">
-      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 JIDU AI Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
     </div>
   </footer>
+
 <script>
 (function(){
   var lang=document.cookie.match(/lang=(en|zh)/);
@@ -146,6 +225,17 @@
     var isEn=document.documentElement.lang==='zh-CN';
     document.documentElement.lang=isEn?'en':'zh-CN';
     document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+    var btn=document.getElementById('langToggle');
+    if(btn)btn.textContent=isEn?'中文':'EN';
+    document.querySelectorAll('meta[data-zh]').forEach(function(el){
+      var txt=isEn?el.getAttribute('data-zh'):el.getAttribute('data-en');
+      if(txt)el.content=txt;
+    });
+    var titleEl=document.querySelector('title');
+    if(titleEl){
+      var txt=isEn?titleEl.getAttribute('data-zh'):titleEl.getAttribute('data-en');
+      if(txt)document.title=txt;
+    }
   }
   window.toggleLang=toggleLang;
 
@@ -325,5 +415,68 @@
   generateGradient();
 })();
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": { "zh": "颜色工具箱", "en": "Color Tools" },
+  "description": { "zh": "HEX/RGB/HSL颜色代码互转、调色板、渐变色生成工具", "en": "HEX/RGB/HSL color converter, palette and gradient generator" },
+  "url": "https://tools.xxym8.com/color.html",
+  "applicationCategory": "DesignApplication",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": { "zh": "首页", "en": "Home" }, "item": "https://tools.xxym8.com/" },
+    { "@type": "ListItem", "position": 2, "name": { "zh": "颜色工具箱", "en": "Color Tools" }, "item": "https://tools.xxym8.com/color.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": { "zh": "HEX颜色代码中的#号可以省略吗？", "en": "Can I omit the # in HEX color code?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": { "zh": "支持省略#号输入，如输入 FFFFFF 也会自动识别为 #FFFFFF 并正常转换。", "en": "Yes, you can omit the #. Entering FFFFFF will automatically be recognized as #FFFFFF and convert normally." }
+      }
+    },
+    {
+      "@type": "Question",
+      "name": { "zh": "RGB值超过255会怎样？", "en": "What happens if RGB value exceeds 255?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": { "zh": "RGB值会自动限制在0-255范围内，超出部分会被自动截断。", "en": "RGB values are automatically limited to the 0-255 range. Values exceeding this are truncated." }
+      }
+    },
+    {
+      "@type": "Question",
+      "name": { "zh": "渐变角度0度和360度有什么区别？", "en": "What's the difference between 0° and 360° gradient angle?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": { "zh": "0度为从下往上渐变，360度也是从下往上（等价于0度）。角度按顺时针方向计算，90度为从左往右，180度为从上往下，270度为从右往左。", "en": "0° gradients from bottom to top, 360° is also bottom to top (equivalent to 0°). Angle is calculated clockwise: 90° is left to right, 180° is top to bottom, 270° is right to left." }
+      }
+    },
+    {
+      "@type": "Question",
+      "name": { "zh": "如何获取更精确的HSL颜色？", "en": "How to get more precise HSL colors?" },
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": { "zh": "直接修改HSL输入框中的S（饱和度）和L（亮度）值。S值越大颜色越鲜艳，L值越大颜色越亮。", "en": "Modify the S (saturation) and L (lightness) values directly in the HSL input. Higher S means more vivid color, higher L means brighter color." }
+      }
+    }
+  ]
+}
+</script>
+
 </body>
 </html>

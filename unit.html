@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>单位换算器</title>
-  <meta name="description" content="长度、重量、温度、货币单位换算工具">
-  <link rel="canonical" href="https://tools.xxym8.com/unit.html">
+  <title data-zh="单位换算器 - 长度/重量/温度/货币换算工具 2026" data-en="Unit Converter - Length/Weight/Temperature/Currency 2026">单位换算器 - 长度/重量/温度/货币换算工具 2026</title>
+  <meta name="description" data-zh="在线单位换算器，支持长度（米/英里/英尺等）、重量（千克/磅/盎司等）、温度（摄氏度/华氏度/开尔文）、货币实时汇率换算。" data-en="Online unit converter: length (m/mile/ft), weight (kg/lb/oz), temperature (°C/°F/K), currency exchange rates.">
+  <meta name="keywords" data-zh="单位换算器,长度换算,重量换算,温度换算,货币换算,米转英尺,千克转磅,人民币美元换算,华氏度转摄氏度" data-en="unit converter,length conversion,weight conversion,temperature conversion,currency converter,meter to feet,kg to lb,CNY to USD,Fahrenheit to Celsius">
+  <meta name="author" content="计度AI工具箱">
+  <meta name="robots" content="index, follow">
+  
+  <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/unit.html">
   <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/unit.html?lang=en">
+  <link rel="canonical" href="https://tools.xxym8.com/unit.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" data-zh="单位换算器 - 长度/重量/温度/货币换算工具 2026" data-en="Unit Converter - Length/Weight/Temperature/Currency 2026">
+  <meta property="og:description" data-zh="在线单位换算器，支持长度、重量、温度、货币实时汇率换算" data-en="Online unit converter: length, weight, temperature, currency">
+  <meta property="og:url" content="https://tools.xxym8.com/unit.html">
+  <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+  <meta name="twitter:card" content="summary">
   <script src="ads.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -16,7 +27,7 @@
     .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
     #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
     .container{max-width:900px;margin:24px auto;padding:0 16px}
-.breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+    .breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
     .breadcrumb a{color:#666;text-decoration:none}
     h1{font-size:26px;margin-bottom:20px;color:#111}
     .tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
@@ -48,19 +59,50 @@
     [data-en]{display:none}
     html[lang=en] [data-zh]{display:none}
     html[lang=en] [data-en]{display:block}
-    html[lang=en]{font-family:'Segoe UI',sans-serif}
+    
+    /* Article/FAQ styles */
+    .article-card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .article-card h2{font-size:20px;margin-bottom:16px;color:#111}
+    .article-card h3{font-size:16px;margin:20px 0 12px;color:#333}
+    .article-card p{line-height:1.8;color:#555;margin-bottom:12px}
+    .article-card ul{margin:12px 0;padding-left:24px}
+    .article-card li{line-height:1.8;color:#555;margin-bottom:6px}
+    .faq-item{border-bottom:1px solid #eee;padding:16px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-weight:600;color:#222;margin-bottom:8px;font-size:15px}
+    .faq-a{color:#666;line-height:1.7;font-size:14px}
+    .related-tools{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+    .related-tools a{padding:10px 16px;background:#f5f5f5;border-radius:8px;text-decoration:none;color:#333;font-size:14px;transition:background .2s}
+    .related-tools a:hover{background:#e5e5e5}
+    .info-box{background:#f0f9ff;border:1px solid #bae6fd;padding:16px;border-radius:8px;margin:16px 0}
+    .info-box p{color:#0369a1;font-size:14px;line-height:1.6}
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-container">
-      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>Jidu Tools</span></a>
+      <a class="nav-logo" href="index.html"><span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
       <button id="langToggle" onclick="toggleLang()">EN</button>
     </div>
   </nav>
   <div class="container">
-    <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>单位换算器</span><span data-en>Unit Converter</span></p>
-    <h1><span data-zh>单位换算器</span><span data-en>Unit Converter</span></h1>
+    <p class="breadcrumb">
+      <nav aria-label="Breadcrumb">
+        <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh>首页</span><span data-en>Home</span></a>
+            <meta itemprop="position" content="1">
+          </li>
+          <span class="mx-2 text-gray-400">/</span>
+          <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="text-gray-700" itemprop="name" data-zh>单位换算器</span><span data-en>Unit Converter</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </nav>
+    </p>
+    <h1>📐 <span data-zh>单位换算器</span><span data-en>Unit Converter</span></h1>
+    <p class="text-gray-500 mb-6"><span data-zh="支持长度、重量、温度、货币换算 · 2026年实时汇率">支持长度、重量、温度、货币换算 · 2026年实时汇率</span><span data-en>Length, Weight, Temperature, Currency · 2026 Live Rates</span></p>
     
     <div class="tabs">
       <button class="tab-btn active" onclick="switchTab('length')"><span data-zh>长度</span><span data-en>Length</span></button>
@@ -181,12 +223,87 @@
       </div>
       <div id="currencyError" class="error" style="display:none"></div>
     </div>
+
+    <!-- 使用说明 -->
+    <article class="article-card">
+      <h2>📖 <span data-zh>使用说明</span><span data-en>How to Use</span></h2>
+      
+      <h3><span data-zh="长度换算">长度换算</span><span data-en>Length Conversion</span></h3>
+      <p><span data-zh="支持米、千米、厘米、毫米、英里、码、英尺、英寸、海里等单位之间的相互换算。输入数值后点击"换算"按钮，即可得到结果，同时显示所有其他单位的结果。">Supports conversion between meter, kilometer, centimeter, millimeter, mile, yard, foot, inch, nautical mile. Enter a value and click "Convert" to get results with all other units shown.</span><span data-en>Supports conversion between meter, kilometer, centimeter, millimeter, mile, yard, foot, inch, nautical mile. Enter a value and click "Convert" to get results with all other units shown.</span></p>
+      
+      <div class="info-box">
+        <p><span data-zh="💡 小贴士：1英里 = 1.609344千米，1英尺 = 12英寸 = 0.3048米">💡 小贴士：1英里 = 1.609344千米，1英尺 = 12英寸 = 0.3048米</span><span data-en>💡 Tip: 1 mile = 1.609344 km, 1 foot = 12 inches = 0.3048 m</span></p>
+      </div>
+
+      <h3><span data-zh="重量换算">重量换算</span><span data-en>Weight Conversion</span></h3>
+      <p><span data-zh="支持千克、克、毫克、磅、盎司、吨、英石等单位之间的相互换算。适用于日常生活中的食材称重、包裹重量、物流计算等场景。">Supports kg, g, mg, lb, oz, ton, stone conversion. Suitable for cooking, package weight, logistics calculations.</span><span data-en>Supports kg, g, mg, lb, oz, ton, stone conversion. Suitable for cooking, package weight, logistics calculations.</span></p>
+      
+      <div class="info-box">
+        <p><span data-zh="💡 小贴士：1磅 = 16盎司 = 453.592克，1千克 = 2.20462磅">💡 小贴士：1磅 = 16盎司 = 453.592克，1千克 = 2.20462磅</span><span data-en>💡 Tip: 1 lb = 16 oz = 453.592g, 1 kg = 2.20462 lb</span></p>
+      </div>
+
+      <h3><span data-zh="温度换算">温度换算</span><span data-en>Temperature Conversion</span></h3>
+      <p><span data-zh="支持摄氏度(°C)、华氏度(°F)、开尔文(K)三种温度单位之间的换算。摄氏度是中国的常用单位，华氏度主要在美国使用，开尔文是国际单位制中的温度单位。">Supports Celsius (°C), Fahrenheit (°F), Kelvin (K) conversion. Celsius is common in China, Fahrenheit in US, Kelvin is the SI unit.</span><span data-en>Supports Celsius (°C), Fahrenheit (°F), Kelvin (K) conversion. Celsius is common in China, Fahrenheit in US, Kelvin is the SI unit.</span></p>
+      
+      <div class="info-box">
+        <p><span data-zh="💡 小贴士：水的冰点是0°C = 32°F = 273.15K，沸点是100°C = 212°F = 373.15K">💡 小贴士：水的冰点是0°C = 32°F = 273.15K，沸点是100°C = 212°F = 373.15K</span><span data-en>💡 Tip: Water freezes at 0°C = 32°F = 273.15K, boils at 100°C = 212°F = 373.15K</span></p>
+      </div>
+
+      <h3><span data-zh="货币换算">Currency Conversion</span></h3>
+      <p><span data-zh="货币换算使用实时汇率数据，支持美元、人民币、欧元、英镑、日元、港币、韩元、澳元、加元、新元、泰铢、马来西亚林吉特、印度卢布、巴西雷亚尔、墨西哥比索等16种主流货币。">Currency conversion uses live exchange rates, supporting USD, CNY, EUR, GBP, JPY, HKD, KRW, AUD, CAD, SGD, THB, MYR, INR, RUB, BRL, MXN.</span><span data-en>Currency conversion uses live exchange rates, supporting USD, CNY, EUR, GBP, JPY, HKD, KRW, AUD, CAD, SGD, THB, MYR, INR, RUB, BRL, MXN.</span></p>
+      
+      <div class="info-box">
+        <p><span data-zh="💡 小贴士：汇率实时更新，仅供参考，实际交易以银行汇率为准">💡 小贴士：汇率实时更新，仅供参考，实际交易以银行汇率为准</span><span data-en>💡 Tip: Exchange rates update in real-time, for reference only. Bank rates apply for actual transactions</span></p>
+      </div>
+    </article>
+
+    <!-- 常见问题 -->
+    <article class="article-card">
+      <h2>❓ <span data-zh>常见问题</span><span data-en>FAQ</span></h2>
+      
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="1米等于多少英尺？">1米等于多少英尺？</span><span data-en>How many feet in a meter?</span></div>
+        <div class="faq-a">A: <span data-zh="1米 = 3.28084英尺。也可以使用我们的长度换算工具快速计算。">1米 = 3.28084英尺。也可以使用我们的长度换算工具快速计算。</span><span data-en>1 meter = 3.28084 feet. Use our length converter for quick calculations.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="华氏度和摄氏度怎么换算？">华氏度和摄氏度怎么换算？</span><span data-en>How to convert Fahrenheit to Celsius?</span></div>
+        <div class="faq-a">A: <span data-zh="公式：C = (F - 32) × 5/9 或 F = C × 9/5 + 32。例如37°C = 98.6°F，人体正常体温。">公式：C = (F - 32) × 5/9 或 F = C × 9/5 + 32。例如37°C = 98.6°F，人体正常体温。</span><span data-en>Formula: C = (F - 32) × 5/9 or F = C × 9/5 + 32. E.g. 37°C = 98.6°F, normal body temperature.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="1千克等于多少磅？">1千克等于多少磅？</span><span data-en>How many pounds in a kilogram?</span></div>
+        <div class="faq-a">A: <span data-zh="1千克 = 2.20462磅 ≈ 2.2磅。常用换算：500克 ≈ 1.1磅，1斤 ≈ 1.1磅。">1千克 = 2.20462磅 ≈ 2.2磅。常用换算：500克 ≈ 1.1磅，1斤 ≈ 1.1磅。</span><span data-en>1 kg = 2.20462 lb ≈ 2.2 lb. Common conversions: 500g ≈ 1.1 lb, 1 jin ≈ 1.1 lb.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="货币汇率多久更新一次？">货币汇率多久更新一次？</span><span data-en>How often are exchange rates updated?</span></div>
+        <div class="faq-a">A: <span data-zh="我们的货币换算工具使用实时汇率API，汇率会根据市场波动自动更新。页面会显示汇率的最后更新时间。建议用于参考，实际交易请以银行汇率为准。">我们的货币换算工具使用实时汇率API，汇率会根据市场波动自动更新。页面会显示汇率的最后更新时间。建议用于参考，实际交易请以银行汇率为准。</span><span data-en>Our currency converter uses real-time exchange rate API, updating automatically with market changes. The page shows last update time. For reference only; bank rates apply for actual transactions.</span></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Q: <span data-zh="海里和千米怎么换算？">海里和千米怎么换算？</span><span data-en>How to convert nautical miles to kilometers?</span></div>
+        <div class="faq-a">A: <span data-zh="1海里 = 1.852千米。海里是航海和航空中常用的距离单位，等于地球表面纬度1分的弧长。">1海里 = 1.852千米。海里是航海和航空中常用的距离单位，等于地球表面纬度1分的弧长。</span><span data-en>1 nautical mile = 1.852 km. Nautical mile is used in navigation and aviation, equal to one minute of latitude arc.</span></div>
+      </div>
+    </article>
+
+    <!-- 相关工具 -->
+    <div class="article-card">
+      <h3><span data-zh>相关工具</span><span data-en>Related Tools</span></h3>
+      <div class="related-tools">
+        <a href="mortgage.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏠 <span data-zh>房贷计算器</span><span data-en>Mortgage Calculator</span></a>
+        <a href="gjj.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">🏦 <span data-zh>公积金计算器</span><span data-en>HPF Calculator</span></a>
+        <a href="deposit.html" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm text-gray-700 transition">💳 <span data-zh>存款利息计算器</span><span data-en>Deposit Interest Calculator</span></a>
+      </div>
+    </div>
   </div>
   <footer>
     <div class="footer-content">
-      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 Jidu Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+      <p><span data-zh>© 2026 计度AI工具箱</span><span data-en>© 2026 JIDU AI Tools</span> · <a href="sitemap.xml">Sitemap</a></p>
+      <p class="mt-2 text-sm"><span data-zh>工具仅供参考，请以官方数据为准</span><span data-en>For reference only. Official data prevails</span></p>
     </div>
   </footer>
+
 <script>
 (function(){
   var lang=document.cookie.match(/lang=(en|zh)/);
@@ -195,14 +312,25 @@
     var isEn=document.documentElement.lang==='zh-CN';
     document.documentElement.lang=isEn?'en':'zh-CN';
     document.cookie='lang='+(isEn?'en':'zh')+';path=/;max-age=31536000';
+    var btn=document.getElementById('langToggle');
+    if(btn)btn.textContent=isEn?'中文':'EN';
+    var titleEl=document.querySelector('title');
+    if(titleEl){
+      var txt=isEn?titleEl.getAttribute('data-zh'):titleEl.getAttribute('data-en');
+      if(txt)document.title=txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el){
+      var txt=isEn?el.getAttribute('data-zh'):el.getAttribute('data-en');
+      if(txt)el.content=txt;
+    });
   }
   window.toggleLang=toggleLang;
 
   function switchTab(tab){
-    document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.card').forEach(function(c){c.classList.remove('active')});
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
     document.getElementById(tab).classList.add('active');
-    event.target.classList.add('active');
+    if(event&&event.target&&event.target.classList){event.target.classList.add('active');}
   }
 
   // Length conversion (base: meter)
@@ -218,9 +346,9 @@
     var meters=val*lengthFactors[from];
     var result=meters/lengthFactors[to];
     document.getElementById('lengthResult').value=result.toFixed(6).replace(/\.?0+$/,'');
-    showAllLength(val,from,result,to);
+    showAllLength(val,from,meters,to);
   }
-  function showAllLength(val,from,result,to){
+  function showAllLength(val,from,meters,to){
     var div=document.getElementById('lengthResultDiv');
     var html='';
     for(var u in lengthFactors){
@@ -297,8 +425,8 @@
   var exchangeRates={};
   function loadExchangeRates(){
     fetch('https://api.exchangerate-api.com/v4/latest/USD')
-      .then(r=>r.json())
-      .then(data=>{
+      .then(function(r){return r.json()})
+      .then(function(data){
         exchangeRates=data.rates;
         var html='';
         var currencies=['USD','CNY','EUR','GBP','JPY','HKD','KRW','AUD','CAD','SGD','THB','MYR','INR','RUB','BRL','MXN'];
@@ -314,8 +442,9 @@
         document.getElementById('currencyLoading').style.display='none';
         document.getElementById('currencyContent').style.display='block';
         var info=document.getElementById('currencyInfo');
-        info.innerHTML='<span data-zh>汇率更新时间：</span><span data-en>Exchange rate update time: </span>'+data.time_last_updated;
-        if(document.documentElement.lang==='en')info.querySelector('[data-en]')||(info.innerHTML=data.time_last_updated);
+        var date=new Date(data.time_last_updated*1000);
+        info.innerHTML='<span data-zh>汇率更新时间：</span><span data-en>Exchange rate update time: </span>'+date.toLocaleString();
+        if(document.documentElement.lang==='en')info.querySelector('[data-en]')||(info.innerHTML=date.toLocaleString());
         info.style.display='block';
       })
       .catch(function(e){
@@ -347,5 +476,42 @@
   loadExchangeRates();
 })();
 </script>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": { "zh": "单位换算器", "en": "Unit Converter" },
+    "description": { "zh": "在线单位换算工具，支持长度、重量、温度、货币换算", "en": "Online unit converter: length, weight, temperature, currency" },
+    "url": "https://tools.xxym8.com/unit.html",
+    "applicationCategory": "UtilityApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": { "zh": "首页", "en": "Home" }, "item": "https://tools.xxym8.com/" },
+        { "@type": "ListItem", "position": 2, "name": { "zh": "单位换算器", "en": "Unit Converter" }, "item": "https://tools.xxym8.com/unit.html" }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        { "@type": "Question", "name": { "zh": "1米等于多少英尺？", "en": "How many feet in a meter?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "1米 = 3.28084英尺。", "en": "1 meter = 3.28084 feet." } } },
+        { "@type": "Question", "name": { "zh": "华氏度和摄氏度怎么换算？", "en": "How to convert Fahrenheit to Celsius?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "公式：C = (F - 32) × 5/9，例如37°C = 98.6°F。", "en": "Formula: C = (F - 32) × 5/9, e.g. 37°C = 98.6°F." } } },
+        { "@type": "Question", "name": { "zh": "1千克等于多少磅？", "en": "How many pounds in a kilogram?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "1千克 = 2.20462磅 ≈ 2.2磅。", "en": "1 kg = 2.20462 lb ≈ 2.2 lb." } } },
+        { "@type": "Question", "name": { "zh": "货币汇率多久更新一次？", "en": "How often are exchange rates updated?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "实时更新，汇率随市场波动自动变化，仅供参考。", "en": "Real-time updates with market fluctuations, for reference only." } } },
+        { "@type": "Question", "name": { "zh": "海里和千米怎么换算？", "en": "How to convert nautical miles to kilometers?" }, "acceptedAnswer": { "@type": "Answer", "text": { "zh": "1海里 = 1.852千米。", "en": "1 nautical mile = 1.852 km." } } }
+    ]
+}
+</script>
+
 </body>
 </html>
