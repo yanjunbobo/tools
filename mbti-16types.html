@@ -74,18 +74,18 @@
     <div id="startScreen" class="max-w-2xl mx-auto px-4 py-12 text-center fade-in">
         <div class="text-7xl mb-8">🧠</div>
         <h1 class="text-4xl font-bold text-gray-800 mb-4"><span data-zh>MBTI 16型人格测试</span><span data-en>MBTI 16 Personality Types Test</span></h1>
-        <p class="text-gray-500 mb-8 text-lg"><span data-zh="基于卡尔·荣格心理类型理论，全球超过5000万人测试过">Based on Carl Jung's psychological type theory. Taken by 50M+ people worldwide</span><span data-en>Based on Carl Jung's psychological type theory. Taken by 50M+ people worldwide</span></p>
+        <p class="text-gray-500 mb-8 text-lg"><span data-zh>基于卡尔·荣格心理类型理论，全球超过5000万人测试过</span><span data-en>Based on Carl Jung's psychological type theory. Taken by 50M+ people worldwide</span><span data-en>Based on Carl Jung's psychological type theory. Taken by 50M+ people worldwide</span></p>
         <div class="bg-white rounded-2xl p-8 shadow-lg text-left max-w-md mx-auto mb-8">
-            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh="📋 测试说明">📋 Test Info</span></h3>
+            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh>📋 测试说明</span><span data-en>📋 Test Info</span></h3>
             <ul class="space-y-3 text-gray-600 text-sm">
-                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh="共60道题目，约需8分钟完成">60 questions, ~8 minutes</span><span data-en>60 questions, ~8 minutes</span></li>
-                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh="每个题目二选一，没有标准答案">For each question, choose the answer that best describes you</span><span data-en>For each question, choose the answer that best describes you</span></li>
-                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh="结果基于4个维度分析：外向/内向、感觉/直觉、思考/情感、判断/知觉">Results based on 4 dimensions: E/I, S/N, T/F, J/P</span><span data-en>Results based on 4 dimensions: E/I, S/N, T/F, J/P</span></li>
-                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh="完全免费，永久有效，数据隐私安全">100% free, permanent, private</span><span data-en>100% free, permanent, private</span></li>
+                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh>共60道题目，约需8分钟完成</span><span data-en>60 questions, ~8 minutes</span><span data-en>60 questions, ~8 minutes</span></li>
+                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh>每个题目二选一，没有标准答案</span><span data-en>For each question, choose the answer that best describes you</span><span data-en>For each question, choose the answer that best describes you</span></li>
+                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh>结果基于4个维度分析：外向/内向、感觉/直觉、思考/情感、判断/知觉</span><span data-en>Results based on 4 dimensions: E/I, S/N, T/F, J/P</span><span data-en>Results based on 4 dimensions: E/I, S/N, T/F, J/P</span></li>
+                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh>完全免费，永久有效，数据隐私安全</span><span data-en>100% free, permanent, private</span><span data-en>100% free, permanent, private</span></li>
             </ul>
         </div>
         <button onclick="startTest()" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-blue-600 hover:to-indigo-700 transition shadow-lg">
-            <span data-zh="🚀 开始测试">🚀 Start Test</span><span data-en>🚀 Start Test</span>
+            <span data-zh>🚀 开始测试</span><span data-en>🚀 Start Test</span><span data-en>🚀 Start Test</span>
         </button>
     </div>
 
@@ -93,8 +93,8 @@
     <div id="testScreen" class="max-w-2xl mx-auto px-4 py-6 hidden">
         <div class="mb-6">
             <div class="flex justify-between text-sm text-gray-500 mb-2">
-                <span><span data-zh="第">Question</span> <span id="currentQ">1</span>/60</span>
-                <span><span data-zh="进度">Progress</span>: <span id="progressPct">0</span>%</span>
+                <span><span data-zh>第</span><span data-en>Question</span> <span id="currentQ">1</span>/60</span>
+                <span><span data-zh>进度</span><span data-en>Progress</span>: <span id="progressPct">0</span>%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2.5">
                 <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-indigo-600 h-2.5 rounded-full progress-fill" style="width:0%"></div>
@@ -103,14 +103,14 @@
         <div id="questionContainer" class="fade-in"></div>
         <div class="flex justify-between mt-8">
             <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">
-                <span data-zh="← 上一题">← Previous</span><span data-en>← Previous</span>
+                <span data-zh>← 上一题</span><span data-en>← Previous</span><span data-en>← Previous</span>
             </button>
             <div></div>
             <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition">
-                <span data-zh="下一题 →">Next →</span><span data-en>Next →</span>
+                <span data-zh>下一题 →</span><span data-en>Next →</span><span data-en>Next →</span>
             </button>
             <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition hidden">
-                <span data-zh="查看结果 →">See Results →</span><span data-en>See Results →</span>
+                <span data-zh>查看结果 →</span><span data-en>See Results →</span><span data-en>See Results →</span>
             </button>
         </div>
     </div>
@@ -118,7 +118,7 @@
     <!-- Result Screen -->
     <div id="resultScreen" class="max-w-3xl mx-auto px-4 py-8 hidden">
         <div class="text-center mb-8 fade-in">
-            <p class="text-gray-500 mb-2"><span data-zh="你的MBTI人格类型是">Your MBTI Personality Type Is</span><span data-en>Your MBTI Personality Type Is</span></p>
+            <p class="text-gray-500 mb-2"><span data-zh>你的MBTI人格类型是</span><span data-en>Your MBTI Personality Type Is</span><span data-en>Your MBTI Personality Type Is</span></p>
             <div id="resultType" class="text-7xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-4">INTJ</div>
             <p id="resultName" class="text-2xl font-semibold text-gray-700 mb-2"></p>
             <p id="resultSubtitle" class="text-gray-500"></p>
@@ -134,7 +134,7 @@
 
         <div class="text-center">
             <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-blue-500 text-blue-600 font-semibold hover:bg-blue-50 transition">
-                <span data-zh="🔄 重新测试">🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
+                <span data-zh>🔄 重新测试</span><span data-en>🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
             </button>
         </div>
     </div>
@@ -354,7 +354,7 @@ function showResults() {
 
     // Dimension explanation
     var dimResult = document.getElementById('dimensionResults');
-    var dimHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="📊 维度分析">📊 Dimension Analysis</span></h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
+    var dimHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>📊 维度分析</span><span data-en>📊 Dimension Analysis</span></h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
     dimHTML += '<div class="bg-blue-50 rounded-xl p-4"><div class="font-semibold text-blue-700 mb-1">E/I: ' + (scores.E>=scores.I?'Extravert (外向)':'Introvert (内向)') + '</div><p class="text-sm text-gray-600">' + (scores.E>=scores.I?(isEN?'You gain energy from external world':'你从外部世界获得能量'):(isEN?'You gain energy from internal world':'你从内心世界获得能量')) + '</p></div>';
     dimHTML += '<div class="bg-green-50 rounded-xl p-4"><div class="font-semibold text-green-700 mb-1">S/N: ' + (scores.S>=scores.N?'Sensing (感觉)':'Intuition (直觉)') + '</div><p class="text-sm text-gray-600">' + (scores.S>=scores.N?(isEN?'You focus on concrete facts and details':'你关注具体事实和细节'):(isEN?'You focus on patterns and possibilities':'你关注整体模式和可能性')) + '</p></div>';
     dimHTML += '<div class="bg-orange-50 rounded-xl p-4"><div class="font-semibold text-orange-700 mb-1">T/F: ' + (scores.T>=scores.F?'Thinking (思考)':'Feeling (情感)') + '</div><p class="text-sm text-gray-600">' + (scores.T>=scores.F?(isEN?'You make decisions based on logic':'你基于逻辑做决定'):(isEN?'You make decisions based on values and feelings':'你基于价值观和情感做决定')) + '</p></div>';
@@ -366,11 +366,11 @@ function showResults() {
     var typeDesc = document.getElementById('typeDescription');
     var strengthsHTML = info.strengths[isEN?'en':'zh'].map(function(s){return '<span class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700">' + s + '</span>';}).join(' ');
     var careersHTML = info.careers[isEN?'en':'zh'].map(function(c){return '<span class="bg-blue-50 px-3 py-1 rounded-full text-sm text-blue-700">' + c + '</span>';}).join(' ');
-    typeDesc.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🧠 ' + type + ' 详细分析">🧠 ' + type + ' Detailed Analysis</span></h3><p class="text-gray-600 leading-relaxed mb-6">' + (isEN?info.desc.en:info.desc.zh) + '</p><div class="mb-4"><div class="font-semibold text-gray-700 mb-2"><span data-zh="核心优势">Core Strengths</span><span data-en>Core Strengths</span></div><div class="flex flex-wrap gap-2">' + strengthsHTML + '</div></div><div><div class="font-semibold text-gray-700 mb-2"><span data-zh="适合职业">Suitable Careers</span><span data-en>Suitable Careers</span></div><div class="flex flex-wrap gap-2">' + careersHTML + '</div></div>';
+    typeDesc.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>🧠 ' + type + ' 详细分析</span><span data-en>🧠 ' + type + ' Detailed Analysis</span></h3><p class="text-gray-600 leading-relaxed mb-6">' + (isEN?info.desc.en:info.desc.zh) + '</p><div class="mb-4"><div class="font-semibold text-gray-700 mb-2"><span data-zh>核心优势</span><span data-en>Core Strengths</span><span data-en>Core Strengths</span></div><div class="flex flex-wrap gap-2">' + strengthsHTML + '</div></div><div><div class="font-semibold text-gray-700 mb-2"><span data-zh>适合职业</span><span data-en>Suitable Careers</span><span data-en>Suitable Careers</span></div><div class="flex flex-wrap gap-2">' + careersHTML + '</div></div>';
 
     // Career advice
     var careerAdvice = document.getElementById('careerAdvice');
-    careerAdvice.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="💼 发展建议">💼 Development Suggestions</span></h3><ul class="space-y-3 text-gray-600">' +
+    careerAdvice.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>💼 发展建议</span><span data-en>💼 Development Suggestions</span></h3><ul class="space-y-3 text-gray-600">' +
         '<li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span>' + (isEN?'Leverage your ' + type + ' strengths in team settings':'在你的团队中发挥' + type + '类型的优势') + '</span></li>' +
         '<li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span>' + (isEN?'Be aware of potential weaknesses and work on them':'了解自身的潜在弱点并加以改进') + '</span></li>' +
         '<li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span>' + (isEN?'Seek environments that match your personality type':'寻找与你人格类型相匹配的工作环境') + '</span></li>' +

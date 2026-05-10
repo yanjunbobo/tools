@@ -75,18 +75,18 @@
     <div id="startScreen" class="max-w-2xl mx-auto px-4 py-12 text-center fade-in">
         <div class="text-7xl mb-8">🔥</div>
         <h1 class="text-4xl font-bold text-gray-800 mb-4"><span data-zh>九型人格测试</span><span data-en>Enneagram Personality Test</span></h1>
-        <p class="text-gray-500 mb-8 text-lg"><span data-zh="源自古代智慧的灵魂地图 · 81道题深度探索">Ancient wisdom-based personality map · 81 questions deep exploration</span><span data-en>Ancient wisdom-based personality map · 81 questions deep exploration</span></p>
+        <p class="text-gray-500 mb-8 text-lg"><span data-zh>源自古代智慧的灵魂地图 · 81道题深度探索</span><span data-en>Ancient wisdom-based personality map · 81 questions deep exploration</span><span data-en>Ancient wisdom-based personality map · 81 questions deep exploration</span></p>
         <div class="bg-white rounded-2xl p-8 shadow-lg text-left max-w-md mx-auto mb-8">
-            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh="📋 测试说明">📋 Test Info</span></h3>
+            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh>📋 测试说明</span><span data-en>📋 Test Info</span></h3>
             <ul class="space-y-3 text-gray-600 text-sm">
-                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh="共81道题目，约需12分钟完成">81 questions, ~12 minutes</span><span data-en>81 questions, ~12 minutes</span></li>
-                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh="每种人格类型9题，采用1-5分评分">9 questions per type, 1-5 scale</span><span data-en>9 questions per type, 1-5 scale</span></li>
-                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh="发现你的核心人格类型 Wings翼型 压力/安全状态">Discover your core type, Wings, and stress/security states</span><span data-en>Discover your core type, Wings, and stress/security states</span></li>
-                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh="完全免费，数据隐私安全">100% free, private</span><span data-en>100% free, private</span></li>
+                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh>共81道题目，约需12分钟完成</span><span data-en>81 questions, ~12 minutes</span><span data-en>81 questions, ~12 minutes</span></li>
+                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh>每种人格类型9题，采用1-5分评分</span><span data-en>9 questions per type, 1-5 scale</span><span data-en>9 questions per type, 1-5 scale</span></li>
+                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh>发现你的核心人格类型 Wings翼型 压力/安全状态</span><span data-en>Discover your core type, Wings, and stress/security states</span><span data-en>Discover your core type, Wings, and stress/security states</span></li>
+                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh>完全免费，数据隐私安全</span><span data-en>100% free, private</span><span data-en>100% free, private</span></li>
             </ul>
         </div>
         <button onclick="startTest()" class="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-orange-600 hover:to-red-600 transition shadow-lg">
-            <span data-zh="🚀 开始测试">🚀 Start Test</span><span data-en>🚀 Start Test</span>
+            <span data-zh>🚀 开始测试</span><span data-en>🚀 Start Test</span><span data-en>🚀 Start Test</span>
         </button>
     </div>
 
@@ -94,8 +94,8 @@
     <div id="testScreen" class="max-w-2xl mx-auto px-4 py-6 hidden">
         <div class="mb-6">
             <div class="flex justify-between text-sm text-gray-500 mb-2">
-                <span><span data-zh="第">Question</span> <span id="currentQ">1</span>/81</span>
-                <span><span data-zh="进度">Progress</span>: <span id="progressPct">0</span>%</span>
+                <span><span data-zh>第</span><span data-en>Question</span> <span id="currentQ">1</span>/81</span>
+                <span><span data-zh>进度</span><span data-en>Progress</span>: <span id="progressPct">0</span>%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2.5">
                 <div id="progressBar" class="bg-gradient-to-r from-orange-500 to-red-500 h-2.5 rounded-full progress-fill" style="width:0%"></div>
@@ -104,14 +104,14 @@
         <div id="questionContainer" class="fade-in"></div>
         <div class="flex justify-between mt-8">
             <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">
-                <span data-zh="← 上一题">← Previous</span><span data-en>← Previous</span>
+                <span data-zh>← 上一题</span><span data-en>← Previous</span><span data-en>← Previous</span>
             </button>
             <div></div>
             <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
-                <span data-zh="下一题 →">Next →</span><span data-en>Next →</span>
+                <span data-zh>下一题 →</span><span data-en>Next →</span><span data-en>Next →</span>
             </button>
             <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition hidden">
-                <span data-zh="查看结果 →">See Results →</span><span data-en>See Results →</span>
+                <span data-zh>查看结果 →</span><span data-en>See Results →</span><span data-en>See Results →</span>
             </button>
         </div>
     </div>
@@ -119,7 +119,7 @@
     <!-- Result Screen -->
     <div id="resultScreen" class="max-w-3xl mx-auto px-4 py-8 hidden">
         <div class="text-center mb-8 fade-in">
-            <p class="text-gray-500 mb-2"><span data-zh="你的九型人格类型是">Your Enneagram Type Is</span><span data-en>Your Enneagram Type Is</span></p>
+            <p class="text-gray-500 mb-2"><span data-zh>你的九型人格类型是</span><span data-en>Your Enneagram Type Is</span><span data-en>Your Enneagram Type Is</span></p>
             <div id="resultType" class="text-8xl font-bold text-orange-500 mb-4">7</div>
             <p id="resultName" class="text-2xl font-semibold text-gray-700 mb-2"></p>
             <p id="resultSubtitle" class="text-gray-500"></p>
@@ -137,7 +137,7 @@
 
         <div class="text-center">
             <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-orange-500 text-orange-600 font-semibold hover:bg-orange-50 transition">
-                <span data-zh="🔄 重新测试">🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
+                <span data-zh>🔄 重新测试</span><span data-en>🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
             </button>
         </div>
     </div>
@@ -488,7 +488,7 @@ function showResults() {
     var wingStr = topType + 'w' + wing;
     var wingDesc = wingScore > 20 ? (isEN?'Your Wing is strong':'你的Wing翼型明显') : (isEN?'Secondary influence':'次要影响');
     var wingContent = '';
-    wingContent += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🪁 Wing分析">🪁 Wing Analysis</span></h3>';
+    wingContent += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>🪁 Wing分析</span><span data-en>🪁 Wing Analysis</span></h3>';
     wingContent += '<div class="flex items-center gap-4 mb-4">';
     wingContent += '<div class="text-5xl font-bold text-' + typeColors[topType] + '-500">' + topType + 'w' + wing + '</div>';
     wingContent += '<div><div class="font-semibold text-gray-700">' + (topType < wing ? (isEN?typeInfo[wing].name+' (Wing)':typeInfo[wing].name+' 翼'):(isEN?typeInfo[wing].name+' (Wing)':typeInfo[wing].name+' 翼')) + '</div>';
@@ -501,7 +501,7 @@ function showResults() {
     var securityType = topType <= 3 ? topType + 6 : (topType === 4 ? 1 : (topType === 5 ? 8 : (topType === 6 ? 9 : (topType === 7 ? 5 : (topType === 8 ? 2 : 6)))));
 
     var stressSec = '';
-    stressSec += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="📈 压力与安全状态">📈 Stress & Security States</span></h3>';
+    stressSec += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>📈 压力与安全状态</span><span data-en>📈 Stress & Security States</span></h3>';
     stressSec += '<div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
     stressSec += '<div class="bg-red-100 rounded-xl p-4"><div class="font-semibold text-red-700 mb-1">' + (isEN?'Under Stress (Type '+stressType+')':'压力状态 (走向'+stressType+'号)') + '</div><p class="text-sm text-gray-600">' + (isEN?'When stressed, you may exhibit unhealthy traits of Type '+stressType+'. Focus on self-care and healthy coping.':stressType+'号特征。在压力下，你可能表现出'+stressType+'号的不健康特质。请关注自我照顾和健康应对方式。') + '</p></div>';
     stressSec += '<div class="bg-green-100 rounded-xl p-4"><div class="font-semibold text-green-700 mb-1">' + (isEN?'At Security (Type '+securityType+')':'安全状态 (走向'+securityType+'号)') + '</div><p class="text-sm text-gray-600">' + (isEN?'When secure and growing, you may exhibit healthy traits of Type '+securityType+'.':securityType+'号特征。在安全和成长状态下，你可能表现出'+securityType+'号的健康特质。') + '</p></div>';
@@ -510,7 +510,7 @@ function showResults() {
 
     // Growth advice
     var growth = '';
-    growth += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🌱 个人成长建议">🌱 Personal Growth Suggestions</span></h3>';
+    growth += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>🌱 个人成长建议</span><span data-en>🌱 Personal Growth Suggestions</span></h3>';
     growth += '<ul class="space-y-3 text-gray-600">';
     growth += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span>' + (isEN?'Recognize your core type '+topType+' patterns and their origins':info.name+'类型的'+topType+'号模式，识别其根源') + '</li>';
     growth += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span>' + (isEN?'Work on integrating your Wing traits consciously':typeInfo[wing].name+'翼型特质的意识整合') + '</li>';

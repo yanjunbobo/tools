@@ -73,18 +73,18 @@
     <div id="startScreen" class="max-w-2xl mx-auto px-4 py-12 text-center fade-in">
         <div class="text-7xl mb-8">✨</div>
         <h1 class="text-4xl font-bold text-gray-800 mb-4"><span data-zh>荣格心理类型测试</span><span data-en>Jungian Psychological Types Test</span></h1>
-        <p class="text-gray-500 mb-8 text-lg"><span data-zh="卡尔·荣格原版理论 · 最接近《心理类型》的测试">Carl Jung's Original Theory · Most Authentic Test Based on 'Psychological Types'</span><span data-en>Carl Jung's Original Theory · Most Authentic Test Based on 'Psychological Types'</span></p>
+        <p class="text-gray-500 mb-8 text-lg"><span data-zh>卡尔·荣格原版理论 · 最接近《心理类型》的测试</span><span data-en>Carl Jung's Original Theory · Most Authentic Test Based on 'Psychological Types'</span><span data-en>Carl Jung's Original Theory · Most Authentic Test Based on 'Psychological Types'</span></p>
         <div class="bg-white rounded-2xl p-8 shadow-lg text-left max-w-md mx-auto mb-8">
-            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh="📋 测试说明">📋 Test Info</span></h3>
+            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh>📋 测试说明</span><span data-en>📋 Test Info</span></h3>
             <ul class="space-y-3 text-gray-600 text-sm">
-                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh="共52道题目，约需6分钟完成">52 questions, ~6 minutes</span><span data-en>52 questions, ~6 minutes</span></li>
-                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh="基于荣格《心理类型》的经典维度">Based on Jung's 'Psychological Types' classic dimensions</span><span data-en>Based on Jung's 'Psychological Types' classic dimensions</span></li>
-                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh="测量：态度类型（内外向）+ 功能类型（感觉/直觉、思维/情感）">Measures: Attitude types (I/E) + Function types (S/N, T/F)</span><span data-en>Measures: Attitude types (I/E) + Function types (S/N, T/F)</span></li>
-                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh="完全免费，数据隐私安全">100% free, private</span><span data-en>100% free, private</span></li>
+                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh>共52道题目，约需6分钟完成</span><span data-en>52 questions, ~6 minutes</span><span data-en>52 questions, ~6 minutes</span></li>
+                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh>基于荣格《心理类型》的经典维度</span><span data-en>Based on Jung's 'Psychological Types' classic dimensions</span><span data-en>Based on Jung's 'Psychological Types' classic dimensions</span></li>
+                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh>测量：态度类型（内外向）+ 功能类型（感觉/直觉、思维/情感）</span><span data-en>Measures: Attitude types (I/E) + Function types (S/N, T/F)</span><span data-en>Measures: Attitude types (I/E) + Function types (S/N, T/F)</span></li>
+                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh>完全免费，数据隐私安全</span><span data-en>100% free, private</span><span data-en>100% free, private</span></li>
             </ul>
         </div>
         <button onclick="startTest()" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-purple-600 hover:to-pink-600 transition shadow-lg">
-            <span data-zh="🚀 开始测试">🚀 Start Test</span><span data-en>🚀 Start Test</span>
+            <span data-zh>🚀 开始测试</span><span data-en>🚀 Start Test</span><span data-en>🚀 Start Test</span>
         </button>
     </div>
 
@@ -92,8 +92,8 @@
     <div id="testScreen" class="max-w-2xl mx-auto px-4 py-6 hidden">
         <div class="mb-6">
             <div class="flex justify-between text-sm text-gray-500 mb-2">
-                <span><span data-zh="第">Question</span> <span id="currentQ">1</span>/52</span>
-                <span><span data-zh="进度">Progress</span>: <span id="progressPct">0</span>%</span>
+                <span><span data-zh>第</span><span data-en>Question</span> <span id="currentQ">1</span>/52</span>
+                <span><span data-zh>进度</span><span data-en>Progress</span>: <span id="progressPct">0</span>%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2.5">
                 <div id="progressBar" class="bg-gradient-to-r from-purple-500 to-pink-500 h-2.5 rounded-full progress-fill" style="width:0%"></div>
@@ -102,14 +102,14 @@
         <div id="questionContainer" class="fade-in"></div>
         <div class="flex justify-between mt-8">
             <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">
-                <span data-zh="← 上一题">← Previous</span><span data-en>← Previous</span>
+                <span data-zh>← 上一题</span><span data-en>← Previous</span><span data-en>← Previous</span>
             </button>
             <div></div>
             <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-purple-500 text-white font-semibold hover:bg-purple-600 transition">
-                <span data-zh="下一题 →">Next →</span><span data-en>Next →</span>
+                <span data-zh>下一题 →</span><span data-en>Next →</span><span data-en>Next →</span>
             </button>
             <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition hidden">
-                <span data-zh="查看结果 →">See Results →</span><span data-en>See Results →</span>
+                <span data-zh>查看结果 →</span><span data-en>See Results →</span><span data-en>See Results →</span>
             </button>
         </div>
     </div>
@@ -117,7 +117,7 @@
     <!-- Result Screen -->
     <div id="resultScreen" class="max-w-3xl mx-auto px-4 py-8 hidden">
         <div class="text-center mb-8 fade-in">
-            <p class="text-gray-500 mb-2"><span data-zh="你的荣格心理类型是">Your Jungian Type Is</span><span data-en>Your Jungian Type Is</span></p>
+            <p class="text-gray-500 mb-2"><span data-zh>你的荣格心理类型是</span><span data-en>Your Jungian Type Is</span><span data-en>Your Jungian Type Is</span></p>
             <div id="resultType" class="text-7xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-4">INTJ</div>
             <p id="resultName" class="text-2xl font-semibold text-gray-700 mb-2"></p>
             <p id="resultSubtitle" class="text-gray-500"></p>
@@ -133,7 +133,7 @@
 
         <div class="text-center">
             <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-purple-500 text-purple-600 font-semibold hover:bg-purple-50 transition">
-                <span data-zh="🔄 重新测试">🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
+                <span data-zh>🔄 重新测试</span><span data-en>🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
             </button>
         </div>
     </div>
@@ -350,7 +350,7 @@ function showResults() {
     document.getElementById('resultCards').innerHTML = cardsHTML;
 
     // Function stack description
-    var funcHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🧩 功能层级分析">🧩 Functional Stack Analysis</span></h3>';
+    var funcHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>🧩 功能层级分析</span><span data-en>🧩 Functional Stack Analysis</span></h3>';
     funcHTML += '<div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-5 mb-4">';
     funcHTML += '<div class="font-semibold text-purple-700 mb-2">' + (isEN?'Your Type Function Stack':'你的类型功能层级') + '</div>';
     funcHTML += '<div class="text-2xl font-bold text-purple-600 mb-1">' + type + '</div>';
@@ -360,11 +360,11 @@ function showResults() {
 
     // Type description
     var typeDesc = document.getElementById('typeDescription');
-    typeDesc.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🧠 荣格类型分析">🧠 Jungian Type Analysis</span></h3><p class="text-gray-600 leading-relaxed mb-4">' + (isEN?info.desc.en:info.desc.zh) + '</p><div class="bg-purple-50 rounded-xl p-4"><div class="font-semibold text-purple-700 mb-2">' + (isEN?'Key Characteristics':'关键特征') + '</div><ul class="text-sm text-gray-600 space-y-1"><li>' + (isEN?'Attitude: '+(type[0]==='E'?'Extraversion (focus on external world)':'Introversion (focus on inner world)'):(type[0]==='E'?'态度类型：外向型（关注外部世界）':'态度类型：内向型（关注内心世界）')) + '</li><li>' + (isEN?'Perceiving: '+(type[1]==='S'?'Sensing (practical, here-and-now)':'Intuition (intuitive, possibilities) '):(type[1]==='S'?'感知方式：感觉型（务实、此时此地）':'感知方式：直觉型（直觉、可能性）')) + '</li><li>' + (isEN?'Judging: '+(type[2]==='T'?'Thinking (logical, analytical)':'Feeling (values-based, empathetic) '):(type[2]==='T'?'判断方式：思考型（逻辑、分析）':'判断方式：情感型（价值导向、同理心）')) + '</li><li>' + (isEN?'Lifestyle: '+(type[3]==='J'?'Judging (structured, planned)':'Perceiving (flexible, spontaneous)'):(type[3]==='J'?'生活方式：判断型（有结构、有计划）':'生活方式：知觉型（灵活、随性）')) + '</li></ul></div>';
+    typeDesc.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>🧠 荣格类型分析</span><span data-en>🧠 Jungian Type Analysis</span></h3><p class="text-gray-600 leading-relaxed mb-4">' + (isEN?info.desc.en:info.desc.zh) + '</p><div class="bg-purple-50 rounded-xl p-4"><div class="font-semibold text-purple-700 mb-2">' + (isEN?'Key Characteristics':'关键特征') + '</div><ul class="text-sm text-gray-600 space-y-1"><li>' + (isEN?'Attitude: '+(type[0]==='E'?'Extraversion (focus on external world)':'Introversion (focus on inner world)'):(type[0]==='E'?'态度类型：外向型（关注外部世界）':'态度类型：内向型（关注内心世界）')) + '</li><li>' + (isEN?'Perceiving: '+(type[1]==='S'?'Sensing (practical, here-and-now)':'Intuition (intuitive, possibilities) '):(type[1]==='S'?'感知方式：感觉型（务实、此时此地）':'感知方式：直觉型（直觉、可能性）')) + '</li><li>' + (isEN?'Judging: '+(type[2]==='T'?'Thinking (logical, analytical)':'Feeling (values-based, empathetic) '):(type[2]==='T'?'判断方式：思考型（逻辑、分析）':'判断方式：情感型（价值导向、同理心）')) + '</li><li>' + (isEN?'Lifestyle: '+(type[3]==='J'?'Judging (structured, planned)':'Perceiving (flexible, spontaneous)'):(type[3]==='J'?'生活方式：判断型（有结构、有计划）':'生活方式：知觉型（灵活、随性）')) + '</li></ul></div>';
 
     // Jung explanation
     var jungHTML = '';
-    jungHTML += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="📚 关于荣格心理类型">📚 About Jungian Psychological Types</span></h3>';
+    jungHTML += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>📚 关于荣格心理类型</span><span data-en>📚 About Jungian Psychological Types</span></h3>';
     jungHTML += '<p class="text-gray-600 text-sm mb-3">' + (isEN?'Carl Jung (1875-1961) was a Swiss psychiatrist who developed the theory of psychological types. In his 1921 book "Psychological Types", he proposed that human beings experience the world through four psychological functions: Sensing, Intuition, Thinking, and Feeling.':'卡尔·荣格（1875-1961）是瑞士精神科医生，发展了心理类型理论。在1921年的著作《心理类型》中，他提出人类通过四种心理功能体验世界：感觉、直觉、思考和情感。') + '</p>';
     jungHTML += '<p class="text-gray-600 text-sm">' + (isEN?'Jung also identified two attitude types: Extraversion (energy directed outward) and Introversion (energy directed inward). The combination of attitude type and function type creates 16 psychological types, which later formed the basis of the MBTI.':'荣格还确定了两种态度类型：外向型（能量向外）和内向型（能量向内）。态度类型与功能类型的结合产生了16种心理类型，这也成为MBTI的基础。') + '</p>';
     document.getElementById('jungExplanation').innerHTML = jungHTML;

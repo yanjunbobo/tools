@@ -76,18 +76,18 @@
     <div id="startScreen" class="max-w-2xl mx-auto px-4 py-12 text-center fade-in">
         <div class="text-7xl mb-8">🌿</div>
         <h1 class="text-4xl font-bold text-gray-800 mb-4"><span data-zh>大五人格测试</span><span data-en>Big Five Personality Test</span></h1>
-        <p class="text-gray-500 mb-8 text-lg"><span data-zh="心理学界公认最科学的人格模型 · NEO-FFI标准版">Most scientifically validated personality model · NEO-FFI Standard</span><span data-en>Most scientifically validated personality model · NEO-FFI Standard</span></p>
+        <p class="text-gray-500 mb-8 text-lg"><span data-zh>心理学界公认最科学的人格模型 · NEO-FFI标准版</span><span data-en>Most scientifically validated personality model · NEO-FFI Standard</span><span data-en>Most scientifically validated personality model · NEO-FFI Standard</span></p>
         <div class="bg-white rounded-2xl p-8 shadow-lg text-left max-w-md mx-auto mb-8">
-            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh="📋 测试说明">📋 Test Info</span></h3>
+            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh>📋 测试说明</span><span data-en>📋 Test Info</span></h3>
             <ul class="space-y-3 text-gray-600 text-sm">
-                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh="共50道题目，约需7分钟完成">50 questions, ~7 minutes</span><span data-en>50 questions, ~7 minutes</span></li>
-                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh="采用1-5分评分（非常不同意~非常同意）">1-5 scale (Strongly Disagree to Strongly Agree)</span><span data-en>1-5 scale (Strongly Disagree to Strongly Agree)</span></li>
-                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh="测量五大维度：开放性、尽责性、外向性、宜人性、神经质">Measures 5 dimensions: O, C, E, A, N</span><span data-en>Measures 5 dimensions: O, C, E, A, N</span></li>
-                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh="完全免费，数据隐私安全">100% free, private</span><span data-en>100% free, private</span></li>
+                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh>共50道题目，约需7分钟完成</span><span data-en>50 questions, ~7 minutes</span><span data-en>50 questions, ~7 minutes</span></li>
+                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh>采用1-5分评分（非常不同意~非常同意）</span><span data-en>1-5 scale (Strongly Disagree to Strongly Agree)</span><span data-en>1-5 scale (Strongly Disagree to Strongly Agree)</span></li>
+                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh>测量五大维度：开放性、尽责性、外向性、宜人性、神经质</span><span data-en>Measures 5 dimensions: O, C, E, A, N</span><span data-en>Measures 5 dimensions: O, C, E, A, N</span></li>
+                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh>完全免费，数据隐私安全</span><span data-en>100% free, private</span><span data-en>100% free, private</span></li>
             </ul>
         </div>
         <button onclick="startTest()" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-green-600 hover:to-emerald-700 transition shadow-lg">
-            <span data-zh="🚀 开始测试">🚀 Start Test</span><span data-en>🚀 Start Test</span>
+            <span data-zh>🚀 开始测试</span><span data-en>🚀 Start Test</span><span data-en>🚀 Start Test</span>
         </button>
     </div>
 
@@ -95,8 +95,8 @@
     <div id="testScreen" class="max-w-2xl mx-auto px-4 py-6 hidden">
         <div class="mb-6">
             <div class="flex justify-between text-sm text-gray-500 mb-2">
-                <span><span data-zh="第">Question</span> <span id="currentQ">1</span>/50</span>
-                <span><span data-zh="进度">Progress</span>: <span id="progressPct">0</span>%</span>
+                <span><span data-zh>第</span><span data-en>Question</span> <span id="currentQ">1</span>/50</span>
+                <span><span data-zh>进度</span><span data-en>Progress</span>: <span id="progressPct">0</span>%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2.5">
                 <div id="progressBar" class="bg-gradient-to-r from-green-500 to-emerald-600 h-2.5 rounded-full progress-fill" style="width:0%"></div>
@@ -105,14 +105,14 @@
         <div id="questionContainer" class="fade-in"></div>
         <div class="flex justify-between mt-8">
             <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">
-                <span data-zh="← 上一题">← Previous</span><span data-en>← Previous</span>
+                <span data-zh>← 上一题</span><span data-en>← Previous</span><span data-en>← Previous</span>
             </button>
             <div></div>
             <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition">
-                <span data-zh="下一题 →">Next →</span><span data-en>Next →</span>
+                <span data-zh>下一题 →</span><span data-en>Next →</span><span data-en>Next →</span>
             </button>
             <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition hidden">
-                <span data-zh="查看结果 →">See Results →</span><span data-en>See Results →</span>
+                <span data-zh>查看结果 →</span><span data-en>See Results →</span><span data-en>See Results →</span>
             </button>
         </div>
     </div>
@@ -120,9 +120,9 @@
     <!-- Result Screen -->
     <div id="resultScreen" class="max-w-3xl mx-auto px-4 py-8 hidden">
         <div class="text-center mb-8 fade-in">
-            <p class="text-gray-500 mb-2"><span data-zh="你的大五人格特质分析">Your Big Five Personality Profile</span><span data-en>Your Big Five Personality Profile</span></p>
+            <p class="text-gray-500 mb-2"><span data-zh>你的大五人格特质分析</span><span data-en>Your Big Five Personality Profile</span><span data-en>Your Big Five Personality Profile</span></p>
             <div class="text-4xl font-bold text-green-600 mb-2">🌿</div>
-            <p class="text-xl text-gray-700"><span data-zh="五大维度综合评估">Five Dimensions Comprehensive Assessment</span><span data-en>Five Dimensions Comprehensive Assessment</span></p>
+            <p class="text-xl text-gray-700"><span data-zh>五大维度综合评估</span><span data-en>Five Dimensions Comprehensive Assessment</span><span data-en>Five Dimensions Comprehensive Assessment</span></p>
         </div>
 
         <div id="dimensionResults" class="space-y-4 mb-8"></div>
@@ -133,7 +133,7 @@
 
         <div class="text-center">
             <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">
-                <span data-zh="🔄 重新测试">🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
+                <span data-zh>🔄 重新测试</span><span data-en>🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
             </button>
         </div>
     </div>
@@ -374,13 +374,13 @@ function showResults() {
     if (scores.N < 35) traits.push({zh:'敏感细腻',en:'Sensitive'});
 
     var traitsHTML = traits.map(function(t){return '<span class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700">' + (isEN?t.en:t.zh) + '</span>';}).join(' ');
-    profile += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="📊 你的性格特质">📊 Your Personality Traits</span></h3>';
+    profile += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>📊 你的性格特质</span><span data-en>📊 Your Personality Traits</span></h3>';
     profile += '<div class="flex flex-wrap gap-2 mb-4">' + traitsHTML + '</div>';
-    profile += '<p class="text-gray-600 text-sm"><span data-zh="你的大五人格特质谱系显示你在多个维度上的自然倾向。这些特质影响你如何与他人互动、应对挑战、追求目标。">Your Big Five profile shows your natural tendencies across multiple dimensions. These traits influence how you interact with others, handle challenges, and pursue goals.</span><span data-en>Your Big Five profile shows your natural tendencies across multiple dimensions. These traits influence how you interact with others, handle challenges, and pursue goals.</span></p>';
+    profile += '<p class="text-gray-600 text-sm"><span data-zh>你的大五人格特质谱系显示你在多个维度上的自然倾向。这些特质影响你如何与他人互动、应对挑战、追求目标。</span><span data-en>Your Big Five profile shows your natural tendencies across multiple dimensions. These traits influence how you interact with others, handle challenges, and pursue goals.</span><span data-en>Your Big Five profile shows your natural tendencies across multiple dimensions. These traits influence how you interact with others, handle challenges, and pursue goals.</span></p>';
     document.getElementById('overallProfile').innerHTML = profile;
 
     // Trait descriptions
-    var traitDescHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🧠 各维度详细分析">🧠 Detailed Dimension Analysis</span></h3><div class="space-y-4 text-gray-600">';
+    var traitDescHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>🧠 各维度详细分析</span><span data-en>🧠 Detailed Dimension Analysis</span></h3><div class="space-y-4 text-gray-600">';
 
     dims.forEach(function(d) {
         var info = dimensionInfo[d];
