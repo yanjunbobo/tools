@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="九型人格测试 - 81题免费精准分析 2026" data-en="Enneagram Personality Test - 81 Questions Free Accurate Analysis">九型人格测试 - 81题免费精准分析 2026</title>
+    <meta name="description" data-zh="免费九型人格测试，81道题深度探索你与九种核心人格类型的连接。揭示你的核心恐惧、渴望与内在动因，了解1-9号人格的独特特质。" data-en="Free Enneagram test with 81 questions. Explores your connection to 9 core personality types, revealing core fears, desires, and inner motivations.">
+    <meta name="keywords" data-zh="九型人格测试,Enneagram,九型人格,免费测试,性格分析,1-9号人格,核心恐惧,内在动机" data-en="Enneagram personality test,Enneagram types,free test,personality analysis,type 1-9,core fears,inner motivations">
+    <meta name="author" content="计度AI工具箱">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.xxym8.com/mbti-enneagram.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/mbti-enneagram.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/mbti-enneagram.html?lang=en">
+    <meta property="og:type" content="article">
+    <meta property="og:title" data-zh="九型人格测试 - 81题免费精准分析" data-en="Enneagram Personality Test - 81 Questions">
+    <meta property="og:description" data-zh="免费九型人格测试，81道题揭示你的核心恐惧、渴望与内在动因。" data-en="Free Enneagram test with 81 questions revealing core fears, desires, and motivations.">
+    <meta property="og:url" content="https://tools.xxym8.com/mbti-enneagram.html">
+    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+    <meta name="twitter:card" content="summary">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+        [data-en] { display: none; }
+        html[lang=en] [data-zh] { display: none; }
+        html[lang=en] [data-en] { display: inline; }
+        html[lang=en] [data-en-block] { display: block; }
+        .scale-option { transition: all 0.2s; cursor: pointer; }
+        .scale-option:hover { transform: translateY(-2px); }
+        .scale-option.selected { background-color: #f97316; color: white; }
+        .progress-fill { transition: width 0.4s ease; }
+        .fade-in { animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .type-card { transition: all 0.3s; }
+        .type-card:hover { transform: scale(1.05); }
+        .result-card { transition: all 0.3s; }
+        .result-card:hover { transform: scale(1.02); }
+    </style>
+    <script src="ads.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
+            <div class="hidden md:flex gap-6 text-gray-600">
+                <a href="/" class="hover:text-blue-600"><span data-zh>首页</span><span data-en>Home</span></a>
+                <a href="/mbti.html" class="hover:text-blue-600"><span data-zh>人格测试</span><span data-en>Personality</span></a>
+            </div>
+            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
+        </nav>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
+        <nav aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页">Home</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/mbti.html" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="人格测试">Personality Tests</span></a>
+                    <meta itemprop="position" content="2">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span class="text-gray-700" itemprop="name">Enneagram</span>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="max-w-2xl mx-auto px-4 py-12 text-center fade-in">
+        <div class="text-7xl mb-8">🔥</div>
+        <h1 class="text-4xl font-bold text-gray-800 mb-4"><span data-zh>九型人格测试</span><span data-en>Enneagram Personality Test</span></h1>
+        <p class="text-gray-500 mb-8 text-lg"><span data-zh="源自古代智慧的灵魂地图 · 81道题深度探索">Ancient wisdom-based personality map · 81 questions deep exploration</span><span data-en>Ancient wisdom-based personality map · 81 questions deep exploration</span></p>
+        <div class="bg-white rounded-2xl p-8 shadow-lg text-left max-w-md mx-auto mb-8">
+            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh="📋 测试说明">📋 Test Info</span></h3>
+            <ul class="space-y-3 text-gray-600 text-sm">
+                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh="共81道题目，约需12分钟完成">81 questions, ~12 minutes</span><span data-en>81 questions, ~12 minutes</span></li>
+                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh="每种人格类型9题，采用1-5分评分">9 questions per type, 1-5 scale</span><span data-en>9 questions per type, 1-5 scale</span></li>
+                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh="发现你的核心人格类型 Wings翼型 压力/安全状态">Discover your core type, Wings, and stress/security states</span><span data-en>Discover your core type, Wings, and stress/security states</span></li>
+                <li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span data-zh="完全免费，数据隐私安全">100% free, private</span><span data-en>100% free, private</span></li>
+            </ul>
+        </div>
+        <button onclick="startTest()" class="bg-gradient-to-r from-orange-500 to-red-500 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-orange-600 hover:to-red-600 transition shadow-lg">
+            <span data-zh="🚀 开始测试">🚀 Start Test</span><span data-en>🚀 Start Test</span>
+        </button>
+    </div>
+
+    <!-- Test Screen -->
+    <div id="testScreen" class="max-w-2xl mx-auto px-4 py-6 hidden">
+        <div class="mb-6">
+            <div class="flex justify-between text-sm text-gray-500 mb-2">
+                <span><span data-zh="第">Question</span> <span id="currentQ">1</span>/81</span>
+                <span><span data-zh="进度">Progress</span>: <span id="progressPct">0</span>%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div id="progressBar" class="bg-gradient-to-r from-orange-500 to-red-500 h-2.5 rounded-full progress-fill" style="width:0%"></div>
+            </div>
+        </div>
+        <div id="questionContainer" class="fade-in"></div>
+        <div class="flex justify-between mt-8">
+            <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">
+                <span data-zh="← 上一题">← Previous</span><span data-en>← Previous</span>
+            </button>
+            <div></div>
+            <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition">
+                <span data-zh="下一题 →">Next →</span><span data-en>Next →</span>
+            </button>
+            <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 transition hidden">
+                <span data-zh="查看结果 →">See Results →</span><span data-en>See Results →</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="resultScreen" class="max-w-3xl mx-auto px-4 py-8 hidden">
+        <div class="text-center mb-8 fade-in">
+            <p class="text-gray-500 mb-2"><span data-zh="你的九型人格类型是">Your Enneagram Type Is</span><span data-en>Your Enneagram Type Is</span></p>
+            <div id="resultType" class="text-8xl font-bold text-orange-500 mb-4">7</div>
+            <p id="resultName" class="text-2xl font-semibold text-gray-700 mb-2"></p>
+            <p id="resultSubtitle" class="text-gray-500"></p>
+        </div>
+
+        <div id="typeScores" class="grid grid-cols-3 md:grid-cols-9 gap-3 mb-8"></div>
+
+        <div id="mainTypeDesc" class="bg-white rounded-2xl p-6 shadow-lg mb-8"></div>
+
+        <div id="wingInfo" class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 mb-8"></div>
+
+        <div id="stressSecurity" class="bg-white rounded-2xl p-6 shadow-lg mb-8"></div>
+
+        <div id="growthAdvice" class="bg-white rounded-2xl p-8 shadow-lg mb-8"></div>
+
+        <div class="text-center">
+            <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-orange-500 text-orange-600 font-semibold hover:bg-orange-50 transition">
+                <span data-zh="🔄 重新测试">🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-gray-400 py-6 text-center mt-12">
+        <p>© 2026 <span data-zh="计度AI工具箱" data-en>JIDU AI Tools</span></p>
+    </footer>
+
+<script>
+// Enneagram: 9 types × 9 questions = 81 questions
+// 5-point scale: 1=完全不认同, 5=完全认同
+var questions = [
+    // Type 1 - The Reformer/Perfectionist (1-9)
+    {type:1,text:{zh:"我认为做正确的事很重要，即使很难",en:"I believe it's important to do the right thing, even when it's hard"}},
+    {type:1,text:{zh:"我对自己和别人都有很高的标准",en:"I have high standards for myself and others"}},
+    {type:1,text:{zh:"我倾向于关注什么是错的以及如何改进",en:"I tend to notice what's wrong and how to fix it"}},
+    {type:1,text:{zh:"我是一个有原则、有道德感的人",en:"I am a person with principles and a strong moral sense"}},
+    {type:1,text:{zh:"我很难容忍自己的错误和缺点",en:"I have a hard time tolerating my own mistakes and flaws"}},
+    {type:1,text:{zh:"我努力让事情变得有序和正确",en:"I strive to make things orderly and correct"}},
+    {type:1,text:{zh:"我经常觉得需要改正周围世界的错误",en:"I often feel the need to correct what is wrong in the world"}},
+    {type:1,text:{zh:"我是一个负责任、可靠的人",en:"I am a responsible and reliable person"}},
+    {type:1,text:{zh:"当事情不符合我的标准时，我会感到沮丧",en:"I feel frustrated when things don't meet my standards"}},
+
+    // Type 2 - The Helper/Giver (10-18)
+    {type:2,text:{zh:"我乐于助人，帮助别人让我感到快乐",en:"I enjoy helping others and feel happy when I help"}},
+    {type:2,text:{zh:"我关注他人的需求，并主动提供支持",en:"I pay attention to others' needs and proactively offer support"}},
+    {type:2,text:{zh:"我渴望被人需要和喜爱",en:"I crave being needed and loved"}},
+    {type:2,text:{zh:"我经常忽略自己的需求来满足他人",en:"I often ignore my own needs to meet others'"}},
+    {type:2,text:{zh:"我是一个富有同情心、关怀他人的人",en:"I am a compassionate and caring person"}},
+    {type:2,text:{zh:"我善于感知他人的情感和需求",en:"I am good at sensing others' emotions and needs"}},
+    {type:2,text:{zh:"我喜欢被人感激和欣赏",en:"I like to be thanked and appreciated"}},
+    {type:2,text:{zh:"我愿意为他人的幸福做出牺牲",en:"I am willing to make sacrifices for others' happiness"}},
+    {type:2,text:{zh:"当我帮助的人不领情时，我会感到受伤",en:"I feel hurt when people I help don't appreciate it"}},
+
+    // Type 3 - The Achiever/Performer (19-27)
+    {type:3,text:{zh:"我是一个有目标、有上进心的人",en:"I am a goal-oriented and ambitious person"}},
+    {type:3,text:{zh:"我渴望成功和被人认可",en:"I desire success and recognition"}},
+    {type:3,text:{zh:"我善于调整自己去适应不同的环境和角色",en:"I am good at adapting myself to different environments and roles"}},
+    {type:3,text:{zh:"我努力工作来实现我的目标和成就",en:"I work hard to achieve my goals and accomplishments"}},
+    {type:3,text:{zh:"我关注自己的形象和他人对我的看法",en:"I care about my image and how others see me"}},
+    {type:3,text:{zh:"我相信效率和成果的重要性",en:"I believe in the importance of efficiency and results"}},
+    {type:3,text:{zh:"我善于激励自己和他人",en:"I am good at motivating myself and others"}},
+    {type:3,text:{zh:"我害怕失败和被看作失败者",en:"I am afraid of failure and being seen as a failure"}},
+    {type:3,text:{zh:"我是一个竞争力强、追求卓越的人",en:"I am competitive and strive for excellence"}},
+
+    // Type 4 - The Individualist/Romantic (28-36)
+    {type:4,text:{zh:"我觉得自己与众不同，有独特的个性",en:"I feel different from others and have a unique identity"}},
+    {type:4,text:{zh:"我渴望深刻、真实的情感和经历",en:"I long for deep, authentic emotions and experiences"}},
+    {type:4,text:{zh:"我善于感知和表达细腻的情感",en:"I am good at perceiving and expressing subtle emotions"}},
+    {type:4,text:{zh:"我觉得我缺失了某种东西，似乎别人拥有的我没有",en:"I feel something is missing in me, something others have"}},
+    {type:4,text:{zh:"我追求真实和自我表达",en:"I pursue authenticity and self-expression"}},
+    {type:4,text:{zh:"我容易被美、艺术和创意所触动",en:"I am easily moved by beauty, art, and creativity"}},
+    {type:4,text:{zh:"我有时候会感到忧郁和存在性的孤独",en:"I sometimes feel melancholy and existential loneliness"}},
+    {type:4,text:{zh:"我想要被人理解和认同我的独特性",en:"I want to be understood and recognized for my uniqueness"}},
+    {type:4,text:{zh:"我不太在乎世俗的规则和他人的期望",en:"I don't care much about worldly rules or others' expectations"}},
+
+    // Type 5 - The Investigator/Observer (37-45)
+    {type:5,text:{zh:"我渴望知识和理解，喜欢深入研究事物",en:"I crave knowledge and understanding, like to investigate things deeply"}},
+    {type:5,text:{zh:"我需要独处的时间和空间来充电",en:"I need time and space alone to recharge"}},
+    {type:5,text:{zh:"我倾向于做一个观察者而不是参与者",en:"I tend to be an observer rather than a participant"}},
+    {type:5,text:{zh:"我喜欢收集信息和建立自己的知识体系",en:"I like gathering information and building my own knowledge system"}},
+    {type:5,text:{zh:"我不太善于表达自己的情感",en:"I am not good at expressing my emotions"}},
+    {type:5,text:{zh:"我重视隐私，不喜欢被过多干扰",en:"I value privacy and don't like being interrupted"}},
+    {type:5,text:{zh:"我善于思考和分析复杂的问题",en:"I am good at thinking and analyzing complex problems"}},
+    {type:5,text:{zh:"我害怕自己没有能力或知识去应对事情",en:"I am afraid of not being capable or knowledgeable enough"}},
+    {type:5,text:{zh:"我倾向于退后一步观察，而不是卷入其中",en:"I tend to step back and observe rather than get involved"}},
+
+    // Type 6 - The Loyalist/Skeptic (46-54)
+    {type:6,text:{zh:"我是一个忠诚、可靠的朋友和伙伴",en:"I am a loyal and reliable friend and partner"}},
+    {type:6,text:{zh:"我会质疑权威和规则，以确保它们是合理的",en:"I question authority and rules to make sure they are reasonable"}},
+    {type:6,text:{zh:"我经常担心可能出问题的事情",en:"I often worry about things that could go wrong"}},
+    {type:6,text:{zh:"我需要安全感和归属感",en:"I need security and a sense of belonging"}},
+    {type:6,text:{zh:"我善于识别潜在的风险和问题",en:"I am good at identifying potential risks and problems"}},
+    {type:6,text:{zh:"我对承诺和朋友非常忠诚",en:"I am very loyal to my commitments and friends"}},
+    {type:6,text:{zh:"我会在行动前反复思考各种可能性",en:"I think through various possibilities before acting"}},
+    {type:6,text:{zh:"我害怕得不到支持和保护",en:"I am afraid of not having support and protection"}},
+    {type:6,text:{zh:"我是一个勤奋、负责任的人",en:"I am a hardworking and responsible person"}},
+
+    // Type 7 - The Enthusiast/Epicure (55-63)
+    {type:7,text:{zh:"我是一个充满热情、热爱生活的人",en:"I am a passionate, life-loving person"}},
+    {type:7,text:{zh:"我喜欢新鲜的经历和冒险",en:"I enjoy new experiences and adventures"}},
+    {type:7,text:{zh:"我倾向于乐观积极，避免消极情绪",en:"I tend to be optimistic and avoid negative emotions"}},
+    {type:7,text:{zh:"我有很多兴趣爱好，生活丰富多彩",en:"I have many hobbies and a colorful life"}},
+    {type:7,text:{zh:"我害怕无聊和被困住，渴望自由",en:"I am afraid of being bored or trapped, and crave freedom"}},
+    {type:7,text:{zh:"我喜欢计划未来的积极可能性",en:"I like planning positive possibilities for the future"}},
+    {type:7,text:{zh:"我善于社交，能让周围的人感到快乐",en:"I am good at socializing and making people around me happy"}},
+    {type:7,text:{zh:"我倾向于快速转移注意力，避免负面情绪",en:"I tend to quickly change focus to avoid negative emotions"}},
+    {type:7,text:{zh:"我相信生活充满可能性和机会",en:"I believe life is full of possibilities and opportunities"}},
+
+    // Type 8 - The Challenger/Protector (64-72)
+    {type:8,text:{zh:"我是一个自信、有决断力的人",en:"I am a confident and decisive person"}},
+    {type:8,text:{zh:"我保护我所关心的人，愿意为他们挺身而出",en:"I protect people I care about and stand up for them"}},
+    {type:8,text:{zh:"我喜欢掌控局面，做决定",en:"I like to be in control and make decisions"}},
+    {type:8,text:{zh:"我是一个直接、坦率的人",en:"I am a direct and straightforward person"}},
+    {type:8,text:{zh:"我无法忍受被欺负或被控制",en:"I cannot tolerate being bullied or controlled"}},
+    {type:8,text:{zh:"我相信实力和公平的重要性",en:"I believe in the importance of strength and fairness"}},
+    {type:8,text:{zh:"我愿意承担风险和责任",en:"I am willing to take risks and responsibilities"}},
+    {type:8,text:{zh:"我害怕被人认为软弱或受人支配",en:"I am afraid of being seen as weak or dominated"}},
+    {type:8,text:{zh:"我是一个坚强、有毅力的人",en:"I am a strong and persistent person"}},
+
+    // Type 9 - The Peacemaker/Mediator (73-81)
+    {type:9,text:{zh:"我是一个随和、平静、不喜欢冲突的人",en:"I am an easygoing, calm person who dislikes conflict"}},
+    {type:9,text:{zh:"我善于调解矛盾，帮助他人和解",en:"I am good at mediating conflicts and helping others reconcile"}},
+    {type:9,text:{zh:"我倾向于支持他人，而不是表达自己的意见",en:"I tend to support others rather than voice my own opinions"}},
+    {type:9,text:{zh:"我需要和谐、平和的环境",en:"I need a harmonious and peaceful environment"}},
+    {type:9,text:{zh:"我善于站在他人的角度看问题",en:"I am good at seeing things from others' perspectives"}},
+    {type:9,text:{zh:"我有时候会忽略自己的需求和意见",en:"I sometimes neglect my own needs and opinions"}},
+    {type:9,text:{zh:"我是一个受欢迎、易相处的人",en:"I am a popular and easy-to-get-along-with person"}},
+    {type:9,text:{zh:"我害怕分离和失去联系",en:"I am afraid of separation and losing connection"}},
+    {type:9,text:{zh:"我相信每个人都是重要的，都值得被尊重",en:"I believe everyone matters and deserves respect"}}
+];
+
+var typeInfo = {
+    1:{
+        name:{zh:"完美主义者",en:"The Reformer"},
+        nameFull:{zh:"1号 - 完美主义者",en:"Type 1 - The Reformer"},
+        subtitle:{zh:"有原则、有道德、自律性强",en:"Principled, ethical, self-disciplined"},
+        fear:{zh:"害怕做错事、不道德、不正确",en:"Fear of being wrong, unethical, imperfect"},
+        desire:{zh:"渴望正确和善良",en:"Desire to be good and right"},
+       动机:{zh:"需要正确、有价值、被认可",en:"Need to be right, good, and valued"},
+        desc:{zh:"1号是理想主义者，有强烈的对错观念。他们追求完美，对自己和他人都有高标准。富有责任感和道德感，是改革者和推动者。",en:"Type 1s are idealists with a strong sense of right and wrong. They pursue perfection and hold high standards for themselves and others. They are principled and ethical reformers."},
+        color:"amber",
+        wing:{zh:"1w9 理性改革者 / 1w2 热忱改革者",en:"1w9 The Idealist / 1w2 The Advocate"}
+    },
+    2:{
+        name:{zh:"助人者",en:"The Helper"},
+        nameFull:{zh:"2号 - 助人者",en:"Type 2 - The Helper"},
+        subtitle:{zh:"慷慨、热情、乐于助人",en:"Generous, enthusiastic, helpful"},
+        fear:{zh:"害怕不被需要、不被爱",en:"Fear of being unwanted, unloved"},
+        desire:{zh:"渴望被爱、被需要、有价值",en:"Desire to be loved, needed, valued"},
+        动机:{zh:"需要被爱、有意义、被人感激",en:"Need to be loved, needed, appreciated"},
+        desc:{zh:"2号是天生的照顾者，富有同情心和同理心。他们主动帮助他人，渴望被感激和需要。善于感知他人需求，是温暖的支持者。",en:"Type 2s are natural caretakers with deep compassion. They proactively help others and crave appreciation and being needed. They are warm supporters who sense others' needs."},
+        color:"pink",
+        wing:{zh:"2w1 完美助人者 / 2w3 舞台明星",en:"2w1 The Servant / 2w3 The Pyrate"}
+    },
+    3:{
+        name:{zh:"成就者",en:"The Achiever"},
+        nameFull:{zh:"3号 - 成就者",en:"Type 3 - The Achiever"},
+        subtitle:{zh:"有野心、竞争力强、追求成功",en:"Ambitious, competitive, success-driven"},
+        fear:{zh:"害怕失败、被认为是失败者",en:"Fear of failure, being seen as a failure"},
+        desire:{zh:"渴望成功、被认可、有价值",en:"Desire to succeed, be recognized, be valuable"},
+        动机:{zh:"需要成功、卓越、被欣赏",en:"Need to succeed, excel, be admired"},
+        desc:{zh:"3号是积极进取的行动者，目标导向。他们适应力强，善于塑造自己的形象来获得成功。充满活力，是激励者。",en:"Type 3s are driven actors, goal-oriented. They are highly adaptable and shape their image to achieve success. Full of energy, they inspire others."},
+        color:"orange",
+        wing:{zh:"3w2 魅力成就者 / 3w4 职业成就者",en:"3w2 The Charmer / 3w4 The Professional"}
+    },
+    4:{
+        name:{zh:"个人主义者",en:"The Individualist"},
+        nameFull:{zh:"4号 - 个人主义者",en:"Type 4 - The Individualist"},
+        subtitle:{zh:"有创意、敏感、追求真实",en:"Creative, sensitive, authenticity-seeking"},
+        fear:{zh:"害怕没有独特身份或存在感",en:"Fear of having no identity or significance"},
+        desire:{zh:"渴望真实、独特、被理解",en:"Desire for authenticity, uniqueness, being understood"},
+        动机:{zh:"需要独特、有意义、自我表达",en:"Need to be unique, meaningful, authentic"},
+        desc:{zh:"4号是浪漫的理想主义者，富有想象力和审美。他们追求深度和真实，善于感知细腻情感，是独特的艺术家。",en:"Type 4s are romantic idealists, imaginative and aesthetically attuned. They pursue depth and authenticity, sensing subtle emotions deeply."},
+        color:"purple",
+        wing:{zh:"4w3 名人风格 / 4w5 波西米亚",en:"4w3 The Aristocrat / 4w5 The Bohemian"}
+    },
+    5:{
+        name:{zh:"探索者",en:"The Investigator"},
+        nameFull:{zh:"5号 - 探索者",en:"Type 5 - The Investigator"},
+        subtitle:{zh:"好奇、专注、追求知识",en:"Curious, focused, knowledge-seeking"},
+        fear:{zh:"害怕无能、无知、被吞噬",en:"Fear of being incompetent, ignorant, overwhelmed"},
+        desire:{zh:"渴望理解、洞察、有能力",en:"Desire to understand, have insight, be capable"},
+        动机:{zh:"需要知识、理解、自主",en:"Need for knowledge, understanding, autonomy"},
+        desc:{zh:"5号是深刻的思考者和观察者。他们渴望知识，注重隐私，善于分析。退后一步观察，理解复杂的系统。",en:"Type 5s are deep thinkers and observers. They crave knowledge, value privacy, and excel at analysis. They step back to observe and understand complex systems."},
+        color:"blue",
+        wing:{zh:"5w4 梦幻探索者 / 5w6 問題解決者",en:"5w4 The Iconoclast / 5w6 The Problem Solver"}
+    },
+    6:{
+        name:{zh:"忠诚者",en:"The Loyalist"},
+        nameFull:{zh:"6号 - 忠诚者",en:"Type 6 - The Loyalist"},
+        subtitle:{zh:"负责、谨慎、忠诚可靠",en:"Responsible, cautious, loyal and reliable"},
+        fear:{zh:"害怕没有支持或被抛弃",en:"Fear of being without support or being abandoned"},
+        desire:{zh:"渴望安全、归属、被保护",en:"Desire for security, belonging, protection"},
+        动机:{zh:"需要安全、忠诚、被认可",en:"Need for security, loyalty, support"},
+        desc:{zh:"6号是怀疑者也是忠诚的朋友。他们善于识别风险，质疑权威，但对自己信任的人非常忠诚。是守护者和顾问。",en:"Type 6s are skeptics and loyal friends. They are good at identifying risks and questioning authority, but fiercely loyal to those they trust."},
+        color:"indigo",
+        wing:{zh:"6w5 忠诚思想者 / 6w7 忠诚行动者",en:"6w5 The Guardian / 6w7 The Class Clown"}
+    },
+    7:{
+        name:{zh:"热情者",en:"The Enthusiast"},
+        nameFull:{zh:"7号 - 热情者",en:"Type 7 - The Enthusiast"},
+        subtitle:{zh:"乐观、热情、热爱自由",en:"Optimistic, enthusiastic, freedom-loving"},
+        fear:{zh:"害怕被困、无聊、痛苦",en:"Fear of being trapped, bored, in pain"},
+        desire:{zh:"渴望自由、快乐、满足",en:"Desire for freedom, happiness, fulfillment"},
+        动机:{zh:"需要快乐、自由、多样性",en:"Need for happiness, freedom, variety"},
+        desc:{zh:"7号是乐观的冒险家，热爱生活的可能性。他们充满热情，善于社交，追求新鲜的体验。是点子王和激励者。",en:"Type 7s are optimistic adventurers who love life's possibilities. Full of enthusiasm and social skills, they pursue new experiences."},
+        color:"yellow",
+        wing:{zh:"7w6 热情工作者 / 7w8 现实主义者",en:"7w6 The Entertainer / 7w8 The Realist"}
+    },
+    8:{
+        name:{zh:"挑战者",en:"The Challenger"},
+        nameFull:{zh:"8号 - 挑战者",en:"Type 8 - The Challenger"},
+        subtitle:{zh:"自信、保护者、追求正义",en:"Confident, protective, justice-seeking"},
+        fear:{zh:"害怕被控制、软弱、被伤害",en:"Fear of being controlled, weak, vulnerable"},
+        desire:{zh:"渴望保护自我、掌控生活、正义",en:"Desire to protect self, control life, justice"},
+        动机:{zh:"需要强大、公正、自主",en:"Need to be strong, fair, independent"},
+        desc:{zh:"8号是强势的保护者，直接坦率。他们维护自己所爱的人，愿意承担风险和责任。是天生的领袖和变革者。",en:"Type 8s are强势的保护者，直接坦率。他们维护自己所爱的人，愿意承担风险和责任。是天生的领袖和变革者。"},
+        color:"red",
+        wing:{zh:"8w7 挑战梦想者 / 8w9 谈判者",en:"8w7 The Maverick / 8w9 The Bear"}
+    },
+    9:{
+        name:{zh:"和平者",en:"The Peacemaker"},
+        nameFull:{zh:"9号 - 和平者",en:"Type 9 - The Peacemaker"},
+        subtitle:{zh:"随和、包容、追求和谐",en:"Easygoing, accepting, harmony-seeking"},
+        fear:{zh:"害怕分离、冲突、被抛弃",en:"Fear of separation, conflict, abandonment"},
+        desire:{zh:"渴望和平、内在平静、归属感",en:"Desire for peace, inner calm, belonging"},
+        动机:{zh:"需要和谐、舒适、被接纳",en:"Need for harmony, comfort, acceptance"},
+        desc:{zh:"9号是平和的调解者，富有同理心。他们善于站在他人角度看问题，促进和谐。善于倾听，是天生的仲裁者。",en:"Type 9s are peaceful mediators with deep empathy. They see from others' perspectives and promote harmony. Good listeners and natural arbitrators."},
+        color:"green",
+        wing:{zh:"9w1 和平理想者 / 9w8 和平保护者",en:"9w1 The Dreamer / 9w8 The Referee"}
+    }
+};
+
+var currentQ = 0;
+var answers = {};
+var scores = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0};
+var scaleLabels = {zh:["完全不认同","不太认同","中立","比较认同","完全认同"],en:["Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"]};
+
+function startTest() {
+    document.getElementById('startScreen').classList.add('hidden');
+    document.getElementById('testScreen').classList.remove('hidden');
+    showQuestion(0);
+}
+
+function showQuestion(idx) {
+    var q = questions[idx];
+    var isEN = document.documentElement.lang === 'en';
+    var qText = q.text[isEN ? 'en' : 'zh'];
+    var selected = answers[idx] !== undefined ? answers[idx] : -1;
+    var labels = isEN ? scaleLabels.en : scaleLabels.zh;
+
+    var typeNum = q.type;
+    var typeColors = {1:'amber',2:'pink',3:'orange',4:'purple',5:'blue',6:'indigo',7:'yellow',8:'red',9:'green'};
+    var color = typeColors[typeNum];
+
+    var html = '<div class="bg-white rounded-2xl p-8 shadow-lg">';
+    html += '<div class="text-center mb-4"><span class="inline-block bg-' + color + '-100 text-' + color + '-700 px-4 py-1 rounded-full text-sm font-semibold">Type ' + typeNum + '</span></div>';
+    html += '<h2 class="text-xl font-semibold text-gray-800 mb-8 text-center">' + (idx+1) + '. ' + qText + '</h2>';
+    html += '<div class="flex justify-between items-center gap-2">';
+
+    for (var i = 0; i < 5; i++) {
+        var score = i + 1;
+        html += '<div class="scale-option flex-1 text-center p-3 border-2 rounded-xl ' + (selected === score ? 'selected border-orange-500 bg-orange-500 text-white' : 'border-gray-200 hover:border-orange-300') + '" onclick="selectAnswer(' + score + ')">';
+        html += '<div class="text-xl mb-1">' + ['1','2','3','4','5'][i] + '</div>';
+        html += '<div class="text-xs">' + labels[i] + '</div></div>';
+    }
+
+    html += '</div></div>';
+    document.getElementById('questionContainer').innerHTML = html;
+    document.getElementById('currentQ').textContent = idx + 1;
+    document.getElementById('progressPct').textContent = Math.round((idx / 81) * 100);
+    document.getElementById('progressBar').style.width = (idx / 81 * 100) + '%';
+
+    document.getElementById('prevBtn').classList.toggle('hidden', idx === 0);
+    document.getElementById('nextBtn').classList.toggle('hidden', idx === 80);
+    document.getElementById('submitBtn').classList.toggle('hidden', idx < 80);
+}
+
+function selectAnswer(score) {
+    answers[currentQ] = score;
+    var q = questions[currentQ];
+    scores[q.type] += score;
+    showQuestion(currentQ);
+}
+
+function nextQuestion() {
+    if (answers[currentQ] === undefined) {
+        alert('请选择一个选项 / Please select an option');
+        return;
+    }
+    currentQ++;
+    showQuestion(currentQ);
+}
+
+function prevQuestion() {
+    if (currentQ > 0) {
+        var prevQ = questions[currentQ - 1];
+        if (answers[currentQ - 1] !== undefined) {
+            scores[prevQ.type] -= answers[currentQ - 1];
+        }
+        currentQ--;
+        showQuestion(currentQ);
+    }
+}
+
+function submitTest() {
+    if (answers[currentQ] === undefined) {
+        alert('请选择一个选项 / Please select an option');
+        return;
+    }
+    showResults();
+}
+
+function showResults() {
+    document.getElementById('testScreen').classList.add('hidden');
+    document.getElementById('resultScreen').classList.remove('hidden');
+
+    var isEN = document.documentElement.lang === 'en';
+
+    // Find top type
+    var topType = 1;
+    var topScore = 0;
+    for (var t = 1; t <= 9; t++) {
+        if (scores[t] > topScore) {
+            topScore = scores[t];
+            topType = t;
+        }
+    }
+
+    // Determine wing
+    var wing = scores[topType - 1] > scores[topType + 1] ? topType - 1 : topType + 1;
+    if (topType === 1) wing = scores[2] > scores[9] ? 2 : 9;
+    if (topType === 9) wing = scores[1] > scores[8] ? 1 : 8;
+    var wingScore = scores[wing];
+
+    var info = typeInfo[topType];
+    var wingInfo = typeInfo[wing];
+
+    document.getElementById('resultType').textContent = topType;
+    document.getElementById('resultName').textContent = info.nameFull;
+    document.getElementById('resultSubtitle').textContent = info.subtitle;
+
+    // All type scores
+    var typeColors = {1:'amber',2:'pink',3:'orange',4:'purple',5:'blue',6:'indigo',7:'yellow',8:'red',9:'green'};
+    var scoresHTML = '';
+    for (var ti = 1; ti <= 9; ti++) {
+        var pct = Math.round((scores[ti] / 45) * 100);
+        var active = ti === topType ? 'ring-2 ring-orange-400' : '';
+        scoresHTML += '<div class="type-card text-center p-2 bg-white rounded-xl shadow-sm ' + active + '" title="Type ' + ti + ': ' + scores[ti] + '/45">';
+        scoresHTML += '<div class="text-2xl font-bold text-' + typeColors[ti] + '-500">' + ti + '</div>';
+        scoresHTML += '<div class="text-xs text-gray-500">' + scores[ti] + '</div></div>';
+    }
+    document.getElementById('typeScores').innerHTML = scoresHTML;
+
+    // Main type description
+    var mainDesc = '';
+    mainDesc += '<h3 class="text-xl font-bold text-gray-800 mb-4">🔥 ' + info.nameFull + '</h3>';
+    mainDesc += '<p class="text-gray-600 leading-relaxed mb-4">' + info.desc + '</p>';
+    mainDesc += '<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">';
+    mainDesc += '<div class="bg-red-50 rounded-xl p-4"><div class="font-semibold text-red-700 mb-1">' + (isEN?'Core Fear':'核心恐惧') + '</div><p class="text-gray-600">' + info.fear + '</p></div>';
+    mainDesc += '<div class="bg-green-50 rounded-xl p-4"><div class="font-semibold text-green-700 mb-1">' + (isEN?'Core Desire':'核心渴望') + '</div><p class="text-gray-600">' + info.desire + '</p></div>';
+    mainDesc += '<div class="bg-blue-50 rounded-xl p-4"><div class="font-semibold text-blue-700 mb-1">' + (isEN?'Core Motivation':'核心动机') + '</div><p class="text-gray-600">' + info.动机 + '</p></div>';
+    mainDesc += '</div>';
+    document.getElementById('mainTypeDesc').innerHTML = mainDesc;
+
+    // Wing info
+    var wingStr = topType + 'w' + wing;
+    var wingDesc = wingScore > 20 ? (isEN?'Your Wing is strong':'你的Wing翼型明显') : (isEN?'Secondary influence':'次要影响');
+    var wingContent = '';
+    wingContent += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🪁 Wing分析">🪁 Wing Analysis</span></h3>';
+    wingContent += '<div class="flex items-center gap-4 mb-4">';
+    wingContent += '<div class="text-5xl font-bold text-' + typeColors[topType] + '-500">' + topType + 'w' + wing + '</div>';
+    wingContent += '<div><div class="font-semibold text-gray-700">' + (topType < wing ? (isEN?typeInfo[wing].name+' (Wing)':typeInfo[wing].name+' 翼'):(isEN?typeInfo[wing].name+' (Wing)':typeInfo[wing].name+' 翼')) + '</div>';
+    wingContent += '<div class="text-sm text-gray-500">' + wingDesc + ' - ' + wingInfo.subtitle + '</div></div></div>';
+    wingContent += '<p class="text-gray-600 text-sm">' + (isEN?'Your Wing adds specific qualities to your core type, influencing how you express your Type '+topType+' traits.':wingInfo.name+'翼型为你的核心类型添加了特定的特质，影响你如何表达'+topType+'号的特质。') + '</p>';
+    document.getElementById('wingInfo').innerHTML = wingContent;
+
+    // Stress/Security states
+    var stressType = topType <= 5 ? topType + 4 : (topType === 6 ? 3 : (topType === 7 ? 1 : (topType === 8 ? 5 : 7)));
+    var securityType = topType <= 3 ? topType + 6 : (topType === 4 ? 1 : (topType === 5 ? 8 : (topType === 6 ? 9 : (topType === 7 ? 5 : (topType === 8 ? 2 : 6)))));
+
+    var stressSec = '';
+    stressSec += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="📈 压力与安全状态">📈 Stress & Security States</span></h3>';
+    stressSec += '<div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
+    stressSec += '<div class="bg-red-100 rounded-xl p-4"><div class="font-semibold text-red-700 mb-1">' + (isEN?'Under Stress (Type '+stressType+')':'压力状态 (走向'+stressType+'号)') + '</div><p class="text-sm text-gray-600">' + (isEN?'When stressed, you may exhibit unhealthy traits of Type '+stressType+'. Focus on self-care and healthy coping.':stressType+'号特征。在压力下，你可能表现出'+stressType+'号的不健康特质。请关注自我照顾和健康应对方式。') + '</p></div>';
+    stressSec += '<div class="bg-green-100 rounded-xl p-4"><div class="font-semibold text-green-700 mb-1">' + (isEN?'At Security (Type '+securityType+')':'安全状态 (走向'+securityType+'号)') + '</div><p class="text-sm text-gray-600">' + (isEN?'When secure and growing, you may exhibit healthy traits of Type '+securityType+'.':securityType+'号特征。在安全和成长状态下，你可能表现出'+securityType+'号的健康特质。') + '</p></div>';
+    stressSec += '</div>';
+    document.getElementById('stressSecurity').innerHTML = stressSec;
+
+    // Growth advice
+    var growth = '';
+    growth += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🌱 个人成长建议">🌱 Personal Growth Suggestions</span></h3>';
+    growth += '<ul class="space-y-3 text-gray-600">';
+    growth += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span>' + (isEN?'Recognize your core type '+topType+' patterns and their origins':info.name+'类型的'+topType+'号模式，识别其根源') + '</li>';
+    growth += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span>' + (isEN?'Work on integrating your Wing traits consciously':typeInfo[wing].name+'翼型特质的意识整合') + '</li>';
+    growth += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span>' + (isEN?'Notice when you move to stress/security types and observe without judgment':'注意何时走向压力/安全状态，观察而不评判') + '</li>';
+    growth += '<li class="flex items-start"><span class="text-orange-500 mr-2">•</span><span>' + (isEN?'Practice mindfulness to increase self-awareness':'练习正念，提高自我觉察') + '</li>';
+    growth += '</ul>';
+    document.getElementById('growthAdvice').innerHTML = growth;
+
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function retakeTest() {
+    currentQ = 0;
+    answers = {};
+    scores = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0};
+    document.getElementById('resultScreen').classList.add('hidden');
+    document.getElementById('startScreen').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleLang() {
+    var isEN = document.documentElement.lang === 'en';
+    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    document.getElementById('langToggle').textContent = isEN ? 'EN' : '中文';
+    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+        if (txt) document.title = txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        if (txt) el.content = txt;
+    });
+    if (!document.getElementById('resultScreen').classList.contains('hidden')) {
+        showResults();
+    }
+}
+function initLang() {
+    if (document.cookie.indexOf('lang=en') !== -1) {
+        document.documentElement.lang = 'en';
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = '中文';
+    }
+}
+</script>
+<script>initLang();</script>
+</body>
+</html>

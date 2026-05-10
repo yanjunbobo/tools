@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="MBTI 16型人格测试 - 60题免费精准分析 2026" data-en="MBTI 16 Personality Types Test - 60 Questions Free Accurate Analysis">MBTI 16型人格测试 - 60题免费精准分析 2026</title>
+    <meta name="description" data-zh="免费MBTI 16型人格测试，60道标准题精准分析。测试你的外向/内向(E/I)、感觉/直觉(S/N)、思考/情感(T/F)、判断/知觉(J/P)四个维度，发现你是INTJ还是ENFP等16种人格类型。" data-en="Free MBTI 16 personality test with 60 standard questions. Measures E/I, S/N, T/F, J/P dimensions. Find out if you're INTJ, ENFP, or one of 16 types.">
+    <meta name="keywords" data-zh="MBTI测试,16型人格,MBTI免费测试,INTJ,ENFP,人格测试,性格测试,MBTI题目" data-en="MBTI test,16 personality types,MBTI free test,INTJ,ENFP,personality test,character test,MBTI questions">
+    <meta name="author" content="计度AI工具箱">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.xxym8.com/mbti-16types.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/mbti-16types.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/mbti-16types.html?lang=en">
+    <meta property="og:type" content="article">
+    <meta property="og:title" data-zh="MBTI 16型人格测试 - 60题免费精准分析" data-en="MBTI 16 Personality Types Test - 60 Questions">
+    <meta property="og:description" data-zh="免费MBTI 16型人格测试，60道标准题精准分析四个维度，发现你的性格类型。" data-en="Free MBTI 16 personality test with 60 standard questions across 4 dimensions.">
+    <meta property="og:url" content="https://tools.xxym8.com/mbti-16types.html">
+    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+    <meta name="twitter:card" content="summary">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+        [data-en] { display: none; }
+        html[lang=en] [data-zh] { display: none; }
+        html[lang=en] [data-en] { display: inline; }
+        html[lang=en] [data-en-block] { display: block; }
+        html[lang=en] [data-en-inline] { display: inline; }
+        .option-card { transition: all 0.2s; cursor: pointer; }
+        .option-card:hover { transform: translateY(-2px); }
+        .option-card.selected { border-color: #3b82f6; background-color: #eff6ff; }
+        .progress-fill { transition: width 0.4s ease; }
+        .fade-in { animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .result-card { transition: all 0.3s; }
+        .result-card:hover { transform: scale(1.02); }
+    </style>
+    <script src="ads.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
+            <div class="hidden md:flex gap-6 text-gray-600">
+                <a href="/" class="hover:text-blue-600"><span data-zh>首页</span><span data-en>Home</span></a>
+                <a href="/mbti.html" class="hover:text-blue-600"><span data-zh>人格测试</span><span data-en>Personality</span></a>
+            </div>
+            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
+        </nav>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
+        <nav aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页">首页</span><span data-en>Home</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/mbti.html" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="人格测试">人格测试</span><span data-en>Personality Tests</span></a>
+                    <meta itemprop="position" content="2">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span class="text-gray-700" itemprop="name">MBTI 16型</span>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="max-w-2xl mx-auto px-4 py-12 text-center fade-in">
+        <div class="text-7xl mb-8">🧠</div>
+        <h1 class="text-4xl font-bold text-gray-800 mb-4"><span data-zh>MBTI 16型人格测试</span><span data-en>MBTI 16 Personality Types Test</span></h1>
+        <p class="text-gray-500 mb-8 text-lg"><span data-zh="基于卡尔·荣格心理类型理论，全球超过5000万人测试过">Based on Carl Jung's psychological type theory. Taken by 50M+ people worldwide</span><span data-en>Based on Carl Jung's psychological type theory. Taken by 50M+ people worldwide</span></p>
+        <div class="bg-white rounded-2xl p-8 shadow-lg text-left max-w-md mx-auto mb-8">
+            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh="📋 测试说明">📋 Test Info</span></h3>
+            <ul class="space-y-3 text-gray-600 text-sm">
+                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh="共60道题目，约需8分钟完成">60 questions, ~8 minutes</span><span data-en>60 questions, ~8 minutes</span></li>
+                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh="每个题目二选一，没有标准答案">For each question, choose the answer that best describes you</span><span data-en>For each question, choose the answer that best describes you</span></li>
+                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh="结果基于4个维度分析：外向/内向、感觉/直觉、思考/情感、判断/知觉">Results based on 4 dimensions: E/I, S/N, T/F, J/P</span><span data-en>Results based on 4 dimensions: E/I, S/N, T/F, J/P</span></li>
+                <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span data-zh="完全免费，永久有效，数据隐私安全">100% free, permanent, private</span><span data-en>100% free, permanent, private</span></li>
+            </ul>
+        </div>
+        <button onclick="startTest()" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-blue-600 hover:to-indigo-700 transition shadow-lg">
+            <span data-zh="🚀 开始测试">🚀 Start Test</span><span data-en>🚀 Start Test</span>
+        </button>
+    </div>
+
+    <!-- Test Screen -->
+    <div id="testScreen" class="max-w-2xl mx-auto px-4 py-6 hidden">
+        <div class="mb-6">
+            <div class="flex justify-between text-sm text-gray-500 mb-2">
+                <span><span data-zh="第">Question</span> <span id="currentQ">1</span>/60</span>
+                <span><span data-zh="进度">Progress</span>: <span id="progressPct">0</span>%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-indigo-600 h-2.5 rounded-full progress-fill" style="width:0%"></div>
+            </div>
+        </div>
+        <div id="questionContainer" class="fade-in"></div>
+        <div class="flex justify-between mt-8">
+            <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">
+                <span data-zh="← 上一题">← Previous</span><span data-en>← Previous</span>
+            </button>
+            <div></div>
+            <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition">
+                <span data-zh="下一题 →">Next →</span><span data-en>Next →</span>
+            </button>
+            <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition hidden">
+                <span data-zh="查看结果 →">See Results →</span><span data-en>See Results →</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="resultScreen" class="max-w-3xl mx-auto px-4 py-8 hidden">
+        <div class="text-center mb-8 fade-in">
+            <p class="text-gray-500 mb-2"><span data-zh="你的MBTI人格类型是">Your MBTI Personality Type Is</span><span data-en>Your MBTI Personality Type Is</span></p>
+            <div id="resultType" class="text-7xl font-bold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent mb-4">INTJ</div>
+            <p id="resultName" class="text-2xl font-semibold text-gray-700 mb-2"></p>
+            <p id="resultSubtitle" class="text-gray-500"></p>
+        </div>
+
+        <div id="resultCards" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"></div>
+
+        <div id="dimensionResults" class="bg-white rounded-2xl p-6 shadow-lg mb-8"></div>
+
+        <div id="typeDescription" class="bg-white rounded-2xl p-8 shadow-lg mb-8"></div>
+
+        <div id="careerAdvice" class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 mb-8"></div>
+
+        <div class="text-center">
+            <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-blue-500 text-blue-600 font-semibold hover:bg-blue-50 transition">
+                <span data-zh="🔄 重新测试">🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-gray-400 py-6 text-center mt-12">
+        <p>© 2026 <span data-zh="计度AI工具箱" data-en>JIDU AI Tools</span></p>
+    </footer>
+
+<script>
+var questions = [
+    // Q1-15: E/I dimension
+    {dim:"EI",a:{text:{zh:"在聚会上，你通常是",en:"At a party, you are usually"},optA:{zh:"和所有人打成一片",en:"the life of the party"},optB:{zh:"和少数人深入交流",en:"talking to a few people deeply"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"独处时你更开心",en:"You feel more energized when alone"},optA:{zh:"是的，独处让我精力充沛",en:"Yes, solitude energizes me"},optB:{zh:"不，独处让我感到无聊",en:"No, solitude makes me feel bored"},valA:0,valB:1},
+    {dim:"EI",a:{text:{zh:"你更喜欢",en:"You prefer"},optA:{zh:"和很多人一起工作",en:"working with many people"},optB:{zh:"独自工作或小团队",en:"working alone or with a small team"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"社交活动后，你通常",en:"After social activities, you usually"},optA:{zh:"感到需要休息，独处恢复",en:"feel the need to recharge alone"},optB:{zh:"感到充满活力，想继续",en:"feel energized and want more"},valA:0,valB:1},
+    {dim:"EI",a:{text:{zh:"你更愿意",en:"You prefer to"},optA:{zh:"主动结识新朋友",en:"主动结识新朋友",en:"proactively meet new people"},optB:{zh:"等待别人来接近你",en:"wait for others to approach you"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"你更喜欢谈论",en:"You prefer to talk about"},optA:{zh:"人和事件等外部世界",en:"people and external events"},optB:{zh:"想法和概念等内心世界",en:"ideas and concepts"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"在陌生环境中，你倾向于",en:"In unfamiliar environments, you tend to"},optA:{zh:"主动和周围人攀谈",en:"start conversations with those around you"},optB:{zh:"先观察，再行动",en:"observe first, then act"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"你的理想周末是",en:"Your ideal weekend is"},optA:{zh:"和朋友一起参加各种活动",en:"going out with friends to various events"},optB:{zh:"在家安静地看书或思考",en:"quiet time at home reading or thinking"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"面对问题时，你更倾向于",en:"When facing problems, you prefer to"},optA:{zh:"和别人讨论解决方案",en:"discuss solutions with others"},optB:{zh:"自己思考解决方案",en:"think through solutions yourself"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"你在团队会议中",en:"In team meetings, you"},optA:{zh:"经常发表意见",en:"often share your opinions"},optB:{zh:"倾向于倾听和思考",en:"tend to listen and reflect"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"新认识一个人时，你通常是",en:"When meeting someone new, you are usually"},optA:{zh:"先开口说话",en:"the first to speak"},optB:{zh:"等对方先开口",en:"the one who waits"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"你更容易因为",en:"You are more likely to be energized by"},optA:{zh:"外部刺激和活动",en:"external stimulation and activities"},optB:{zh:"内心反思和安静",en:"inner reflection and quiet"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"如果可以选择，你会",en:"If you could choose, you would"},optA:{zh:"住在繁华的大城市",en:"live in a bustling big city"},optB:{zh:"住在安静的小镇或乡村",en:"live in a quiet small town"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"你和朋友的关系更像是",en:"Your relationship with friends is more like"},optA:{zh:"广泛社交，认识很多人",en:"having a wide social circle"},optB:{zh:"少数深交，关系紧密",en:"having a few close bonds"},valA:1,valB:0},
+    {dim:"EI",a:{text:{zh:"你在工作/学习中更偏好",en:"At work/study, you prefer"},optA:{zh:"开放式办公环境",en:"open office environments"},optB:{zh:"安静独立的工作空间",en:"quiet private workspace"},valA:1,valB:0}},
+
+    // Q16-30: S/N dimension
+    {dim:"SN",a:{text:{zh:"你更关注事物的",en:"You focus more on"},optA:{zh:"具体细节和事实",en:"concrete details and facts"},optB:{zh:"整体模式和可能性",en:"overall patterns and possibilities"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更容易被",en:"You are more attracted to"},optA:{zh:"现实可行的想法吸引",en:"practical and realistic ideas"},optB:{zh:"创新独特的想法吸引",en:"innovative and unique ideas"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更相信",en:"You trust more in"},optA:{zh:"经验和实践证明",en:"experience and practical evidence"},optB:{zh:"直觉和第六感",en:"intuition and hunches"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更喜欢",en:"You prefer"},optA:{zh:"遵循既定的方法和步骤",en:"following established methods and steps"},optB:{zh:"尝试新的方法和途径",en:"trying new methods and approaches"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"读小说时，你更在意",en:"When reading novels, you care more about"},optA:{zh:"情节发展和具体事件",en:"plot development and concrete events"},optB:{zh:"人物内心和象征意义",en:"character interior and symbolism"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"当有人描述未来时，你倾向于",en:"When someone describes the future, you tend to"},optA:{zh:"思考具体的实施计划",en:"think about concrete implementation plans"},optB:{zh:"想象各种可能性",en:"imagine various possibilities"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更像是",en:"You are more like"},optA:{zh:"一个脚踏实地的现实主义者",en:"a practical realist"},optB:{zh:"一个充满想象的理想主义者",en:"an imaginative idealist"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"在解决问题时，你更依靠",en:"When solving problems, you rely more on"},optA:{zh:"过往经验和已知事实",en:"past experience and known facts"},optB:{zh:"创新思维和直觉",en:"creative thinking and intuition"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更感兴趣的是",en:"You are more interested in"},optA:{zh:""这是怎么运作的？"",en:"'How does this work?'"},optB:{zh:""这可能意味着什么？"",en:"'What could this mean?'"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更喜欢",en:"You prefer"},optA:{zh:"有明确说明的操作手册",en:"clear instruction manuals"},optB:{zh:"自己探索和摸索",en:"exploring and figuring things out yourself"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"当你学习新技术时，你希望",en:"When learning a new technology, you want"},optA:{zh:"一步步跟着教程做",en:"to follow step-by-step tutorials"},optB:{zh:"先了解原理，再自由探索",en:"to understand the principles first, then explore"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更关注",en:"You focus more on"},optA:{zh:"现在发生的事",en:"what is happening now"},optB:{zh:"未来可能发生的事",en:"what could happen in the future"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更倾向于",en:"You tend to"},optA:{zh:"接受既定现实",en:"accept things as they are"},optB:{zh:"质疑现状，寻找改进",en:"question the status quo and seek improvement"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"你更容易理解",en:"You more easily understand"},optA:{zh:"具体的例子和数据",en:"concrete examples and data"},optB:{zh:"抽象的概念和理论",en:"abstract concepts and theories"},valA:1,valB:0},
+    {dim:"SN",a:{text:{zh:"在讨论中，你更倾向于",en:"In discussions, you tend to"},optA:{zh:"引用事实和数据",en:"cite facts and data"},optB:{zh:"提出新视角和可能性",en:"offer new perspectives and possibilities"},valA:1,valB:0}},
+
+    // Q31-45: T/F dimension
+    {dim:"TF",a:{text:{zh:"当你做决定时，你更看重",en:"When making decisions, you weigh more"},optA:{zh:"逻辑和客观分析",en:"logic and objective analysis"},optB:{zh:"对他人的影响和感受",en:"impact on people and feelings"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你认为",en:"You believe"},optA:{zh:"公正比慈悲更重要",en:"fairness is more important than mercy"},optB:{zh:"慈悲比公正更重要",en:"mercy is more important than fairness"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你更容易被",en:"You are more moved by"},optA:{zh:"有力的论据和数据说服",en:"strong arguments and data"},optB:{zh:"真诚的情感和故事打动",en:"sincere emotions and stories"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你更愿意别人认为你",en:"You prefer others see you as"},optA:{zh:"理性、客观、有逻辑",en:"rational, objective, logical"},optB:{zh:"温暖、有同情心、善解人意",en:"warm, compassionate, understanding"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"当别人向你诉苦时，你通常",en:"When someone shares their problems, you usually"},optA:{zh:"试图帮助分析问题和解决",en:"try to analyze and solve the problem"},optB:{zh:"先给予情感上的支持和安慰",en:"first offer emotional support and comfort"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你觉得",en:"You feel"},optA:{zh:"指出别人的错误是应该的",en:"it's right to point out others' mistakes"},optB:{zh:"应该顾及别人的面子和感受",en:"should consider others' face and feelings"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你更容易",en:"You more easily"},optA:{zh:"客观评价人和事",en:"objectively evaluate people and things"},optB:{zh:"考虑每个人的特殊情况",en:"consider each person's specific circumstances"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你更相信",en:"You trust more in"},optA:{zh:"逻辑推理可以解决大多数问题",en:"logical reasoning can solve most problems"},optB:{zh:"人际关系和情感更重要",en:"relationships and emotions matter more"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你更喜欢",en:"You prefer"},optA:{zh:"讨论客观事实和分析",en:"discussions about objective facts and analysis"},optB:{zh:"分享个人经历和感受",en:"sharing personal experiences and feelings"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你觉得自己是",en:"You consider yourself"},optA:{zh:"一个有原则的人",en:"a principled person"},optB:{zh:"一个灵活变通的人",en:"a flexible person"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"在争论中，你更坚持",en:"In arguments, you insist more on"},optA:{zh:"真理和逻辑",en:"truth and logic"},optB:{zh:"和谐和关系",en:"harmony and relationships"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你觉得道歉",en:"You think apologizing is"},optA:{zh:"承认错误是必要的",en:"necessary to acknowledge mistakes"},optB:{zh:"有时会伤害自尊",en:"sometimes hurts self-respect"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你更欣赏",en:"You appreciate more"},optA:{zh:"效率和能力",en:"efficiency and competence"},optB:{zh:"善良和体贴",en:"kindness and thoughtfulness"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"你更容易因为",en:"You are more likely to be upset by"},optA:{zh:"不合理的规则和决定",en:"unreasonable rules and decisions"},optB:{zh:"伤害他人感情的言行",en:"words and actions that hurt others' feelings"},valA:1,valB:0},
+    {dim:"TF",a:{text:{zh:"当朋友做决定时，你更倾向于",en:"When a friend is making a decision, you are more likely to"},optA:{zh:"帮他分析各种选择的利弊",en:"help analyze pros and cons of options"},optB:{zh:"关心他的感受和需要",en:"care about his/her feelings and needs"},valA:1,valB:0}},
+
+    // Q46-60: J/P dimension
+    {dim:"JP",a:{text:{zh:"你更喜欢",en:"You prefer"},optA:{zh:"有计划、有组织的生活方式",en:"a planned, organized lifestyle"},optB:{zh:"灵活随性的生活方式",en:"a flexible, spontaneous lifestyle"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你觉得deadline",en:"You feel deadlines are"},optA:{zh:"必要的，能提高效率",en:"necessary and help productivity"},optB:{zh:"有压力的，想按自己节奏",en:"stressful, prefer working at own pace"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更倾向于",en:"You tend to"},optA:{zh:"提前规划并完成任务",en:"plan ahead and complete tasks early"},optB:{zh:"在压力下才完成任务",en:"complete tasks under pressure"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更喜欢",en:"You prefer"},optA:{zh:"确定的事情和已知的答案",en:"certain things and known answers"},optB:{zh:"未知和开放式的问题",en:"unknowns and open-ended questions"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更愿意",en:"You prefer to"},optA:{zh:"把事情决定好再行动",en:"decide before acting"},optB:{zh:"边做边看，随机应变",en:"act first and adapt along the way"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你的书桌/工作台通常是",en:"Your desk/workspace is usually"},optA:{zh:"整洁有序，物品归位",en:"tidy and organized"},optB:{zh:"有些乱，但你知道东西在哪",en:"messy but you know where things are"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更讨厌",en:"You dislike more"},optA:{zh:"计划被打乱和意外变化",en:"plans being disrupted and unexpected changes"},optB:{zh:"无聊和缺乏变化",en:"boredom and lack of variety"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"当你要出门时，你通常",en:"When going out, you usually"},optA:{zh:"提前计划好时间和地点",en:"plan the time and place in advance"},optB:{zh:"临时决定，随性而行",en:"decide spontaneously"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更享受",en:"You enjoy more"},optA:{zh:"完成任务后的满足感",en:"the satisfaction of completing tasks"},optB:{zh:"探索新事物的新鲜感",en:"the excitement of exploring new things"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更倾向于做一个",en:"You are more of a"},optA:{zh:"有组织、有条理的人",en:"organized and structured person"},optB:{zh:"随性而为、灵活应变的人",en:"spontaneous and adaptable person"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更喜欢",en:"You prefer"},optA:{zh:"按部就班地完成任务",en:"completing tasks in a methodical way"},optB:{zh:"在最后时刻冲刺完成",en:"rushing to complete at the last minute"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你觉得",en:"You think"},optA:{zh:"应该遵守规则和承诺",en:"rules and commitments should be followed"},optB:{zh:"特殊情况可以灵活变通",en:"special circumstances allow flexibility"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更欣赏",en:"You appreciate more"},optA:{zh:"有序、整洁、准备充分",en:"orderliness, cleanliness, being prepared"},optB:{zh:"自由、开放、可能性",en:"freedom, openness, possibilities"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"旅行时，你更倾向于",en:"When traveling, you tend to"},optA:{zh:"提前预订好所有行程",en:"book all itinerary in advance"},optB:{zh:"随性探索，不做太多计划",en:"explore spontaneously without much planning"},valA:1,valB:0},
+    {dim:"JP",a:{text:{zh:"你更认同",en:"You agree more with"},optA:{zh:""计划赶不上变化，要灵活调整"",en:"'Plans change, stay flexible'"},optB:{zh:""早做准备，以防万一"",en:"'Be prepared for anything'"},valA:1,valB:0}}
+];
+
+var typeInfo = {
+    INTJ:{name:{zh:"建筑师",en:"Architect"},desc:{zh:"INTJ是战略主义者，拥有极强的逻辑思维和独立思考能力。他们是天生的策划者，善于制定长期计划并坚定执行。理性、追求效率、对平庸零容忍。",en:"INTJs are strategic thinkers with powerful logical minds and independent thinking. They are natural planners, skilled at developing long-term strategies and executing them determinedly."},strengths:{zh:["战略思维","独立自主","逻辑清晰","追求卓越","自律性强"],en:["Strategic thinking","Independence","Clear logic","Pursuit of excellence","Self-discipline"]},careers:{zh:["战略咨询","金融分析","法律","科研","工程管理"],en:["Strategy consulting","Financial analysis","Law","Research","Engineering management"]}},
+    INTP:{name:{zh:"逻辑学家",en:"Logician"},desc:{zh:"INTP是深刻的思考者，对知识和理解有着无尽的渴望。他们喜欢复杂的理论，善于分析各种想法和系统。安静、内敛、富有创造力。",en:"INTPs are deep thinkers with an endless thirst for knowledge and understanding. They love complex theories and excel at analyzing ideas and systems."},strengths:{zh:["深度分析","逻辑严谨","创造力强","求知欲强","客观中立"],en:["Deep analysis","Rigorous logic","Strong creativity","Curiosity","Objectivity"]},careers:{zh:["科研","编程/开发","哲学","数据科学","学术研究"],en:["Research","Programming","Philosophy","Data science","Academic research"]}},
+    ENTJ:{name:{zh:"指挥官",en:"Commander"},desc:{zh:"ENTJ是天生的领导者，果断、自信、富有感染力。他们善于组织团队、制定战略、推动变革。喜欢挑战，追求胜利。",en:"ENTJs are natural leaders, decisive, confident, and charismatic. They excel at organizing teams, developing strategies, and driving change."},strengths:{zh:["领导能力强","决策果断","自信积极","战略眼光","执行力强"],en:["Strong leadership","Decisive decisions","Confidence","Strategic vision","Execution"]},careers:{zh:["企业管理","创业","咨询","法律","政治"],en:["Business management","Entrepreneurship","Consulting","Law","Politics"]}},
+    ENTP:{name:{zh:"辩论家",en:"Debater"},desc:{zh:"ENTP是富有创造力的思想家，好奇心旺盛，喜欢智识挑战。他们善于发现机会、推动创新，是天生的辩论家。",en:"ENTPs are creative thinkers with boundless curiosity and love for intellectual challenges. They excel at spotting opportunities and driving innovation."},strengths:{zh:["创新思维","善于辩论","适应力强","社交能力强","善于启发"],en:["Innovative thinking","Debating skill","Adaptability","Social skills","Inspiring others"]},careers:{zh:["创业","市场营销","咨询","发明创造","公共关系"],en:["Entrepreneurship","Marketing","Consulting","Inventing","Public relations"]}},
+    INFJ:{name:{zh:"提倡者",en:"Advocate"},desc:{zh:"INFJ是理想主义者，富有同理心和对人类深刻的关怀。他们追求意义和价值，是天生的引导者和顾问。安静而坚定。",en:"INFJs are idealists with deep empathy and concern for humanity. They seek meaning and value, and are natural guides and counselors."},strengths:{zh:["同理心强","理想主义","洞察力强","有原则","善于引导"],en:["Strong empathy","Idealism","Insight","Principled","Mentoring"]},careers:{zh:["心理咨询","社会工作","教育","写作","医疗健康"],en:["Counseling","Social work","Education","Writing","Healthcare"]}},
+    INFP:{name:{zh:"调停者",en:"Mediator"},desc:{zh:"INFP是浪漫的理想主义者，温柔、富有想象力。他们追求真实和意义，重视个人成长和自我表达。安静而有深度。",en:"INFPs are romantic idealists, gentle and imaginative. They pursue authenticity and meaning, valuing personal growth and self-expression."},strengths:{zh:["同理心","创造力","理想主义","适应力","善于倾听"],en:["Empathy","Creativity","Idealism","Adaptability","Listening"]},careers:{zh:["写作","艺术","心理咨询","人力资源","非营利组织"],en:["Writing","Art","Counseling","HR","Non-profits"]}},
+    ENFJ:{name:{zh:"主人公",en:"Protagonist"},desc:{zh:"ENFJ是魅力四射的领导者，热情、正直、富有感染力。他们善于激励他人、引导成长，是天生的领袖和人际协调者。",en:"ENFJs are charismatic leaders, passionate, principled, and infectious. They inspire others and guide growth, natural leaders and relationship builders."},strengths:{zh:["领导魅力","感染力强","同理心","沟通能力","理想主义"],en:["Charismatic leadership","Influence","Empathy","Communication","Idealism"]},careers:{zh:["管理","培训","教育","人力资源","公共关系"],en:["Management","Training","Education","HR","Public relations"]}},
+    ENFP:{name:{zh:"竞选者",en:"Campaigner"},desc:{zh:"ENFP是充满热情的创意者，乐观、好奇、富有表现力。他们喜欢可能性和新的体验，是天生的激励者和创意源泉。",en:"ENFPs are passionate creatives, optimistic, curious, and expressive. They love possibilities and new experiences, natural motivators and sources of inspiration."},strengths:{zh:["热情洋溢","创意无限","社交能力强","适应力强","激励他人"],en:["Passionate","Creative","Social","Adaptable","Inspiring"]},careers:{zh:["市场营销","广告","创意产业","旅游","活动策划"],en:["Marketing","Advertising","Creative industries","Tourism","Event planning"]}},
+    ISTJ:{name:{zh:"物流师",en:"Logistician"},desc:{zh:"ISTJ是可靠务实的人，注重责任和承诺。他们做事有条理、负责任，是值得信赖的支柱。传统、诚实、有原则。",en:"ISTJs are reliable and practical people who value responsibility and commitment. Organized and dependable, they are trustworthy pillars."},strengths:{zh:["可靠性","责任感","务实","有组织","诚信正直"],en:["Reliability","Responsibility","Practicality","Organization","Integrity"]},careers:{zh:["会计","法律","管理","行政","金融"],en:["Accounting","Law","Management","Administration","Finance"]}},
+    ISFJ:{name:{zh:"守卫者",en:"Defender"},desc:{zh:"ISFJ是忠诚温暖的守护者，慷慨、体贴、注重细节。他们默默奉献，是朋友和家人坚实的后盾。富有责任感和同情心。",en:"ISFJs are loyal and warm protectors, generous, considerate, and detail-oriented. They give quietly and are steadfast pillars for friends and family."},strengths:{zh:["忠诚可靠","体贴温暖","责任感强","注重细节","乐于助人"],en:["Loyalty","Warmth","Strong sense of duty","Attention to detail","Helpfulness"]},careers:{zh:["护理","行政","人力资源","社会工作","教育"],en:["Nursing","Administration","HR","Social work","Education"]}},
+    ESTJ:{name:{zh:"总经理",en:"Executive"},desc:{zh:"ESTJ是务实的组织者，注重效率和成果。他们善于管理事务和人员，决策果断、执行力强，是传统价值观的守护者。",en:"ESTJs are practical organizers who value efficiency and results. They excel at managing affairs and people, making decisive decisions with strong execution."},strengths:{zh:["组织能力强","执行力强","决策果断","责任感强","传统可靠"],en:["Strong organization","Execution","Decisive","Responsible","Traditional reliability"]},careers:{zh:["企业管理","行政管理","法律","执法","金融"],en:["Business management","Administration","Law","Law enforcement","Finance"]}},
+    ESFJ:{name:{zh:"执政官",en:"Consul"},desc:{zh:"ESFJ是热心的组织者，友好、善于社交、乐于助人。他们注重和谐的人际关系，是受欢迎的氛围制造者和关怀者。",en:"ESFJs are enthusiastic organizers, friendly, social, and helpful. They value harmonious relationships and are popular atmosphere creators and caretakers."},strengths:{zh:["社交能力强","善于照顾他人","热情友好","有责任感","善于协调"],en:["Social skills","Caring for others","Warm and friendly","Responsible","Diplomatic"]},careers:{zh:["人力资源","销售","护理","教育","客户服务"],en:["HR","Sales","Nursing","Education","Customer service"]}},
+    ISTP:{name:{zh:"鉴赏家",en:"Virtuoso"},desc:{zh:"ISTP是务实的行动者，冷静、理性、善于分析。他们喜欢探索事物的运作原理，动手能力强，是天生的工匠和解决者。",en:"ISTPs are pragmatic actors, calm, rational, and analytical. They love understanding how things work and are natural craftspeople and problem solvers."},strengths:{zh:["动手能力强","分析能力强","冷静理性","适应力强","实用主义"],en:["Hands-on skills","Strong analysis","Calm and rational","Adaptability","Pragmatism"]},careers:{zh:["工程","机械","信息技术","执法","体育"],en:["Engineering","Mechanics","IT","Law enforcement","Sports"]}},
+    ISFP:{name:{zh:"探险家",en:"Adventurer"},desc:{zh:"ISFP是自由的艺术家，温柔、敏感、富有审美。他们活在当下，追求真实和美，是热情的探险家和创意表达者。",en:"ISFPs are free artists, gentle, sensitive, and aesthetically attuned. They live in the moment, pursuing authenticity and beauty."},strengths:{zh:["艺术气质","敏感细腻","适应力强","观察力强","善于表达"],en:["Artistic temperament","Sensitivity","Adaptability","Observant","Expressive"]},careers:{zh:["艺术设计","摄影","音乐","时尚","手工艺"],en:["Art and design","Photography","Music","Fashion","Crafts"]}},
+    ESTP:{name:{zh:"企业家",en:"Entrepreneur"},desc:{zh:"ESTP是充满活力的行动者，大胆、灵活、善于社交。他们喜欢挑战和刺激，是天生的谈判者和机会捕捉者。",en:"ESTPs are energetic actors, bold, flexible, and social. They love challenges and excitement, and are natural negotiators and opportunity seekers."},strengths:{zh:["行动力强","社交能力强","灵活变通","大胆果断","务实"],en:["Action-oriented","Social skills","Flexible","Bold and decisive","Practical"]},careers:{zh:["创业","销售","金融","房地产","演艺"],en:["Entrepreneurship","Sales","Finance","Real estate","Entertainment"]}},
+    ESFP:{name:{zh:"表演者",en:"Entertainer"},desc:{zh:"ESFP是热情的表演者，友好、外向、热爱生活。他们喜欢成为焦点，带给他人快乐，是天生的娱乐者和氛围制造者。",en:"ESFPs are passionate performers, friendly, outgoing, and life-loving. They love being the center of attention and bringing joy to others."},strengths:{zh:["热情洋溢","社交能力强","有感染力","活在当下","多才多艺"],en:["Enthusiastic","Social skills","Contagious energy","Living in the moment","Versatile"]},careers:{zh:["表演艺术","销售","旅游","活动策划","娱乐产业"],en:["Performing arts","Sales","Tourism","Event planning","Entertainment"]}}
+};
+
+var currentQ = 0;
+var answers = {};
+var scores = {E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
+
+function startTest() {
+    document.getElementById('startScreen').classList.add('hidden');
+    document.getElementById('testScreen').classList.remove('hidden');
+    showQuestion(0);
+}
+
+function showQuestion(idx) {
+    var q = questions[idx];
+    var isEN = document.documentElement.lang === 'en';
+    var qText = q.a.text[isEN ? 'en' : 'zh'];
+    var optAText = q.a.optA[isEN ? 'en' : 'zh'];
+    var optBText = q.a.optB[isEN ? 'en' : 'zh'];
+    var selected = answers[idx];
+
+    var html = '<div class="bg-white rounded-2xl p-8 shadow-lg">';
+    html += '<h2 class="text-xl font-semibold text-gray-800 mb-8 text-center">' + (idx+1) + '. ' + qText + '</h2>';
+    html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
+
+    html += '<div class="option-card p-5 border-2 rounded-xl ' + (selected==='A'?'selected border-blue-500':'border-gray-200') + '" onclick="selectAnswer(\'A\')">';
+    html += '<div class="flex items-center"><div class="w-8 h-8 rounded-full border-2 ' + (selected==='A'?'bg-blue-500 border-blue-500':'border-gray-300') + ' flex items-center justify-center text-white font-bold mr-4 option-indicator" id="indA">A</div>';
+    html += '<div class="text-gray-700 font-medium">' + optAText + '</div></div></div>';
+
+    html += '<div class="option-card p-5 border-2 rounded-xl ' + (selected==='B'?'selected border-blue-500':'border-gray-200') + '" onclick="selectAnswer(\'B\')">';
+    html += '<div class="flex items-center"><div class="w-8 h-8 rounded-full border-2 ' + (selected==='B'?'bg-blue-500 border-blue-500':'border-gray-300') + ' flex items-center justify-center text-white font-bold mr-4 option-indicator" id="indB">B</div>';
+    html += '<div class="text-gray-700 font-medium">' + optBText + '</div></div></div>';
+
+    html += '</div></div>';
+
+    document.getElementById('questionContainer').innerHTML = html;
+    document.getElementById('currentQ').textContent = idx + 1;
+    document.getElementById('progressPct').textContent = Math.round((idx / 60) * 100);
+    document.getElementById('progressBar').style.width = (idx / 60 * 100) + '%';
+
+    document.getElementById('prevBtn').classList.toggle('hidden', idx === 0);
+    document.getElementById('nextBtn').classList.toggle('hidden', idx === 59);
+    document.getElementById('submitBtn').classList.toggle('hidden', idx < 59);
+}
+
+function selectAnswer(choice) {
+    answers[currentQ] = choice;
+    var q = questions[currentQ];
+    if (currentQ < 15) {
+        if (choice === 'A') { scores.E += q.a.valA; scores.I += q.a.valB; }
+        else { scores.E += q.a.valB; scores.I += q.a.valA; }
+    } else if (currentQ < 30) {
+        if (choice === 'A') { scores.S += q.a.valA; scores.N += q.a.valB; }
+        else { scores.S += q.a.valB; scores.N += q.a.valA; }
+    } else if (currentQ < 45) {
+        if (choice === 'A') { scores.T += q.a.valA; scores.F += q.a.valB; }
+        else { scores.T += q.a.valB; scores.F += q.a.valA; }
+    } else {
+        if (choice === 'A') { scores.J += q.a.valA; scores.P += q.a.valB; }
+        else { scores.J += q.a.valB; scores.P += q.a.valA; }
+    }
+    showQuestion(currentQ);
+}
+
+function nextQuestion() {
+    if (answers[currentQ] === undefined) {
+        alert('请选择一个选项 / Please select an option');
+        return;
+    }
+    currentQ++;
+    showQuestion(currentQ);
+}
+
+function prevQuestion() {
+    if (currentQ > 0) {
+        currentQ--;
+        showQuestion(currentQ);
+    }
+}
+
+function submitTest() {
+    if (answers[currentQ] === undefined) {
+        alert('请选择一个选项 / Please select an option');
+        return;
+    }
+    showResults();
+}
+
+function showResults() {
+    document.getElementById('testScreen').classList.add('hidden');
+    document.getElementById('resultScreen').classList.remove('hidden');
+
+    var type = (scores.E >= scores.I ? 'E' : 'I') + (scores.S >= scores.N ? 'S' : 'N') + (scores.T >= scores.F ? 'T' : 'F') + (scores.J >= scores.P ? 'J' : 'P');
+    var info = typeInfo[type];
+    var isEN = document.documentElement.lang === 'en';
+
+    document.getElementById('resultType').textContent = type;
+    document.getElementById('resultName').textContent = (isEN ? info.name.en : info.name.zh) + ' (' + type + ')';
+    document.getElementById('resultSubtitle').textContent = isEN ? info.desc.en : info.desc.zh;
+
+    // Dimension cards
+    var dims = [
+        {key: isEN?'Extravert':'外向',score:scores.E,other:scores.I,sym:'E',otherSym:'I',color:'bg-blue-500'},
+        {key: isEN?'Introvert':'内向',score:scores.I,other:scores.E,sym:'I',otherSym:'E',color:'bg-indigo-500'},
+        {key: isEN?'Sensing':'感觉',score:scores.S,other:scores.N,sym:'S',otherSym:'N',color:'bg-green-500'},
+        {key: isEN?'Intuition':'直觉',score:scores.N,other:scores.S,sym:'N',otherSym:'S',color:'bg-emerald-500'},
+        {key: isEN?'Thinking':'思考',score:scores.T,other:scores.F,sym:'T',otherSym:'F',color:'bg-orange-500'},
+        {key: isEN?'Feeling':'情感',score:scores.F,other:scores.T,sym:'F',otherSym:'T',color:'bg-red-500'},
+        {key: isEN?'Judging':'判断',score:scores.J,other:scores.P,sym:'J',otherSym:'P',color:'bg-purple-500'},
+        {key: isEN?'Perceiving':'知觉',score:scores.P,other:scores.J,sym:'P',otherSym:'J',color:'bg-pink-500'}
+    ];
+
+    var cardsHTML = '';
+    dims.forEach(function(d) {
+        var pct = Math.round((d.score / (d.score + d.other)) * 100);
+        cardsHTML += '<div class="result-card bg-white rounded-xl p-4 shadow-sm border border-gray-100">';
+        cardsHTML += '<div class="flex justify-between items-center mb-2"><span class="text-sm font-semibold text-gray-700">' + d.key + '</span><span class="text-lg font-bold ' + d.color.replace('bg-','text-') + '">' + d.sym + '</span></div>';
+        cardsHTML += '<div class="w-full bg-gray-200 rounded-full h-2"><div class="' + d.color + ' h-2 rounded-full" style="width:' + pct + '%"></div></div>';
+        cardsHTML += '<div class="text-xs text-gray-400 mt-1">' + d.score + ' vs ' + d.other + '</div></div>';
+    });
+    document.getElementById('resultCards').innerHTML = cardsHTML;
+
+    // Dimension explanation
+    var dimResult = document.getElementById('dimensionResults');
+    var dimHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="📊 维度分析">📊 Dimension Analysis</span></h3><div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
+    dimHTML += '<div class="bg-blue-50 rounded-xl p-4"><div class="font-semibold text-blue-700 mb-1">E/I: ' + (scores.E>=scores.I?'Extravert (外向)':'Introvert (内向)') + '</div><p class="text-sm text-gray-600">' + (scores.E>=scores.I?(isEN?'You gain energy from external world':'你从外部世界获得能量'):(isEN?'You gain energy from internal world':'你从内心世界获得能量')) + '</p></div>';
+    dimHTML += '<div class="bg-green-50 rounded-xl p-4"><div class="font-semibold text-green-700 mb-1">S/N: ' + (scores.S>=scores.N?'Sensing (感觉)':'Intuition (直觉)') + '</div><p class="text-sm text-gray-600">' + (scores.S>=scores.N?(isEN?'You focus on concrete facts and details':'你关注具体事实和细节'):(isEN?'You focus on patterns and possibilities':'你关注整体模式和可能性')) + '</p></div>';
+    dimHTML += '<div class="bg-orange-50 rounded-xl p-4"><div class="font-semibold text-orange-700 mb-1">T/F: ' + (scores.T>=scores.F?'Thinking (思考)':'Feeling (情感)') + '</div><p class="text-sm text-gray-600">' + (scores.T>=scores.F?(isEN?'You make decisions based on logic':'你基于逻辑做决定'):(isEN?'You make decisions based on values and feelings':'你基于价值观和情感做决定')) + '</p></div>';
+    dimHTML += '<div class="bg-purple-50 rounded-xl p-4"><div class="font-semibold text-purple-700 mb-1">J/P: ' + (scores.J>=scores.P?'Judging (判断)':'Perceiving (知觉)') + '</div><p class="text-sm text-gray-600">' + (scores.J>=scores.P?(isEN?'You prefer structure and planning':'你偏好结构和计划'):(isEN?'You prefer flexibility and spontaneity':'你偏好灵活和即兴')) + '</p></div>';
+    dimHTML += '</div>';
+    dimResult.innerHTML = dimHTML;
+
+    // Type description
+    var typeDesc = document.getElementById('typeDescription');
+    var strengthsHTML = info.strengths[isEN?'en':'zh'].map(function(s){return '<span class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700">' + s + '</span>';}).join(' ');
+    var careersHTML = info.careers[isEN?'en':'zh'].map(function(c){return '<span class="bg-blue-50 px-3 py-1 rounded-full text-sm text-blue-700">' + c + '</span>';}).join(' ');
+    typeDesc.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🧠 ' + type + ' 详细分析">🧠 ' + type + ' Detailed Analysis</span></h3><p class="text-gray-600 leading-relaxed mb-6">' + (isEN?info.desc.en:info.desc.zh) + '</p><div class="mb-4"><div class="font-semibold text-gray-700 mb-2"><span data-zh="核心优势">Core Strengths</span><span data-en>Core Strengths</span></div><div class="flex flex-wrap gap-2">' + strengthsHTML + '</div></div><div><div class="font-semibold text-gray-700 mb-2"><span data-zh="适合职业">Suitable Careers</span><span data-en>Suitable Careers</span></div><div class="flex flex-wrap gap-2">' + careersHTML + '</div></div>';
+
+    // Career advice
+    var careerAdvice = document.getElementById('careerAdvice');
+    careerAdvice.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="💼 发展建议">💼 Development Suggestions</span></h3><ul class="space-y-3 text-gray-600">' +
+        '<li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span>' + (isEN?'Leverage your ' + type + ' strengths in team settings':'在你的团队中发挥' + type + '类型的优势') + '</span></li>' +
+        '<li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span>' + (isEN?'Be aware of potential weaknesses and work on them':'了解自身的潜在弱点并加以改进') + '</span></li>' +
+        '<li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span>' + (isEN?'Seek environments that match your personality type':'寻找与你人格类型相匹配的工作环境') + '</span></li>' +
+        '</ul>';
+
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function retakeTest() {
+    currentQ = 0;
+    answers = {};
+    scores = {E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
+    document.getElementById('resultScreen').classList.add('hidden');
+    document.getElementById('startScreen').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleLang() {
+    var isEN = document.documentElement.lang === 'en';
+    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    document.getElementById('langToggle').textContent = isEN ? 'EN' : '中文';
+    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+        if (txt) document.title = txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        if (txt) el.content = txt;
+    });
+    if (document.getElementById('resultScreen').classList.contains('hidden') === false) {
+        showResults();
+    } else if (!document.getElementById('startScreen').classList.contains('hidden')) {
+        // start screen, no need to refresh
+    }
+}
+function initLang() {
+    if (document.cookie.indexOf('lang=en') !== -1) {
+        document.documentElement.lang = 'en';
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = '中文';
+    }
+}
+</script>
+<script>initLang();</script>
+</body>
+</html>

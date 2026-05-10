@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="大五人格测试 - 50题免费精准分析 2026" data-en="Big Five Personality Test - 50 Questions Free Accurate Analysis">大五人格测试 - 50题免费精准分析 2026</title>
+    <meta name="description" data-zh="免费大五人格测试（NEO-FFI标准版），50道题精准评估开放性、尽责性、外向性、宜人性、神经质五大维度。心理学界公认最科学的人格测试。" data-en="Free Big Five personality test (NEO-FFI standard). 50 questions measuring Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism - the most scientifically validated model.">
+    <meta name="keywords" data-zh="大五人格测试,Big Five,NEO-FFI,开放性,尽责性,外向性,宜人性,神经质,免费人格测试" data-en="Big Five personality test,NEO-FFI,Openness,Conscientiousness,Extraversion,Agreeableness,Neuroticism,free personality test">
+    <meta name="author" content="计度AI工具箱">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.xxym8.com/mbti-bigfive.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/mbti-bigfive.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/mbti-bigfive.html?lang=en">
+    <meta property="og:type" content="article">
+    <meta property="og:title" data-zh="大五人格测试 - 心理学界公认最科学的人格模型" data-en="Big Five Personality Test - Most Scientifically Validated Model">
+    <meta property="og:description" data-zh="免费大五人格测试，50道题评估五大核心维度，揭示你的人格特质谱系。" data-en="Free Big Five test. 50 questions across 5 core dimensions.">
+    <meta property="og:url" content="https://tools.xxym8.com/mbti-bigfive.html">
+    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+    <meta name="twitter:card" content="summary">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+        [data-en] { display: none; }
+        html[lang=en] [data-zh] { display: none; }
+        html[lang=en] [data-en] { display: inline; }
+        html[lang=en] [data-en-block] { display: block; }
+        .option-card { transition: all 0.2s; cursor: pointer; }
+        .option-card:hover { transform: translateY(-2px); }
+        .option-card.selected { border-color: #10b981; background-color: #ecfdf5; }
+        .scale-option { transition: all 0.2s; cursor: pointer; }
+        .scale-option:hover { transform: translateY(-2px); }
+        .scale-option.selected { background-color: #10b981; color: white; }
+        .progress-fill { transition: width 0.4s ease; }
+        .fade-in { animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .result-card { transition: all 0.3s; }
+        .result-card:hover { transform: scale(1.02); }
+    </style>
+    <script src="ads.js"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
+            <div class="hidden md:flex gap-6 text-gray-600">
+                <a href="/" class="hover:text-blue-600"><span data-zh>首页</span><span data-en>Home</span></a>
+                <a href="/mbti.html" class="hover:text-blue-600"><span data-zh>人格测试</span><span data-en>Personality</span></a>
+            </div>
+            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
+        </nav>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-4 py-3 text-sm text-gray-500">
+        <nav aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页">首页</span><span data-en>Home</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/mbti.html" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="人格测试">Personality Tests</span></a>
+                    <meta itemprop="position" content="2">
+                </li>
+                <span class="mx-2 text-gray-400">/</span>
+                <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span class="text-gray-700" itemprop="name">Big Five</span>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="max-w-2xl mx-auto px-4 py-12 text-center fade-in">
+        <div class="text-7xl mb-8">🌿</div>
+        <h1 class="text-4xl font-bold text-gray-800 mb-4"><span data-zh>大五人格测试</span><span data-en>Big Five Personality Test</span></h1>
+        <p class="text-gray-500 mb-8 text-lg"><span data-zh="心理学界公认最科学的人格模型 · NEO-FFI标准版">Most scientifically validated personality model · NEO-FFI Standard</span><span data-en>Most scientifically validated personality model · NEO-FFI Standard</span></p>
+        <div class="bg-white rounded-2xl p-8 shadow-lg text-left max-w-md mx-auto mb-8">
+            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh="📋 测试说明">📋 Test Info</span></h3>
+            <ul class="space-y-3 text-gray-600 text-sm">
+                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh="共50道题目，约需7分钟完成">50 questions, ~7 minutes</span><span data-en>50 questions, ~7 minutes</span></li>
+                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh="采用1-5分评分（非常不同意~非常同意）">1-5 scale (Strongly Disagree to Strongly Agree)</span><span data-en>1-5 scale (Strongly Disagree to Strongly Agree)</span></li>
+                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh="测量五大维度：开放性、尽责性、外向性、宜人性、神经质">Measures 5 dimensions: O, C, E, A, N</span><span data-en>Measures 5 dimensions: O, C, E, A, N</span></li>
+                <li class="flex items-start"><span class="text-green-500 mr-2">•</span><span data-zh="完全免费，数据隐私安全">100% free, private</span><span data-en>100% free, private</span></li>
+            </ul>
+        </div>
+        <button onclick="startTest()" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-green-600 hover:to-emerald-700 transition shadow-lg">
+            <span data-zh="🚀 开始测试">🚀 Start Test</span><span data-en>🚀 Start Test</span>
+        </button>
+    </div>
+
+    <!-- Test Screen -->
+    <div id="testScreen" class="max-w-2xl mx-auto px-4 py-6 hidden">
+        <div class="mb-6">
+            <div class="flex justify-between text-sm text-gray-500 mb-2">
+                <span><span data-zh="第">Question</span> <span id="currentQ">1</span>/50</span>
+                <span><span data-zh="进度">Progress</span>: <span id="progressPct">0</span>%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div id="progressBar" class="bg-gradient-to-r from-green-500 to-emerald-600 h-2.5 rounded-full progress-fill" style="width:0%"></div>
+            </div>
+        </div>
+        <div id="questionContainer" class="fade-in"></div>
+        <div class="flex justify-between mt-8">
+            <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">
+                <span data-zh="← 上一题">← Previous</span><span data-en>← Previous</span>
+            </button>
+            <div></div>
+            <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition">
+                <span data-zh="下一题 →">Next →</span><span data-en>Next →</span>
+            </button>
+            <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700 transition hidden">
+                <span data-zh="查看结果 →">See Results →</span><span data-en>See Results →</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="resultScreen" class="max-w-3xl mx-auto px-4 py-8 hidden">
+        <div class="text-center mb-8 fade-in">
+            <p class="text-gray-500 mb-2"><span data-zh="你的大五人格特质分析">Your Big Five Personality Profile</span><span data-en>Your Big Five Personality Profile</span></p>
+            <div class="text-4xl font-bold text-green-600 mb-2">🌿</div>
+            <p class="text-xl text-gray-700"><span data-zh="五大维度综合评估">Five Dimensions Comprehensive Assessment</span><span data-en>Five Dimensions Comprehensive Assessment</span></p>
+        </div>
+
+        <div id="dimensionResults" class="space-y-4 mb-8"></div>
+
+        <div id="overallProfile" class="bg-white rounded-2xl p-6 shadow-lg mb-8"></div>
+
+        <div id="traitDescription" class="bg-white rounded-2xl p-8 shadow-lg mb-8"></div>
+
+        <div class="text-center">
+            <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">
+                <span data-zh="🔄 重新测试">🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-gray-400 py-6 text-center mt-12">
+        <p>© 2026 <span data-zh="计度AI工具箱" data-en>JIDU AI Tools</span></p>
+    </footer>
+
+<script>
+// Big Five questions: 10 per dimension (50 total)
+// 5-point scale: 1=Strongly Disagree, 5=Strongly Agree
+// Some questions are reverse scored
+var questions = [
+    // O - Openness (1-10)
+    {dim:"O",text:{zh:"我想象力丰富，思维活跃",en:"I have an active imagination and active thoughts"},reverse:false},
+    {dim:"O",text:{zh:"我对艺术和美有深刻的体验和欣赏",en:"I have a deep appreciation for art and beauty"},reverse:false},
+    {dim:"O",text:{zh:"我好奇心强，喜欢探索新事物",en:"I am curious and like to explore new things"},reverse:false},
+    {dim:"O",text:{zh:"我喜欢思考抽象的概念和问题",en:"I like to think about abstract concepts and issues"},reverse:false},
+    {dim:"O",text:{zh:"我愿意尝试新的做事方式",en:"I am willing to try new ways of doing things"},reverse:false},
+    {dim:"O",text:{zh:"我对诗词、文学、艺术有浓厚兴趣",en:"I have strong interest in poetry, literature, and art"},reverse:false},
+    {dim:"O",text:{zh:"我喜欢哲学性和深层次的讨论",en:"I like philosophical and deep discussions"},reverse:false},
+    {dim:"O",text:{zh:"我善于理解复杂抽象的概念",en:"I am good at understanding complex and abstract ideas"},reverse:false},
+    {dim:"O",text:{zh:"我经常思考人生的意义和目的",en:"I often think about the meaning and purpose of life"},reverse:false},
+    {dim:"O",text:{zh:"我欣赏非传统的价值观和生活方式",en:"I appreciate non-traditional values and lifestyles"},reverse:false},
+
+    // C - Conscientiousness (11-20)
+    {dim:"C",text:{zh:"我是一个做事有条理、计划性强的人",en:"I am an organized person with strong planning skills"},reverse:false},
+    {dim:"C",text:{zh:"我倾向于把事情做完，而不是半途而废",en:"I tend to complete tasks rather than leaving them half-done"},reverse:false},
+    {dim:"C",text:{zh:"我注重细节，力求把事情做好",en:"I pay attention to details and strive to do things well"},reverse:false},
+    {dim:"C",text:{zh:"我是一个可靠、值得信赖的人",en:"I am a reliable and trustworthy person"},reverse:false},
+    {dim:"C",text:{zh:"我做事有自律性，能坚持完成任务",en:"I am self-disciplined and can persist in completing tasks"},reverse:false},
+    {dim:"C",text:{zh:"我制定计划并严格执行",en:"I make plans and follow through on them"},reverse:false},
+    {dim:"C",text:{zh:"我在工作/学习中非常细心周到",en:"I am very thorough in my work and studies"},reverse:false},
+    {dim:"C",text:{zh:"我会把东西摆放整齐有序",en:"I keep things tidy and well-organized"},reverse:false},
+    {dim:"C",text:{zh:"我是一个勤奋努力、任劳任怨的人",en:"I am a hardworking and diligent person"},reverse:false},
+    {dim:"C",text:{zh:"我设定目标并努力实现它们",en:"I set goals and work toward achieving them"},reverse:false},
+
+    // E - Extraversion (21-30)
+    {dim:"E",text:{zh:"我喜欢成为别人关注的焦点",en:"I like to be the center of attention"},reverse:false},
+    {dim:"E",text:{zh:"我在社交场合中很活跃健谈",en:"I am talkative and active in social situations"},reverse:false},
+    {dim:"E",text:{zh:"我喜欢与人交流和互动",en:"I enjoy interacting and chatting with others"},reverse:false},
+    {dim:"E",text:{zh:"我精力充沛，总是充满活力",en:"I am energetic and always full of energy"},reverse:false},
+    {dim:"E",text:{zh:"我喜欢参加聚会和社交活动",en:"I enjoy parties and social events"},reverse:false},
+    {dim:"E",text:{zh:"我容易与人熟络，主动结识新朋友",en:"I find it easy to approach others and make new friends"},reverse:false},
+    {dim:"E",text:{zh:"我喜欢与人合作而不是独自工作",en:"I prefer working with others to working alone"},reverse:false},
+    {dim:"E",text:{zh:"我乐观开朗，容易感到兴奋和快乐",en:"I am optimistic and easily feel excited and happy"},reverse:false},
+    {dim:"E",text:{zh:"我喜欢冒险和刺激的活动",en:"I like adventurous and exciting activities"},reverse:false},
+    {dim:"E",text:{zh:"我在人群中感到自在和有活力",en:"I feel comfortable and energized in groups"},reverse:false},
+
+    // A - Agreeableness (31-40)
+    {dim:"A",text:{zh:"我相信人性本善，愿意信任他人",en:"I believe people are basically good and trust others"},reverse:false},
+    {dim:"A",text:{zh:"我善于理解他人的感受和立场",en:"I am good at understanding others' feelings and perspectives"},reverse:false},
+    {dim:"A",text:{zh:"我乐于助人，愿意牺牲自己的时间帮助他人",en:"I am helpful and willing to sacrifice my time for others"},reverse:false},
+    {dim:"A",text:{zh:"我和大多数人都能相处融洽",en:"I get along well with most people"},reverse:false},
+    {dim:"A",text:{zh:"我是一个有同情心、善良的人",en:"I am a compassionate and kind person"},reverse:false},
+    {dim:"A",text:{zh:"我愿意为了维护和谐关系而做出让步",en:"I am willing to make concessions to maintain harmony"},reverse:false},
+    {dim:"A",text:{zh:"我尊重他人的意见和决定",en:"I respect others' opinions and decisions"},reverse:false},
+    {dim:"A",text:{zh:"我对人有耐心，愿意倾听",en:"I am patient with people and willing to listen"},reverse:false},
+    {dim:"A",text:{zh:"我尽量避免与人发生冲突",en:"I try to avoid conflicts with others"},reverse:false},
+    {dim:"A",text:{zh:"我真诚地关心他人的福祉",en:"I genuinely care about the well-being of others"},reverse:false},
+
+    // N - Neuroticism (41-50) - reverse scored: high score = low neuroticism
+    {dim:"N",text:{zh:"我情绪稳定，不容易焦虑或紧张",en:"I am emotionally stable and not easily anxious or nervous"},reverse:true},
+    {dim:"N",text:{zh:"我能应对压力，不会轻易崩溃",en:"I can handle stress and don't fall apart easily"},reverse:true},
+    {dim:"N",text:{zh:"我对自己和生活感到满意",en:"I am satisfied with myself and my life"},reverse:true},
+    {dim:"N",text:{zh:"我心绪平静，不容易情绪波动",en:"I am emotionally calm and not easily moody"},reverse:true},
+    {dim:"N",text:{zh:"我自信，有安全感",en:"I am confident and feel secure"},reverse:true},
+    {dim:"N",text:{zh:"我很少感到沮丧或抑郁",en:"I rarely feel down or depressed"},reverse:true},
+    {dim:"N",text:{zh:"我心态平和，不易烦恼",en:"I am even-tempered and not easily worried"},reverse:true},
+    {dim:"N",text:{zh:"我适应能力强，能应对变化",en:"I am adaptable and can cope with changes"},reverse:true},
+    {dim:"N",text:{zh:"我放松自信，不易被批评困扰",en:"I am relaxed and not easily hurt by criticism"},reverse:true},
+    {dim:"N",text:{zh:"我情绪成熟稳定",en:"I am emotionally mature and stable"},reverse:true}
+];
+
+var dimensionInfo = {
+    O:{
+        name:{zh:"开放性",en:"Openness"},
+        nameFull:{zh:"开放性 (Openness)",en:"Openness to Experience"},
+        icon:"🎨",
+        desc:{zh:"反映你对新经验、新观念的开放程度，包括想象力、审美、好奇心和创造力。高开放性者思维活跃、富有创造力。",en:"Reflects your openness to new experiences and ideas, including imagination, aesthetics, curiosity, and creativity. High openness indicates an active mind and creativity."},
+        low:{zh:"务实、传统、脚踏实地",en:"Practical, traditional, down-to-earth"},
+        high:{zh:"富有想象力、好奇心强、思维开放",en:"Imaginative, curious, open-minded"}
+    },
+    C:{
+        name:{zh:"尽责性",en:"Conscientiousness"},
+        nameFull:{zh:"尽责性 (Conscientiousness)",en:"Conscientiousness"},
+        icon:"📋",
+        desc:{zh:"反映你的自律性、责任感和条理性。高尽责性者做事有计划、可靠、有毅力。",en:"Reflects your self-discipline, responsibility, and organization. High conscientiousness indicates planning, reliability, and perseverance."},
+        low:{zh:"随性、灵活、适应性强",en:"Spontaneous, flexible, adaptable"},
+        high:{zh:"有责任心、自律、有条理",en:"Responsible, self-disciplined, organized"}
+    },
+    E:{
+        name:{zh:"外向性",en:"Extraversion"},
+        nameFull:{zh:"外向性 (Extraversion)",en:"Extraversion"},
+        icon:"💬",
+        desc:{zh:"反映你与外部世界的互动方式。高外向者喜欢社交、充满活力、喜欢刺激。",en:"Reflects how you interact with the external world. High extraversion indicates sociability, energy, and stimulation-seeking."},
+        low:{zh:"内向、安静、享受独处",en:"Introverted, quiet, enjoying solitude"},
+        high:{zh:"外向、活跃、喜欢社交",en:"Extraverted, active, social"}
+    },
+    A:{
+        name:{zh:"宜人性",en:"Agreeableness"},
+        nameFull:{zh:"宜人性 (Agreeableness)",en:"Agreeableness"},
+        icon:"❤️",
+        desc:{zh:"反映你与他人的相处方式。高宜人性者信任他人、有同情心、乐于合作。",en:"Reflects how you get along with others. High agreeableness indicates trust, sympathy, and cooperation."},
+        low:{zh:"竞争性强、质疑他人、理性",en:"Competitive, questioning, rational"},
+        high:{zh:"信任他人、有同情心、合作",en:"Trusting, sympathetic, cooperative"}
+    },
+    N:{
+        name:{zh:"神经质",en:"Neuroticism"},
+        nameFull:{zh:"神经质/情绪稳定性 (Neuroticism)",en:"Neuroticism / Emotional Stability"},
+        icon:"🧘",
+        desc:{zh:"反映你的情绪稳定性和抗压能力。低神经质者情绪稳定、能应对压力。",en:"Reflects your emotional stability and stress resistance. Low neuroticism indicates emotional stability and stress tolerance."},
+        low:{zh:"情绪稳定、适应良好、心态平和",en:"Emotionally stable, well-adjusted, calm"},
+        high:{zh:"情绪波动大、容易焦虑、敏感",en:" emotionally variable, anxious, sensitive"}
+    }
+};
+
+var currentQ = 0;
+var answers = {};
+var scores = {O:0,C:0,E:0,A:0,N:0};
+var scaleLabels = {zh:["非常不同意","不同意","中立","同意","非常同意"],en:["Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"]};
+
+function startTest() {
+    document.getElementById('startScreen').classList.add('hidden');
+    document.getElementById('testScreen').classList.remove('hidden');
+    showQuestion(0);
+}
+
+function showQuestion(idx) {
+    var q = questions[idx];
+    var isEN = document.documentElement.lang === 'en';
+    var qText = q.text[isEN ? 'en' : 'zh'];
+    var selected = answers[idx] !== undefined ? answers[idx] : -1;
+    var labels = isEN ? scaleLabels.en : scaleLabels.zh;
+
+    var html = '<div class="bg-white rounded-2xl p-8 shadow-lg">';
+    html += '<h2 class="text-xl font-semibold text-gray-800 mb-8 text-center">' + (idx+1) + '. ' + qText + '</h2>';
+    html += '<div class="flex justify-between items-center gap-2">';
+
+    for (var i = 0; i < 5; i++) {
+        var score = i + 1;
+        html += '<div class="scale-option flex-1 text-center p-4 border-2 rounded-xl ' + (selected === score ? 'selected border-green-500 bg-green-500 text-white' : 'border-gray-200 hover:border-green-300') + '" onclick="selectAnswer(' + score + ')">';
+        html += '<div class="text-2xl mb-1">' + ['1','2','3','4','5'][i] + '</div>';
+        html += '<div class="text-xs">' + labels[i] + '</div></div>';
+    }
+
+    html += '</div></div>';
+    document.getElementById('questionContainer').innerHTML = html;
+    document.getElementById('currentQ').textContent = idx + 1;
+    document.getElementById('progressPct').textContent = Math.round((idx / 50) * 100);
+    document.getElementById('progressBar').style.width = (idx / 50 * 100) + '%';
+
+    document.getElementById('prevBtn').classList.toggle('hidden', idx === 0);
+    document.getElementById('nextBtn').classList.toggle('hidden', idx === 49);
+    document.getElementById('submitBtn').classList.toggle('hidden', idx < 49);
+}
+
+function selectAnswer(score) {
+    answers[currentQ] = score;
+    var q = questions[currentQ];
+    var rawScore = q.reverse ? (6 - score) : score;
+    scores[q.dim] += rawScore;
+    showQuestion(currentQ);
+}
+
+function nextQuestion() {
+    if (answers[currentQ] === undefined) {
+        alert('请选择一个选项 / Please select an option');
+        return;
+    }
+    currentQ++;
+    showQuestion(currentQ);
+}
+
+function prevQuestion() {
+    if (currentQ > 0) {
+        var prevQ = questions[currentQ - 1];
+        if (answers[currentQ - 1] !== undefined) {
+            var prevRaw = answers[currentQ - 1];
+            var prevScore = prevQ.reverse ? (6 - prevRaw) : prevRaw;
+            scores[prevQ.dim] -= prevScore;
+        }
+        currentQ--;
+        showQuestion(currentQ);
+    }
+}
+
+function submitTest() {
+    if (answers[currentQ] === undefined) {
+        alert('请选择一个选项 / Please select an option');
+        return;
+    }
+    showResults();
+}
+
+function showResults() {
+    document.getElementById('testScreen').classList.add('hidden');
+    document.getElementById('resultScreen').classList.remove('hidden');
+
+    var isEN = document.documentElement.lang === 'en';
+    var dims = ['O','C','E','A','N'];
+    var maxScore = {O:50, C:50, E:50, A:50, N:50};
+    var minScore = {O:10, C:10, E:10, A:10, N:10};
+
+    var resultHTML = '';
+    dims.forEach(function(d) {
+        var raw = scores[d];
+        var pct = Math.round(((raw - minScore[d]) / (maxScore[d] - minScore[d])) * 100);
+        var info = dimensionInfo[d];
+        var level = pct >= 70 ? 'high' : (pct <= 40 ? 'low' : 'mid');
+        var levelText = level === 'high' ? info.high : (level === 'low' ? info.low : (isEN ? 'Moderate' : '中等'));
+
+        var colorMap = {O:'green',C:'blue',E:'orange',A:'pink',N:'purple'};
+        var color = colorMap[d];
+
+        resultHTML += '<div class="result-card bg-white rounded-xl p-5 shadow-sm border border-gray-100">';
+        resultHTML += '<div class="flex items-center justify-between mb-3">';
+        resultHTML += '<div class="flex items-center"><span class="text-2xl mr-3">' + info.icon + '</span><span class="font-bold text-gray-700">' + info.nameFull + '</span></div>';
+        resultHTML += '<span class="text-sm px-3 py-1 rounded-full bg-' + color + '-100 text-' + color + '-700 font-semibold">' + pct + '%</span></div>';
+        resultHTML += '<div class="w-full bg-gray-200 rounded-full h-3 mb-2"><div class="bg-gradient-to-r from-' + color + '-400 to-' + color + '-600 h-3 rounded-full" style="width:' + pct + '%"></div></div>';
+        resultHTML += '<div class="flex justify-between text-xs text-gray-400 mb-2"><span>' + raw + '/50</span><span>' + levelText + '</span></div>';
+        resultHTML += '<p class="text-sm text-gray-600">' + info.desc + '</p></div>';
+    });
+    document.getElementById('dimensionResults').innerHTML = resultHTML;
+
+    // Overall profile
+    var profile = '';
+    var traits = [];
+    if (scores.O >= 35) traits.push({zh:'开放思维',en:'Open-minded'});
+    if (scores.C >= 35) traits.push({zh:'尽职尽责',en:'Conscientious'});
+    if (scores.E >= 35) traits.push({zh:'外向活泼',en:'Extraverted'});
+    if (scores.A >= 35) traits.push({zh:'和善友好',en:'Agreeable'});
+    if (scores.N >= 35) traits.push({zh:'情绪稳定',en:'Emotionally Stable'});
+    if (scores.O < 35) traits.push({zh:'务实稳健',en:'Practical'});
+    if (scores.C < 35) traits.push({zh:'灵活适应',en:'Flexible'});
+    if (scores.E < 35) traits.push({zh:'内敛沉静',en:'Introverted'});
+    if (scores.A < 35) traits.push({zh:'独立理性',en:'Independent'});
+    if (scores.N < 35) traits.push({zh:'敏感细腻',en:'Sensitive'});
+
+    var traitsHTML = traits.map(function(t){return '<span class="bg-gray-100 px-3 py-1 rounded-full text-sm text-gray-700">' + (isEN?t.en:t.zh) + '</span>';}).join(' ');
+    profile += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="📊 你的性格特质">📊 Your Personality Traits</span></h3>';
+    profile += '<div class="flex flex-wrap gap-2 mb-4">' + traitsHTML + '</div>';
+    profile += '<p class="text-gray-600 text-sm"><span data-zh="你的大五人格特质谱系显示你在多个维度上的自然倾向。这些特质影响你如何与他人互动、应对挑战、追求目标。">Your Big Five profile shows your natural tendencies across multiple dimensions. These traits influence how you interact with others, handle challenges, and pursue goals.</span><span data-en>Your Big Five profile shows your natural tendencies across multiple dimensions. These traits influence how you interact with others, handle challenges, and pursue goals.</span></p>';
+    document.getElementById('overallProfile').innerHTML = profile;
+
+    // Trait descriptions
+    var traitDescHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh="🧠 各维度详细分析">🧠 Detailed Dimension Analysis</span></h3><div class="space-y-4 text-gray-600">';
+
+    dims.forEach(function(d) {
+        var info = dimensionInfo[d];
+        var raw = scores[d];
+        var pct = Math.round(((raw - minScore[d]) / (maxScore[d] - minScore[d])) * 100);
+        var level = pct >= 70 ? 'high' : (pct <= 40 ? 'low' : 'mid');
+        var levelDesc = level === 'high' ? (d==='N'?(isEN?'Emotionally stable and resilient':info.high):info.high) : (level === 'low' ? (d==='N'?(isEN?'Prone to emotional sensitivity':info.low):info.low) : (isEN?'Moderate levels of ' + info.name.en:'中等程度的'+info.name.zh+'特质'));
+
+        var colorMap = {O:'green',C:'blue',E:'orange',A:'pink',N:'purple'};
+        var color = colorMap[d];
+        traitDescHTML += '<div class="bg-' + color + '-50 rounded-xl p-4"><div class="font-semibold text-' + color + '-700 mb-1">' + info.icon + ' ' + info.nameFull + '</div><p class="text-sm">' + levelDesc + '</p></div>';
+    });
+
+    traitDescHTML += '</div>';
+    document.getElementById('traitDescription').innerHTML = traitDescHTML;
+
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function retakeTest() {
+    currentQ = 0;
+    answers = {};
+    scores = {O:0,C:0,E:0,A:0,N:0};
+    document.getElementById('resultScreen').classList.add('hidden');
+    document.getElementById('startScreen').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleLang() {
+    var isEN = document.documentElement.lang === 'en';
+    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
+    document.getElementById('langToggle').textContent = isEN ? 'EN' : '中文';
+    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
+    var titleEl = document.querySelector('title');
+    if (titleEl) {
+        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
+        if (txt) document.title = txt;
+    }
+    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
+        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+        if (txt) el.content = txt;
+    });
+    if (!document.getElementById('resultScreen').classList.contains('hidden')) {
+        showResults();
+    }
+}
+function initLang() {
+    if (document.cookie.indexOf('lang=en') !== -1) {
+        document.documentElement.lang = 'en';
+        var btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = '中文';
+    }
+}
+</script>
+<script>initLang();</script>
+</body>
+</html>
