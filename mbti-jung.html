@@ -3,28 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-zh="荣格心理类型测试 - 52题免费精准分析 2026" data-en="Jungian Personality Test - 52 Questions Free Accurate Analysis">荣格心理类型测试 - 52题免费精准分析 2026</title>
-    <meta name="description" data-zh="免费荣格心理类型测试，基于卡尔·荣格《心理类型》理论。52道经典题目，测量态度类型（内外向）和功能类型（感觉-直觉、思维-情感），最接近荣格原意的测试版本。" data-en="Free Jungian personality test based on Carl Jung's 'Psychological Types'. 52 classic questions measuring attitude types (I/E) and function pairs (S/N, T/F). Most authentic Jungian test.">
-    <meta name="keywords" data-zh="荣格测试,Jungian,心理类型,免费测试,性格分析,Jung,荣格心理类型,MBTI原版" data-en="Jungian personality test,Jung psychological types,free test,personality analysis,Carl Jung,Jungian typology">
+    <title>荣格心理类型测试 - 52题免费精准分析 2026</title>
+    <meta name="description" content="免费荣格心理类型测试，基于卡尔·荣格《心理类型》理论。52道经典题目，测量态度类型（内外向）和功能类型（感觉-直觉、思维-情感），最接近荣格原意的测试版本。">
+    <meta name="keywords" content="荣格测试,Jungian,心理类型,免费测试,性格分析,Jung,荣格心理类型,MBTI原版">
     <meta name="author" content="计度AI工具箱">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://tools.xxym8.com/mbti-jung.html">
     <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/mbti-jung.html">
-    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/mbti-jung.html?lang=en">
     <meta property="og:type" content="article">
-    <meta property="og:title" data-zh="荣格心理类型测试 - 卡尔·荣格原版理论" data-en="Jungian Personality Test - Carl Jung's Original Theory">
-    <meta property="og:description" data-zh="免费荣格心理类型测试，52道经典题目，最接近荣格原意的测试版本。" data-en="Free Jungian personality test. 52 classic questions. Most authentic Jungian test.">
+    <meta property="og:title" content="荣格心理类型测试 - 卡尔·荣格原版理论">
+    <meta property="og:description" content="免费荣格心理类型测试，52道经典题目，最接近荣格原意的测试版本。">
     <meta property="og:url" content="https://tools.xxym8.com/mbti-jung.html">
-    <meta property="og:site_name" data-zh="计度AI工具箱" data-en="JIDU AI Tools">
+    <meta property="og:site_name" content="计度AI工具箱">
     <meta name="twitter:card" content="summary">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
-        [data-en] { display: none; }
-        html[lang=en] [data-zh] { display: none; }
-        html[lang=en] [data-en] { display: inline; }
-        html[lang=en] [data-en-block] { display: block; }
         .option-card { transition: all 0.2s; cursor: pointer; }
         .option-card:hover { transform: translateY(-2px); }
         .option-card.selected { border-color: #a855f7; background-color: #faf5ff; }
@@ -39,12 +34,11 @@
 <body class="bg-gray-50 min-h-screen">
     <header class="bg-white shadow-sm">
         <nav class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-blue-600">🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
+            <a href="/" class="text-2xl font-bold text-blue-600">🧮 计度AI工具箱</a>
             <div class="hidden md:flex gap-6 text-gray-600">
-                <a href="/" class="hover:text-blue-600"><span data-zh>首页</span><span data-en>Home</span></a>
-                <a href="/mbti.html" class="hover:text-blue-600"><span data-zh>人格测试</span><span data-en>Personality</span></a>
+                <a href="/" class="hover:text-blue-600">首页</a>
+                <a href="/mbti.html" class="hover:text-blue-600">人格测试</a>
             </div>
-            <button id="langToggle" onclick="toggleLang()" class="text-sm px-3 py-1 rounded border border-gray-300 hover:bg-gray-100">EN</button>
         </nav>
     </header>
 
@@ -52,17 +46,17 @@
         <nav aria-label="Breadcrumb">
             <ol class="list-none p-0 inline-flex" itemscope itemtype="https://schema.org/BreadcrumbList">
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="首页"></span><span itemprop="name" data-en>Home</span></a>
+                    <a href="/" class="hover:text-blue-600" itemprop="item"><span itemprop="name">首页</span></a>
                     <meta itemprop="position" content="1">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="/mbti.html" class="hover:text-blue-600" itemprop="item"><span itemprop="name" data-zh="人格测试"></span><span itemprop="name" data-en>Personality Tests</span></a>
+                    <a href="/mbti.html" class="hover:text-blue-600" itemprop="item"><span itemprop="name">人格测试</span></a>
                     <meta itemprop="position" content="2">
                 </li>
                 <span class="mx-2 text-gray-400">/</span>
                 <li class="flex items-center" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span class="text-gray-700" itemprop="name">Jung</span>
+                    <span class="text-gray-700" itemprop="name">荣格心理类型</span>
                     <meta itemprop="position" content="3">
                 </li>
             </ol>
@@ -72,28 +66,26 @@
     <!-- Start Screen -->
     <div id="startScreen" class="max-w-2xl mx-auto px-4 py-12 text-center fade-in">
         <div class="text-7xl mb-8">✨</div>
-        <h1 class="text-4xl font-bold text-gray-800 mb-4"><span data-zh>荣格心理类型测试</span><span data-en>Jungian Psychological Types Test</span></h1>
-        <p class="text-gray-500 mb-8 text-lg"><span data-zh>卡尔·荣格原版理论 · 最接近《心理类型》的测试</span><span data-en>Carl Jung's Original Theory · Most Authentic Test Based on 'Psychological Types'</span><span data-en>Carl Jung's Original Theory · Most Authentic Test Based on 'Psychological Types'</span></p>
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">荣格心理类型测试</h1>
+        <p class="text-gray-500 mb-8 text-lg">卡尔·荣格原版理论 · 最接近《心理类型》的测试</p>
         <div class="bg-white rounded-2xl p-8 shadow-lg text-left max-w-md mx-auto mb-8">
-            <h3 class="font-semibold text-gray-700 mb-4"><span data-zh>📋 测试说明</span><span data-en>📋 Test Info</span></h3>
+            <h3 class="font-semibold text-gray-700 mb-4">📋 测试说明</h3>
             <ul class="space-y-3 text-gray-600 text-sm">
-                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh>共52道题目，约需6分钟完成</span><span data-en>52 questions, ~6 minutes</span><span data-en>52 questions, ~6 minutes</span></li>
-                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh>基于荣格《心理类型》的经典维度</span><span data-en>Based on Jung's 'Psychological Types' classic dimensions</span><span data-en>Based on Jung's 'Psychological Types' classic dimensions</span></li>
-                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh>测量：态度类型（内外向）+ 功能类型（感觉/直觉、思维/情感）</span><span data-en>Measures: Attitude types (I/E) + Function types (S/N, T/F)</span><span data-en>Measures: Attitude types (I/E) + Function types (S/N, T/F)</span></li>
-                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span data-zh>完全免费，数据隐私安全</span><span data-en>100% free, private</span><span data-en>100% free, private</span></li>
+                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>共52道题目，约需6分钟完成</li>
+                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>基于荣格《心理类型》的经典维度</li>
+                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>测量：态度类型（内外向）+ 功能类型（感觉/直觉、思维/情感）</li>
+                <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>完全免费，数据隐私安全</li>
             </ul>
         </div>
-        <button onclick="startTest()" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-purple-600 hover:to-pink-600 transition shadow-lg">
-            <span data-zh>🚀 开始测试</span><span data-en>🚀 Start Test</span><span data-en>🚀 Start Test</span>
-        </button>
+        <button onclick="startTest()" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl px-12 py-4 rounded-xl font-bold hover:from-purple-600 hover:to-pink-600 transition shadow-lg">🚀 开始测试</button>
     </div>
 
     <!-- Test Screen -->
     <div id="testScreen" class="max-w-2xl mx-auto px-4 py-6 hidden">
         <div class="mb-6">
             <div class="flex justify-between text-sm text-gray-500 mb-2">
-                <span><span data-zh>第</span><span data-en>Question</span> <span id="currentQ">1</span>/52</span>
-                <span><span data-zh>进度</span><span data-en>Progress</span>: <span id="progressPct">0</span>%</span>
+                <span>第 <span id="currentQ">1</span>/52</span>
+                <span>进度: <span id="progressPct">0</span>%</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2.5">
                 <div id="progressBar" class="bg-gradient-to-r from-purple-500 to-pink-500 h-2.5 rounded-full progress-fill" style="width:0%"></div>
@@ -101,23 +93,17 @@
         </div>
         <div id="questionContainer" class="fade-in"></div>
         <div class="flex justify-between mt-8">
-            <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">
-                <span data-zh>← 上一题</span><span data-en>← Previous</span><span data-en>← Previous</span>
-            </button>
+            <button id="prevBtn" onclick="prevQuestion()" class="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 hidden">← 上一题</button>
             <div></div>
-            <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-purple-500 text-white font-semibold hover:bg-purple-600 transition">
-                <span data-zh>下一题 →</span><span data-en>Next →</span><span data-en>Next →</span>
-            </button>
-            <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition hidden">
-                <span data-zh>查看结果 →</span><span data-en>See Results →</span><span data-en>See Results →</span>
-            </button>
+            <button id="nextBtn" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-purple-500 text-white font-semibold hover:bg-purple-600 transition">下一题 →</button>
+            <button id="submitBtn" onclick="submitTest()" class="px-8 py-3 rounded-lg bg-pink-500 text-white font-semibold hover:bg-pink-600 transition hidden">查看结果 →</button>
         </div>
     </div>
 
     <!-- Result Screen -->
     <div id="resultScreen" class="max-w-3xl mx-auto px-4 py-8 hidden">
         <div class="text-center mb-8 fade-in">
-            <p class="text-gray-500 mb-2"><span data-zh>你的荣格心理类型是</span><span data-en>Your Jungian Type Is</span><span data-en>Your Jungian Type Is</span></p>
+            <p class="text-gray-500 mb-2">你的荣格心理类型是</p>
             <div id="resultType" class="text-7xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-4">INTJ</div>
             <p id="resultName" class="text-2xl font-semibold text-gray-700 mb-2"></p>
             <p id="resultSubtitle" class="text-gray-500"></p>
@@ -132,102 +118,90 @@
         <div id="jungExplanation" class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 mb-8"></div>
 
         <div class="text-center">
-            <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-purple-500 text-purple-600 font-semibold hover:bg-purple-50 transition">
-                <span data-zh>🔄 重新测试</span><span data-en>🔄 Retake Test</span><span data-en>🔄 Retake Test</span>
-            </button>
+            <button onclick="retakeTest()" class="px-8 py-3 rounded-lg border-2 border-purple-500 text-purple-600 font-semibold hover:bg-purple-50 transition">🔄 重新测试</button>
         </div>
     </div>
 
     <footer class="bg-gray-800 text-gray-400 py-6 text-center mt-12">
-        <p>© 2026 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></p>
+        <p>© 2026 计度AI工具箱</p>
     </footer>
 
 <script>
-// Jung typology questions - 52 questions
-// Based on Jung's Psychological Types theory
-// Dimensions: EI (14 questions), SN (13 questions), TF (13 questions), JP (12 questions)
 var questions = [
-    // EI - Extraversion/Introversion (1-14)
-    {dim:"EI",a:{text:{zh:"当你需要能量时，你更倾向于",en:"When you need energy, you prefer"},optA:{zh:"外出社交，从他人那里获得活力",en:"going out and socializing to recharge"},optB:{zh:"独处，在内心世界中恢复精力",en:"being alone and recharging in your inner world"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"在社交场合，你通常是",en:"In social situations, you tend to be"},optA:{zh:"主动发起对话，和很多人互动",en:"initiating conversations and interacting with many"},optB:{zh:"等待别人接近，专注与熟人的深入交流",en:"waiting for others to approach, focusing on deeper talks with acquaintances"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"你认为理想的生活是",en:"You believe an ideal life is"},optA:{zh:"充满活动、社交和外部刺激",en:"full of activities, social interaction, and external stimulation"},optB:{zh:"安静、有空间思考和反思",en:"quiet with space for thought and reflection"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"周末你更喜欢",en:"On weekends you prefer"},optA:{zh:"和朋友一起参加各种活动",en:"going out with friends to various events"},optB:{zh:"独自在家阅读、思考或从事个人爱好",en:"staying home alone to read, think, or pursue personal hobbies"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"你在团队中倾向于",en:"In a team, you tend to"},optA:{zh:"大声思考，分享你的想法和观点",en:"think out loud and share your thoughts"},optB:{zh:"先思考，再有选择性地表达",en:"think first, then express selectively"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"当你有一个想法时，你通常会",en:"When you have an idea, you usually"},optA:{zh:"立即和别人讨论，看看反应",en:"discuss it with others immediately to see reactions"},optB:{zh:"先自己思考和完善",en:"think it through and refine it yourself first"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"你更容易因为什么而兴奋",en:"What excites you more easily"},optA:{zh:"外部世界的刺激：事件、人、活动",en:"External world stimulation: events, people, activities"},
-optB:{zh:"内部世界的思考：想法、概念、可能性",en:"Inner world thoughts: ideas, concepts, possibilities"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"你觉得更自然的是",en:"What feels more natural to you"},optA:{zh:"把注意力投向外部世界",en:"directing attention outward to the external world"},optB:{zh:"把注意力投向内心世界",en:"directing attention inward to the inner world"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"你喜欢的工作环境是",en:"You prefer a work environment that is"},optA:{zh:"开放、活跃、有很多人互动",en:"open, active, with lots of interaction"},optB:{zh:"安静、私密、有独立空间",en:"quiet, private, with individual space"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"面对新朋友，你通常",en:"With new people, you usually"},optA:{zh:"很快熟络，主动攀谈",en:"warm up quickly and start conversations"},optB:{zh:"慢慢来，需要时间才能打开心扉",en:"take your time and need time to open up"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"你更像是",en:"You are more like"},optA:{zh:"一个与外部世界紧密连接的人",en:"someone closely connected to the external world"},optB:{zh:"一个沉浸于内心世界的人",en:"someone immersed in the inner world"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"你的精力来源更主要是",en:"Your main source of energy is primarily"},optA:{zh:"与人的互动和外部的活动",en:"interaction with people and external activities"},optB:{zh:"独处时的思考和内省",en:"thinking and introspection during alone time"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"当你在人群中待太久，你会",en:"When you've been around people for too long, you"},optA:{zh:"感到兴奋，想继续参与",en:"feel energized and want to continue"},optB:{zh:"感到疲惫，需要离开休息",en:"feel tired and need to leave to recharge"},valA:1,valB:0}},
-    {dim:"EI",a:{text:{zh:"在解决问题时，你更倾向于",en:"When solving problems, you prefer to"},optA:{zh:"和他人讨论，碰撞想法",en:"discuss with others and exchange ideas"},optB:{zh:"自己安静地思考解决方案",en:"think quietly by yourself for solutions"},valA:1,valB:0}},
+    {dim:"EI",a:{text:"当你需要能量时，你更倾向于",optA:"外出社交，从他人那里获得活力",optB:"独处，在内心世界中恢复精力",valA:1,valB:0}},
+    {dim:"EI",a:{text:"在社交场合，你通常是",optA:"主动发起对话，和很多人互动",optB:"等待别人接近，专注与熟人的深入交流",valA:1,valB:0}},
+    {dim:"EI",a:{text:"你认为理想的生活是",optA:"充满活动、社交和外部刺激",optB:"安静、有空间思考和反思",valA:1,valB:0}},
+    {dim:"EI",a:{text:"周末你更喜欢",optA:"和朋友一起参加各种活动",optB:"独自在家阅读、思考或从事个人爱好",valA:1,valB:0}},
+    {dim:"EI",a:{text:"你在团队中倾向于",optA:"大声思考，分享你的想法和观点",optB:"先思考，再有选择性地表达",valA:1,valB:0}},
+    {dim:"EI",a:{text:"当你有一个想法时，你通常会",optA:"立即和别人讨论，看看反应",optB:"先自己思考和完善",valA:1,valB:0}},
+    {dim:"EI",a:{text:"你更容易因为什么而兴奋",optA:"外部世界的刺激：事件、人、活动",optB:"内部世界的思考：想法、概念、可能性",valA:1,valB:0}},
+    {dim:"EI",a:{text:"你觉得更自然的是",optA:"把注意力投向外部世界",optB:"把注意力投向内心世界",valA:1,valB:0}},
+    {dim:"EI",a:{text:"你喜欢的工作环境是",optA:"开放、活跃、有很多人互动",optB:"安静、私密、有独立空间",valA:1,valB:0}},
+    {dim:"EI",a:{text:"面对新朋友，你通常",optA:"很快熟络，主动攀谈",optB:"慢慢来，需要时间才能打开心扉",valA:1,valB:0}},
+    {dim:"EI",a:{text:"你更像是",optA:"一个与外部世界紧密连接的人",optB:"一个沉浸于内心世界的人",valA:1,valB:0}},
+    {dim:"EI",a:{text:"你的精力来源更主要是",optA:"与人的互动和外部的活动",optB:"独处时的思考和内省",valA:1,valB:0}},
+    {dim:"EI",a:{text:"当你在人群中待太久，你会",optA:"感到兴奋，想继续参与",optB:"感到疲惫，需要离开休息",valA:1,valB:0}},
+    {dim:"EI",a:{text:"在解决问题时，你更倾向于",optA:"和他人讨论，碰撞想法",optB:"自己安静地思考解决方案",valA:1,valB:0}},
 
-    // SN - Sensing/Intuition (15-27)
-    {dim:"SN",a:{text:{zh:"你更关注",en:"You focus more on"},optA:{zh:"具体的事实、细节和实际的信息",en:"concrete facts, details, and practical information"},optB:{zh:"整体的概念、可能性和象征意义",en:"overall concepts, possibilities, and symbolic meaning"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你更信任",en:"You trust more in"},optA:{zh:"你的五官感知到的真实体验",en:"real experiences perceived by your five senses"},optB:{zh:"你的直觉和第六感",en:"your intuition and sixth sense"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你更喜欢",en:"You prefer"},optA:{zh:"已知的、可预测的、有据可查的",en:"known, predictable, well-documented things"},optB:{zh:"新的、未知的、探索性的",en:"new, unknown, exploratory things"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"当阅读小说时，你更在意",en:"When reading novels, you care more about"},optA:{zh:"具体的情节和事件",en:"specific plot and events"},optB:{zh:"人物的内心世界和象征意义",en:"characters' inner worlds and symbolic meaning"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你更像是",en:"You are more like"},optA:{zh:"一个脚踏实地的现实主义者",en:"a practical realist who is grounded"},optB:{zh:"一个富有想象力的理想主义者",en:"an imaginative idealist"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你更容易学习",en:"You learn more easily"},optA:{zh:"具体的技能和有形的技术",en:"concrete skills and tangible techniques"},optB:{zh:"抽象的理论和新概念",en:"abstract theories and new concepts"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"当你描述一次经历时，你倾向于",en:"When describing an experience, you tend to"},optA:{zh:"描述具体发生了什么",en:"describe what specifically happened"},optB:{zh:"分享你的感受和意义",en:"share your feelings and what it meant"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你更感兴趣的是",en:"You are more interested in"},optA:{zh:""这是怎么运作的？它有什么用？"",en:"'How does this work? What is it used for?'"},
-optB:{zh:""它代表什么？可能意味着什么？"",en:"'What does it represent? What could it mean?'"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你更欣赏",en:"You appreciate more"},optA:{zh:"美丽的工艺和实用的设计",en:"beautiful craftsmanship and practical design"},optB:{zh:"独特的表现形式和艺术创意",en:"unique forms of expression and artistic creativity"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"当有人描述未来时，你更关注",en:"When someone describes the future, you focus more on"},optA:{zh:"具体的计划、步骤和可实现的目标",en:"concrete plans, steps, and achievable goals"},optB:{zh:"愿景、可能性和长远的目标",en:"vision, possibilities, and long-term goals"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你更容易被",en:"You are more attracted to"},optA:{zh:"现实可行的想法",en:"practical and feasible ideas"},optB:{zh:"创新独特的概念",en:"innovative and unique concepts"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你解决问题的方式是",en:"Your way of solving problems is to"},optA:{zh:"使用过往的经验和已知的办法",en:"use past experience and known methods"},optB:{zh:"寻找新的角度和创造性的方案",en:"find new angles and creative solutions"},valA:1,valB:0}},
-    {dim:"SN",a:{text:{zh:"你更愿意",en:"You prefer to"},optA:{zh:"遵循既定的方法和程序",en:"follow established methods and procedures"},optB:{zh:"尝试新的方法和可能性",en:"try new methods and possibilities"},valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更关注",optA:"具体的事实、细节和实际的信息",optB:"整体的概念、可能性和象征意义",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更信任",optA:"你的五官感知到的真实体验",optB:"你的直觉和第六感",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更喜欢",optA:"已知的、可预测的、有据可查的",optB:"新的、未知的、探索性的",valA:1,valB:0}},
+    {dim:"SN",a:{text:"当阅读小说时，你更在意",optA:"具体的情节和事件",optB:"人物的内心世界和象征意义",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更像是",optA:"一个脚踏实地的现实主义者",optB:"一个富有想象力的理想主义者",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更容易学习",optA:"具体的技能和有形的技术",optB:"抽象的理论和新概念",valA:1,valB:0}},
+    {dim:"SN",a:{text:"当你描述一次经历时，你倾向于",optA:"描述具体发生了什么",optB:"分享你的感受和意义",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更感兴趣的是",optA:"\"这是怎么运作的？它有什么用？\"",optB:"\"它代表什么？可能意味着什么？\"",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更欣赏",optA:"美丽的工艺和实用的设计",optB:"独特的表现形式和艺术创意",valA:1,valB:0}},
+    {dim:"SN",a:{text:"当有人描述未来时，你更关注",optA:"具体的计划、步骤和可实现的目标",optB:"愿景、可能性和长远的目标",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更容易被",optA:"现实可行的想法",optB:"创新独特的概念",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你解决问题的方式是",optA:"使用过往的经验和已知的办法",optB:"寻找新的角度和创造性的方案",valA:1,valB:0}},
+    {dim:"SN",a:{text:"你更愿意",optA:"遵循既定的方法和程序",optB:"尝试新的方法和可能性",valA:1,valB:0}},
 
-    // TF - Thinking/Feeling (28-40)
-    {dim:"TF",a:{text:{zh:"当你做决定时，你主要考虑",en:"When making decisions, you mainly consider"},optA:{zh:"逻辑、一致性和客观标准",en:"logic, consistency, and objective criteria"},optB:{zh:"人的感受、价值观和关系的影响",en:"people's feelings, values, and relationship impacts"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你认为更好的品质是",en:"You believe a better quality is"},optA:{zh:"逻辑清晰、公正公平",en:"being logical, fair, and just"},optB:{zh:"善解人意、体贴关怀",en:"being understanding and considerate"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"当别人遇到问题时，你更倾向于",en:"When others have problems, you are more likely to"},optA:{zh:"帮助分析问题并提供解决方案",en:"help analyze the problem and offer solutions"},optB:{zh:"倾听并给予情感上的支持",en:"listen and offer emotional support"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你觉得更自然的是",en:"You find it more natural to"},optA:{zh:"用逻辑分析来理解情况",en:"understand situations through logical analysis"},optB:{zh:"用心去感受和理解他人",en:"understand others through empathy"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你更欣赏",en:"You appreciate more"},optA:{zh:"效率和能力的展示",en:"demonstrations of efficiency and competence"},optB:{zh:"人际和谐与善良",en:"harmony and kindness in relationships"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你更愿意别人认为你是",en:"You prefer others think of you as"},optA:{zh:"理性、有能力、有逻辑的",en:"rational, capable, and logical"},optB:{zh:"温暖、善良、有人情味的",en:"warm, kind, and compassionate"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"当发生冲突时，你更注重",en:"When conflict arises, you focus more on"},optA:{zh:"找出正确的解决方案",en:"finding the correct solution"},optB:{zh:"维护和谐的关系",en:"maintaining harmonious relationships"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你觉得更有价值的是",en:"You find more valuable"},optA:{zh:"真理和公正",en:"truth and fairness"},optB:{zh:"仁慈和原谅",en:"kindness and forgiveness"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你更容易被",en:"You are more moved by"},optA:{zh:"有力的论据和证据",en:"strong arguments and evidence"},optB:{zh:"真诚的话语和情感",en:"sincere words and emotions"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"在争论中，你的目标是",en:"In an argument, your goal is to"},optA:{zh:"赢得辩论，找到真相",en:"win the debate and find the truth"},optB:{zh:"理解对方感受，维护关系",en:"understand the other person and preserve the relationship"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你觉得自己做决定时更依赖",en:"You feel you rely more on when making decisions"},optA:{zh:"客观的分析和逻辑推理",en:"objective analysis and logical reasoning"},optB:{zh:"个人的价值观和对他人的考虑",en:"personal values and consideration for others"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你认为应该指出别人的错误，因为",en:"You think pointing out others' mistakes is right because"},optA:{zh:"这样才能纠正错误、进步",en:"it's how errors get corrected and improvement happens"},optB:{zh:"这可能伤害对方感情",en:"it might hurt the other person's feelings"},valA:1,valB:0}},
-    {dim:"TF",a:{text:{zh:"你更认同",en:"You identify more with"},optA:{zh:""理性是行为的最好指南"",en:"'Reason is the best guide for action'"},
-optB:{zh:""跟随内心做决定更快乐"",en:"'Following your heart leads to happier decisions'"},valA:1,valB:0}},
+    {dim:"TF",a:{text:"当你做决定时，你主要考虑",optA:"逻辑、一致性和客观标准",optB:"人的感受、价值观和关系的影响",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你认为更好的品质是",optA:"逻辑清晰、公正公平",optB:"善解人意、体贴关怀",valA:1,valB:0}},
+    {dim:"TF",a:{text:"当别人遇到问题时，你更倾向于",optA:"帮助分析问题并提供解决方案",optB:"倾听并给予情感上的支持",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你觉得更自然的是",optA:"用逻辑分析来理解情况",optB:"用心去感受和理解他人",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你更欣赏",optA:"效率和能力的展示",optB:"人际和谐与善良",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你更愿意别人认为你是",optA:"理性、有能力、有逻辑的",optB:"温暖、善良、有人情味的",valA:1,valB:0}},
+    {dim:"TF",a:{text:"当发生冲突时，你更注重",optA:"找出正确的解决方案",optB:"维护和谐的关系",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你觉得更有价值的是",optA:"真理和公正",optB:"仁慈和原谅",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你更容易被",optA:"有力的论据和证据",optB:"真诚的话语和情感",valA:1,valB:0}},
+    {dim:"TF",a:{text:"在争论中，你的目标是",optA:"赢得辩论，找到真相",optB:"理解对方感受，维护关系",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你觉得自己做决定时更依赖",optA:"客观的分析和逻辑推理",optB:"个人的价值观和对他人的考虑",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你认为应该指出别人的错误，因为",optA:"这样才能纠正错误、进步",optB:"这可能伤害对方感情",valA:1,valB:0}},
+    {dim:"TF",a:{text:"你更认同",optA:"\"理性是行为的最好指南\"",optB:"\"跟随内心做决定更快乐\"",valA:1,valB:0}},
 
-    // JP - Judging/Perceiving (41-52)
-    {dim:"JP",a:{text:{zh:"你更喜欢生活",en:"You prefer your life to be"},optA:{zh:"有计划、有组织、有条理",en:"planned, organized, and structured"},optB:{zh:"灵活、随性、开放接受变化",en:"flexible, spontaneous, and open to change"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你更讨厌",en:"You dislike more"},optA:{zh:"没有计划，临时抱佛脚",en:"lack of planning and last-minute scrambles"},optB:{zh:"太死板，没有灵活性",en:"being too rigid with no flexibility"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你觉得deadline是",en:"You feel deadlines are"},optA:{zh:"有用的，能帮助完成任务",en:"useful and help accomplish tasks"},optB:{zh:"有压力的，想按自己的节奏",en:"stressful and you'd rather work at your own pace"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你的工作空间/桌面通常是",en:"Your workspace/desk is usually"},optA:{zh:"整洁有序，所有东西都有位置",en:"tidy and everything has its place"},optB:{zh:"有点乱，但你知道东西在哪",en:"somewhat messy but you know where things are"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你更倾向于",en:"You tend to"},optA:{zh:"提前计划并按计划执行",en:"plan ahead and follow through"},optB:{zh:"随情况变化灵活调整",en:"adjust flexibly as situations change"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"当你要出远门时，你通常",en:"When traveling, you usually"},optA:{zh:"提前做好详细计划",en:"make detailed plans in advance"},optB:{zh:"大致计划，随性探索",en:"have a rough plan and explore on the fly"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你更享受",en:"You enjoy more"},optA:{zh:"完成任务和达成目标的成就感",en:"the satisfaction of completing tasks and reaching goals"},optB:{zh:"探索新可能性的新鲜感",en:"the excitement of exploring new possibilities"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你更欣赏",en:"You appreciate more"},optA:{zh:"秩序、有组织、可预期",en:"order, organization, and predictability"},optB:{zh:"自由、开放、可能性",en:"freedom, openness, and possibility"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你更愿意",en:"You prefer to"},optA:{zh:"决定事情并坚持下去",en:"make decisions and stick to them"},optB:{zh:"保持开放，等待更多信息",en:"keep options open and wait for more information"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你觉得自己是",en:"You consider yourself"},optA:{zh:"一个有组织、有条理的人",en:"an organized and structured person"},optB:{zh:"一个适应性强、灵活的人",en:"an adaptable and flexible person"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"当面对一个项目时，你更倾向于",en:"When facing a project, you tend to"},optA:{zh:"制定计划，然后按计划执行",en:"make a plan and then execute it"},optB:{zh:"边做边看，根据情况调整",en:"start and adjust as you go along"},valA:1,valB:0}},
-    {dim:"JP",a:{text:{zh:"你更相信",en:"You trust more in"},optA:{zh:"准备和计划的力量",en:"the power of preparation and planning"},optB:{zh:"适应和即兴的能力",en:"the ability to adapt and improvise"},valA:1,valB:0}}
+    {dim:"JP",a:{text:"你更喜欢生活",optA:"有计划、有组织、有条理",optB:"灵活、随性、开放接受变化",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你更讨厌",optA:"没有计划，临时抱佛脚",optB:"太死板，没有灵活性",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你觉得deadline是",optA:"有用的，能帮助完成任务",optB:"有压力的，想按自己的节奏",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你的工作空间/桌面通常是",optA:"整洁有序，所有东西都有位置",optB:"有点乱，但你知道东西在哪",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你更倾向于",optA:"提前计划并按计划执行",optB:"随情况变化灵活调整",valA:1,valB:0}},
+    {dim:"JP",a:{text:"当你要出远门时，你通常",optA:"提前做好详细计划",optB:"大致计划，随性探索",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你更享受",optA:"完成任务和达成目标的成就感",optB:"探索新可能性的新鲜感",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你更欣赏",optA:"秩序、有组织、可预期",optB:"自由、开放、可能性",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你更愿意",optA:"决定事情并坚持下去",optB:"保持开放，等待更多信息",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你觉得自己是",optA:"一个有组织、有条理的人",optB:"一个适应性强、灵活的人",valA:1,valB:0}},
+    {dim:"JP",a:{text:"当面对一个项目时，你更倾向于",optA:"制定计划，然后按计划执行",optB:"边做边看，根据情况调整",valA:1,valB:0}},
+    {dim:"JP",a:{text:"你更相信",optA:"准备和计划的力量",optB:"适应和即兴的能力",valA:1,valB:0}}
 ];
 
 var typeInfo = {
-    INTJ:{name:{zh:"建筑师",en:"Architect"},desc:{zh:"荣格式的内向直觉思考者。你拥有深刻的洞察力和战略眼光，能够看到别人忽视的可能性。你的思维逻辑性强，善于制定长期计划并坚定执行。你重视知识和能力，追求独立自主。",en:"A Jungian Introverted Intuitive Thinking type. You possess deep insight and strategic vision, seeing possibilities others miss. Your thinking is logical, excelling at long-term planning and determined execution."},function:{zh:"主导：内向直觉(Ni) · 辅助：外向思考(Te) · 第三：内向情感(Fi) · 劣势：外向感觉(Se)",en:"Dominant: Introverted Intuition(Ni) · Auxiliary: Extraverted Thinking(Te) · Tertiary: Introverted Feeling(Fi) · Inferior: Extraverted Sensing(Se)"},color:"blue"},
-    INTP:{name:{zh:"逻辑学家",en:"Logician"},desc:{zh:"荣格式的内向直觉思考者。你是深刻的思想家，对理解世界和追求真理充满热情。你善于分析概念和系统，具有强大的逻辑能力。你安静、内敛，但内心世界丰富而复杂。",en:"A Jungian Introverted Intuitive Thinking type. You are a deep thinker passionate about understanding the world and pursuing truth. You excel at analyzing concepts and systems with powerful logic."},function:{zh:"主导：内向思考(Ti) · 辅助：外向直觉(Ne) · 第三：内向感觉(Si) · 劣势：外向情感(Fe)",en:"Dominant: Introverted Thinking(Ti) · Auxiliary: Extraverted Intuition(Ne) · Tertiary: Introverted Sensing(Si) · Inferior: Extraverted Feeling(Fe)"},color:"indigo"},
-    ENTJ:{name:{zh:"指挥官",en:"Commander"},desc:{zh:"荣格式的外向直觉思考者。你是天生的领导者，自信、有决断力，善于组织团队和制定战略。你逻辑清晰，追求效率和成果，不惧怕做困难的决定。",en:"A Jungian Extraverted Intuitive Thinking type. You are a natural leader, confident and decisive, skilled at organizing teams and strategizing. Clear-minded and efficiency-focused."},function:{zh:"主导：外向思考(Te) · 辅助：内向直觉(Ni) · 第三：外向感觉(Se) · 劣势：内向情感(Fi)",en:"Dominant: Extraverted Thinking(Te) · Auxiliary: Introverted Intuition(Ni) · Tertiary: Extraverted Sensing(Se) · Inferior: Introverted Feeling(Fi)"},color:"orange"},
-    ENTP:{name:{zh:"辩论家",en:"Debater"},desc:{zh:"荣格式的外向直觉思考者。你是富有创造力的思想家，好奇心旺盛，热爱智识挑战。你善于发现机会和创新，推动变革。你能言善辩，享受辩论的过程。",en:"A Jungian Extraverted Intuitive Thinking type. You are a creative thinker with boundless curiosity and love for intellectual challenge. You excel at spotting opportunities and driving innovation."},function:{zh:"主导：外向直觉(Ne) · 辅助：内向思考(Ti) · 第三：外向情感(Fe) · 劣势：内向感觉(Si)",en:"Dominant: Extraverted Intuition(Ne) · Auxiliary: Introverted Thinking(Ti) · Tertiary: Extraverted Feeling(Fe) · Inferior: Introverted Sensing(Si)"},color:"yellow"},
-    INFJ:{name:{zh:"提倡者",en:"Advocate"},desc:{zh:"荣格式的内向直觉情感者。你是理想主义者，富有同理心和对人类深切的关怀。你追求意义和价值，具有强大的直觉来理解他人和世界。你安静而有影响力。",en:"A Jungian Introverted Intuitive Feeling type. You are an idealist with deep empathy and profound concern for humanity. You seek meaning and value, with powerful intuition for understanding others."},function:{zh:"主导：内向情感(Fi) · 辅助：外向直觉(Ne) · 第三：内向感觉(Si) · 劣势：外向思考(Te)",en:"Dominant: Introverted Feeling(Fi) · Auxiliary: Extraverted Intuition(Ne) · Tertiary: Introverted Sensing(Si) · Inferior: Extraverted Thinking(Te)"},color:"purple"},
-    INFP:{name:{zh:"调停者",en:"Mediator"},desc:{zh:"荣格式的内向直觉情感者。你是浪漫的理想主义者，温柔而富有想象力。你追求真实和意义，重视个人成长和自我表达。你内心敏感但有深度，善于理解复杂的情感。",en:"A Jungian Introverted Intuitive Feeling type. You are a romantic idealist, gentle and imaginative. You pursue authenticity and meaning, valuing personal growth and self-expression."},function:{zh:"主导：内向情感(Fi) · 辅助：外向直觉(Ne) · 第三：内向感觉(Si) · 劣势：外向思考(Te)",en:"Dominant: Introverted Feeling(Fi) · Auxiliary: Extraverted Intuition(Ne) · Tertiary: Introverted Sensing(Si) · Inferior: Extraverted Thinking(Te)"},color:"pink"},
-    ENFJ:{name:{zh:"主人公",en:"Protagonist"},desc:{zh:"荣格式的外向直觉情感者。你是魅力四射的领导者，热情、正直、富有感染力。你善于激励他人成长，关注人类的潜能和发展。你是天生的沟通者和变革推动者。",en:"A Jungian Extraverted Intuitive Feeling type. You are a charismatic leader, passionate, principled, and infectious. You inspire others' growth and are a natural communicator."},function:{zh:"主导：外向情感(Fe) · 辅助：内向直觉(Ni) · 第三：外向感觉(Se) · 劣势：内向思考(Ti)",en:"Dominant: Extraverted Feeling(Fe) · Auxiliary: Introverted Intuition(Ni) · Tertiary: Extraverted Sensing(Se) · Inferior: Introverted Thinking(Ti)"},color:"green"},
-    ENFP:{name:{zh:"竞选者",en:"Campaigner"},desc:{zh:"荣格式的外向直觉情感者。你是充满热情的创意者，乐观、好奇、热爱生命。你喜欢可能性和新的体验，是天生的激励者和点子源泉。你能言善辩，善于社交。",en:"A Jungian Extraverted Intuitive Feeling type. You are a passionate creative, optimistic, curious, and life-loving. You love possibilities and new experiences, a natural motivator."},function:{zh:"主导：外向直觉(Ne) · 辅助：内向情感(Fi) · 第三：外向思考(Te) · 劣势：内向感觉(Si)",en:"Dominant: Extraverted Intuition(Ne) · Auxiliary: Introverted Feeling(Fi) · Tertiary: Extraverted Thinking(Te) · Inferior: Introverted Sensing(Si)"},color:"red"},
-    ISTJ:{name:{zh:"物流师",en:"Logistician"},desc:{zh:"荣格式的内向感觉思考者。你是可靠务实的人，注重责任和传统。你做事有条理，负责任，是值得信赖的支柱。你重视事实和经验，不喜欢空谈。",en:"A Jungian Introverted Sensing Thinking type. You are a reliable pragmatist who values duty and tradition. Organized and responsible, you are a trustworthy pillar who values facts."},function:{zh:"主导：内向感觉(Si) · 辅助：外向思考(Te) · 第三：内向情感(Fi) · 劣势：外向直觉(Ne)",en:"Dominant: Introverted Sensing(Si) · Auxiliary: Extraverted Thinking(Te) · Tertiary: Introverted Feeling(Fi) · Inferior: Extraverted Intuition(Ne)"},color:"gray"},
-    ISFJ:{name:{zh:"守卫者",en:"Defender"},desc:{zh:"荣格式的内向感觉情感者。你是忠诚温暖的守护者，慷慨而体贴。你默默奉献，是朋友和家人坚实的后盾。你富有责任感和同情心，务实而关心他人。",en:"A Jungian Introverted Sensing Feeling type. You are a loyal warm protector, generous and considerate. You give quietly and are a steadfast pillar for friends and family."},function:{zh:"主导：内向感觉(Si) · 辅助：外向情感(Fe) · 第三：内向思考(Ti) · 劣势：外向直觉(Ne)",en:"Dominant: Introverted Sensing(Si) · Auxiliary: Extraverted Feeling(Fe) · Tertiary: Introverted Thinking(Ti) · Inferior: Extraverted Intuition(Ne)"},color:"pink"},
-    ESTJ:{name:{zh:"总经理",en:"Executive"},desc:{zh:"荣格式的外向感觉思考者。你是务实的组织者，注重效率和成果。你善于管理事务和人员，决策果断，执行力强。你是传统价值观的守护者，重视责任。",en:"A Jungian Extraverted Sensing Thinking type. You are a practical organizer focused on efficiency and results. You manage affairs and people well, decisive with strong execution."},function:{zh:"主导：外向思考(Te) · 辅助：内向感觉(Si) · 第三：外向直觉(Ne) · 劣势：内向情感(Fi)",en:"Dominant: Extraverted Thinking(Te) · Auxiliary: Introverted Sensing(Si) · Tertiary: Extraverted Intuition(Ne) · Inferior: Introverted Feeling(Fi)"},color:"blue"},
-    ESFJ:{name:{zh:"执政官",en:"Consul"},desc:{zh:"荣格式的外向感觉情感者。你是热心的组织者，友好、善于社交、乐于助人。你注重和谐的人际关系，是受欢迎的氛围制造者和关怀者。",en:"A Jungian Extraverted Sensing Feeling type. You are an enthusiastic organizer, friendly, social, and helpful. You value harmonious relationships and are a popular caretaker."},function:{zh:"主导：外向情感(Fe) · 辅助：内向感觉(Si) · 第三：外向直觉(Ne) · 劣势：内向思考(Ti)",en:"Dominant: Extraverted Feeling(Fe) · Auxiliary: Introverted Sensing(Si) · Tertiary: Extraverted Intuition(Ne) · Inferior: Introverted Thinking(Ti)"},color:"orange"},
-    ISTP:{name:{zh:"鉴赏家",en:"Virtuoso"},desc:{zh:"荣格式的内向感觉思考者。你是务实的行动者，冷静、理性、善于分析。你喜欢探索事物的运作原理，动手能力强。你是天生的工匠和问题解决者。",en:"A Jungian Introverted Sensing Thinking type. You are a pragmatic actor, calm, rational, and analytical. You love understanding how things work and excel at hands-on problem-solving."},function:{zh:"主导：内向思考(Ti) · 辅助：外向感觉(Se) · 第三：内向直觉(Ni) · 劣势：外向情感(Fe)",en:"Dominant: Introverted Thinking(Ti) · Auxiliary: Extraverted Sensing(Se) · Tertiary: Introverted Intuition(Ni) · Inferior: Extraverted Feeling(Fe)"},color:"green"},
-    ISFP:{name:{zh:"探险家",en:"Adventurer"},desc:{zh:"荣格式的内向感觉情感者。你是自由的艺术家，温柔、敏感、富有审美。你活在当下，追求真实和美。你善于观察，是热情的探险家和创意表达者。",en:"A Jungian Introverted Sensing Feeling type. You are a free artist, gentle, sensitive, and aesthetically attuned. You live in the moment, pursuing authenticity and beauty."},function:{zh:"主导：内向情感(Fi) · 辅助：外向感觉(Se) · 第三：内向直觉(Ni) · 劣势：外向思考(Te)",en:"Dominant: Introverted Feeling(Fi) · Auxiliary: Extraverted Sensing(Se) · Tertiary: Introverted Intuition(Ni) · Inferior: Extraverted Thinking(Te)"},color:"purple"},
-    ESTP:{name:{zh:"企业家",en:"Entrepreneur"},desc:{zh:"荣格式的外向感觉思考者。你是充满活力的行动者，大胆、灵活、善于社交。你喜欢挑战和刺激，是天生的谈判者和机会捕捉者。你务实而充满能量。",en:"A Jungian Extraverted Sensing Thinking type. You are an energetic actor, bold, flexible, and social. You love challenges and excitement, a natural negotiator and opportunity seeker."},function:{zh:"主导：外向感觉(Se) · 辅助：内向思考(Ti) · 第三：外向情感(Fe) · 劣势：内向直觉(Ni)",en:"Dominant: Extraverted Sensing(Se) · Auxiliary: Introverted Thinking(Ti) · Tertiary: Extraverted Feeling(Fe) · Inferior: Introverted Intuition(Ni)"},color:"red"},
-    ESFP:{name:{zh:"表演者",en:"Entertainer"},desc:{zh:"荣格式的外向感觉情感者。你是热情的表演者，友好、外向、热爱生活。你喜欢成为焦点，带给他人快乐。你充满活力，能让周围的人感到愉快和兴奋。",en:"A Jungian Extraverted Sensing Feeling type. You are a passionate performer, friendly, outgoing, and life-loving. You love being the center of attention and bringing joy to others."},function:{zh:"主导：外向感觉(Se) · 辅助：内向情感(Fi) · 第三：外向思考(Te) · 劣势：内向直觉(Ni)",en:"Dominant: Extraverted Sensing(Se) · Auxiliary: Introverted Feeling(Fi) · Tertiary: Extraverted Thinking(Te) · Inferior: Introverted Intuition(Ni)"},color:"yellow"}
+    INTJ:{name:"建筑师",desc:"荣格式的内向直觉思考者。你拥有深刻的洞察力和战略眼光，能够看到别人忽视的可能性。你的思维逻辑性强，善于制定长期计划并坚定执行。你重视知识和能力，追求独立自主。",function:"主导：内向直觉(Ni) · 辅助：外向思考(Te) · 第三：内向情感(Fi) · 劣势：外向感觉(Se)",color:"blue"},
+    INTP:{name:"逻辑学家",desc:"荣格式的内向直觉思考者。你是深刻的思想家，对理解世界和追求真理充满热情。你善于分析概念和系统，具有强大的逻辑能力。你安静、内敛，但内心世界丰富而复杂。",function:"主导：内向思考(Ti) · 辅助：外向直觉(Ne) · 第三：内向感觉(Si) · 劣势：外向情感(Fe)",color:"indigo"},
+    ENTJ:{name:"指挥官",desc:"荣格式的外向直觉思考者。你是天生的领导者，自信、有决断力，善于组织团队和制定战略。你逻辑清晰，追求效率和成果，不惧怕做困难的决定。",function:"主导：外向思考(Te) · 辅助：内向直觉(Ni) · 第三：外向感觉(Se) · 劣势：内向情感(Fi)",color:"orange"},
+    ENTP:{name:"辩论家",desc:"荣格式的外向直觉思考者。你是富有创造力的思想家，好奇心旺盛，热爱智识挑战。你善于发现机会和创新，推动变革。你能言善辩，享受辩论的过程。",function:"主导：外向直觉(Ne) · 辅助：内向思考(Ti) · 第三：外向情感(Fe) · 劣势：内向感觉(Si)",color:"yellow"},
+    INFJ:{name:"提倡者",desc:"荣格式的内向直觉情感者。你是理想主义者，富有同理心和对人类深切的关怀。你追求意义和价值，具有强大的直觉来理解他人和世界。你安静而有影响力。",function:"主导：内向情感(Fi) · 辅助：外向直觉(Ne) · 第三：内向感觉(Si) · 劣势：外向思考(Te)",color:"purple"},
+    INFP:{name:"调停者",desc:"荣格式的内向直觉情感者。你是浪漫的理想主义者，温柔而富有想象力。你追求真实和意义，重视个人成长和自我表达。你内心敏感但有深度，善于理解复杂的情感。",function:"主导：内向情感(Fi) · 辅助：外向直觉(Ne) · 第三：内向感觉(Si) · 劣势：外向思考(Te)",color:"pink"},
+    ENFJ:{name:"主人公",desc:"荣格式的外向直觉情感者。你是魅力四射的领导者，热情、正直、富有感染力。你善于激励他人成长，关注人类的潜能和发展。你是天生的沟通者和变革推动者。",function:"主导：外向情感(Fe) · 辅助：内向直觉(Ni) · 第三：外向感觉(Se) · 劣势：内向思考(Ti)",color:"green"},
+    ENFP:{name:"竞选者",desc:"荣格式的外向直觉情感者。你是充满热情的创意者，乐观、好奇、热爱生命。你喜欢可能性和新的体验，是天生的激励者和点子源泉。你能言善辩，善于社交。",function:"主导：外向直觉(Ne) · 辅助：内向情感(Fi) · 第三：外向思考(Te) · 劣势：内向感觉(Si)",color:"red"},
+    ISTJ:{name:"物流师",desc:"荣格式的内向感觉思考者。你是可靠务实的人，注重责任和传统。你做事有条理，负责任，是值得信赖的支柱。你重视事实和经验，不喜欢空谈。",function:"主导：内向感觉(Si) · 辅助：外向思考(Te) · 第三：内向情感(Fi) · 劣势：外向直觉(Ne)",color:"gray"},
+    ISFJ:{name:"守卫者",desc:"荣格式的内向感觉情感者。你是忠诚温暖的守护者，慷慨而体贴。你默默奉献，是朋友和家人坚实的后盾。你富有责任感和同情心，务实而关心他人。",function:"主导：内向感觉(Si) · 辅助：外向情感(Fe) · 第三：内向思考(Ti) · 劣势：外向直觉(Ne)",color:"pink"},
+    ESTJ:{name:"总经理",desc:"荣格式的外向感觉思考者。你是务实的组织者，注重效率和成果。你善于管理事务和人员，决策果断，执行力强。你是传统价值观的守护者，重视责任。",function:"主导：外向思考(Te) · 辅助：内向感觉(Si) · 第三：外向直觉(Ne) · 劣势：内向情感(Fi)",color:"blue"},
+    ESFJ:{name:"执政官",desc:"荣格式的外向感觉情感者。你是热心的组织者，友好、善于社交、乐于助人。你注重和谐的人际关系，是受欢迎的氛围制造者和关怀者。",function:"主导：外向情感(Fe) · 辅助：内向感觉(Si) · 第三：外向直觉(Ne) · 劣势：内向思考(Ti)",color:"orange"},
+    ISTP:{name:"鉴赏家",desc:"荣格式的内向感觉思考者。你是务实的行动者，冷静、理性、善于分析。你喜欢探索事物的运作原理，动手能力强。你是天生的工匠和问题解决者。",function:"主导：内向思考(Ti) · 辅助：外向感觉(Se) · 第三：内向直觉(Ni) · 劣势：外向情感(Fe)",color:"green"},
+    ISFP:{name:"探险家",desc:"荣格式的内向感觉情感者。你是自由的艺术家，温柔、敏感、富有审美。你活在当下，追求真实和美。你善于观察，是热情的探险家和创意表达者。",function:"主导：内向情感(Fi) · 辅助：外向感觉(Se) · 第三：内向直觉(Ni) · 劣势：外向思考(Te)",color:"purple"},
+    ESTP:{name:"企业家",desc:"荣格式的外向感觉思考者。你是充满活力的行动者，大胆、灵活、善于社交。你喜欢挑战和刺激，是天生的谈判者和机会捕捉者。你务实而充满能量。",function:"主导：外向感觉(Se) · 辅助：内向思考(Ti) · 第三：外向情感(Fe) · 劣势：内向直觉(Ni)",color:"red"},
+    ESFP:{name:"表演者",desc:"荣格式的外向感觉情感者。你是热情的表演者，友好、外向、热爱生活。你喜欢成为焦点，带给他人快乐。你充满活力，能让周围的人感到愉快和兴奋。",function:"主导：外向感觉(Se) · 辅助：内向情感(Fi) · 第三：外向思考(Te) · 劣势：内向直觉(Ni)",color:"yellow"}
 };
 
 var currentQ = 0;
@@ -242,10 +216,9 @@ function startTest() {
 
 function showQuestion(idx) {
     var q = questions[idx];
-    var isEN = document.documentElement.lang === 'en';
-    var qText = q.a.text[isEN ? 'en' : 'zh'];
-    var optAText = q.a.optA[isEN ? 'en' : 'zh'];
-    var optBText = q.a.optB[isEN ? 'en' : 'zh'];
+    var qText = q.a.text;
+    var optAText = q.a.optA;
+    var optBText = q.a.optB;
     var selected = answers[idx];
 
     var html = '<div class="bg-white rounded-2xl p-8 shadow-lg">';
@@ -293,7 +266,7 @@ function selectAnswer(choice) {
 
 function nextQuestion() {
     if (answers[currentQ] === undefined) {
-        alert('请选择一个选项 / Please select an option');
+        alert('请选择一个选项');
         return;
     }
     currentQ++;
@@ -309,7 +282,7 @@ function prevQuestion() {
 
 function submitTest() {
     if (answers[currentQ] === undefined) {
-        alert('请选择一个选项 / Please select an option');
+        alert('请选择一个选项');
         return;
     }
     showResults();
@@ -321,22 +294,20 @@ function showResults() {
 
     var type = (scores.E >= scores.I ? 'E' : 'I') + (scores.S >= scores.N ? 'S' : 'N') + (scores.T >= scores.F ? 'T' : 'F') + (scores.J >= scores.P ? 'J' : 'P');
     var info = typeInfo[type];
-    var isEN = document.documentElement.lang === 'en';
 
     document.getElementById('resultType').textContent = type;
-    document.getElementById('resultName').textContent = (isEN ? info.name.en : info.name.zh) + ' (' + type + ')';
+    document.getElementById('resultName').textContent = info.name + ' (' + type + ')';
     document.getElementById('resultSubtitle').textContent = info.function;
 
-    // Dimension cards
     var dims = [
-        {key: isEN?'Extravert':'外向型',score:scores.E,other:scores.I,sym:'E',color:'bg-blue-500'},
-        {key: isEN?'Introvert':'内向型',score:scores.I,other:scores.E,sym:'I',color:'bg-indigo-500'},
-        {key: isEN?'Sensing':'感觉型',score:scores.S,other:scores.N,sym:'S',color:'bg-green-500'},
-        {key: isEN?'Intuition':'直觉型',score:scores.N,other:scores.S,sym:'N',color:'bg-emerald-500'},
-        {key: isEN?'Thinking':'思考型',score:scores.T,other:scores.F,sym:'T',color:'bg-orange-500'},
-        {key: isEN?'Feeling':'情感型',score:scores.F,other:scores.T,sym:'F',color:'bg-red-500'},
-        {key: isEN?'Judging':'判断型',score:scores.J,other:scores.P,sym:'J',color:'bg-purple-500'},
-        {key: isEN?'Perceiving':'知觉型',score:scores.P,other:scores.J,sym:'P',color:'bg-pink-500'}
+        {key:'外向型',score:scores.E,other:scores.I,sym:'E',color:'bg-blue-500'},
+        {key:'内向型',score:scores.I,other:scores.E,sym:'I',color:'bg-indigo-500'},
+        {key:'感觉型',score:scores.S,other:scores.N,sym:'S',color:'bg-green-500'},
+        {key:'直觉型',score:scores.N,other:scores.S,sym:'N',color:'bg-emerald-500'},
+        {key:'思考型',score:scores.T,other:scores.F,sym:'T',color:'bg-orange-500'},
+        {key:'情感型',score:scores.F,other:scores.T,sym:'F',color:'bg-red-500'},
+        {key:'判断型',score:scores.J,other:scores.P,sym:'J',color:'bg-purple-500'},
+        {key:'知觉型',score:scores.P,other:scores.J,sym:'P',color:'bg-pink-500'}
     ];
 
     var cardsHTML = '';
@@ -349,24 +320,21 @@ function showResults() {
     });
     document.getElementById('resultCards').innerHTML = cardsHTML;
 
-    // Function stack description
-    var funcHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>🧩 功能层级分析</span><span data-en>🧩 Functional Stack Analysis</span></h3>';
+    var funcHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4">🧩 功能层级分析</h3>';
     funcHTML += '<div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-5 mb-4">';
-    funcHTML += '<div class="font-semibold text-purple-700 mb-2">' + (isEN?'Your Type Function Stack':'你的类型功能层级') + '</div>';
+    funcHTML += '<div class="font-semibold text-purple-700 mb-2">你的类型功能层级</div>';
     funcHTML += '<div class="text-2xl font-bold text-purple-600 mb-1">' + type + '</div>';
     funcHTML += '<div class="text-sm text-gray-600">' + info.function + '</div></div>';
-    funcHTML += '<p class="text-gray-600 text-sm">' + (isEN?'In Jungian typology, each type has a hierarchy of four psychological functions. The dominant function is most developed, while the inferior function is least conscious but continues to develop throughout life.':info.function + '。在荣格类型理论中，每种类型都有四个心理功能的有序层级。主宰功能最为发达，而劣势功能则仍在整个人生中持续发展。') + '</p>';
+    funcHTML += '<p class="text-gray-600 text-sm">' + info.function + '。在荣格类型理论中，每种类型都有四个心理功能的有序层级。主宰功能最为发达，而劣势功能则仍在整个人生中持续发展。</p>';
     document.getElementById('functionResults').innerHTML = funcHTML;
 
-    // Type description
     var typeDesc = document.getElementById('typeDescription');
-    typeDesc.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>🧠 荣格类型分析</span><span data-en>🧠 Jungian Type Analysis</span></h3><p class="text-gray-600 leading-relaxed mb-4">' + (isEN?info.desc.en:info.desc.zh) + '</p><div class="bg-purple-50 rounded-xl p-4"><div class="font-semibold text-purple-700 mb-2">' + (isEN?'Key Characteristics':'关键特征') + '</div><ul class="text-sm text-gray-600 space-y-1"><li>' + (isEN?'Attitude: '+(type[0]==='E'?'Extraversion (focus on external world)':'Introversion (focus on inner world)'):(type[0]==='E'?'态度类型：外向型（关注外部世界）':'态度类型：内向型（关注内心世界）')) + '</li><li>' + (isEN?'Perceiving: '+(type[1]==='S'?'Sensing (practical, here-and-now)':'Intuition (intuitive, possibilities) '):(type[1]==='S'?'感知方式：感觉型（务实、此时此地）':'感知方式：直觉型（直觉、可能性）')) + '</li><li>' + (isEN?'Judging: '+(type[2]==='T'?'Thinking (logical, analytical)':'Feeling (values-based, empathetic) '):(type[2]==='T'?'判断方式：思考型（逻辑、分析）':'判断方式：情感型（价值导向、同理心）')) + '</li><li>' + (isEN?'Lifestyle: '+(type[3]==='J'?'Judging (structured, planned)':'Perceiving (flexible, spontaneous)'):(type[3]==='J'?'生活方式：判断型（有结构、有计划）':'生活方式：知觉型（灵活、随性）')) + '</li></ul></div>';
+    typeDesc.innerHTML = '<h3 class="text-xl font-bold text-gray-800 mb-4">🧠 荣格类型分析</h3><p class="text-gray-600 leading-relaxed mb-4">' + info.desc + '</p><div class="bg-purple-50 rounded-xl p-4"><div class="font-semibold text-purple-700 mb-2">关键特征</div><ul class="text-sm text-gray-600 space-y-1"><li>态度类型：' + (type[0]==='E'?'外向型（关注外部世界）':'内向型（关注内心世界）') + '</li><li>感知方式：' + (type[1]==='S'?'感觉型（务实、此时此地）':'直觉型（直觉、可能性）') + '</li><li>判断方式：' + (type[2]==='T'?'思考型（逻辑、分析）':'情感型（价值导向、同理心）') + '</li><li>生活方式：' + (type[3]==='J'?'判断型（有结构、有计划）':'知觉型（灵活、随性）') + '</li></ul></div>';
 
-    // Jung explanation
     var jungHTML = '';
-    jungHTML += '<h3 class="text-xl font-bold text-gray-800 mb-4"><span data-zh>📚 关于荣格心理类型</span><span data-en>📚 About Jungian Psychological Types</span></h3>';
-    jungHTML += '<p class="text-gray-600 text-sm mb-3">' + (isEN?'Carl Jung (1875-1961) was a Swiss psychiatrist who developed the theory of psychological types. In his 1921 book "Psychological Types", he proposed that human beings experience the world through four psychological functions: Sensing, Intuition, Thinking, and Feeling.':'卡尔·荣格（1875-1961）是瑞士精神科医生，发展了心理类型理论。在1921年的著作《心理类型》中，他提出人类通过四种心理功能体验世界：感觉、直觉、思考和情感。') + '</p>';
-    jungHTML += '<p class="text-gray-600 text-sm">' + (isEN?'Jung also identified two attitude types: Extraversion (energy directed outward) and Introversion (energy directed inward). The combination of attitude type and function type creates 16 psychological types, which later formed the basis of the MBTI.':'荣格还确定了两种态度类型：外向型（能量向外）和内向型（能量向内）。态度类型与功能类型的结合产生了16种心理类型，这也成为MBTI的基础。') + '</p>';
+    jungHTML += '<h3 class="text-xl font-bold text-gray-800 mb-4">📚 关于荣格心理类型</h3>';
+    jungHTML += '<p class="text-gray-600 text-sm mb-3">卡尔·荣格（1875-1961）是瑞士精神科医生，发展了心理类型理论。在1921年的著作《心理类型》中，他提出人类通过四种心理功能体验世界：感觉、直觉、思考和情感。</p>';
+    jungHTML += '<p class="text-gray-600 text-sm">荣格还确定了两种态度类型：外向型（能量向外）和内向型（能量向内）。态度类型与功能类型的结合产生了16种心理类型，这也成为MBTI的基础。</p>';
     document.getElementById('jungExplanation').innerHTML = jungHTML;
 
     window.scrollTo({top:0,behavior:'smooth'});
@@ -380,33 +348,6 @@ function retakeTest() {
     document.getElementById('startScreen').classList.remove('hidden');
     window.scrollTo({top:0,behavior:'smooth'});
 }
-
-function toggleLang() {
-    var isEN = document.documentElement.lang === 'en';
-    document.documentElement.lang = isEN ? 'zh-CN' : 'en';
-    document.getElementById('langToggle').textContent = isEN ? 'EN' : '中文';
-    document.cookie = 'lang=' + (isEN ? 'zh' : 'en') + ';path=/;max-age=31536000';
-    var titleEl = document.querySelector('title');
-    if (titleEl) {
-        var txt = isEN ? titleEl.getAttribute('data-zh') : titleEl.getAttribute('data-en');
-        if (txt) document.title = txt;
-    }
-    document.querySelectorAll('meta[data-zh]').forEach(function(el) {
-        var txt = isEN ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-        if (txt) el.content = txt;
-    });
-    if (!document.getElementById('resultScreen').classList.contains('hidden')) {
-        showResults();
-    }
-}
-function initLang() {
-    if (document.cookie.indexOf('lang=en') !== -1) {
-        document.documentElement.lang = 'en';
-        var btn = document.getElementById('langToggle');
-        if (btn) btn.textContent = '中文';
-    }
-}
 </script>
-<script>initLang();</script>
 </body>
 </html>
