@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="体脂率计算器 - 计度AI工具箱" data-en="Body Fat Calculator - JIDU AI Tools">体脂率计算器 - 计度AI工具箱</title>
+    <meta name="description" data-zh="在线体脂率计算器，输入身高体重腰围，快速计算BMI、体脂率、内脏脂肪等级。2026年最新数据，永久免费。">
+    <meta name="keywords" data-zh="体脂率计算器,体脂率,内脏脂肪,身体脂肪率,BMI体脂,在线计算">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.xxym8.com/bodyfat.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/bodyfat.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/bodyfat.html?lang=en">
+    <meta property="og:title" content="体脂率计算器 - 计度AI工具箱">
+    <meta property="og:description" content="在线体脂率计算器，输入身高体重腰围，快速计算体脂率和内脏脂肪等级。">
+    <meta property="og:url" content="https://tools.xxym8.com/bodyfat.html">
+    <meta property="og:type" content="article">
+    <script src="ads.js"></script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#333}
+        .navbar{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+        .nav-container{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
+        #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+        .container{max-width:600px;margin:24px auto;padding:0 16px}
+        .breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+        .breadcrumb a{color:#666;text-decoration:none}
+        h1{font-size:26px;margin-bottom:20px;color:#111}
+        .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+        .form-group{margin-bottom:16px}
+        label{display:block;margin-bottom:6px;color:#555;font-weight:500;font-size:14px}
+        input,select{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px}
+        input:focus,select:focus{outline:none;border-color:#3498db}
+        .input-hint{font-size:12px;color:#999;margin-top:4px}
+        .calc-btn{width:100%;padding:14px;background:#222;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;transition:background .2s}
+        .calc-btn:hover{background:#444}
+        .result-box{background:#f9f9f9;border-radius:12px;padding:20px;margin-top:16px;display:none}
+        .result-box.show{display:block}
+        .result-item{border-bottom:1px solid #eee;padding:12px 0}
+        .result-item:last-child{border-bottom:none}
+        .result-label{font-size:13px;color:#666;margin-bottom:4px}
+        .result-value{font-size:20px;font-weight:700;color:#222}
+        .result-value.highlight{font-size:28px;color:#3498db}
+        .result-tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:500;margin-top:4px}
+        .tag-optimal{background:#d4edda;color:#155724}
+        .tag-normal{background:#e8f5e9;color:#2e7d32}
+        .tag-light{background:#fff3cd;color:#856404}
+        .tag-high{background:#ffeeba;color:#856404}
+        .tag-danger{background:#f8d7da;color:#721c24}
+        .info-box{background:#f0f9ff;border:1px solid #bae6fd;padding:14px;border-radius:8px;margin-top:16px;font-size:13px;color:#0369a1;line-height:1.6}
+        footer{text-align:center;padding:24px;color:#888;font-size:13px}
+        a{color:#222}
+        [data-en]{display:none}
+        html[lang=en] [data-zh]{display:none}
+        html[lang=en] [data-en]{display:block}
+        .gender-toggle{display:flex;gap:8px;margin-bottom:16px}
+        .gender-btn{flex:1;padding:10px;border:2px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-weight:500;transition:all .2s;text-align:center}
+        .gender-btn.active{border-color:#222;background:#222;color:#fff}
+        .gender-btn:hover:not(.active){border-color:#999}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
+            <button id="langToggle" onclick="toggleLang()">EN</button>
+        </div>
+    </nav>
+    <div class="container">
+        <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>体脂率计算器</span><span data-en>Body Fat Calculator</span></p>
+        <h1><span data-zh>体脂率计算器</span><span data-en>Body Fat Calculator</span></h1>
+        <div class="card">
+            <div class="form-group">
+                <label><span data-zh>性别</span><span data-en>Gender</span></label>
+                <div class="gender-toggle">
+                    <button class="gender-btn active" id="genderMale" onclick="setGender('male')"><span data-zh>男</span><span data-en>Male</span></button>
+                    <button class="gender-btn" id="genderFemale" onclick="setGender('female')"><span data-zh>女</span><span data-en>Female</span></button>
+                </div>
+                <input type="hidden" id="gender" value="male">
+            </div>
+            <div class="form-group">
+                <label><span data-zh>身高 (cm)</span><span data-en>Height (cm)</span></label>
+                <input type="number" id="height" placeholder="170" min="100" max="220">
+            </div>
+            <div class="form-group">
+                <label><span data-zh>体重 (kg)</span><span data-en>Weight (kg)</span></label>
+                <input type="number" id="weight" placeholder="65" min="30" max="200">
+            </div>
+            <div class="form-group">
+                <label><span data-zh>腰围 (cm)</span><span data-en>Waist Circumference (cm)</span></label>
+                <input type="number" id="waist" placeholder="80" min="40" max="150">
+                <p class="input-hint"><span data-zh>测量肚脐位置的水平周长</span><span data-en>Measure horizontally around your navel</span></p>
+            </div>
+            <div class="form-group">
+                <label><span data-zh>年龄</span><span data-en>Age</span></label>
+                <input type="number" id="age" placeholder="30" min="10" max="100">
+            </div>
+            <button class="calc-btn" onclick="calculate()"><span data-zh>计算体脂率</span><span data-en>Calculate Body Fat</span></button>
+        </div>
+        <div class="result-box" id="resultBox">
+            <div class="result-item">
+                <div class="result-label"><span data-zh>BMI 身体质量指数</span><span data-en>BMI (Body Mass Index)</span></div>
+                <div class="result-value" id="bmiResult">--</div>
+            </div>
+            <div class="result-item">
+                <div class="result-label"><span data-zh>体脂率</span><span data-en>Body Fat Percentage</span></div>
+                <div class="result-value highlight" id="bfResult">--</div>
+                <span class="result-tag" id="bfTag">--</span>
+            </div>
+            <div class="result-item">
+                <div class="result-label"><span data-zh>内脏脂肪等级</span><span data-en>Visceral Fat Level</span></div>
+                <div class="result-value" id="vfResult">--</div>
+                <span class="result-tag" id="vfTag">--</span>
+            </div>
+            <div class="result-item">
+                <div class="result-label"><span data-zh>瘦体重（不含脂肪）</span><span data-en>Lean Body Mass</span></div>
+                <div class="result-value" id="lbmResult">--</div>
+            </div>
+            <div class="info-box" id="infoBox"></div>
+        </div>
+    </div>
+    <footer>
+        <p><span data-zh>© 2026 计度AI工具箱 · 永久免费</span><span data-en>© 2026 JIDU AI Tools · Always Free</span></p>
+    </footer>
+    <script>
+    var currentLang = 'zh';
+    function toggleLang() {
+        currentLang = currentLang === 'zh' ? 'en' : 'zh';
+        document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh-CN';
+        document.getElementById('langToggle').textContent = currentLang === 'zh' ? 'EN' : '中文';
+    }
+    function setGender(g) {
+        document.getElementById('gender').value = g;
+        document.getElementById('genderMale').classList.toggle('active', g === 'male');
+        document.getElementById('genderFemale').classList.toggle('active', g === 'female');
+    }
+    function calculate() {
+        var h = parseFloat(document.getElementById('height').value);
+        var w = parseFloat(document.getElementById('weight').value);
+        var waist = parseFloat(document.getElementById('waist').value);
+        var age = parseInt(document.getElementById('age').value);
+        var gender = document.getElementById('gender').value;
+        if (!h || !w || !waist || !age) {
+            alert(currentLang === 'zh' ? '请填写完整所有字段' : 'Please fill in all fields');
+            return;
+        }
+        var bmi = w / Math.pow(h / 100, 2);
+        var bf, lbm;
+        if (gender === 'male') {
+            bf = -98.42 + 4.15 * waist - 0.082 * w * 100 / (h / 100) * (h / 100) + age * 0.342 + 44.4;
+        } else {
+            bf = -76.76 + 3.44 * waist - 0.064 * w * 100 / (h / 100) * (h / 100) + age * 0.252 + 35.6;
+        }
+        bf = Math.max(3, Math.min(60, bf));
+        lbm = w * (1 - bf / 100);
+        var vf = Math.round(waist / 10);
+        vf = Math.max(1, Math.min(30, vf));
+        document.getElementById('bmiResult').textContent = bmi.toFixed(1);
+        document.getElementById('bfResult').textContent = bf.toFixed(1) + '%';
+        document.getElementById('vfResult').textContent = vf + ' (' + (vf <= 9 ? currentLang === 'zh' ? '标准' : 'Normal' : vf <= 14 ? currentLang === 'zh' ? '偏高' : 'High' : currentLang === 'zh' ? '很高' : 'Very High') + ')';
+        document.getElementById('lbmResult').textContent = lbm.toFixed(1) + ' kg';
+        var bfTag = document.getElementById('bfTag');
+        if (gender === 'male') {
+            if (bf < 6) { bfTag.className = 'result-tag tag-danger'; bfTag.textContent = currentLang === 'zh' ? '偏低' : 'Low'; }
+            else if (bf <= 13) { bfTag.className = 'result-tag tag-optimal'; bfTag.textContent = currentLang === 'zh' ? '运动员' : 'Athletic'; }
+            else if (bf <= 17) { bfTag.className = 'result-tag tag-normal'; bfTag.textContent = currentLang === 'zh' ? '健身' : 'Fitness'; }
+            else if (bf <= 24) { bfTag.className = 'result-tag tag-light'; bfTag.textContent = currentLang === 'zh' ? '标准' : 'Average'; }
+            else { bfTag.className = 'result-tag tag-high'; bfTag.textContent = currentLang === 'zh' ? '偏胖' : 'Obese'; }
+        } else {
+            if (bf < 14) { bfTag.className = 'result-tag tag-danger'; bfTag.textContent = currentLang === 'zh' ? '偏低' : 'Low'; }
+            else if (bf <= 21) { bfTag.className = 'result-tag tag-optimal'; bfTag.textContent = currentLang === 'zh' ? '运动员' : 'Athletic'; }
+            else if (bf <= 25) { bfTag.className = 'result-tag tag-normal'; bfTag.textContent = currentLang === 'zh' ? '健身' : 'Fitness'; }
+            else if (bf <= 32) { bfTag.className = 'result-tag tag-light'; bfTag.textContent = currentLang === 'zh' ? '标准' : 'Average'; }
+            else { bfTag.className = 'result-tag tag-high'; bfTag.textContent = currentLang === 'zh' ? '偏胖' : 'Obese'; }
+        }
+        var vfTag = document.getElementById('vfTag');
+        if (vf <= 9) { vfTag.className = 'result-tag tag-normal'; }
+        else if (vf <= 14) { vfTag.className = 'result-tag tag-light'; }
+        else { vfTag.className = 'result-tag tag-high'; }
+        var info = document.getElementById('infoBox');
+        var zh_info = '体脂率仅供参考，实际体脂率需专业设备测量。内脏脂肪等级9以下为标准，超过14请注意健康风险。';
+        var en_info = 'Body fat percentage is approximate. Actual measurement requires professional equipment. Visceral fat level below 9 is normal, above 14 indicates health risk.';
+        info.textContent = currentLang === 'zh' ? zh_info : en_info;
+        document.getElementById('resultBox').classList.add('show');
+    }
+    </script>
+</body>
+</html>

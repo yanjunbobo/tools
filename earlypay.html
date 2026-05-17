@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="提前还贷计算器 - 计度AI工具箱" data-en="Early Loan Repayment Calculator - JIDU AI Tools">提前还贷计算器 - 计度AI工具箱</title>
+    <meta name="description" data-zh="在线提前还贷计算器，计算缩短还款年限 vs 减少月还款额哪种更划算。支持商业贷款、公积金贷款、组合贷款。2026年最新。">
+    <meta name="keywords" data-zh="提前还贷计算器,提前还款,缩短年限,减少月供,贷款计算,商业贷款,公积金贷款">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tools.xxym8.com/earlypay.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://tools.xxym8.com/earlypay.html">
+    <link rel="alternate" hreflang="en" href="https://tools.xxym8.com/earlypay.html?lang=en">
+    <meta property="og:title" content="提前还贷计算器 - 计度AI工具箱">
+    <meta property="og:description" content="计算提前还贷节省多少利息，缩短年限还是减少月供更划算。">
+    <meta property="og:url" content="https://tools.xxym8.com/earlypay.html">
+    <meta property="og:type" content="article">
+    <script src="ads.js"></script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#333}
+        .navbar{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+        .nav-container{max-width:1200px;width:100%;display:flex;align-items:center;justify-content:space-between}
+        .nav-logo{font-size:18px;font-weight:700;color:#222;text-decoration:none}
+        #langToggle{background:#222;color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px}
+        .container{max-width:700px;margin:24px auto;padding:0 16px}
+        .breadcrumb{font-size:13px;color:#888;margin-bottom:16px}
+        .breadcrumb a{color:#666;text-decoration:none}
+        h1{font-size:26px;margin-bottom:20px;color:#111}
+        .card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+        .form-row{display:flex;gap:12px;flex-wrap:wrap}
+        .form-group{flex:1;min-width:200px;margin-bottom:14px}
+        label{display:block;margin-bottom:6px;color:#555;font-weight:500;font-size:14px}
+        input,select{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:14px}
+        input:focus,select:focus{outline:none;border-color:#3498db}
+        .hint{font-size:12px;color:#999;margin-top:4px}
+        .calc-btn{width:100%;padding:14px;background:#222;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;transition:background .2s}
+        .calc-btn:hover{background:#444}
+        .result-box{background:#f9f9f9;border-radius:12px;padding:20px;margin-top:16px;display:none}
+        .result-box.show{display:block}
+        .result-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #eee;flex-wrap:wrap;gap:8px}
+        .result-row:last-child{border-bottom:none}
+        .result-label{color:#666;font-size:14px}
+        .result-value{font-size:18px;font-weight:700;color:#222}
+        .result-value.saving{color:#16a34a}
+        .result-value.highlight{color:#3498db;font-size:22px}
+        .comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+        .compare-card{background:#fff;border-radius:10px;padding:16px;border:2px solid #eee;text-align:center}
+        .compare-card.active{border-color:#222}
+        .compare-card h4{font-size:14px;color:#666;margin-bottom:8px}
+        .compare-card .amount{font-size:20px;font-weight:700;color:#222}
+        .compare-card .amount.green{color:#16a34a}
+        .compare-card .sub{font-size:12px;color:#999;margin-top:4px}
+        .info-box{background:#fffbeb;border:1px solid #fcd34d;padding:14px;border-radius:8px;margin-top:16px;font-size:13px;color:#92400e;line-height:1.6}
+        .section-title{font-size:16px;font-weight:600;color:#222;margin:20px 0 12px;padding-top:12px;border-top:1px solid #eee}
+        footer{text-align:center;padding:24px;color:#888;font-size:13px}
+        a{color:#222}
+        [data-en]{display:none}
+        html[lang=en] [data-zh]{display:none}
+        html[lang=en] [data-en]{display:block}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">🧮 <span data-zh>计度AI工具箱</span><span data-en>JIDU AI Tools</span></a>
+            <button id="langToggle" onclick="toggleLang()">EN</button>
+        </div>
+    </nav>
+    <div class="container">
+        <p class="breadcrumb"><a href="index.html"><span data-zh>首页</span><span data-en>Home</span></a> &gt; <span data-zh>提前还贷计算器</span><span data-en>Early Loan Repayment Calculator</span></p>
+        <h1><span data-zh>提前还贷计算器</span><span data-en>Early Loan Repayment Calculator</span></h1>
+        <div class="card">
+            <div class="form-row">
+                <div class="form-group">
+                    <label><span data-zh>贷款总额（万元）</span><span data-en>Loan Amount (¥10k)</span></label>
+                    <input type="number" id="principal" placeholder="100" value="100">
+                </div>
+                <div class="form-group">
+                    <label><span data-zh>贷款类型</span><span data-en>Loan Type</span></label>
+                    <select id="loanType">
+                        <option value="commercial"><span data-zh>商业贷款</span><span data-en>Commercial</span></option>
+                        <option value="provident"><span data-zh>公积金贷款</span><span data-en>Provident Fund</span></option>
+                        <option value="mix"><span data-zh>组合贷款</span><span data-en>Mixed</span></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label><span data-zh>年利率（%）</span><span data-en>Annual Rate (%)</span></label>
+                    <input type="number" id="rate" placeholder="3.1" step="0.01" value="3.1">
+                </div>
+                <div class="form-group">
+                    <label><span data-zh>贷款期限（月）</span><span data-en>Loan Term (months)</span></label>
+                    <select id="term">
+                        <option value="60">5年</option>
+                        <option value="120">10年</option>
+                        <option value="180">15年</option>
+                        <option value="240">20年</option>
+                        <option value="300" selected>25年</option>
+                        <option value="360">30年</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label><span data-zh>已还款月数</span><span data-en>Months Paid</span></label>
+                    <input type="number" id="monthsPaid" placeholder="12" value="12" min="1">
+                </div>
+                <div class="form-group">
+                    <label><span data-zh>提前还款金额（万元）</span><span data-en>Early Repayment (¥10k)</span></label>
+                    <input type="number" id="earlyAmount" placeholder="10" value="10" min="0.1">
+                </div>
+            </div>
+            <div class="section-title"><span data-zh>选择还款方式</span><span data-en>Repayment Strategy</span></div>
+            <div class="comparison">
+                <div class="compare-card active" id="cardShorten" onclick="selectMethod('shorten')">
+                    <h4><span data-zh>缩短还款年限</span><span data-en>Shorten Term</span></h4>
+                    <div class="amount" id="shortenInterest">--</div>
+                    <div class="sub"><span data-zh>节省利息</span><span data-en>Interest Saved</span></div>
+                </div>
+                <div class="compare-card" id="cardReduce" onclick="selectMethod('reduce')">
+                    <h4><span data-zh>减少月还款额</span><span data-en>Reduce Monthly</span></h4>
+                    <div class="amount" id="reduceInterest">--</div>
+                    <div class="sub"><span data-zh>节省利息</span><span data-en>Interest Saved</span></div>
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calculate()"><span data-zh>计算提前还款方案</span><span data-en>Calculate Early Repayment</span></button>
+            <div class="info-box" id="infoBox">
+                <span data-zh>💡 缩短年限 vs 减少月供：通常缩短年限能节省更多利息，但如果当前月供已经影响生活质量，减少月供可缓解现金流压力。</span>
+                <span data-en>💡 Shorten term vs reduce monthly payment: Shortening the term usually saves more interest, but if your current payment is already straining your cash flow, reducing the monthly amount can relieve pressure.</span>
+            </div>
+        </div>
+        <div class="result-box" id="resultBox">
+            <div class="result-row">
+                <span class="result-label"><span data-zh>当前月还款额</span><span data-en>Current Monthly Payment</span></span>
+                <span class="result-value" id="curMonthly">--</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label"><span data-zh>原计划总利息</span><span data-en>Original Total Interest</span></span>
+                <span class="result-value" id="originalInterest">--</span>
+            </div>
+            <div class="result-row" id="rowNewMonthly" style="display:none">
+                <span class="result-label" id="labelNewMonthly"><span data-zh>新月还款额</span><span data-en>New Monthly Payment</span></span>
+                <span class="result-value" id="newMonthly">--</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label"><span data-zh>新计划总利息</span><span data-en>New Total Interest</span></span>
+                <span class="result-value" id="newTotalInterest">--</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label"><span data-zh>节省总利息</span><span data-en>Total Interest Saved</span></span>
+                <span class="result-value saving" id="savedInterest">--</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label"><span data-zh>缩短月数</span><span data-en>Months Reduced</span></span>
+                <span class="result-value highlight" id="monthsReduced">--</span>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p><span data-zh>© 2026 计度AI工具箱 · 永久免费</span><span data-en>© 2026 JIDU AI Tools · Always Free</span></p>
+    </footer>
+    <script>
+    var currentLang = 'zh';
+    var method = 'shorten';
+    function toggleLang() {
+        currentLang = currentLang === 'zh' ? 'en' : 'zh';
+        document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh-CN';
+        document.getElementById('langToggle').textContent = currentLang === 'zh' ? 'EN' : '中文';
+    }
+    function selectMethod(m) {
+        method = m;
+        document.getElementById('cardShorten').classList.toggle('active', m === 'shorten');
+        document.getElementById('cardReduce').classList.toggle('active', m === 'reduce');
+    }
+    function calculate() {
+        var principal = parseFloat(document.getElementById('principal').value) * 10000;
+        var annualRate = parseFloat(document.getElementById('rate').value) / 100;
+        var monthlyRate = annualRate / 12;
+        var totalMonths = parseInt(document.getElementById('term').value);
+        var monthsPaid = parseInt(document.getElementById('monthsPaid').value);
+        var earlyAmount = parseFloat(document.getElementById('earlyAmount').value) * 10000;
+        if (!principal || !annualRate || !totalMonths || !monthsPaid || !earlyAmount) {
+            alert(currentLang === 'zh' ? '请填写完整所有字段' : 'Please fill in all fields');
+            return;
+        }
+        var remaining = principal - (principal * monthlyRate * Math.pow(1 + monthlyRate, monthsPaid) / (Math.pow(1 + monthlyRate, totalMonths) - 1) - (principal / totalMonths)) * monthsPaid;
+        var monthlyPayment = principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        monthlyPayment = Math.round(monthlyPayment);
+        var originalTotalInterest = monthlyPayment * totalMonths - principal;
+        var newRemaining = remaining - earlyAmount;
+        if (newRemaining <= 0) {
+            alert(currentLang === 'zh' ? '提前还款金额过大，请重新输入' : 'Early repayment amount too large, please re-enter');
+            return;
+        }
+        var newMonthly, newTotalMonths, newTotalInterest, monthsReduced;
+        if (method === 'shorten') {
+            newMonthly = monthlyPayment;
+            newTotalMonths = Math.log(newMonthly / (newMonthly - newRemaining * monthlyRate)) / Math.log(1 + monthlyRate);
+            newTotalMonths = Math.ceil(newTotalMonths);
+            newTotalInterest = newMonthly * newTotalMonths - newRemaining;
+            monthsReduced = (totalMonths - monthsPaid) - newTotalMonths;
+        } else {
+            newTotalMonths = totalMonths - monthsPaid;
+            newMonthly = newRemaining * monthlyRate * Math.pow(1 + monthlyRate, newTotalMonths) / (Math.pow(1 + monthlyRate, newTotalMonths) - 1);
+            newMonthly = Math.round(newMonthly);
+            newTotalInterest = newMonthly * newTotalMonths - newRemaining;
+            monthsReduced = 0;
+        }
+        var saved = originalTotalInterest - newTotalInterest;
+        document.getElementById('curMonthly').textContent = '¥' + monthlyPayment.toLocaleString();
+        document.getElementById('originalInterest').textContent = '¥' + Math.round(originalTotalInterest).toLocaleString();
+        document.getElementById('newTotalInterest').textContent = '¥' + Math.round(newTotalInterest).toLocaleString();
+        document.getElementById('savedInterest').textContent = '¥' + Math.round(saved).toLocaleString();
+        document.getElementById('shortenInterest').textContent = method === 'shorten' ? '¥' + Math.round(saved).toLocaleString() : '--';
+        document.getElementById('reduceInterest').textContent = method === 'reduce' ? '¥' + Math.round(saved).toLocaleString() : '--';
+        if (method === 'reduce') {
+            document.getElementById('rowNewMonthly').style.display = 'flex';
+            document.getElementById('newMonthly').textContent = '¥' + newMonthly.toLocaleString();
+            document.getElementById('monthsReduced').textContent = '--';
+        } else {
+            document.getElementById('rowNewMonthly').style.display = 'none';
+            document.getElementById('monthsReduced').textContent = monthsReduced + ' <span data-zh>个月</span><span data-en> months</span>';
+        }
+        document.getElementById('resultBox').classList.add('show');
+    }
+    </script>
+</body>
+</html>
